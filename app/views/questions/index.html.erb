@@ -8,15 +8,16 @@
         <td>#</td>
 
         <td>Description</td>
+          <td>answer</td>
       </tr>
     </thead>
     <tbody>
       <% @questions.each do |question| %>
         <tr>
           <td>#</td>
-          <td><%= "question",link_to(question.description, question_path(question)) %></td>
+          <td><%= link_to(question.description, question_path(question)) %></td>
           <td><%= question.description %></td>
-        
+          <td><%= question.answer %></td>
         </tr>
       <% end %>
     </tbody>

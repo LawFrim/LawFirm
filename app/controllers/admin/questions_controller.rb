@@ -1,5 +1,5 @@
 class Admin::QuestionsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :admin_required
   layout "admin"
   def new
@@ -9,7 +9,7 @@ class Admin::QuestionsController < ApplicationController
   def edit
     @question = Question.find(params[:id])
   end
-  
+
   def update
     @question = Question.find(params[:id])
     @question.update(question_params)
