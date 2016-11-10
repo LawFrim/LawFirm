@@ -14,7 +14,7 @@
       <% @questions.each do |question| %>
         <tr>
           <td>#</td>
-          <td><%= "question",link_to(question.description, question_path(question)) %></td>
+          <td><%= link_to(question.description, question_path(question)) %></td>
           <td><%= question.description %></td>
           <td>
               <%= link_to("Edit", edit_question_path(question), class: "btn btn-sm btn-default")%>
