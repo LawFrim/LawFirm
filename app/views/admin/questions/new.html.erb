@@ -1,0 +1,16 @@
+<h2> New answer </h2>
+
+<%= simple_form_for [:admin, @question] do |f| %>
+
+
+  <div class="group">
+    <%= f.input :description %>
+  </div>
+
+  <div class="group">
+    <%= f.input :answer %>
+  </div>
+
+  <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
+
+<% end %>

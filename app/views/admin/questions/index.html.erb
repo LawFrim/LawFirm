@@ -1,0 +1,6 @@
+<ul>
+  <% @questions.each do |question| %>
+
+    <li> <%= link_to(question.description, admin_question_path(question)) %> </li>
+  <% end %>
+</ul>
