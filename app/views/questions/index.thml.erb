@@ -16,11 +16,7 @@
           <td>#</td>
           <td><%= "question",link_to(question.description, question_path(question)) %></td>
           <td><%= question.description %></td>
-          <td>
-              <%= link_to("Edit", edit_question_path(question), class: "btn btn-sm btn-default")%>
-              <%= link_to("Delete", question_path(question),    class: "btn btn-sm btn-default",
-                          method: :delete, data: { confirm: "Are you sure?" } )%>
-          </td>
+        
         </tr>
       <% end %>
     </tbody>

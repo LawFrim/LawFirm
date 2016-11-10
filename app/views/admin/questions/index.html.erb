@@ -1,6 +1,17 @@
 <ul>
+  <h2>所有平台咨询问题</h2>
+
   <% @questions.each do |question| %>
 
     <li> <%= link_to(question.description, admin_question_path(question)) %> </li>
+      <%= question.description %>
+      <%= question.answer %>
+        <%= question.created_at %>
+        <% if question.is_answered %>
+        (这是律师给您的回复)
+          <%= question.answer%>
+        <% else %>
+          (我们会尽快催促律师给您回复)
+        <% end %>
   <% end %>
 </ul>

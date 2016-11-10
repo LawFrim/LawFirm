@@ -1,5 +1,3 @@
-
-
 <div class="col-md-12">
   <div class="group">
     <%= link_to("Edit", edit_question_path(@question), class: "btn btn-primary pull-right")%>
@@ -7,11 +5,5 @@
 
   <p><%= @question.description %></p>
 
-<% if @question.is_answered %>
-(这是律师给您的回复)
-  <%= @question.answer%>
-<% else %>
-  (我们会尽快催促律师给您回复)
-<% end %>
-  
+  <p><%= @question.description %></p>
 </div>
