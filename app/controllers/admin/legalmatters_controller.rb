@@ -34,7 +34,15 @@ class Admin::LegalmattersController < ApplicationController
     end
   end
 
-
+  def update
+    @legalmatter = Legalmatter.new(legalmatter_params)
+    @legalmatter.user = current_user
+    if @legalmatter.update(legalmatter_params)
+      redirect_to legalmatters_path, notice: "问题已修改!"
+    else
+      render :new
+    end
+  end
 
 
   private

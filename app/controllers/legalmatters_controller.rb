@@ -1,8 +1,9 @@
 class LegalmattersController < ApplicationController
   before_action :authenticate_user!
 
+  # 只显示当前用户的问题
   def index
-    @legalmatters = Legalmatter.all
+    @legalmatters = Legalmatter.where(user_id: current_user)
   end
 
 
@@ -33,7 +34,15 @@ class LegalmattersController < ApplicationController
     end
   end
 
-
+  def update
+    @legalmatter = Legalmatter.find(params[:id])
+    @legalmatter.user = current_user
+    if @legalmatter.update(legalmatter_params)
+      redirect_to legalmatter_path(@legalmatter), notice: "问题已修改!"
+    else
+      render :back, notice: "修改失败!"
+    end
+  end
 
 
   private
