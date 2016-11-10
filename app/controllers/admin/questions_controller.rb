@@ -1,11 +1,12 @@
 class Admin::QuestionsController < ApplicationController
+  before_action :authenticate_user!
   def new
     @question = new
   end
 
   def index
     @questions = Question.all
-  end 
+  end
 
   def create
     @question = Question.new(question_params)
