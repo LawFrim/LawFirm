@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :questions do
       resources :answers
+      collection do
+        get :area
+        get :district
+      end
     end
+
   end
 
   # 普通用户路由
@@ -17,4 +22,3 @@ Rails.application.routes.draw do
 
   root 'questions#index'
 end
- 

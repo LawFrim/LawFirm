@@ -1,0 +1,76 @@
+<div class="row-fluid">
+  <div class="span12">
+    <ul class="nav nav-tabs">
+      <li class="active">
+          <%= link_to("最新问题", admin_questions_path(@questions)) %>
+      </li>
+      <li>
+        <%= link_to("按地域分类", district_admin_questions_path(@questions)) %>
+      </li>
+      <li class="disabled">
+        <%= link_to("按领域分类", area_admin_questions_path(@questions)) %>
+      </li>
+      <li class="dropdown pull-right">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">下拉</a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="#">操作</a>
+          </li>
+          <li>
+            <a href="#">设置栏目</a>
+          </li>
+          <li>
+            <a href="#">更多设置</a>
+          </li>
+          <li class="divider">
+          </li>
+          <li>
+            <a href="#">分割线</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <table class="table table-bordered table-condensed table-hover">
+
+      <thead>
+        <tr>
+          <th>
+            用户
+          </th>
+          <th>
+            问题
+          </th>
+          <th>
+          领域
+          </th>
+          <th>
+            地域
+          </th>
+          <th>
+            提交时间
+          </th>
+          <th>
+            更新时间
+          </th>
+          <th>
+            处理状态
+          </th>
+        </tr>
+      </thead>
+
+          <% @questions.each do |question|%>
+        <tr>
+            <td><%= link_to(question.user.email, admin_question_path(question)) %></td>
+            <td><%= question.content %></td>
+            <td><%= question.area %></td>
+            <td><%= question.district %></td>
+            <td><%= question.created_at %></td>
+            <td><%= question.updated_at %></td>
+          <td>
+            Default
+          </td>
+          <% end %>
+        </tr>
+</table>
+</div>
+      </div>

@@ -9,8 +9,16 @@ class Admin::QuestionsController < ApplicationController
   def index
     @questions = Question.all.recent
   end
+  # 按照地域查看问题
+  def district
+    @questions = Question.all.district
+  end
 
-
+  # 按照领域查看问题
+  def area
+    @questions = Question.all.area
+  end
+  
   # 查看问题
   def show
     @question = Question.find(params[:id])
