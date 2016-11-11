@@ -2,7 +2,7 @@ class Question < ApplicationRecord
 
   belongs_to :user
   has_many :answers
-
+scope :recent, -> { order("created_at DESC")}
 end
 
 # == Schema Information

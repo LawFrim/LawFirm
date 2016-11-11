@@ -1,5 +1,5 @@
 class Admin::QuestionsController < ApplicationController
-  
+
   # 必须登录才能回答问题
   before_action :authenticate_user!
   before_action :admin_required
@@ -7,7 +7,7 @@ class Admin::QuestionsController < ApplicationController
   layout "admin"
   # 只显示当前用户的问题
   def index
-    @questions = Question.all
+    @questions = Question.all.recent
   end
 
 
