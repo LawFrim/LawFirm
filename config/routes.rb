@@ -5,10 +5,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :questions do
       resources :answers
-      collection do
-        get :area
-        get :district
-      end
     end
 
   end

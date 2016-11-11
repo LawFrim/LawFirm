@@ -20,13 +20,13 @@
 		<div class="span12">
 			<ul class="nav nav-tabs">
         <li class="active">
-            <%= link_to("最新问题", admin_questions_path(@questions)) %>
+            <%= link_to("最新问题", admin_questions_path) %>
         </li>
         <li>
-          <%= link_to("按地域分类", district_admin_questions_path(@questions)) %>
+          <%= link_to("按地域分类", admin_questions_path(:order => "by_district")) %>
         </li>
         <li class="disabled">
-          <%= link_to("按领域分类", area_admin_questions_path(@questions)) %>
+          <%= link_to("按领域分类", admin_questions_path(:order => "by_area")) %>
         </li>
 				<li class="dropdown pull-right">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">下拉</a>
