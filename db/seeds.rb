@@ -11,15 +11,23 @@ User.create([email:"a@lawyer.com", password:"111111", password_confirmation:"111
 puts "Admin account created."
 
 create_users= for i in 1..3 do
-  User.create([email:"user#{i}@client.com",password:"111111",password_confirmation:"111111", is_admin:"false"])
+ User.create([email:"user#{i}@client.com",password:"111111",password_confirmation:"111111", is_admin:"false"])
 puts "4 Clients created"
 end
 
 User.create([email:"a@client.com",password:"111111",password_confirmation:"111111",is_admin:"false" ])
 puts "4 Users' accounts created."
 Question.create!([content:"翻墙是违反国家法律法规的么？",area:"刑事",district:"北京",user_id:2])
-Question.create!([content:"当吃瓜群众也需要承担税负么？",area:"民事",district:"北京",user_id:2])
-Question.create!([content:"租房合同上能写只租给北京人么？",area:"民事",district:"北京",user_id:2])
-puts "3 questions created!"
+Question.create!([content:"当吃瓜群众也需要承担税负么？",area:"民事",district:"深圳",user_id:2])
+Question.create!([content:"租房合同上能写只租给北京人么？",area:"民事",district:"上海",user_id:2])
+Question.create!([content:"我能找到真爱么？",area:"民事",district:"北京",user_id:4])
+Question.create!([content:"我家房子要被政府拆迁了，我真的能实现财富自由么？",area:"经济",district:"北京",user_id:4])
+puts "5 questions created!"
 
-puts "done"
+Answer.create!([content:"我觉得你问错人了，你还是申请退钱把。",question_id:1])
+Answer.create!([content:"纳税光荣，敛财于民，敛财为国",question_id:2])
+Answer.create!([content:"我觉得你说的是租房广告，不是合同。广告上最好也不要写，心理暗地这么想就好了",question_id:3])
+Answer.create!([content:"我觉得你说的是租房广告，不是合同。广告上最好也不要写，心理暗地这么想就好了",question_id:4])
+Answer.create!([content:"恩，你就要成为土豪了。我们非常荣幸为您提供法律服务",question_id:5])
+puts "5 answers created!"
+puts "done!"
