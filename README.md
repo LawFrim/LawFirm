@@ -7,8 +7,8 @@
 
 # 开发用帐号
 
-* Admin :
-* User :
+* Admin :a@admin.com 1111111
+* User :a@lawyer.com 1111111
 
 # 其他
 
