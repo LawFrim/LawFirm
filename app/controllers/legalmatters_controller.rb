@@ -1,5 +1,7 @@
 class LegalmattersController < ApplicationController
   before_action :authenticate_user!
+  before_action :admin_required
+
 
   # 只显示当前用户的问题
   def index
@@ -54,5 +56,12 @@ class LegalmattersController < ApplicationController
   def comment_params
     params.require(:comment).permit(:answer)
   end
+
+  def admin_required
+    if current_user.admin?
+      redirect_to admin_legalmatters_path
+    end
+  end
+
 
 end

@@ -1,6 +1,7 @@
 class Admin::LegalmattersController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :admin_required
 
   def index
     @legalmatters = Legalmatter.all
@@ -55,6 +56,11 @@ class Admin::LegalmattersController < ApplicationController
     params.require(:comment).permit(:answer)
   end
 
+  def admin_required
+    if !current_user.admin?
+      redirect_to '/'
+    end
+  end
 
 
 end
