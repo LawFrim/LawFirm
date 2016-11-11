@@ -1,0 +1,27 @@
+<div class="col-md-12">
+
+  <div class="new_question">
+   <%= link_to("新问题", new_legalmatter_path, class: "btn btn-primary pull-right") %>
+
+  </div>
+
+  <h4>最新动态</h4>
+
+
+
+
+    <table class="table table-striped">
+<!--       <tr>
+        <th>问题</th>
+      </tr> -->
+      <% @legalmatters.each do |legalmatter|%>
+      <tr>
+        <td><%= link_to(legalmatter.question, legalmatter_path(legalmatter)) %></td>
+        <td><%= legalmatter.updated_at%></td>
+      </tr>
+
+      <% end %>
+    </table>
+    
+
+</div>
