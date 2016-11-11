@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111041000) do
+ActiveRecord::Schema.define(version: 20161111055959) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20161111041000) do
 
   create_table "questions", force: :cascade do |t|
     t.text     "content"
-    t.string   "type"
+    t.string   "area"
     t.string   "district"
     t.integer  "user_id"
     t.datetime "created_at", null: false

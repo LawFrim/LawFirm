@@ -63,7 +63,7 @@ class QuestionsController < ApplicationController
 
   # 问题参数
   def question_params
-    params.require(:question).permit(:content,:type,:district)
+    params.require(:question).permit(:content,:area,:district)
   end
 
   # 答案参数
