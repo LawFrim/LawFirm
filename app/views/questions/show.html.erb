@@ -7,11 +7,11 @@
 
   <p><%= @question.description %></p>
 
-<% if @question.is_answered %>
+    <% if @question.is_answered %>
+  (我们会尽快催促律师给您回复!)
+   <%= @question.answer%>
+    <% else %>
 (这是律师给您的回复)
-  <%= @question.answer%>
-<% else %>
-  (我们会尽快催促律师给您回复)
-<% end %>
-  
+    <% end %>
+
 </div>

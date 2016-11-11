@@ -1,17 +1,33 @@
-<ul>
+
   <h2>所有平台咨询问题</h2>
 
-  <% @questions.each do |question| %>
 
-    <li> <%= link_to(question.description, admin_question_path(question)) %> </li>
-      <%= question.description %>
-      <%= question.answer %>
-        <%= question.created_at %>
-        <% if question.is_answered %>
-        (这是律师给您的回复)
-          <%= question.answer%>
-        <% else %>
-          (我们会尽快催促律师给您回复)
-        <% end %>
-  <% end %>
-</ul>
+<div class="col-md-12">
+  <div class="group">
+    <%= link_to("New question", new_question_path, class: "btn btn-primary pull-right") %>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>#</td>
+
+        <td>Description</td>
+          <td>answer</td>
+<td>
+  email
+</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @questions.each do |question| %>
+        <tr>
+
+          <td><%= link_to(question.description, question_path(question)) %></td>
+          <td><%= question.description %></td>
+          <td><%= question.answer %></td>
+          <td><%= question.user.email%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,7 +1,7 @@
 class Admin::QuestionsController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :admin_required
-  layout "admin"
+  layout"admin"
   def new
     @question = new
   end
@@ -12,8 +12,11 @@ class Admin::QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
-    @question.update(question_params)
-    redirect_to questions_path
+    if @question.update(question_params)
+      redirect_to questions_path
+    else
+      render :edit
+    end
   end
 
   def index
@@ -27,11 +30,13 @@ class Admin::QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to admin_question_path
+      redirect_to admin_questions_path
     else
       render :new
     end
   end
+
+
 
   private
 

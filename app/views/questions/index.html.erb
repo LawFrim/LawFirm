@@ -9,15 +9,19 @@
 
         <td>Description</td>
           <td>answer</td>
+          <td>
+            3
+          </td>
       </tr>
     </thead>
     <tbody>
       <% @questions.each do |question| %>
         <tr>
-          <td>#</td>
+
           <td><%= link_to(question.description, question_path(question)) %></td>
           <td><%= question.description %></td>
           <td><%= question.answer %></td>
+            <td><%= question.user.email %></td>
         </tr>
       <% end %>
     </tbody>
