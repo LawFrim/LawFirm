@@ -15,6 +15,11 @@ class Admin::QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @answers = @question.answers
+
+    # 把自己的回答和用户的追问筛选出来
+    @answers_for_current_user = @answers.about_me(current_user)
+
+
     @new_answer = Answer.new
   end
 

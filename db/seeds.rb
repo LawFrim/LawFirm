@@ -5,9 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "创建一个 admin 账户，和四个当事人，三个问题。"
+puts "创建两个 admin 账户，和四个当事人，三个问题。"
 
 User.create([email:"a@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true"])
+User.create([email:"b@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true"])
 puts "Admin account created."
 
 create_users= for i in 1..3 do
@@ -24,10 +25,10 @@ Question.create!([content:"我能找到真爱么？",area:"民事",district:"北
 Question.create!([content:"我家房子要被政府拆迁了，我真的能实现财富自由么？",area:"经济",district:"北京",user_id:4])
 puts "5 questions created!"
 
-Answer.create!([content:"我觉得你问错人了，你还是申请退钱把。",question_id:1])
-Answer.create!([content:"纳税光荣，敛财于民，敛财为国",question_id:2])
-Answer.create!([content:"我觉得你说的是租房广告，不是合同。广告上最好也不要写，心理暗地这么想就好了",question_id:3])
-Answer.create!([content:"我觉得你说的是租房广告，不是合同。广告上最好也不要写，心理暗地这么想就好了",question_id:4])
-Answer.create!([content:"恩，你就要成为土豪了。我们非常荣幸为您提供法律服务",question_id:5])
+Answer.create!([content:"我觉得你问错人了，你还是申请退钱把。",question_id:1,user_id:1])
+Answer.create!([content:"纳税光荣，敛财于民，敛财为国",question_id:2,user_id:1])
+Answer.create!([content:"我觉得你说的是租房广告，不是合同。广告上最好也不要写，心理暗地这么想就好了",question_id:3,user_id:1])
+Answer.create!([content:"我觉得你说的是租房广告，不是合同。广告上最好也不要写，心理暗地这么想就好了",question_id:4,user_id:1])
+Answer.create!([content:"恩，你就要成为土豪了。我们非常荣幸为您提供法律服务",question_id:5,user_id:1])
 puts "5 answers created!"
 puts "done!"

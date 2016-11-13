@@ -5,6 +5,8 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!
 
 
+
+
   # 只显示当前用户的问题
   def index
     @questions = Question.where(user_id: current_user)
@@ -21,7 +23,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @answers = @question.answers
-    @new_answer = Answer.new
+    @more_question = Answer.new
   end
 
   # 编辑
@@ -34,7 +36,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.user = current_user
     if @question.save
-      redirect_to questions_path, notice: "问题已发布!"
+        redirect_to questions_path, notice: "问题已发布!"
     else
       render :new
     end

@@ -29,6 +29,7 @@ gem 'font-awesome-rails'
 gem 'pry'
 gem "devise"
 gem 'annotate'
+gem 'aasm'
 
 
 # Use Redis adapter to run Action Cable in production

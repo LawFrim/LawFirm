@@ -10,6 +10,24 @@ class Admin::AnswersController < ApplicationController
     @new_answer = Answer.new(answer_params)
     @new_answer.user = current_user
     @new_answer.question = @question
+
+
+
+    # 找到之前的回答，将其状态设置为又被追问了
+    if @new_answer.reply_for_answer.present?
+      @replyquestion = Answer.find(@new_answer.reply_for_answer)
+    # 如果有前序问题，就将前序追问状态调整
+      @replyquestion.present?
+      @replyquestion.is_replied = true
+      @replyquestion.save  
+      @new_answer.reply_to_user = @replyquestion.user_id    
+    end
+
+
+
+
+
+
     if @new_answer.save
       flash[:notice] = "回答成功！"
       redirect_to :back 
@@ -35,7 +53,7 @@ class Admin::AnswersController < ApplicationController
   private
 
   def answer_params
-    params.require(:answer).permit(:content)
+    params.require(:answer).permit(:content,:reply_for_answer)
   end
 
   # 增加需要管理员登录
