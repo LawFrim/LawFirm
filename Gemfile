@@ -24,10 +24,11 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'devise-i18n-views'
 gem 'simple_form'
 gem 'font-awesome-rails'
 gem 'pry'
-gem "devise"
+
 gem 'annotate'
 
 
