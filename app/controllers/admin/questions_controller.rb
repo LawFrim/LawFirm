@@ -14,12 +14,12 @@ class Admin::QuestionsController < ApplicationController
   # 查看问题
   def show
     @question = Question.find(params[:id])
-    @answers = @question.answers
-
-    # 把自己的回答和用户的追问筛选出来
-    @answers_for_current_user = @answers.about_me(current_user)
-
-
+    # 找到律师针对这个问题的会话记录
+    @conversation = @question.conversations.find_by(lawyer_id: current_user.id)
+    # 如果之前回答过该问题(即该会话存在)，则列出所有内容
+    if @conversation.present?
+      @answers = @conversation.answers
+    end
     @new_answer = Answer.new
   end
 

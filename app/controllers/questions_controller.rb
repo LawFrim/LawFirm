@@ -6,7 +6,6 @@ class QuestionsController < ApplicationController
 
 
 
-
   # 只显示当前用户的问题
   def index
     @questions = Question.where(user_id: current_user)
@@ -19,17 +18,12 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
-  # 问题
+  # 问题显示具体内容
   def show
     @question = Question.find(params[:id])
-    @answers = @question.answers
-    @more_question = Answer.new
+    @conversations = Conversation.where(question_id: @question)
   end
 
-  # 编辑
-  def edit
-    @question = Question.find(params[:id])
-  end
 
   # 建立
   def create
@@ -42,16 +36,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  # 更新
-  def update
-    @question = Question.find(params[:id])
-    @question.user = current_user
-    if @question.update(question_params)
-      redirect_to question_path(@question), notice: "问题已修改!"
-    else
-      render :back, notice: "修改失败!"
-    end
-  end
 
   # 删除
   def destroy

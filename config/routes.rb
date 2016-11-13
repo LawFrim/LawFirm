@@ -3,16 +3,16 @@ Rails.application.routes.draw do
 
   # 管理员路由
   namespace :admin do
-    resources :questions do
-      resources :answers
-    end
-  end
-
-  # 普通用户路由
-  resources :questions do
+    resources :questions
     resources :answers
   end
 
+  # 普通用户路由
+  resources :questions
+
+  resources :conversations
+
+  resources :answers
 
   root 'questions#index'
 end

@@ -1,7 +1,6 @@
 class Answer < ApplicationRecord
 
   belongs_to :user
-  belongs_to :question
   belongs_to :conversation
 
   # 筛选出只和自己相关的答案
@@ -16,9 +15,9 @@ end
 #
 #  id               :integer          not null, primary key
 #  content          :text
-#  question_id      :integer
 #  user_id          :integer
 #  conversation_id  :integer
+#  question_id      :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  reply_for_answer :integer

@@ -13,9 +13,11 @@
 
 
   <!-- 如果有人回答，显示历史答案 -->
-  <% if @answers_for_current_user.present? %>
+  <% if @answers.present? %>
+
+
     <!-- 每个回应 -->
-    <% @answers_for_current_user.each do |answer|%>
+    <% @answers.each do |answer|%>
 
       <!-- 如果是律师的回答，则置于右边 -->
       <% if answer.answer_type == 'answer' %>
@@ -32,10 +34,11 @@
       <!-- 如果该回应没有被回答并且该回应用户不是自己 -->
       <% if !answer.is_replied && answer.user != current_user %>
         <!-- 追答表单 -->
-        <%= simple_form_for @new_answer ,url: admin_question_answers_path(@question) do |a| %>
+        <%= simple_form_for @new_answer ,url: admin_answers_path do |a| %>
           <!-- 则当前的追答的问题是当前回答id -->
           <% @new_answer.reply_for_answer = answer.id %>
-          <h2>追跟问题id：<%= @new_answer.reply_for_answer %></h2>
+            <!-- 隐藏提交当前会话id -->
+            <%= a.input :conversation_id, :as => :hidden, :input_html => { :value => @conversation.id } %>
             <%= a.input :reply_for_answer, :as => :hidden, :input_html => { :value => answer.id } %>
           <div class="form-group">
               <%= a.input :content, label: '法律意见',input_html: { class: "form-control"} %>
@@ -51,19 +54,23 @@
     <!-- 每个回应 -->
 
     <!-- 如果最后的回应是当前用户的就显示已经回答 -->
-    <% if @answers_for_current_user.last.user == current_user %>
+    <% if @answers.last.user == current_user %>
       <p class="bg-success text-center">已回复</p>
     <% end %>
+
+
+
 
   <!-- 如果律师自己之前没回答则可以回答 -->
   <% else %>
   
     <!-- 追答表单 -->
-    <%= simple_form_for @new_answer ,url: admin_question_answers_path(@question) do |a| %>
+    <%= simple_form_for @new_answer ,url: admin_answers_path do |a| %>
+    <!-- 隐藏提交当前问题id -->
+      <%= a.input :question_id, :as => :hidden, :input_html => { :value => @question.id } %>
       <div class="form-group">
           <%= a.input :content, label: '法律意见',input_html: { class: "form-control"} %>
       </div>
-
       <%= a.submit "提交", class: "btn btn-primary", data: { disable_with: "提交..." } %>
     <% end %>
     <!-- 追答表单 -->

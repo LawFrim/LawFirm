@@ -3,61 +3,17 @@
 
   <h4>问题： <%= @question.content %></h4><%#= link_to("修改", edit_question_path) %>
   <hr>
-  <!-- 如果有人回答 -->
-  <% if @answers.present? %>
 
-
-
-    <!-- 显示历史答案 -->
-    <% @answers.each do |answer|%>
-
-      <!-- 如果是律师的回答，则置于左边 -->
-      <% if answer.answer_type == 'answer' %>
-        <blockquote>
-      <% else %>
-      <!-- 当事人的问题置于右边 -->
-        <blockquote class="blockquote-reverse">
-      <% end %>
-
-        <p><%= answer.content %></p>
-        <footer><%= answer.user.email %></footer>
-      </blockquote>
-
-    
-
-      <!-- 如果该答案没有被回复并且不是自己的留言，则可以被追问 -->
-      <% if !answer.is_replied && answer.user != current_user %>
-        <!-- 追问表单 -->
-        <%= simple_form_for @more_question ,url: question_answers_path(@question) do |a| %>
-          <!-- 则当前的追问跟的问题是当前回答id -->
-          <% @more_question.reply_for_answer = answer.id %>
-          <h2>追跟问题id：<%= @more_question.reply_for_answer %></h2>
-            <%= a.input :reply_for_answer, :as => :hidden, :input_html => { :value => answer.id } %>
-          <div class="form-group">
-              <%= a.input :content, label: '追问',input_html: { class: "form-control"} %>
-          </div>
-
-          <%= a.submit "提交", class: "btn btn-primary", data: { disable_with: "提交..." } %>
-        <% end %>
-        <!-- 追问表单 -->
-
-      <% end %>
+  <!-- 显示会话 -->
+  <% if @conversations.present? %>
+    <% @conversations.each do |c| %>
+      
+      <!-- 会话链接 -->
+      <p><%= link_to('律师 '+conversation_manager(c.lawyer_id)+' 的回答', conversation_path(c)) %></p>
 
     <% end %>
-    <!-- 显示历史答案 -->
-
-
-
-
-    <!-- 如果最后的留言是当前客户写的 -->
-    <% if @answers.last.user == current_user %>
-      <p class="bg-success text-center">正在等待该律师为您解答...</p>
-    <% end%>
-
-
-
-
-
+  
+  <hr>
 
 
 

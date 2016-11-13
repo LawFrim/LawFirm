@@ -1,0 +1,78 @@
+<div class="col-md-12">
+
+<h1>与<%= conversation_manager(@conversation.lawyer_id) %>的会话</h1>
+
+<hr>
+
+
+  <!-- 如果有人回答 -->
+  <% if @answers.present? %>
+
+
+
+    <!-- 显示历史答案 -->
+    <% @answers.each do |answer|%>
+
+      <!-- 如果是律师的回答，则置于左边 -->
+      <% if answer.answer_type == 'answer' %>
+        <blockquote>
+      <% else %>
+      <!-- 当事人的问题置于右边 -->
+        <blockquote class="blockquote-reverse">
+      <% end %>
+
+        <p><%= answer.content %></p>
+        <footer><%= answer.user.email %></footer>
+      </blockquote>
+
+    
+
+      <!-- 如果该答案没有被回复并且不是自己的留言，则可以被追问 -->
+      <% if !answer.is_replied && answer.user != current_user %>
+        <!-- 追问表单 -->
+        <%= simple_form_for @more_question ,url: answers_path do |a| %>
+
+            <!-- 隐藏提交之前回答的id -->
+            <%= a.input :reply_for_answer, :as => :hidden, :input_html => { :value => answer.id } %>
+            <!-- 隐藏提交当前会话id -->
+            <%= a.input :conversation_id, :as => :hidden, :input_html => { :value => @conversation.id } %>
+          <div class="form-group">
+              <%= a.input :content, label: '追问',input_html: { class: "form-control"} %>
+          </div>
+
+          <%= a.submit "提交", class: "btn btn-primary", data: { disable_with: "提交..." } %>
+        <% end %>
+        <!-- 追问表单 -->
+
+      <% end %>
+
+    <% end %>
+    <!-- 显示历史答案 -->
+
+
+
+
+    <!-- 如果最后的留言是当前客户写的 -->
+    <% if @answers.last.user == current_user %>
+      <p class="bg-success text-center">正在等待该律师为您解答...</p>
+    <% end%>
+
+
+
+
+
+
+
+
+
+
+  <% else %>
+      <p>律师们正在紧张的撰写答案</p>
+  
+
+
+  <% end %>
+
+
+
+</div>
