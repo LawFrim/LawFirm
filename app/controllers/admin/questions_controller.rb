@@ -1,5 +1,5 @@
 class Admin::QuestionsController < ApplicationController
-  
+
   # 必须登录才能回答问题
   before_action :authenticate_user!
   before_action :admin_required

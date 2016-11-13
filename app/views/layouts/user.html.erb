@@ -13,12 +13,16 @@
         <div class="container-fluid">
             <%= render "common/navbar" %>
             <%= render "common/flashes" %>
+          <!-- This is a temporary layout setting. Move it to layout/user,after controller accounts is created -->
             <div class="row">
                 <!-- 侧边栏 -->
                 <div class="col-md-2 sidebar" >
                     <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-                      <li class="active"><%= link_to("客户问题", admin_questions_path ) %> </li>
-                      <li><%= link_to("检查合同", "#") %></li>
+                      <li><%= link_to("用户资料","#") %></li>
+                      <li class="active"><%= link_to("我提出的问题", account_questions_path ) %> </li>
+                      <li><%= link_to("提出新问题", new_account_question_path) %></li>
+                      <li><%= link_to("upload a document", "#") %></li>
+
                     </ul>
                 </div>
                 <!-- 内容 -->
@@ -26,6 +30,9 @@
                     <%= yield %>
                 </div>
             </div>
+
+        </div>
+
 
         </div>
 
