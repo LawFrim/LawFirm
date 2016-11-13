@@ -29,14 +29,17 @@
           <%= link_to("按领域分类", admin_questions_path(:order => "by_area")) %>
         </li>
 
-
+			
 			</ul>
 			<table class="table table-bordered table-condensed table-hover">
 
 				<thead>
 					<tr>
 						<th>
-							#
+							用户
+						</th>
+						<th>
+							问题
 						</th>
             <th>
             领域
@@ -45,7 +48,7 @@
               地域
             </th>
 						<th>
-							问题缩略
+							提交时间
 						</th>
             <th>
               更新时间
@@ -58,10 +61,11 @@
 
             <% @questions.each do |question|%>
 					<tr>
-						  <td><%= link_to(question.id,admin_question_path(question)) %></td>
-							<td><%= question.area %></td>
+						  <td><%= link_to(question.user.email, admin_question_path(question)) %></td>
+						  <td><%= question.content %></td>
+              <td><%= question.area %></td>
               <td><%= question.district %></td>
-							<td><%= question.content.first(8) %></td>
+					    <td><%= question.created_at %></td>
               <td><%= question.updated_at %></td>
 						<td>
 							Default
