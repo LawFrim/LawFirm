@@ -15,6 +15,6 @@ Rails.application.routes.draw do
 
 
 
-  root 'questions#index'
+
+  root 'welcome#index'
 end
- 
