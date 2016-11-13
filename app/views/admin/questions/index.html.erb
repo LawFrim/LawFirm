@@ -18,35 +18,18 @@
 
 	<div class="row-fluid">
 		<div class="span12">
-			<ul class="nav nav-tabs">
+			<ul class="breadcrumb">
         <li class="active">
             <%= link_to("最新问题", admin_questions_path) %>
         </li>
         <li>
           <%= link_to("按地域分类", admin_questions_path(:order => "by_district")) %>
         </li>
-        <li class="disabled">
+        <li>
           <%= link_to("按领域分类", admin_questions_path(:order => "by_area")) %>
         </li>
-				<li class="dropdown pull-right">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">下拉</a>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#">操作</a>
-						</li>
-						<li>
-							<a href="#">设置栏目</a>
-						</li>
-						<li>
-							<a href="#">更多设置</a>
-						</li>
-						<li class="divider">
-						</li>
-						<li>
-							<a href="#">分割线</a>
-						</li>
-					</ul>
-				</li>
+
+			
 			</ul>
 			<table class="table table-bordered table-condensed table-hover">
 
