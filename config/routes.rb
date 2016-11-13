@@ -9,12 +9,13 @@ Rails.application.routes.draw do
   end
 
   # 普通用户路由
-  resources :questions do
+  namespace :account do
+    resources :questions do
     resources :answers
+  end
   end
 
 
 
-  root 'questions#index'
+  root 'account/questions#index'
 end
- 

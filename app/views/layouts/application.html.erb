@@ -13,8 +13,12 @@
         <div class="container-fluid">
             <%= render "common/navbar" %>
             <%= render "common/flashes" %>
-            <%= yield %>
-      
+          <!-- This is a temporary layout setting. Move it to layout/user,after controller accounts is created-->
+
+          <%= yield %>
+        </div>
+
+
         </div>
 
         <%= render "common/footer" %>
