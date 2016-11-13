@@ -7,7 +7,14 @@ class Admin::QuestionsController < ApplicationController
   layout "admin"
   # 只显示当前用户的问题
   def index
-    @questions = Question.all
+    @questions = case params[:order]
+    when 'by_area'
+      Question.area
+    when 'by_district'
+      Question.district
+    else
+      Question.recent
+    end
   end
 
 

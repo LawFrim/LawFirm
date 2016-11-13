@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :questions do
       resources :answers
     end
+
   end
 
   # 普通用户路由
