@@ -14,6 +14,7 @@ end
 #  content          :text
 #  question_id      :integer
 #  user_id          :integer
+#  conversation_id  :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  reply_for_answer :integer

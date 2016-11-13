@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question_id: 1
+  lawyer_id: 1
+  client_id: 1
+
+two:
+  question_id: 1
+  lawyer_id: 1
+  client_id: 1
+
+# == Schema Information
+#
+# Table name: conversations
+#
+#  id          :integer          not null, primary key
+#  question_id :integer
+#  lawyer_id   :integer
+#  client_id   :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#

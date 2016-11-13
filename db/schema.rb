@@ -10,18 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161113095526) do
+ActiveRecord::Schema.define(version: 20161113115838) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
     t.integer  "question_id"
     t.integer  "user_id"
+    t.integer  "conversation_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "reply_for_answer"
     t.boolean  "is_replied",       default: false
     t.string   "answer_type",      default: "answer"
     t.integer  "reply_to_user"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "lawyer_id"
+    t.integer  "client_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "questions", force: :cascade do |t|
