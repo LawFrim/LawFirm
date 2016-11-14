@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :questions do
       resources :answers
     end
+    resources :conversations
 
   end
 
@@ -14,7 +15,9 @@ Rails.application.routes.draw do
     resources :documents
     resources :questions do
       resources :answers
+      resources :conversations
     end
+    
   end
 
 

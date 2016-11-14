@@ -1,11 +1,25 @@
-class Admin::AnswersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :admin_required
-  before_action :get_mailbox
+class Account::ConversationsController < ApplicationController
 
-  layout "admin"
-  
-  # 回答问题
+    # 必须登录才能问问题
+    before_action :authenticate_user!
+    # f120
+    before_action :get_mailbox
+    layout "user"
+
+  def show
+    @question = Question.find(params[:question_id])
+    @conversation = @mailbox.conversations.find(params[:id])
+
+    @messages = @conversation.messages
+    # binding.pry
+
+    @new_answer = Answer.new
+
+  end
+
+
+
+  # 追问问题
   def create
     @question = Question.find(params[:question_id])
     # 出题人
@@ -36,16 +50,8 @@ class Admin::AnswersController < ApplicationController
     redirect_to :back
   end
 
-  # 更新回答
-  def update
-    @question = Question.find(params[:question_id])
-    @answer = Answer.find(params[:id])
-    if @answer.update(answer_params)
-      redirect_to admin_question_path(@question), notice: "答案修改成功!"
-    else
-      render :back, notice: "答案修改失败!"
-    end
-  end
+
+
 
 
 
@@ -55,18 +61,13 @@ class Admin::AnswersController < ApplicationController
     params.require(:answer).permit(:content,:conversation_id)
   end
 
-  # 增加需要管理员登录
-  def admin_required
-    if !current_user.admin?
-      redirect_to '/'
-    end
-  end
-
-
-  # 建一个邮箱
+  
+  # f120建一个邮箱
   def get_mailbox
     @mailbox ||= current_user.mailbox
   end
+
+
 
 
 end

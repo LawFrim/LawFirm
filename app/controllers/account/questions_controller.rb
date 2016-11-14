@@ -1,6 +1,8 @@
 class Account::QuestionsController < ApplicationController
-# 必须登录才能问问题
+    # 必须登录才能问问题
     before_action :authenticate_user!
+    # f120
+    before_action :get_mailbox
     layout "user"
 
     # 只显示当前用户的问题
@@ -20,6 +22,14 @@ class Account::QuestionsController < ApplicationController
       @question = Question.find(params[:id])
       @answers = @question.answers
       @new_answer = Answer.new
+
+      # f120
+      qid = @question.id.to_s
+      # 查是否有关于此问题的回复
+      @dialogs = @mailbox.conversations.where(subject: qid)
+      # binding.pry
+
+
     end
 
     # 编辑
@@ -67,6 +77,12 @@ class Account::QuestionsController < ApplicationController
     # 答案参数
     def answer_params
       params.require(:answer).permit(:content)
+    end
+
+
+    # f120建一个邮箱
+    def get_mailbox
+      @mailbox ||= current_user.mailbox
     end
 
 

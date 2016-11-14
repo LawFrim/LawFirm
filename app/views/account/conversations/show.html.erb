@@ -16,34 +16,20 @@
       </p>
 
       <% end %>
+
+
+
     <% end %>
 
     <hr>
 
 
 
-  <!-- 如果有人回答，显示历史答案 -->
-  <% if @answers.present? %>
-    <% @answers.each do |answer|%>
-      <p><%= answer.content %></p>
 
-      <!-- 如果回答该问题的人就是当前用户 -->
-      <% if answer.user == current_user %>
-        <!-- 可以修改 -->
-      <% end %>
-
-    <% end %>
+    <!-- 有人回答后可以追问 -->
 
 
-
-
-
-
-
-    <!-- 如果没人回答，可以回答 -->
-  <% else %>
-
-    <%= simple_form_for @new_answer ,url: admin_question_answers_path(@question) do |a| %>
+    <%= simple_form_for @new_answer ,url: account_question_conversations_path(@question) do |a| %>
     <% if @conversation.present? %>
     <h1>对话id:<%= @conversation.id %></h1>
     <!-- 隐藏提交当前会话id -->
@@ -61,7 +47,7 @@
 
 
 
-  <% end %>
+
 
 
     
