@@ -33,6 +33,8 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
 gem "mini_magick"
 
+# f120
+gem 'mailboxer'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
