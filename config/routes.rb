@@ -21,7 +21,11 @@ Rails.application.routes.draw do
         resources :answers
       end
   end
+  namespace :admin do
+    resources :users
+  end
 
+  resources :users
 
   root 'account/questions#index'
 end

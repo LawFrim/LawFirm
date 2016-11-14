@@ -1,0 +1,46 @@
+<table class="table table-bordered table-condensed table-hover">
+
+  <thead>
+    <tr>
+      <th>
+        #
+      </th>
+      <th>
+      注册邮箱
+      </th>
+      <th>
+      领域
+      </th>
+      <th>
+        地域
+      </th>
+      <th>
+        更新时间
+      </th>
+      <th>
+        身份状态
+      </th>
+    </tr>
+  </thead>
+
+      <% @users.each do |u|%>
+    <tr>
+        <td><%= link_to(user.id,admin_user_path(user)) %></td>
+        <td><%= u.email %></td>
+        <td><%= u.area %></td>
+        <td><%= u.district %></td>
+        <td><%= u.updated_at %></td>
+      <td>
+    <% if u.is_admin? %>
+    admin
+    <% else %>
+      <% if u.is_lawyer? %>
+      lawyer
+      <% else %>
+      user
+        <% end %>
+          <% end %>
+      </td>
+      <% end %>
+    </tr>
+</table>
