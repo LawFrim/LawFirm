@@ -1,7 +1,7 @@
 class ClientdocsUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -13,6 +13,26 @@ class ClientdocsUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
+
+  def cover
+   manipulate! do |frame, index|
+     frame if index.zero? # take only the first page of the file
+   end
+ end
+
+ version :preview do
+   process :cover
+   process :resize_to_fit => [300, 300]
+   process :convert => :jpg
+
+   def full_filename (for_file = model.source.file)
+     super.chomp(File.extname(super)) + '.jpg'
+   end
+ end
+
+ # the other stuff
+
+
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url

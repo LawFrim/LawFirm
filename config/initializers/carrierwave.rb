@@ -1,0 +1,1 @@
+require 'carrierwave/processing/rmagick'

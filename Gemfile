@@ -30,6 +30,8 @@ gem 'pry'
 gem "devise"
 gem 'annotate'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'rmagick'
+gem "mini_magick"
 
 
 # Use Redis adapter to run Action Cable in production

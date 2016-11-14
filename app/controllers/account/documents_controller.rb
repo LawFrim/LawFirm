@@ -37,7 +37,20 @@ class Account::DocumentsController < ApplicationController
         redirect_to :back
       end
 
+      def edit
+        @document = Document.find(params[:id])
+      end
 
+
+      def update
+        @document = Document.find(params[:id])
+        @document.user = current_user
+        if @document.update(docs_params)
+          redirect_to account_documents_path(@document), notice: "问题已修改!"
+        else
+          render :back, notice: "修改失败!"
+        end
+      end
 
       private
 

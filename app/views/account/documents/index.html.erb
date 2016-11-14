@@ -1,15 +1,30 @@
  <h2>我的合同文件</h2>
 
+  <%= link_to("上传我的合同", new_account_document_path, class:"btn btn-primary pull-right btn-lg") %>
+
+
 <div class="row">
   <div class="clearfix">
       <% @documents.each do |document| %>
       <div class="col-md-3 col-md-3">
-
-        <%= link_to(document.id, account_document_path(document)) %>
-        <%= document.description %>
-        <%= link_to "download link", document.client_docs[0].url %>
+        <div class="thumbnail" style="text-center;">
+        <% if document.client_docs.present? %>
+        <%= link_to image_tag(document.client_docs[0].preview.url), "#" %>
+        <% else %>
+          <%= link_to image_tag "//placehold.it/300?text=合同首页", "#" %>
+          <% end %>
+        <ul class="text-center" style=" list-style: none;">
+        <li>创建时间</li>
+        <li><%= document.created_at %></li>
+        <li>提交意见</li>
+        <li><%= document.description.first(50) %></li>
+        <li><%= link_to "下载合同", document.client_docs[0].url %></li>
+        <%= link_to "编辑", edit_account_document_path(document), class:"btn btn-sm btn-primary"%>
         <%= link_to "删除", account_documents_path(document), method: :delete, class: "btn btn-sm btn-danger", data: { confirm: "确认删除合同？"}%>
         </div>
+      </div>
         </div>
-      <% end %>
+          <% end %>
+        </div>
+
       </div>
