@@ -29,6 +29,7 @@ gem 'font-awesome-rails'
 gem 'pry'
 gem "devise"
 gem 'annotate'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 
 # Use Redis adapter to run Action Cable in production
