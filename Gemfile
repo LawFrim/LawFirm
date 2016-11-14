@@ -29,7 +29,7 @@ gem 'font-awesome-rails'
 gem 'pry'
 gem "devise"
 gem 'annotate'
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
 gem "mini_magick"
 
