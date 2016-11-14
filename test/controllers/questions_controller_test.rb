@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  content    :text
-#  area       :string
+#  type       :string
 #  district   :string
 #  user_id    :integer
 #  created_at :datetime         not null
