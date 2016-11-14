@@ -34,6 +34,10 @@ end
 #  last_sign_in_ip        :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  is_admin               :boolean          default(FALSE)
+#  is_lawyer              :boolean          default(FALSE)
+#  district               :string
+#  area                   :string
 #
 # Indexes
 #
