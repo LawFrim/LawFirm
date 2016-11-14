@@ -21,7 +21,7 @@ Rails.application.routes.draw do
         resources :answers
       end
   end
-
+  # resources :lawyers
 
   root 'account/questions#index'
 end
