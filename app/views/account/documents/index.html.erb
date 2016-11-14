@@ -1,6 +1,5 @@
  <h2>我的合同文件</h2>
 
-  <%= link_to("上传我的合同", new_account_document_path, class:"btn btn-primary pull-right btn-lg") %>
 
 
 <div class="row">
@@ -22,7 +21,7 @@
         <li><%= link_to "下载合同", document.client_docs[0].url %></li>
         <% end %>
         <%= link_to "编辑", edit_account_document_path(document), class:"btn btn-sm btn-primary"%>
-        <%= link_to "删除", account_documents_path(document), method: :delete, class: "btn btn-sm btn-danger", data: { confirm: "确认删除合同？"}%>
+        <%= link_to "删除", account_document_path(document), method: :delete, class: "btn btn-sm btn-danger", data: { confirm: "确认删除合同？"}%>
         </div>
       </div>
 
