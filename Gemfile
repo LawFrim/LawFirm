@@ -29,7 +29,7 @@ gem 'font-awesome-rails'
 gem 'pry'
 gem "devise"
 gem 'annotate'
-gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'carrierwave'
 gem 'rmagick'
 gem "mini_magick"
 
@@ -55,6 +55,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "rails-erd"
+  gem "awesome_rails_console"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
