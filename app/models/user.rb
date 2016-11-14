@@ -10,7 +10,10 @@ class User < ApplicationRecord
   def admin?
     is_admin
   end
-
+  
+  def lawyer?
+  is_lawyer
+  end
 end
 
 # == Schema Information
@@ -31,6 +34,7 @@ end
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  is_admin               :boolean          default(FALSE)
+#  is_lawyer              :boolean          default(FALSE)
 #
 # Indexes
 #

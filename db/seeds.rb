@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "创建一个 admin 账户，和四个当事人，三个问题。"
 
-User.create([email:"a@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true"])
+User.create([email:"a@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true", is_lawyer:"true"])
 puts "Admin account created."
 
 create_users= for i in 1..3 do
