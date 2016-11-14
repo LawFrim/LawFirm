@@ -5,6 +5,23 @@
   <h6>领域： <%= @question.area %></h6>
   <h6>地区： <%= @question.district %></h6>
   <hr>
+
+    <!-- 查看历史信息 -->
+    <% if @messages.present? %>
+      <% @messages.each do |m| %>
+      <p>
+        <%= m.sender.email %>
+        说:
+        <%= m.body %>        
+      </p>
+
+      <% end %>
+    <% end %>
+
+    <hr>
+
+
+
   <!-- 如果有人回答，显示历史答案 -->
   <% if @answers.present? %>
     <% @answers.each do |answer|%>
@@ -16,6 +33,13 @@
       <% end %>
 
     <% end %>
+
+
+
+
+
+
+
     <!-- 如果没人回答，可以回答 -->
   <% else %>
 

@@ -16,22 +16,24 @@ class Admin::AnswersController < ApplicationController
 
 
 
-    @new_answer = Answer.new(answer_params)
-    @new_answer.user = current_user
-    @new_answer.question = @question
-    if @new_answer.save
-      flash[:notice] = "回答成功！"
-      redirect_to :back 
-    else
-      flash[:alert] = "修改失败!" 
-      redirect_to :back
-    end
+    # @new_answer = Answer.new(answer_params)
+    # @new_answer.user = current_user
+    # @new_answer.question = @question
+    # if @new_answer.save
+    #   flash[:notice] = "回答成功！"
+    #   redirect_to :back 
+    # else
+    #   flash[:alert] = "修改失败!" 
+    #   redirect_to :back
+    # end
 
     # mailboxer方法
-
-    # conversation = current_user.send_message(akser ,answer_content ,subject).conversation
-
-
+    conversation = current_user.send_message(akser ,answer_content ,subject).conversation
+    # binding.pry
+    # 由于没有conversation的model无法进一步设置,并且由于conversation的名字也找不到
+    # 所以无法使用适配器,因此只能选择从conversation里面筛选主题的方式来查表
+    flash[:notice] = "回复成功"
+    redirect_to :back
   end
 
   # 更新回答
