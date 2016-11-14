@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   namespace :account do
     resources :documents
     resources :questions do
-    resources :answers
-  end
+      resources :answers
+    end
   end
 
 
