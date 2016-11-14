@@ -1,0 +1,15 @@
+ <h2>我的合同文件</h2>
+
+<div class="row">
+  <div class="clearfix">
+      <% @documents.each do |document| %>
+      <div class="col-md-3 col-md-3">
+
+        <%= link_to(document.id, account_document_path(document)) %>
+        <%= document.description %>
+        <%= link_to "download link", document.client_docs[0].url %>
+        <%= link_to "删除", account_documents_path(document), method: :delete, class: "btn btn-sm btn-danger", data: { confirm: "确认删除合同？"}%>
+        </div>
+        </div>
+      <% end %>
+      </div>
