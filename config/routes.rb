@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   end
 
 
-
-  root 'account/questions#index'
+  resources :questions
+  root 'welcome#index'
 end
