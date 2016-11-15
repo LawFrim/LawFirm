@@ -4,7 +4,7 @@ class Lawyer::AnswersController < ApplicationController
   before_action :lawyer_required
   before_action :get_mailbox
 
-  layout "admin"
+  layout "lawyer"
 
   # 回答问题
   def create
