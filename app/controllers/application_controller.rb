@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
 
 
 
-
+  # 建一个邮箱
+  def get_mailbox
+    @mailbox ||= current_user.mailbox
+  end
 
 end

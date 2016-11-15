@@ -1,0 +1,23 @@
+  <!-- 律师端历史消息 -->
+
+
+  <!-- 查看历史信息 -->
+  <% if @messages.present? %>
+    <% @messages.each do |m| %>
+
+      <!-- 对话样式 -->
+      <% if m.sender == current_user %>
+        <blockquote>
+          <p><%= m.body %></p>
+          <footer><%= m.sender.email %></footer>
+        </blockquote>
+      <% else %>
+        <blockquote class="blockquote-reverse">
+          <p><%= m.body %></p>
+          <footer><%= m.sender.email %></footer>
+        </blockquote>
+      <% end %>
+      <!-- 对话样式 -->
+
+    <% end %>
+  <% end %>

@@ -6,47 +6,14 @@
   <h6>地区： <%= @question.district %></h6>
   <hr>
 
-    <!-- 查看历史信息 -->
-    <% if @messages.present? %>
-      <% @messages.each do |m| %>
-
-        <!-- 对话样式 -->
-        <% if m.sender == current_user %>
-          <blockquote>
-            <p><%= m.body %></p>
-            <footer><%= m.sender.email %></footer>
-          </blockquote>
-        <% else %>
-          <blockquote class="blockquote-reverse">
-            <p><%= m.body %></p>
-            <footer><%= m.sender.email %></footer>
-          </blockquote>
-        <% end %>
-        <!-- 对话样式 -->
-
-      <% end %>
-    <% end %>
-
-    <hr>
+  <!-- 历史消息 -->
+  <%= render 'history_messages' %>
 
 
 
-  <!-- 如果有人回答，显示历史答案 -->
-  <% if @answers.present? %>
-    <% @answers.each do |answer|%>
-      <p><%= answer.content %></p>
-
-      <!-- 如果回答该问题的人就是当前用户 -->
-      <% if answer.user == current_user %>
-        <!-- 可以修改 -->
-      <% end %>
-
-    <% end %>
-
-
-
-
-
+  <!-- 如果最后一条是自己的留言，则不让再追答 -->
+  <% if i_send_last_message(@messages) %>
+    <div class="alert alert-success text-center" role="alert">已回复</div>
 
 
     <!-- 如果没人回答，可以回答 -->
