@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :questions do
       resources :answers
       resources :conversations
+      resources :user
     end
 
   end
@@ -26,6 +27,8 @@ Rails.application.routes.draw do
       end
   end
 
+
+  resources :user
   # resources :lawyers
   resources :welcome
   root 'account/questions#index'

@@ -27,6 +27,7 @@ end
 #  is_lawyer              :boolean          default(FALSE)
 #  district               :string
 #  area                   :string
+#  user_name              :string
 #
 # Indexes
 #
