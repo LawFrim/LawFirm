@@ -1,0 +1,21 @@
+    <!-- 用户端历史信息 -->
+    <!-- 查看历史信息 -->
+    <% if @messages.present? %>
+      <% @messages.each do |m| %>
+
+        <!-- 历史消息 -->
+        <% if m.sender == current_user %>
+          <blockquote>
+        <% else %>
+          <blockquote class="blockquote-reverse">
+        <% end %>
+            <p><%= simple_format(m.body) %></p>
+            <footer><%= m.sender.email %></footer>
+          </blockquote>
+        
+        <!-- 历史消息 -->
+
+
+
+      <% end %>
+    <% end %>   

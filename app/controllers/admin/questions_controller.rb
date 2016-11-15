@@ -42,17 +42,4 @@ class Admin::QuestionsController < ApplicationController
 
   private
 
-  # 增加需要管理员登录
-  def admin_required
-    if !current_user.admin?
-      redirect_to '/'
-    end
-  end
-  
-
-
-
-
-
-
 end

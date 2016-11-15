@@ -1,7 +1,9 @@
 <div class="col-md-12">
 
 
-  <h4>问题： <%= @question.content %></h4><%= link_to("修改", edit_account_question_path) %>
+  <h4>问题： <%= @question.content %></h4>
+  <!-- 禁用修改 -->
+  <%#= link_to("修改", edit_account_question_path) %>
   <hr>
     <!-- 查看历史信息 -->
     <% if @dialogs.present? %>
@@ -13,16 +15,9 @@
 
       <% end %>
     <% else %>
-      <p>律师们正在紧张的撰写答案</p>
+      <div class="alert alert-info" role="alert">律师们正在紧张的撰写答案...</div>
     <% end %>
 
-
-
-
-    <hr>
-
-
-
-
+    <!-- <hr> -->
 
 </div>

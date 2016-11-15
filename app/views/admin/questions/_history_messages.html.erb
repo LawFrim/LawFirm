@@ -7,16 +7,14 @@
 
       <!-- 对话样式 -->
       <% if m.sender == current_user %>
-        <blockquote>
-          <p><%= m.body %></p>
-          <footer><%= m.sender.email %></footer>
-        </blockquote>
-      <% else %>
         <blockquote class="blockquote-reverse">
-          <p><%= m.body %></p>
+      <% else %>
+        <blockquote>
+      <% end %>
+          <p><%= simple_format(m.body) %></p>
           <footer><%= m.sender.email %></footer>
         </blockquote>
-      <% end %>
+      
       <!-- 对话样式 -->
 
     <% end %>

@@ -14,29 +14,10 @@
   <!-- 如果最后一条是自己的留言，则不让再追答 -->
   <% if i_send_last_message(@messages) %>
     <div class="alert alert-success text-center" role="alert">已回复</div>
-
-
     <!-- 如果没人回答，可以回答 -->
   <% else %>
-
-    <%= simple_form_for @new_answer ,url: admin_question_answers_path(@question) do |a| %>
-    <% if @conversation.present? %>
-    <!-- <h1>对话id:<%#= @conversation.id %></h1> -->
-    <!-- 隐藏提交当前会话id -->
-    <%= a.input :conversation_id, :as => :hidden, :input_html => { :value => @conversation.id } %>
-    
-    <% end %>
-    
-    <div class="form-group">
-        <%= a.input :content, label: '法律意见：',input_html: { class: "form-control"} %>
-        
-
-    </div>
-    <%= a.submit "提交", class: "btn btn-primary", data: { disable_with: "提交..." } %>
-    <% end %>
-
-
-
+    <!-- 律师回答表单 -->
+    <%= render 'form_for_lawyer' %>
   <% end %>
 
 

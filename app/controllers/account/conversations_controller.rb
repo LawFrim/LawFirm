@@ -1,15 +1,14 @@
 class Account::ConversationsController < ApplicationController
-
-    # 必须登录才能问问题
-    before_action :authenticate_user!
-    # f120
-    before_action :get_mailbox
-    layout "user"
+  # 必须登录才能问问题
+  before_action :authenticate_user!
+  # f120
+  before_action :get_mailbox
+  layout "user"
 
   def show
     @question = Question.find(params[:question_id])
+    # 根据id查找到指定对话
     @conversation = @mailbox.conversations.find(params[:id])
-
     @messages = @conversation.messages
     # binding.pry
 
@@ -28,7 +27,6 @@ class Account::ConversationsController < ApplicationController
     subject = @question.id.to_s
     # 回答内容
     answer_content = answer_params[:content]
-
     # 对话id
     conversation_id = answer_params[:conversation_id]
     # mailboxer方法
@@ -60,14 +58,4 @@ class Account::ConversationsController < ApplicationController
   def answer_params
     params.require(:answer).permit(:content,:conversation_id)
   end
-
-  
-  # f120建一个邮箱
-  def get_mailbox
-    @mailbox ||= current_user.mailbox
-  end
-
-
-
-
 end
