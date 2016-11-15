@@ -3,6 +3,7 @@
 <%= simple_form_for [:account,@user] do |f| %>
 
 <div>
+<%= f.input :user_avatar %>
  <%=f.input :user_name %>
 <%= f.input :email %>
 <%= f.input :district, label:"地区"%>

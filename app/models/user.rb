@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
  
-
+  mount_uploader :user_avatar, AvatarUploader
 
   # f120-mailbox
   acts_as_messageable
@@ -21,6 +21,9 @@ class User < ApplicationRecord
   def lawyer?
   is_lawyer
   end
+
+
+
 
 end
 
@@ -46,6 +49,7 @@ end
 #  district               :string
 #  area                   :string
 #  user_name              :string
+#  user_avatar            :string
 #
 # Indexes
 #

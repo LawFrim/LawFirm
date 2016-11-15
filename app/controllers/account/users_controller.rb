@@ -22,7 +22,7 @@ class Account::UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      redirect_to acccount_users_path
+      redirect_to account_users_path
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class Account::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:user_name,:email)
+    params.require(:user).permit(:user_name,:email,:user_avatar,:district,:area)
   end
 
 end

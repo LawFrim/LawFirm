@@ -1,10 +1,10 @@
 <h2>我的资料</h2>
 <div class="row">
   <div class="col-md-2">
-    <% if !@user.avatar.present?%>
-    <%= gravatar_tag @user, size: 150, default:"https://lawfarm.in/assets/default-avatar-5d4b45229945743d7dc271ea4e18ce9aadf97b531530a5707204f363fadeeb54.png" %>
+    <% if !@user.user_avatar.present? %>
+    <%= image_tag "http://placehold.it/150x150" %>
     <% else %>
-    <% image_tag @user.avatar.middle %>
+    <%= image_tag (@user.user_avatar.url(:middle)) %>
     <% end %>
 
   </div>

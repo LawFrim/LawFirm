@@ -28,6 +28,7 @@ end
 #  district               :string
 #  area                   :string
 #  user_name              :string
+#  user_avatar            :string
 #
 # Indexes
 #
