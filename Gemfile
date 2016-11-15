@@ -27,7 +27,6 @@ gem 'devise'
 gem 'simple_form'
 gem 'font-awesome-rails'
 gem 'pry'
-gem "devise"
 gem 'annotate'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
