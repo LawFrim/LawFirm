@@ -23,11 +23,17 @@
             <%= link_to("最新问题", admin_questions_path) %>
         </li>
         <li>
-          <%= link_to("按地域分类", admin_questions_path(:order => "by_district")) %>
+          <%= link_to("所有问题按地域分类", admin_questions_path(:order => "by_district")) %>
         </li>
         <li>
-          <%= link_to("按领域分类", admin_questions_path(:order => "by_area")) %>
+          <%= link_to("所有问题按领域分类", admin_questions_path(:order => "by_area")) %>
         </li>
+				<li>
+					<%= link_to("律师按领域分类", admin_questions_path(:order => "lawyer_area")) %>
+				</li>
+				<li>
+					<%= link_to("律师按地区分类", admin_questions_path(:order => "lawyer_district")) %>
+				</li>
 
 
 			</ul>

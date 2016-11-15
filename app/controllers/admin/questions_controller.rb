@@ -8,11 +8,18 @@ class Admin::QuestionsController < ApplicationController
   layout "admin"
   # 只显示当前用户的问题
   def index
+    @user = current_user
     @questions = case params[:order]
     when 'by_area'
       Question.area
     when 'by_district'
       Question.district
+    when "lawyer_area"
+      my_area = @user.area
+      Question.where(area:my_area)
+    when  "lawyer_district"
+      my_district = @user.district
+      Question.where(district:my_district)
     else
       Question.recent
     end
@@ -37,6 +44,10 @@ class Admin::QuestionsController < ApplicationController
     end
 
   end
+
+
+
+
 
 
 
