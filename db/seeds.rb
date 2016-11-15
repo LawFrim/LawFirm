@@ -9,9 +9,9 @@
 puts "创建两个 admin 账户（默认也是律师），和四个当事人，三个问题。"
 
 
-User.create([email:"a@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true", is_lawyer:"true",district:"北京", area:"刑事"])
-User.create([email:"b@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true",is_lawyer:"true",district:"北京", area:"刑事"])
-User.create([email:"c@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true",is_lawyer:"true",district:"上海", area:"经济"])
+User.create([email:"a@lawyer.com",user_name:"孙律师", password:"111111", password_confirmation:"111111", is_admin:"true", is_lawyer:"true",district:"北京", area:"刑事"])
+User.create([email:"b@lawyer.com", user_name:"梁律师",password:"111111", password_confirmation:"111111", is_admin:"true",is_lawyer:"true",district:"北京", area:"刑事"])
+User.create([email:"c@lawyer.com",user_name:"陈律师", password:"111111", password_confirmation:"111111", is_admin:"true",is_lawyer:"true",district:"上海", area:"经济"])
 
 
 puts "3 Admin account created."
@@ -22,7 +22,7 @@ create_users= for i in 1..3 do
 puts "4 Clients created"
 end
 
-User.create([email:"a@client.com",password:"111111",password_confirmation:"111111",is_admin:"false" ])
+User.create([email:"a@client.com",user_name:"吃瓜群众",password:"111111",password_confirmation:"111111",is_admin:"false" ])
 puts "4 Users' accounts created."
 Question.create!([content:"翻墙是违反国家法律法规的么？",area:"刑事",district:"北京",user_id:7])
 Question.create!([content:"当吃瓜群众也需要承担税负么？",area:"民事",district:"深圳",user_id:7])
