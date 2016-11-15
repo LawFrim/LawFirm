@@ -24,7 +24,7 @@ class Admin::QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @answers = @question.answers
     @new_answer = Answer.new
-    
+
     # f120
     qid = @question.id.to_s
     # 查是否有关于此问题的回复
@@ -48,7 +48,7 @@ class Admin::QuestionsController < ApplicationController
       redirect_to '/'
     end
   end
-  
+
   # 建一个邮箱
   def get_mailbox
     @mailbox ||= current_user.mailbox

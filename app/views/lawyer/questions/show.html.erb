@@ -1,0 +1,36 @@
+<div class="col-md-12">
+
+  <!-- 客户问题 -->
+  <h4>问题： <%= @question.content %></h4>
+  <h6>领域： <%= @question.area %></h6>
+  <h6>地区： <%= @question.district %></h6>
+
+  <h6>律师领域： <%= @user.area %></h6>
+  <h6>律师地区： <%= @user.district %></h6>
+  <hr>
+  <!-- 如果有人回答，显示历史答案 -->
+  <% if @answers.present? %>
+    <% @answers.each do |answer|%>
+      <p><%= answer.content %></p>
+
+      <!-- 如果回答该问题的人就是当前用户 -->
+      <% if answer.user == current_user %>
+        <!-- 可以修改 -->
+      <% end %>
+
+    <% end %>
+    <!-- 如果没人回答，可以回答 -->
+  <% else %>
+
+    <%= simple_form_for @new_answer ,url: admin_question_answers_path(@question) do |a| %>
+
+    <div class="form-group">
+        <%= a.input :content, label: '法律意见：',input_html: { class: "form-control"} %>
+
+    </div>
+    <%= a.submit "提交", class: "btn btn-primary", data: { disable_with: "提交..." } %>
+    <% end %>
+
+  <% end %>
+
+</div>
