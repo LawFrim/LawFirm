@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   # 普通用户路由
   namespace :account do
+    resources :documents
     resources :questions do
     resources :answers
   end
