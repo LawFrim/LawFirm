@@ -3,7 +3,7 @@ class Account::QuestionsController < ApplicationController
   before_action :authenticate_user!
   # f120
   before_action :get_mailbox
-  layout 'user'
+  layout "user"
 
   # 只显示当前用户的问题
   def index
@@ -46,7 +46,7 @@ class Account::QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.user = current_user
     if @question.save
-      redirect_to account_questions_path, notice: '问题已发布!'
+      redirect_to account_questions_path, notice: "问题已发布!"
     else
       render :new
     end
@@ -57,9 +57,9 @@ class Account::QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @question.user = current_user
     if @question.update(question_params)
-      redirect_to account_question_path(@question), notice: '问题已修改!'
+      redirect_to account_question_path(@question), notice: "问题已修改!"
     else
-      render :back, notice: '修改失败!'
+      render :back, notice: "修改失败!"
     end
   end
 

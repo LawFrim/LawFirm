@@ -4,17 +4,18 @@ class Admin::QuestionsController < ApplicationController
   before_action :admin_required
   before_action :get_mailbox
 
-  layout 'admin'
+  layout "admin"
   # 只显示当前用户的问题
   def index
-    @questions = case params[:order]
-                 when 'by_area'
-                   Question.area
-                 when 'by_district'
-                   Question.district
-                 else
-                   Question.recent
-    end
+    @questions =
+      case params[:order]
+      when "by_area"
+        Question.area
+      when "by_district"
+        Question.district
+      else
+        Question.recent
+         end
   end
 
   # 查看问题
@@ -39,7 +40,7 @@ class Admin::QuestionsController < ApplicationController
 
   # 增加需要管理员登录
   def admin_required
-    redirect_to '/' unless current_user.admin?
+    redirect_to "/" unless current_user.admin?
   end
 
   # 建一个邮箱

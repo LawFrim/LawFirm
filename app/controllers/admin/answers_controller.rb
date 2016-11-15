@@ -3,7 +3,7 @@ class Admin::AnswersController < ApplicationController
   before_action :admin_required
   before_action :get_mailbox
 
-  layout 'admin'
+  layout "admin"
 
   # 回答问题
   def create
@@ -32,7 +32,7 @@ class Admin::AnswersController < ApplicationController
     end
 
     # binding.pry
-    flash[:notice] = '回复成功'
+    flash[:notice] = "回复成功"
     redirect_to :back
   end
 
@@ -41,9 +41,9 @@ class Admin::AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
     if @answer.update(answer_params)
-      redirect_to admin_question_path(@question), notice: '答案修改成功!'
+      redirect_to admin_question_path(@question), notice: "答案修改成功!"
     else
-      render :back, notice: '答案修改失败!'
+      render :back, notice: "答案修改失败!"
     end
   end
 
@@ -55,7 +55,7 @@ class Admin::AnswersController < ApplicationController
 
   # 增加需要管理员登录
   def admin_required
-    redirect_to '/' unless current_user.admin?
+    redirect_to "/" unless current_user.admin?
   end
 
   # 建一个邮箱
