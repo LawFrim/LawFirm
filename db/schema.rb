@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114133230) do
+ActiveRecord::Schema.define(version: 20161115082012) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -38,9 +38,10 @@ ActiveRecord::Schema.define(version: 20161114133230) do
   end
 
   create_table "mailboxer_conversations", force: :cascade do |t|
-    t.string   "subject",    default: ""
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "subject",     default: ""
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "question_id"
   end
 
   create_table "mailboxer_notifications", force: :cascade do |t|

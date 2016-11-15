@@ -1,7 +1,7 @@
 class Question < ApplicationRecord
   belongs_to :user
   has_many :answers
-  has_one :conversation, class_name: 'MailboxerConversation', foreign_key: 'subject'
+  has_one :conversation, class_name: 'Conversation', foreign_key: 'question_id'
 
   scope :recent, -> { order('created_at DESC') }
   scope :area, -> { order('area DESC') }

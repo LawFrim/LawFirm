@@ -21,7 +21,7 @@ class Admin::AnswersController < ApplicationController
     # 如果之前没有对话，就新建对话。如果有，就回复对话
 
     if conversation_id.blank?
-      conversation = current_user.send_message(asker, answer_content, subject).conversation
+      conversation = current_user.send_message(asker, answer_content, @question.content, @question).conversation
     # 由于没有conversation的model无法进一步设置,并且由于conversation的名字也找不到
     # 所以无法使用适配器,因此只能选择从conversation里面筛选主题的方式来查表
     else
