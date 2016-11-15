@@ -56,6 +56,6 @@ class Lawyer::QuestionsController < ApplicationController
     end
 
 
- 
+
 
 end

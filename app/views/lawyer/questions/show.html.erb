@@ -4,32 +4,23 @@
   <h4>问题： <%= @question.content %></h4>
   <h6>领域： <%= @question.area %></h6>
   <h6>地区： <%= @question.district %></h6>
-
-
   <hr>
-  <!-- 如果有人回答，显示历史答案 -->
-  <% if @answers.present? %>
-    <% @answers.each do |answer|%>
-      <p><%= answer.content %></p>
 
-      <!-- 如果回答该问题的人就是当前用户 -->
-      <% if answer.user == current_user %>
-        <!-- 可以修改 -->
-      <% end %>
+  <!-- 历史消息 -->
+  <%= render 'history_messages' %>
 
-    <% end %>
+
+
+  <!-- 如果最后一条是自己的留言，则不让再追答 -->
+  <% if i_send_last_message(@messages) %>
+    <div class="alert alert-success text-center" role="alert">已回复</div>
     <!-- 如果没人回答，可以回答 -->
   <% else %>
-
-    <%= simple_form_for @new_answer ,url: lawyer_question_answers_path(@question) do |a| %>
-
-    <div class="form-group">
-        <%= a.input :content, label: '法律意见：',input_html: { class: "form-control"} %>
-
-    </div>
-    <%= a.submit "提交", class: "btn btn-primary", data: { disable_with: "提交..." } %>
-    <% end %>
-
+    <!-- 律师回答表单 -->
+    <%= render 'form_for_lawyer' %>
   <% end %>
+
+
+
 
 </div>
