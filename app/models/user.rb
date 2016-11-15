@@ -4,8 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
- 
+
+
   mount_uploader :user_avatar, AvatarUploader
+
 
   # f120-mailbox
   acts_as_messageable
@@ -21,8 +23,10 @@ class User < ApplicationRecord
   def lawyer?
   is_lawyer
   end
-
-
+ 
+  scope :recent, -> { order("created_at DESC")}
+  scope :area, -> { order("area DESC")}
+  scope :district, -> { order("district DESC")}
 
 
 end
