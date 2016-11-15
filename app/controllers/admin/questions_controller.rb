@@ -1,5 +1,4 @@
 class Admin::QuestionsController < ApplicationController
-
   # 必须登录才能回答问题
   before_action :authenticate_user!
   before_action :admin_required
@@ -9,22 +8,22 @@ class Admin::QuestionsController < ApplicationController
   # 只显示当前用户的问题
   def index
     @user = current_user
-    @questions = case params[:order]
-    when 'by_area'
-      Question.area
-    when 'by_district'
-      Question.district
-    when "lawyer_area"
-      my_area = @user.area
-      Question.where(area:my_area)
-    when  "lawyer_district"
-      my_district = @user.district
-      Question.where(district:my_district)
-    else
-      Question.recent
-    end
+    @questions =
+      case params[:order]
+      when "by_area"
+        Question.area
+      when "by_district"
+        Question.district
+      when "lawyer_area"
+        my_area = @user.area
+        Question.where(area: my_area)
+      when "lawyer_district"
+        my_district = @user.district
+        Question.where(district: my_district)
+      else
+        Question.recent
+         end
   end
-
 
   # 查看问题
   def show
@@ -35,38 +34,24 @@ class Admin::QuestionsController < ApplicationController
     # f120
     qid = @question.id.to_s
     # 查是否有关于此问题的回复
-    dialog = @mailbox.conversations.find_by(subject: qid)
+    dialog = @question.conversation
     # binding.pry
     if dialog.present?
       # 如果有就交给@message
       @messages = dialog.messages
       @conversation = dialog
     end
-
   end
-
-
-
-
-
-
 
   private
 
   # 增加需要管理员登录
   def admin_required
-    if !current_user.admin?
-      redirect_to '/'
-    end
+    redirect_to "/" unless current_user.admin?
   end
 
   # 建一个邮箱
   def get_mailbox
     @mailbox ||= current_user.mailbox
   end
-
-
-
-
-
 end

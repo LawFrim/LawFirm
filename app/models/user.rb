@@ -4,10 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-
-
   mount_uploader :user_avatar, AvatarUploader
-
 
   # f120-mailbox
   acts_as_messageable
@@ -21,14 +18,36 @@ class User < ApplicationRecord
   end
 
   def lawyer?
-  is_lawyer
+    is_lawyer
   end
- 
-  scope :recent, -> { order("created_at DESC")}
-  scope :area, -> { order("area DESC")}
-  scope :district, -> { order("district DESC")}
 
+  scope :recent, -> { order("created_at DESC") }
+  scope :area, -> { order("area DESC") }
+  scope :district, -> { order("district DESC") }
 
+  def send_message(recipients, msg_body, subject, question, sanitize_text = true, attachment = nil, message_timestamp = Time.now)
+    convo = Mailboxer::ConversationBuilder.new(
+      subject: subject,
+      created_at: message_timestamp,
+      updated_at: message_timestamp
+    ).build
+
+    message = Mailboxer::MessageBuilder.new(
+      sender: self,
+      conversation: convo,
+      recipients: recipients,
+      body: msg_body,
+      subject: subject,
+      attachment: attachment,
+      created_at: message_timestamp,
+      updated_at: message_timestamp
+    ).build
+
+    convo.question_id = question.id
+    convo.save
+
+    message.deliver false, sanitize_text
+  end
 end
 
 # == Schema Information
