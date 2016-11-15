@@ -1,0 +1,2 @@
+class MailboxerConversation < ApplicationRecord
+end

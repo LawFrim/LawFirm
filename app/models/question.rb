@@ -1,14 +1,11 @@
 class Question < ApplicationRecord
-
-
   belongs_to :user
   has_many :answers
+  has_one :conversation, class_name: 'MailboxerConversation', foreign_key: 'subject'
 
-
-
-  scope :recent, -> { order("created_at DESC")}
-  scope :area, -> { order("area DESC")}
-  scope :district, -> { order("district DESC")}
+  scope :recent, -> { order('created_at DESC') }
+  scope :area, -> { order('area DESC') }
+  scope :district, -> { order('district DESC') }
 end
 
 # == Schema Information
