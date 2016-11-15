@@ -3,7 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  
+
+
+
+  mount_uploader :user_avatar, AvatarUploader
+
+
   # f120-mailbox
   acts_as_messageable
 
@@ -14,6 +19,7 @@ class User < ApplicationRecord
   def admin?
     is_admin
   end
+
 
 
   def send_message(recipients, msg_body, subject, question, sanitize_text = true, attachment = nil, message_timestamp = Time.now)
@@ -34,11 +40,17 @@ class User < ApplicationRecord
     convo.save
 
     message.deliver false, sanitize_text
+end
+  def lawyer?
+  is_lawyer
   end
+
+  scope :recent, -> { order("created_at DESC")}
+  scope :area, -> { order("area DESC")}
+  scope :district, -> { order("district DESC")}
 
 
 end
-
 # == Schema Information
 #
 # Table name: users
@@ -57,7 +69,18 @@ end
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  is_admin               :boolean          default(FALSE)
-#  name                   :string
+#  is_lawyer              :boolean          default(FALSE)
+#  district               :string
+#  area                   :string
+#  user_name              :string
+#  user_avatar            :string
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#
+
 #
 # Indexes
 #
