@@ -22,6 +22,12 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @answers = @question.answers
     @new_answer = Answer.new
+
+
+    # mailbox方法
+    
+
+
   end
 
   # 编辑

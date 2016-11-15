@@ -1,7 +1,11 @@
 class Question < ApplicationRecord
 
+
   belongs_to :user
   has_many :answers
+
+
+
   scope :recent, -> { order("created_at DESC")}
   scope :area, -> { order("area DESC")}
   scope :district, -> { order("district DESC")}

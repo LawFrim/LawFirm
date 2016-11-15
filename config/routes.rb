@@ -6,17 +6,28 @@ Rails.application.routes.draw do
     resources :questions do
       resources :answers
     end
+    resources :conversations
 
   end
 
   # 普通用户路由
   namespace :account do
+    resources :documents
     resources :questions do
-    resources :answers
+      resources :answers
+      resources :conversations
+    end
+
   end
+  # 律师路由
+  namespace :lawyer do
+  resources :questions do
+        resources :answers
+      end
   end
 
+  # resources :lawyers
+  resources :welcome
+  root 'account/questions#index'
 
-  resources :questions
-  root 'welcome#index'
 end
