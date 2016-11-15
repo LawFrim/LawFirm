@@ -8,11 +8,18 @@ class Admin::QuestionsController < ApplicationController
   layout "admin"
   # 只显示当前用户的问题
   def index
+    @user = current_user
     @questions = case params[:order]
     when 'by_area'
       Question.area
     when 'by_district'
       Question.district
+    when "lawyer_area"
+      my_area = @user.area
+      Question.where(area:my_area)
+    when  "lawyer_district"
+      my_district = @user.district
+      Question.where(district:my_district)
     else
       Question.recent
     end
@@ -24,7 +31,7 @@ class Admin::QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @answers = @question.answers
     @new_answer = Answer.new
-    
+
     # f120
     qid = @question.id.to_s
     # 查是否有关于此问题的回复
@@ -40,6 +47,10 @@ class Admin::QuestionsController < ApplicationController
 
 
 
+
+
+
+
   private
 
   # 增加需要管理员登录
@@ -48,7 +59,7 @@ class Admin::QuestionsController < ApplicationController
       redirect_to '/'
     end
   end
-  
+
   # 建一个邮箱
   def get_mailbox
     @mailbox ||= current_user.mailbox
