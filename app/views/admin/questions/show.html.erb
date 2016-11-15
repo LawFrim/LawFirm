@@ -9,11 +9,20 @@
     <!-- 查看历史信息 -->
     <% if @messages.present? %>
       <% @messages.each do |m| %>
-      <p>
-        <%= m.sender.email %>
-        说:
-        <%= m.body %>        
-      </p>
+
+        <!-- 对话样式 -->
+        <% if m.sender == current_user %>
+          <blockquote>
+            <p><%= m.body %></p>
+            <footer><%= m.sender.email %></footer>
+          </blockquote>
+        <% else %>
+          <blockquote class="blockquote-reverse">
+            <p><%= m.body %></p>
+            <footer><%= m.sender.email %></footer>
+          </blockquote>
+        <% end %>
+        <!-- 对话样式 -->
 
       <% end %>
     <% end %>
@@ -45,7 +54,7 @@
 
     <%= simple_form_for @new_answer ,url: admin_question_answers_path(@question) do |a| %>
     <% if @conversation.present? %>
-    <h1>对话id:<%= @conversation.id %></h1>
+    <!-- <h1>对话id:<%#= @conversation.id %></h1> -->
     <!-- 隐藏提交当前会话id -->
     <%= a.input :conversation_id, :as => :hidden, :input_html => { :value => @conversation.id } %>
     

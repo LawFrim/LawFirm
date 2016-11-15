@@ -6,10 +6,8 @@
     <!-- 查看历史信息 -->
     <% if @dialogs.present? %>
       <% @dialogs.each do |d| %>
-      <h1><%= d.id %></h1>
-      <h1><%= @question.id %></h1>
       <p>
-      <%= link_to(d.id,account_question_conversation_path(question_id: @question.id,id: d.id)) %>
+      <%= link_to(d.messages.first.sender.email+'为您提供了一些法律意见...',account_question_conversation_path(question_id: @question.id,id: d.id)) %>
       
       </p>
 
