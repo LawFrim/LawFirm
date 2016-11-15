@@ -25,9 +25,9 @@ class Account::QuestionsController < ApplicationController
     @new_answer = Answer.new
 
     # f120
-    qid = @question.id.to_s
+    # qid = @question.id.to_s
     # 查是否有关于此问题的回复
-    @dialogs = @mailbox.conversations.where(subject: qid)
+    @dialogs = @question.conversations
     # binding.pry
 
 

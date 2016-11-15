@@ -8,7 +8,7 @@ class Account::ConversationsController < ApplicationController
   def show
     @question = Question.find(params[:question_id])
     # 根据id查找到指定对话
-    @conversation = @mailbox.conversations.find(params[:id])
+    @conversation = @question.conversations.find(params[:id])
     @messages = @conversation.messages
     # binding.pry
 
@@ -24,7 +24,7 @@ class Account::ConversationsController < ApplicationController
     # 出题人
     akser = @question.user
     # 问题内容和问题id绑定
-    subject = @question.id.to_s
+    subject = @question.content
     # 回答内容
     answer_content = answer_params[:content]
     # 对话id
@@ -33,12 +33,11 @@ class Account::ConversationsController < ApplicationController
     # 如果之前没有对话，就新建对话。如果有，就回复对话
 
     if conversation_id.blank?
-      conversation = current_user.send_message(akser ,answer_content ,subject).conversation
-        # 由于没有conversation的model无法进一步设置,并且由于conversation的名字也找不到
-        # 所以无法使用适配器,因此只能选择从conversation里面筛选主题的方式来查表
+      conversation = current_user.send_message(akser ,answer_content ,subject,@question).conversation
+        # xdite魔改后的send_message多了一个question参数
     else
       # 通过会话id获取会话
-      conversation = @mailbox.conversations.find(conversation_id)
+      conversation = @question.conversations.find(conversation_id)
       # binding.pry
       current_user.reply_to_conversation(conversation, answer_content)
     end
