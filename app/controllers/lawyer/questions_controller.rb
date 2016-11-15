@@ -2,7 +2,7 @@ class Lawyer::QuestionsController < ApplicationController
 
 
 
-    # 必须律师登录才能回答问题
+    # 必须律师登录才能查看问题
     before_action :authenticate_user!
     before_action :lawyer_required
      before_action :get_mailbox
@@ -43,9 +43,10 @@ class Lawyer::QuestionsController < ApplicationController
       @new_answer = Answer.new
 
       # f120
-      qid = @question.id.to_s
-      # 查是否有关于此问题的回复
-      dialog = @mailbox.conversations.find_by(subject: qid)
+      #qid = @question.id.to_s
+      # 查是否有关于此问题的回复 
+      #dialog = @mailbox.conversations.find_by(subject: qid)
+        dialog = @question.conversations.first
       # binding.pry
       if dialog.present?
         # 如果有就交给@message
@@ -55,21 +56,6 @@ class Lawyer::QuestionsController < ApplicationController
 
     end
 
-
-
-    private
-
-    #增加需要管理员登录
-    def admin_required
-      if !current_user.admin?
-        redirect_to '/'
-      end
-    end
-
-    #建一个邮箱
-    def get_mailbox
-      @mailbox ||= current_user.mailbox
-    end
 
 
 

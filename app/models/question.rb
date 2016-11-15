@@ -3,6 +3,7 @@ class Question < ApplicationRecord
 
   belongs_to :user
   has_many :answers
+  has_many :conversations, class_name: 'Conversation', foreign_key: 'question_id'
 
 
 

@@ -9,7 +9,6 @@ one: {}
 #
 two: {}
 # column: value
-
 # == Schema Information
 #
 # Table name: users
@@ -33,6 +32,19 @@ two: {}
 #  area                   :string
 #  user_name              :string
 #  user_avatar            :string
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#
+
+#  is_lawyer              :boolean          default(FALSE)
+#  district               :string
+#  area                   :string
+#  user_name              :string
+#  user_avatar            :string
+ 
 #
 # Indexes
 #

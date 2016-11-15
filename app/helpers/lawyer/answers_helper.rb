@@ -1,0 +1,2 @@
+module Lawyer::AnswersHelper
+end

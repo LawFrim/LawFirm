@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Admin::LawyerControllerTest < ActionDispatch::IntegrationTest
+class Lawyer::AnswersControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

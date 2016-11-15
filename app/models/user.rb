@@ -20,17 +20,37 @@ class User < ApplicationRecord
     is_admin
   end
 
+
+
+  def send_message(recipients, msg_body, subject, question, sanitize_text = true, attachment = nil, message_timestamp = Time.now)
+    convo = Mailboxer::ConversationBuilder.new(subject: subject,
+                                               created_at: message_timestamp,
+                                               updated_at: message_timestamp).build
+
+    message = Mailboxer::MessageBuilder.new(sender: self,
+                                            conversation: convo,
+                                            recipients: recipients,
+                                            body: msg_body,
+                                            subject: subject,
+                                            attachment: attachment,
+                                            created_at: message_timestamp,
+                                            updated_at: message_timestamp).build
+
+    convo.question_id = question.id
+    convo.save
+
+    message.deliver false, sanitize_text
+end
   def lawyer?
   is_lawyer
   end
- 
+
   scope :recent, -> { order("created_at DESC")}
   scope :area, -> { order("area DESC")}
   scope :district, -> { order("district DESC")}
 
 
 end
-
 # == Schema Information
 #
 # Table name: users
@@ -54,6 +74,13 @@ end
 #  area                   :string
 #  user_name              :string
 #  user_avatar            :string
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#
+
 #
 # Indexes
 #

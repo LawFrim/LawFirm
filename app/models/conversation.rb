@@ -1,3 +1,10 @@
+class Conversation < Mailboxer::Conversation
+
+  # 建立一个新的conversation继承自mailboxer
+  belongs_to :question
+
+end
+
 # == Schema Information
 #
 # Table name: mailboxer_conversations
@@ -8,11 +15,3 @@
 #  updated_at  :datetime         not null
 #  question_id :integer
 #
-
-require 'test_helper'
-
-class ConversationsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
-end

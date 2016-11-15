@@ -1,30 +1,23 @@
 <div class="col-md-12">
 
 
-  <h4>问题： <%= @question.content %></h4><%= link_to("修改", edit_account_question_path) %>
+  <h4>问题： <%= @question.content %></h4>
+  <!-- 禁用修改 -->
+  <%#= link_to("修改", edit_account_question_path) %>
   <hr>
     <!-- 查看历史信息 -->
     <% if @dialogs.present? %>
       <% @dialogs.each do |d| %>
-      <h1><%= d.id %></h1>
-      <h1><%= @question.id %></h1>
       <p>
-      <%= link_to(d.id,account_question_conversation_path(question_id: @question.id,id: d.id)) %>
+      <%= link_to(d.messages.first.sender.email+'为您提供了一些法律意见...',account_question_conversation_path(question_id: @question.id,id: d.id)) %>
       
       </p>
 
       <% end %>
     <% else %>
-      <p>律师们正在紧张的撰写答案</p>
+      <div class="alert alert-info" role="alert">律师们正在紧张的撰写答案...</div>
     <% end %>
 
-
-
-
-    <hr>
-
-
-
-
+    <!-- <hr> -->
 
 </div>

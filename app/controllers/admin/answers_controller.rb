@@ -11,7 +11,7 @@ class Admin::AnswersController < ApplicationController
     # 出题人
     akser = @question.user
     # 问题内容和问题id绑定
-    subject = @question.id.to_s
+    subject = @question.content
     # 回答内容
     answer_content = answer_params[:content]
 
@@ -21,12 +21,11 @@ class Admin::AnswersController < ApplicationController
     # 如果之前没有对话，就新建对话。如果有，就回复对话
 
     if conversation_id.blank?
-      conversation = current_user.send_message(akser ,answer_content ,subject).conversation
-        # 由于没有conversation的model无法进一步设置,并且由于conversation的名字也找不到
-        # 所以无法使用适配器,因此只能选择从conversation里面筛选主题的方式来查表
+      conversation = current_user.send_message(akser ,answer_content ,subject , @question).conversation
+        # 使用修正过得新send_message多加了一个参数
     else
       # 通过会话id获取会话
-      conversation = @mailbox.conversations.find(conversation_id)
+      conversation = @question.conversations.find(conversation_id)
       # binding.pry
       current_user.reply_to_conversation(conversation, answer_content)
     end
@@ -54,19 +53,5 @@ class Admin::AnswersController < ApplicationController
   def answer_params
     params.require(:answer).permit(:content,:conversation_id)
   end
-
-  # 增加需要管理员登录
-  def admin_required
-    if !current_user.admin?
-      redirect_to '/'
-    end
-  end
-
-
-  # 建一个邮箱
-  def get_mailbox
-    @mailbox ||= current_user.mailbox
-  end
-
 
 end

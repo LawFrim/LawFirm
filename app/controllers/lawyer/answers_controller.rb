@@ -1,24 +1,12 @@
-class Account::ConversationsController < ApplicationController
-  # 必须登录才能问问题
+class Lawyer::AnswersController < ApplicationController
+
   before_action :authenticate_user!
-  # f120
+  before_action :lawyer_required
   before_action :get_mailbox
-  layout "user"
 
-  def show
-    @question = Question.find(params[:question_id])
-    # 根据id查找到指定对话
-    @conversation = @question.conversations.find(params[:id])
-    @messages = @conversation.messages
-    # binding.pry
+  layout "lawyer"
 
-    @new_answer = Answer.new
-
-  end
-
-
-
-  # 追问问题
+  # 回答问题
   def create
     @question = Question.find(params[:question_id])
     # 出题人
@@ -27,14 +15,15 @@ class Account::ConversationsController < ApplicationController
     subject = @question.content
     # 回答内容
     answer_content = answer_params[:content]
+
     # 对话id
     conversation_id = answer_params[:conversation_id]
     # mailboxer方法
     # 如果之前没有对话，就新建对话。如果有，就回复对话
 
     if conversation_id.blank?
-      conversation = current_user.send_message(akser ,answer_content ,subject,@question).conversation
-        # xdite魔改后的send_message多了一个question参数
+      conversation = current_user.send_message(akser ,answer_content ,subject , @question).conversation
+        # 使用修正过得新send_message多加了一个参数
     else
       # 通过会话id获取会话
       conversation = @question.conversations.find(conversation_id)
@@ -47,8 +36,16 @@ class Account::ConversationsController < ApplicationController
     redirect_to :back
   end
 
-
-
+  # 更新回答
+  def update
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
+    if @answer.update(answer_params)
+      redirect_to admin_question_path(@question), notice: "答案修改成功!"
+    else
+      render :back, notice: "答案修改失败!"
+    end
+  end
 
 
 
@@ -57,4 +54,5 @@ class Account::ConversationsController < ApplicationController
   def answer_params
     params.require(:answer).permit(:content,:conversation_id)
   end
+
 end

@@ -5,7 +5,6 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
 end
-
 # == Schema Information
 #
 # Table name: users
@@ -29,6 +28,14 @@ end
 #  area                   :string
 #  user_name              :string
 #  user_avatar            :string
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#
+
+>>>>>>> develop
 #
 # Indexes
 #
