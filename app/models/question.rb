@@ -9,6 +9,9 @@ class Question < ApplicationRecord
   scope :recent, -> { order("created_at DESC")}
   scope :area, -> { order("area DESC")}
   scope :district, -> { order("district DESC")}
+
+  scope :district1,-> { where(district == '北京') }
+  scope :area1,-> { where(area == '民事') }
 end
 
 # == Schema Information

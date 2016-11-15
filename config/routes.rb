@@ -20,12 +20,16 @@ Rails.application.routes.draw do
 
   end
   # 律师路由
-  
+
   namespace :lawyer do
     resources :questions do
         resources :answers
+        collection do
+          get :show_district
+         end
+        end
       end
-  end
+
 
   # resources :lawyers
   resources :welcome
