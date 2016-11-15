@@ -13,10 +13,11 @@ Rails.application.routes.draw do
   # 普通用户路由
   namespace :account do
     resources :documents
+    resources :users
     resources :questions do
       resources :answers
       resources :conversations
-      resources :user
+
     end
 
   end

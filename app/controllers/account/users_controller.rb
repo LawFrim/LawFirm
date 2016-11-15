@@ -1,6 +1,6 @@
 class Account::UsersController < ApplicationController
   before_action :authenticate_user!
-  layout "user_center"
+  layout "user"
 
 
   def index
@@ -26,11 +26,12 @@ class Account::UsersController < ApplicationController
     else
       render :edit
     end
+  end
 
   private
 
   def user_params
     params.require(:user).permit(:user_name,:email)
-  end 
+  end
 
 end

@@ -3,7 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  
+
+ 
+
+
   # f120-mailbox
   acts_as_messageable
 
@@ -14,7 +17,7 @@ class User < ApplicationRecord
   def admin?
     is_admin
   end
-  
+
   def lawyer?
   is_lawyer
   end
