@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       resources :answers
       resources :conversations
     end
-    
+
   end
   # 律师路由
   namespace :lawyer do
@@ -25,7 +25,9 @@ Rails.application.routes.draw do
         resources :answers
       end
   end
-  # resources :lawyers
 
+  # resources :lawyers
+  resources :welcome
   root 'account/questions#index'
+
 end
