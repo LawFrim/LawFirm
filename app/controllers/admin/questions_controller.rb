@@ -1,6 +1,6 @@
 class Admin::QuestionsController < ApplicationController
 
-  # 必须登录才能回答问题
+  # 必须登录才能查看问题
   before_action :authenticate_user!
   before_action :admin_required
   before_action :get_mailbox
@@ -51,5 +51,5 @@ class Admin::QuestionsController < ApplicationController
 
 
 
- 
+
 end
