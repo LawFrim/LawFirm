@@ -16,8 +16,13 @@ Rails.application.routes.draw do
     resources :answers
   end
   end
-
-
+  # 律师路由
+  namespace :lawyer do
+  resources :questions do
+        resources :answers
+      end
+  end
+  # resources :lawyers
 
   root 'account/questions#index'
 end
