@@ -8,19 +8,29 @@ class Lawyer::QuestionsController < ApplicationController
      before_action :get_mailbox
 
     layout "lawyer"
-    # 只显示当前用户的问题
 
+    # 只显示所有用户的问题 分类显示顺序
+    # def index
+    #   @questions = case params[:order]
+    #   when 'by_area'
+    #     Question.area
+    #   when 'by_district'
+    #     Question.district
+    #   else
+    #     Question.recent
+    #   end
+    # end
 
-    def index
-      @questions = case params[:order]
-      when 'by_area'
-        Question.area
-      when 'by_district'
-        Question.district
-      else
-        Question.recent
-      end
-    end
+   # 按照地域排序律师的问题
+        def index
+          @questions = case params[:district]
+
+          when 'by_district1'
+            Question.district
+          else
+            Question.recent
+          end
+        end
 
 
     #查看问题
