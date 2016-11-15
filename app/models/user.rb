@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  mount_uploader :user_avatar, AvatarUploader
+
   # f120-mailbox
   acts_as_messageable
 
@@ -19,19 +21,27 @@ class User < ApplicationRecord
     is_lawyer
   end
 
-  def send_message(recipients, msg_body, subject, question, sanitize_text = true, attachment = nil, message_timestamp = Time.now)
-    convo = Mailboxer::ConversationBuilder.new(subject: subject,
-                                               created_at: message_timestamp,
-                                               updated_at: message_timestamp).build
+  scope :recent, -> { order("created_at DESC") }
+  scope :area, -> { order("area DESC") }
+  scope :district, -> { order("district DESC") }
 
-    message = Mailboxer::MessageBuilder.new(sender: self,
-                                            conversation: convo,
-                                            recipients: recipients,
-                                            body: msg_body,
-                                            subject: subject,
-                                            attachment: attachment,
-                                            created_at: message_timestamp,
-                                            updated_at: message_timestamp).build
+  def send_message(recipients, msg_body, subject, question, sanitize_text = true, attachment = nil, message_timestamp = Time.now)
+    convo = Mailboxer::ConversationBuilder.new(
+      subject: subject,
+      created_at: message_timestamp,
+      updated_at: message_timestamp
+    ).build
+
+    message = Mailboxer::MessageBuilder.new(
+      sender: self,
+      conversation: convo,
+      recipients: recipients,
+      body: msg_body,
+      subject: subject,
+      attachment: attachment,
+      created_at: message_timestamp,
+      updated_at: message_timestamp
+    ).build
 
     convo.question_id = question.id
     convo.save
@@ -61,6 +71,8 @@ end
 #  is_lawyer              :boolean          default(FALSE)
 #  district               :string
 #  area                   :string
+#  user_name              :string
+#  user_avatar            :string
 #
 # Indexes
 #

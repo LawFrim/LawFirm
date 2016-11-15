@@ -109,6 +109,8 @@ ActiveRecord::Schema.define(version: 20161115082012) do
     t.boolean  "is_lawyer",              default: false
     t.string   "district"
     t.string   "area"
+    t.string   "user_name"
+    t.string   "user_avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

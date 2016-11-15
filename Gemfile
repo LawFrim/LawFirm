@@ -27,11 +27,12 @@ gem 'devise'
 gem 'simple_form'
 gem 'font-awesome-rails'
 gem 'pry'
-gem "devise"
 gem 'annotate'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
 gem "mini_magick"
+
+
 
 # f120
 gem 'mailboxer'

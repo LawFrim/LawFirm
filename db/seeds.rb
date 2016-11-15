@@ -5,11 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "创建1个 admin 账户，两个律师，和四个当事人，三个问题。"
+puts "创建两个 admin 账户（默认也是律师），和四个当事人，三个问题。"
 
 
-User.create([email:"a@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true", is_lawyer:"true"])
-User.create([email:"c@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true",is_lawyer:"true"])
+ 
+User.create([email:"a@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true", is_lawyer:"true",district:"北京", area:"刑事"])
+User.create([email:"c@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true",is_lawyer:"true",district:"上海", area:"经济"])
+
 
 puts "2 Admin account created."
 
@@ -21,11 +23,11 @@ end
 
 User.create([email:"a@client.com",password:"111111",password_confirmation:"111111",is_admin:"false" ])
 puts "4 Users' accounts created."
-Question.create!([content:"翻墙是违反国家法律法规的么？",area:"刑事",district:"北京",user_id:5])
-Question.create!([content:"当吃瓜群众也需要承担税负么？",area:"民事",district:"深圳",user_id:5])
-Question.create!([content:"租房合同上能写只租给北京人么？",area:"民事",district:"上海",user_id:5])
-Question.create!([content:"我能找到真爱么？",area:"民事",district:"北京",user_id:4])
-Question.create!([content:"我家房子要被政府拆迁了，我真的能实现财富自由么？",area:"经济",district:"北京",user_id:4])
+Question.create!([content:"翻墙是违反国家法律法规的么？",area:"刑事",district:"北京",user_id:7])
+Question.create!([content:"当吃瓜群众也需要承担税负么？",area:"民事",district:"深圳",user_id:7])
+Question.create!([content:"租房合同上能写只租给北京人么？",area:"民事",district:"上海",user_id:7])
+Question.create!([content:"我能找到真爱么？",area:"民事",district:"北京",user_id:7])
+Question.create!([content:"我家房子要被政府拆迁了，我真的能实现财富自由么？",area:"经济",district:"北京",user_id:7])
 puts "5 questions created!"
 
 Answer.create!([content:"我觉得你问错人了，你还是申请退钱把。",question_id:1,user_id:1])
