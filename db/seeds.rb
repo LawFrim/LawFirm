@@ -5,10 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "创建一个 admin 账户，和四个当事人，三个问题。"
+puts "创建1个 admin 账户，两个律师，和四个当事人，三个问题。"
 
-User.create([email:"a@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true",is_lawyer:"true"])
-puts "Admin account created."
+
+User.create([email:"a@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true", is_lawyer:"true"])
+User.create([email:"c@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true",is_lawyer:"true"])
+
+puts "2 Admin account created."
+
 
 create_users= for i in 1..3 do
  User.create([email:"user#{i}@client.com",password:"111111",password_confirmation:"111111", is_admin:"false"])

@@ -33,6 +33,8 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
 gem "mini_magick"
 
+# f120
+gem 'mailboxer'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
@@ -55,6 +57,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "rails-erd"
+  gem "awesome_rails_console"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

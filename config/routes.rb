@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :questions do
       resources :answers
     end
+    resources :conversations
 
   end
 
@@ -13,8 +14,10 @@ Rails.application.routes.draw do
   namespace :account do
     resources :documents
     resources :questions do
-    resources :answers
-  end
+      resources :answers
+      resources :conversations
+    end
+    
   end
   # 律师路由
   namespace :lawyer do

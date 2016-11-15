@@ -1,0 +1,55 @@
+<div class="col-md-12">
+
+  <!-- 客户问题 -->
+  <h4>问题： <%= @question.content %></h4>
+  <h6>领域： <%= @question.area %></h6>
+  <h6>地区： <%= @question.district %></h6>
+  <hr>
+
+    <!-- 查看历史信息 -->
+    <% if @messages.present? %>
+      <% @messages.each do |m| %>
+      <p>
+        <%= m.sender.email %>
+        说:
+        <%= m.body %>        
+      </p>
+
+      <% end %>
+
+
+
+    <% end %>
+
+    <hr>
+
+
+
+
+    <!-- 有人回答后可以追问 -->
+
+
+    <%= simple_form_for @new_answer ,url: account_question_conversations_path(@question) do |a| %>
+    <% if @conversation.present? %>
+    <h1>对话id:<%= @conversation.id %></h1>
+    <!-- 隐藏提交当前会话id -->
+    <%= a.input :conversation_id, :as => :hidden, :input_html => { :value => @conversation.id } %>
+    
+    <% end %>
+    
+    <div class="form-group">
+        <%= a.input :content, label: '法律意见：',input_html: { class: "form-control"} %>
+        
+
+    </div>
+    <%= a.submit "提交", class: "btn btn-primary", data: { disable_with: "提交..." } %>
+    <% end %>
+
+
+
+
+
+
+    
+
+</div>
