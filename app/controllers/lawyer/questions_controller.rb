@@ -8,16 +8,29 @@ class Lawyer::QuestionsController < ApplicationController
      before_action :get_mailbox
 
     layout "lawyer"
-    # 只显示当前用户的问题
+
 
 
     def index
+      @user = current_user
       @questions = case params[:order]
+        #全部问题按照领域排序
       when 'by_area'
         Question.area
+        #全部问题按照地域排序
       when 'by_district'
         Question.district
+        #仅显示登陆的律师所在领域的问题
+      when 'lawyer_area'
+        my_area = @user.area
+        Question.where(area:my_area)
+        #仅显示登陆的律师所在地区的问题
+      when 'lawyer_district'
+        my_district = @user.district
+        Question.where(district:my_district)
+
       else
+        #所有问题按照最新时间排序
         Question.recent
       end
     end
@@ -30,7 +43,7 @@ class Lawyer::QuestionsController < ApplicationController
       @new_answer = Answer.new
 
       # f120
-      qid = @question.id.to_såç
+      qid = @question.id.to_s
       # 查是否有关于此问题的回复
       dialog = @mailbox.conversations.find_by(subject: qid)
       # binding.pry

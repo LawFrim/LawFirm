@@ -5,8 +5,7 @@
   <h6>领域： <%= @question.area %></h6>
   <h6>地区： <%= @question.district %></h6>
 
-  <h6>律师领域： <%= @user.area %></h6>
-  <h6>律师地区： <%= @user.district %></h6>
+
   <hr>
   <!-- 如果有人回答，显示历史答案 -->
   <% if @answers.present? %>
@@ -22,7 +21,7 @@
     <!-- 如果没人回答，可以回答 -->
   <% else %>
 
-    <%= simple_form_for @new_answer ,url: admin_question_answers_path(@question) do |a| %>
+    <%= simple_form_for @new_answer ,url: lawyer_question_answers_path(@question) do |a| %>
 
     <div class="form-group">
         <%= a.input :content, label: '法律意见：',input_html: { class: "form-control"} %>
