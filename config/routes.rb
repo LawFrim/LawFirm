@@ -28,6 +28,6 @@ Rails.application.routes.draw do
 
   # resources :lawyers
   resources :welcome
-  root 'account/questions#index'
+  root 'welcome#index'
 
 end
