@@ -9,7 +9,7 @@ puts "创建两个 admin 账户（默认也是律师），和四个当事人，�
 
 
 User.create([email:"a@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true", is_lawyer:"true",district:"北京", area:"刑事"])
-User.create([email:"c@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true",is_lawyer:"true"，district:"上海", area:"经济"])
+User.create([email:"c@lawyer.com", password:"111111", password_confirmation:"111111", is_admin:"true",is_lawyer:"true",district:"上海", area:"经济"])
 
 puts "2 Admin account created."
 
