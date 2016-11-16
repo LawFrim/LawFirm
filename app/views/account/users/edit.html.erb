@@ -7,8 +7,10 @@
  <%=f.input :user_name %>
 <%= f.input :email %>
 <%= f.input :district, label:"地区"%>
+<% if current_user.is_lawyer? %>
 <%= f.input :area, label:"领域" %>
-
+<%= f.input :lawfirm, label:"律师事务所" %>
+<% end %>
 <%= f.submit "提交", class: "btn btn-sm btn-default" %>
 </div>
 <% end %>

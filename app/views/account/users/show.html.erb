@@ -1,10 +1,21 @@
+<h2>个人信息</h2>
 <table class="table table-boldered">
   <tr>
     <th>用户名</th>
     <th>用户邮箱</th>
+    <% if current_user.is_lawyer? %>
+    <th>律师事务所</th>
+    <th>领域</th>
+    <% end %>
+    <th>城市</th>
   </tr>
   <tr>
   <td><%= @user.user_name %></td>
   <td><%= @user.email %></td>
+  <% if current_user.is_lawyer? %>
+  <td><%= @user.lawfirm %></td>
+  <td><%= @user.area %></td>
+  <% end %>
+  <td><%= @user.district %></td>
 </tr>
 </table>

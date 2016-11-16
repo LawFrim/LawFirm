@@ -23,12 +23,16 @@
           <td>所在地区</td>
             <td><%= @user.district %></td>
           </tr>
+          <% if current_user.is_lawyer? %>
            <tr>
           <td>领域</td>
           <td><%= @user.area %></td>
-          </td>
         </tr>
-
+        <tr>
+       <td>律师事务所</td>
+       <td><%= @user.lawfirm %></td>
+       </tr>
+<% end %>
       </tbody>
     </table>
 
