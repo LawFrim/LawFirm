@@ -70,10 +70,11 @@ end
 #  updated_at             :datetime         not null
 #  is_admin               :boolean          default(FALSE)
 #  is_lawyer              :boolean          default(FALSE)
-#  district               :string
-#  area                   :string
 #  user_name              :string
 #  user_avatar            :string
+#  district               :string
+#  area                   :string
+#  lawfirm                :string
 #
 # Indexes
 #
