@@ -1,9 +1,9 @@
     <!-- 查看历史信息 -->
-    <% if @dialogs.present? %>
-      <% @dialogs.each do |d| %>
+    <% if @conversations.present? %>
+      <% @conversations.each do |c| %>
       
         <!-- 律师来答 -->
-        <%= link_to account_question_conversation_path(question_id: @question.id,id: d.id) do %>
+        <%= link_to account_question_conversation_path(question_id: @question.id,id: c.id) do %>
         <div class="row">
           <button type="button" class="btn btn-default btn-lg col-md-8">
             <div class="row">
@@ -11,12 +11,12 @@
               <div class="col-md-2">
 
                 <!-- 用户头像 -->
-                <%= render(partial: "common/user_img",locals: {user: d.originator}) %>  
+                <%= render(partial: "common/user_img",locals: {user: c.originator}) %>  
                 <!-- 用户头像 -->
 
               </div>
               <div class="col-md-10 text-left">
-                <h4> <%= d.originator.user_name %></h4>
+                <h4> <%= c.originator.user_name %></h4>
                 <h6>  回答了您的问题... </h6>
               </div>
             </div>
