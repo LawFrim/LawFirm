@@ -16,8 +16,14 @@
 
               </div>
               <div class="col-md-10 text-left">
-                <h4> <%= c.originator.user_name %></h4>
-                <h6>  回答了您的问题... </h6>
+                <% if c.last_sender == current_user %>
+                  <h6>  正在等待</h6>
+                  <h4> <%= c.originator.user_name %></h4> 
+                  <h6> 的回复... </h6>
+                <% else %>
+                  <h4> <%= c.originator.user_name %></h4>
+                  <h6>  回答了您的问题... </h6>
+                <% end %>
               </div>
             </div>
 
