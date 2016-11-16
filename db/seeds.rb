@@ -17,8 +17,10 @@ User.create([email:"c@lawyer.com",user_name:"陈律师", password:"111111", pass
 puts "3 Admin account created."
 
 
-create_users= for i in 1..3 do
- User.create([email:"user#{i}@client.com",password:"111111",password_confirmation:"111111", is_admin:"false"])
+
+ User.create([email:"wendy0821@gmail.com",password:"111111",password_confirmation:"111111", is_admin:"false",is_lawyer:"false"])
+ User.create([email:"user#{i}@client.com",password:"111111",password_confirmation:"111111", is_admin:"false",is_lawyer:"false"])
+ User.create([email:"user#{i}@client.com",password:"111111",password_confirmation:"111111", is_admin:"false",is_lawyer:"false"])
 puts "4 Clients created"
 end
 
