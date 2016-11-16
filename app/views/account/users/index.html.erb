@@ -1,11 +1,13 @@
 <h2>我的资料</h2>
 <div class="row">
   <div class="col-md-2">
-    <% if !@user.user_avatar.present? %>
+    <!-- <% if !@user.user_avatar.present? %>
     <%= image_tag "http://placehold.it/150x150" %>
     <% else %>
     <%= image_tag (@user.user_avatar.url(:middle)) %>
-    <% end %>
+    <% end %> -->
+
+    <%= render_user_avatar(@user) %>
 
   </div>
   <div class="col-md-8">

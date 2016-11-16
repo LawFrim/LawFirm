@@ -55,6 +55,10 @@ end
   scope :lawyer, -> { where("is_lawyer" => true)}
   scope :account,-> { where("is_lawyer" => false)}
 
+
+  include Gravtastic
+  gravtastic
+
 end
 # == Schema Information
 #
