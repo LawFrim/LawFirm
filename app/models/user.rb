@@ -22,6 +22,9 @@ class User < ApplicationRecord
 
 
 
+
+
+
   def send_message(recipients, msg_body, subject, question, sanitize_text = true, attachment = nil, message_timestamp = Time.now)
     convo = Mailboxer::ConversationBuilder.new(subject: subject,
                                                created_at: message_timestamp,
@@ -49,6 +52,8 @@ end
   scope :area, -> { order("area DESC")}
   scope :district, -> { order("district DESC")}
 
+  scope :lawyer, -> { where("is_lawyer" => true)}
+  scope :account,-> { where("is_lawyer" => false)}
 
 end
 # == Schema Information
