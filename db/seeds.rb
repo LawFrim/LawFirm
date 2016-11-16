@@ -19,12 +19,12 @@ puts "3 Admin account created."
 
 
  User.create([email:"wendy0821@gmail.com",password:"111111",password_confirmation:"111111", is_admin:"false",is_lawyer:"false"])
- User.create([email:"user#{i}@client.com",password:"111111",password_confirmation:"111111", is_admin:"false",is_lawyer:"false"])
- User.create([email:"user#{i}@client.com",password:"111111",password_confirmation:"111111", is_admin:"false",is_lawyer:"false"])
+ User.create([email:"user2@client.com",password:"111111",password_confirmation:"111111", is_admin:"false",is_lawyer:"false"])
+ User.create([email:"user3@client.com",password:"111111",password_confirmation:"111111", is_admin:"false",is_lawyer:"false"])
 puts "4 Clients created"
-end
 
-User.create([email:"a@client.com",user_name:"吃瓜群众",password:"111111",password_confirmation:"111111",is_admin:"false" ])
+
+User.create([email:"a@client.com",user_name:"范冰冰",password:"111111",password_confirmation:"111111",is_admin:"false" ])
 puts "4 Users' accounts created."
 Question.create!([content:"翻墙是违反国家法律法规的么？",area:"刑事",district:"北京",user_id:7])
 Question.create!([content:"当吃瓜群众也需要承担税负么？",area:"民事",district:"深圳",user_id:7])

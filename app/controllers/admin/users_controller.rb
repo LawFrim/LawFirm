@@ -27,12 +27,15 @@ class Admin::UsersController < ApplicationController
   def change_to_user
     @user = User.find(params[:id])
     @user.is_lawyer= false
+    @user.save
+
     redirect_to :back
   end
 
   def change_to_lawyer
     @user = User.find(params[:id])
-    @user.is_lawyer = true
+    @user.is_lawyer= true
+    @user.save
     redirect_to :back
   end
 
