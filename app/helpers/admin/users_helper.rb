@@ -2,9 +2,9 @@ module Admin::UsersHelper
 
   def change_user_status(user)
     if !user.is_lawyer?
-      link_to("设为律师", change_to_lawyer_admin_user_path(user), method: :post, class:"btn btn-xs btn-info")
+      link_to("设为律师", change_to_lawyer_admin_user_path(user), method: :post,data: { confirm: "确认认证为律师么？" }, class:"btn btn-xs btn-info")
     else
-      link_to("设为用户", change_to_user_admin_user_path(user), method: :post, class:"btn btn-xs btn-info")
+      link_to("设为用户", change_to_user_admin_user_path(user), method: :post,data: { confirm: "确认降级为顾客么？" }, class:"btn btn-xs btn-info")
     end
   end
 
