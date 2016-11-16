@@ -28,7 +28,11 @@ class Lawyer::QuestionsController < ApplicationController
       when 'lawyer_district'
         my_district = @user.district
         Question.where(district:my_district)
-
+      #仅显示登陆的律师所在地区及领域的问题
+      when 'lawyer_two'
+      my_district = @user.district
+      my_area = @user.area
+      Question.where(district:my_district,area:my_area)
       else
         #所有问题按照最新时间排序
         Question.recent
@@ -44,7 +48,7 @@ class Lawyer::QuestionsController < ApplicationController
 
       # f120
       #qid = @question.id.to_s
-      # 查是否有关于此问题的回复 
+      # 查是否有关于此问题的回复
       #dialog = @mailbox.conversations.find_by(subject: qid)
         dialog = @question.conversations.first
       # binding.pry
