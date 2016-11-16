@@ -37,7 +37,7 @@
         <div class="towpage-courses col-md-6">
         <center>
           <a href="#">
-              <img src="https://lh4.ggpht.com/-wROmWQVYTcjs3G6H0lYkBK2nPGYsY75Ik2IXTmOO2Oo0SMgbDtnF0eqz-BRR1hRQg=w300" height="50" width="50"  />
+              <img src="https://ooo.0o0.ooo/2016/11/16/582bba2b49951.png" height="50" width="50"  />
           </a>
           <p>
             <!-- <a class="btn btn-info btn-lg" href="http://localhost:3000/account/documents/new">检查合同</a> -->
@@ -80,7 +80,7 @@
         <div class="towpage-courses col-md-4">
           <center>
           <a href="#">
-            <img src="http://img.lanrentuku.com/img/allimg/1401/5-1401061035020-L.jpg" height="50" width="50"  />
+            <img src="https://ooo.0o0.ooo/2016/11/16/582bb654e994d.jpg" alt="5-1401061035020-L.jpg" title="5-1401061035020-L.jpg" height="50" width="50"  />
           </a>
           <h3 class="three-text-h5">得到法律建议</h3>
           <p>
@@ -93,7 +93,7 @@
       <div class="towpage-courses col-md-4">
         <center>
         <a href="#">
-          <img src="http://img.taopic.com/uploads/allimg/130816/318757-130Q60TJ390.jpg" height="50" width="50"  />
+          <img src="https://ooo.0o0.ooo/2016/11/16/582bb8ce64f9c.jpg"  alt="yjimage.jpg" title="yjimage.jpg" height="50" width="50"  />
         </a>
         <h3 class="h3content">
           帮你分析文书
@@ -135,12 +135,14 @@
               <!-- <br style="clear:both"> -->
                   <div class="form-group col-md-4 pull-right">
                       <label id="messageLabel" for="message">提出你的问题</label>
-                      <textarea class="form-control input-sm " type="textarea" id="message" placeholder="Question" maxlength="500" rows="12"></textarea>
+                      <textarea class="form-control input-sm " type="textarea" id="message" placeholder="Question" maxlength="500" rows="25"></textarea>
                           <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
                   </div>
               <br style="clear:both">
               <div class="form-group col-md-2 pull-right">
-              <button class="form-control input-sm btn btn-success disabled" id="btnSubmit" name="btnSubmit" type="button" style="height:35px">提交</button>
+              <!-- <button class="form-control input-sm btn btn-success disabled" id="btnSubmit" name="btnSubmit" type="button" style="height:35px">提交</button> -->
+              <%= link_to "提交", account_documents_path, class:"form-control input-sm btn btn-success"   %>
+
           </div>
       </div>
     </div>
@@ -176,7 +178,7 @@
      <div class="form-group col-md-6 ">
       <center>
       <a href="#">
-        <img src="http://image.3761.com/attachments/image/2014-09/20140902150911_90536.jpg" height="40" width="38"  />
+        <img src="https://ooo.0o0.ooo/2016/11/16/582bb9527c1e7.jpg" height="40" width="38"  />
       </a>
       <p>
         阿峰——互联网水果店拓新者<br>CEO & 网上著名水果店供应商
@@ -257,7 +259,9 @@
        为你扫除法律盲点
      </h4>
      <p>
-       <a class="btn btn-danger btn-lg" href="http://localhost:3000/users/sign_up">快联系我们</a>
+       <!-- <a class="btn btn-danger btn-lg" href="http://localhost:3000/users/sign_up">快联系我们</a> -->
+       <%= link_to "快联系我们", new_user_registration_path, class:"btn btn-info btn-lg" %>
+
      </p>
    </center>
    </div>
