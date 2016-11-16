@@ -1,21 +1,54 @@
   <!-- 律师端历史消息 -->
+    <% if @messages.present? %>
+      <% @messages.each do |m| %>
+
+      <h6 class="text-center"><small><em> — <%= time_format(m.created_at) %> — </em></small></h6>
+
+        <!-- 历史消息 -->
+        <% if m.sender == current_user %>
+          <!-- 律师对话样式 -->
+          <blockquote class="blockquote-reverse">
+            <div class="media">
+              <div class="media-body">
+                <h3 class="media-heading">我</h3>
+                <h5><%= simple_format(m.body) %></h5>
+              </div>
+              <a class="media-right" href="#">
+                <!-- 用户头像 -->
+                <%= render(partial: "common/user_img",locals: {user: current_user}) %>  
+                <!-- 用户头像 -->
+              </a>
+            </div>
+          </blockquote>
+        <% else %>
+          <!-- 用户的对话样式 -->
+          <blockquote>
+            <div class="media">
+              <a class="media-left" href="#">
+                <!-- 用户头像 -->
+                <%= render(partial: "common/user_img",locals: {user: m.sender}) %>  
+                <!-- 用户头像 -->
+              </a>
+              <div class="media-body">
+                <% if m.sender.user_name.present? %>
+                  <h3 class="media-heading"><%= m.sender.user_name %></h3>
+                <% else %>
+                  <h3 class="media-heading">客户</h3>
+                <% end %>
+                <h5><%= simple_format(m.body) %></h5>
+              </div>
+            </div>
+          </blockquote>
+
+        <% end %>
+        <!-- 历史消息 -->
 
 
-  <!-- 查看历史信息 -->
-  <% if @messages.present? %>
-    <% @messages.each do |m| %>
 
-      <!-- 对话样式 -->
-      <% if m.sender == current_user %>
-        <blockquote class="blockquote-reverse">
-      <% else %>
-        <blockquote>
       <% end %>
-          <p><%= simple_format(m.body) %></p>
-          <footer><%= m.sender.email %></footer>
-        </blockquote>
-      
-      <!-- 对话样式 -->
+    <% end %>   
 
-    <% end %>
-  <% end %>
+
+
+
+

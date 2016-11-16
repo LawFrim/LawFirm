@@ -27,7 +27,7 @@ class Account::QuestionsController < ApplicationController
     # f120
     # qid = @question.id.to_s
     # 查是否有关于此问题的回复
-    @dialogs = @question.conversations
+    @conversations = @question.conversations
     # binding.pry
 
 

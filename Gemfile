@@ -33,7 +33,6 @@ gem 'rmagick'
 gem "mini_magick"
 
 
-
 # f120
 gem 'mailboxer'
 

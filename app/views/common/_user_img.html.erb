@@ -1,0 +1,7 @@
+<% if img_by(user).present? %>
+  <!-- 用户头像 -->
+  <%= image_tag img_by(user) %>  
+<% else %>
+  <!-- 更换了一个更快的150x150源 -->
+  <%= image_tag "https://ooo.0o0.ooo/2016/11/16/582bf606808e2.png" %>  
+<% end %>
