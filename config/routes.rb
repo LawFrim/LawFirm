@@ -21,16 +21,17 @@ Rails.application.routes.draw do
     end
 
   end
+  
   # 律师路由
-
   namespace :lawyer do
+    resources :users
     resources :questions do
-        resources :answers
+      resources :answers
       end
   end
 
 
- 
+
   resources :welcome
   root 'welcome#index'
 

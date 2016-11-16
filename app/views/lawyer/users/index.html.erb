@@ -24,13 +24,20 @@
             <td><%= @user.district %></td>
           </tr>
 
-
+           <tr>
+          <td>领域</td>
+          <td><%= @user.area %></td>
+        </tr>
+        <tr>
+       <td>律师事务所</td>
+       <td><%= @user.lawfirm %></td>
+       </tr>
 
       </tbody>
     </table>
 
     <div>
-      <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn btn-sm btn-default") %>
+      <%= link_to("完善个人资料", edit_lawyer_user_path(@user), :class => "btn btn-sm btn-default") %>
       <%= link_to("修改密码", "#", class: "btn btn-sm btn-default" ) %>
 
     </div>

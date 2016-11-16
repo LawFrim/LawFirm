@@ -1,6 +1,7 @@
-class Account::UsersController < ApplicationController
+class Lawyer::UsersController < ApplicationController
   before_action :authenticate_user!
-  layout "user"
+  before_action :lawyer_required
+  layout "lawyer"
 
 
   def index
@@ -22,7 +23,7 @@ class Account::UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      redirect_to account_users_path
+      redirect_to lawyer_users_path
     else
       render :edit
     end
@@ -31,7 +32,7 @@ class Account::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:user_name,:email,:user_avatar,:district,:area)
+    params.require(:user).permit(:user_name,:email,:user_avatar,:district,:area,:lawfirm)
   end
 
 end
