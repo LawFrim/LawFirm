@@ -1,15 +1,14 @@
-class Document < ApplicationRecord
-  belongs_to :user
-  has_many :feedbacks
-  mount_uploaders :client_docs, ClientdocsUploader
+require 'test_helper'
 
-
-  serialize :client_docs, JSON
+class FeedbackTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end
 
 # == Schema Information
 #
-# Table name: documents
+# Table name: feedbacks
 #
 #  id          :integer          not null, primary key
 #  description :text

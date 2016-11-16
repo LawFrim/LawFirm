@@ -1,0 +1,17 @@
+<div class="col-md-12">
+
+
+  <h4>客户合同： <%= @feedback.description %></h4>
+  <div class="thumbnail" style="text-center;">
+
+               <!-- <%= @feedback.client_docs %> -->
+               <%= link_to image_tag(@feedback.client_docs[0].preview.url) %>
+
+  <hr>
+
+  <% if @feedback.client_docs.present? %>
+  <li><%= link_to "下载合同", @feedback.client_docs[0].url %></li>
+  <% end %>
+  </div>
+
+</div>

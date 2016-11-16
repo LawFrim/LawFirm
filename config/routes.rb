@@ -26,11 +26,14 @@ Rails.application.routes.draw do
   namespace :lawyer do
     resources :questions do
         resources :answers
-      end
+    end
+    resources :documents do
+      resources :feedbacks
+    end
   end
 
 
- 
+
   resources :welcome
   root 'welcome#index'
 

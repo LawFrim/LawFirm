@@ -18,9 +18,9 @@
 //= require_tree .
 
 $(document).ready(function(){
-    $('#characterLeft').text('140 characters left');
+    $('#characterLeft').text('600 个字');
     $('#message').keyup(function () {
-        var max = 140;
+        var max = 600;
         var len = $(this).val().length;
         if (len >= max) {
             $('#characterLeft').text('You have reached the limit');

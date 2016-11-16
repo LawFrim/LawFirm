@@ -1,7 +1,7 @@
-class ClientdocsUploader < CarrierWave::Uploader::Base
+class LawyerdocsUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  include CarrierWave::RMagick
+  # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -13,6 +13,7 @@ class ClientdocsUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
+
 
   def cover
    manipulate! do |frame, index|
@@ -29,10 +30,6 @@ class ClientdocsUploader < CarrierWave::Uploader::Base
      super.chomp(File.extname(super)) + '.jpg'
    end
  end
-
- # the other stuff
-
-
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -56,9 +53,9 @@ class ClientdocsUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-   def extension_whitelist
-     %w(pdf)
-   end
+  def extension_whitelist
+    %w(pdf)
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.

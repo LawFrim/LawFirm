@@ -1,15 +1,16 @@
-class Document < ApplicationRecord
+class Feedback < ApplicationRecord
+
   belongs_to :user
-  has_many :feedbacks
+  belongs_to :document
+
   mount_uploaders :client_docs, ClientdocsUploader
-
-
   serialize :client_docs, JSON
+
 end
 
 # == Schema Information
 #
-# Table name: documents
+# Table name: feedbacks
 #
 #  id          :integer          not null, primary key
 #  description :text
