@@ -7,7 +7,12 @@ Rails.application.routes.draw do
       resources :answers
     end
     resources :conversations
-
+    resources :users do
+      member do
+        post :change_to_user
+        post :change_to_lawyer
+      end
+    end
   end
 
   # 普通用户路由
@@ -21,16 +26,17 @@ Rails.application.routes.draw do
     end
 
   end
+  
   # 律师路由
-
   namespace :lawyer do
+    resources :users
     resources :questions do
-        resources :answers
+      resources :answers
       end
   end
 
 
- 
+
   resources :welcome
   root 'welcome#index'
 

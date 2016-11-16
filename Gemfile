@@ -30,8 +30,8 @@ gem 'pry'
 gem 'annotate'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
-gem "mini_magick"
-
+gem 'mini_magick'
+gem 'gravtastic'
 
 # f120
 gem 'mailboxer'

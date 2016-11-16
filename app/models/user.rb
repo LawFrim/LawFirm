@@ -21,7 +21,9 @@ class User < ApplicationRecord
   end
 
 
+
   # 重写的send_message(加入了question_id参数用于指定对应的question)
+
   def send_message(recipients, msg_body, subject, question, sanitize_text = true, attachment = nil, message_timestamp = Time.now)
     convo = Mailboxer::ConversationBuilder.new(subject: subject,
                                                created_at: message_timestamp,
@@ -49,6 +51,12 @@ end
   scope :area, -> { order("area DESC")}
   scope :district, -> { order("district DESC")}
 
+  scope :lawyer, -> { where("is_lawyer" => true)}
+  scope :account,-> { where("is_lawyer" => false)}
+
+
+  include Gravtastic
+  gravtastic
 
 end
 # == Schema Information
@@ -70,10 +78,11 @@ end
 #  updated_at             :datetime         not null
 #  is_admin               :boolean          default(FALSE)
 #  is_lawyer              :boolean          default(FALSE)
-#  district               :string
-#  area                   :string
 #  user_name              :string
 #  user_avatar            :string
+#  district               :string
+#  area                   :string
+#  lawfirm                :string
 #
 # Indexes
 #
