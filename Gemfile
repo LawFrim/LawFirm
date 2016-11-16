@@ -31,7 +31,7 @@ gem 'annotate'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
 gem "mini_magick"
-
+gem 'rails_kindeditor'
 
 
 # f120
