@@ -67,6 +67,26 @@ class Account::QuestionsController < ApplicationController
     redirect_to :back
   end
 
+  # 评价系统
+  def rating
+    # 获取message的参数
+    conversation_id = params[:conversation_id]
+    message_id = params[:message_id]
+    score = params[:rating]
+
+    # 找到指定的message
+    conversation = Conversation.find(conversation_id.to_i)
+    message = conversation.messages.find(message_id.to_i)
+    # 为message评级
+    message.rating = score
+    message.save
+
+    return 'success'
+  end
+
+
+
+
 
   private
 
