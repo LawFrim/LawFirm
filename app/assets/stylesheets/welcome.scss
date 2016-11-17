@@ -21,7 +21,7 @@
 
 
   .headh1content{
-     margin-top: 150px;
+     margin-top: 300px;
      line-height: 75px;
    }
   .title-text{
@@ -37,7 +37,7 @@
 
 .towpage {
   height: 350px;
-  // background-color: lightblue;
+  background-color: #F1EFE8;
 
 }
 .twopage{
@@ -54,11 +54,22 @@
 
 .threepage {
   height: 850px;
-  // background-color: lightyellow;
+  background-color: #ffffff;
+
+}
+.fourpage {
+  background-color: #F1EFE8;
 
 }
 
+.fivepage {
+  background-color: #FFFFFF;
 
+}
+// .threepage {
+//   background-color: #FFF3DE;
+//
+// }
 
 
 .red{
@@ -90,7 +101,7 @@
 @import url(http://fonts.googleapis.com/css?family=Fjalla+One);
 @import url(http://fonts.googleapis.com/css?family=Gudea);
 .footer1 {
-    background: #fff url("../images/footer/footer-bg.png") repeat scroll left top;
+    background: #D1CFC6 url("../images/footer/footer-bg.png") repeat scroll left top;
 	padding-top: 40px;
 	padding-right: 0;
 	padding-bottom: 20px;
