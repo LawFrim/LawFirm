@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :questions do
       resources :answers
     end
+    resources :documents
+     resources :feedbacks
+     
     resources :conversations
     resources :users do
       member do
@@ -17,13 +20,18 @@ Rails.application.routes.draw do
 
   # 普通用户路由
   namespace :account do
-    resources :documents 
+    resources :documents
      resources :feedbacks
 
     resources :users
     resources :questions do
       resources :answers
       resources :conversations
+
+      # 评价系统
+      collection do
+        post :rating
+      end
 
     end
 
@@ -33,8 +41,7 @@ Rails.application.routes.draw do
   namespace :lawyer do
     resources :users
     resources :questions do
-
-        resources :answers
+      resources :answers
     end
     resources :documents do
       resources :feedbacks

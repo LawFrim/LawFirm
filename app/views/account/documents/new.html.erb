@@ -3,11 +3,11 @@
 	<hr>
 	<%= simple_form_for [:account, @document] do |f| %>
 
-	<%= f.input :description %>
+	<%= f.input :description ,label:"合同审查需求描述"%>
 
-	<strong>上传你的文件</strong>
+	<strong>上传你的合同</strong>
 <%= f.file_field :client_docs, as: :file, :multiple => true %>
-	<%= f.submit "上传图片", :disable_with => "提交中..." %>
+	<%= f.submit "上传合同", :disable_with => "提交中..." %>
 
 	<% end %>
 

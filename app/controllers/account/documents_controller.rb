@@ -26,7 +26,7 @@ class Account::DocumentsController < ApplicationController
       def create
         @document = Document.new(docs_params)
         @document.user = current_user
-        if @document.save
+        if @document.save!
           redirect_to account_documents_path, notice: "文件已经上传!"
         else
           render :new

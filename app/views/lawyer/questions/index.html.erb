@@ -1,18 +1,18 @@
 <div class="row-fluid">
   <div class="span12">
- 
+
     <table class="table table-bordered table-condensed table-hover">
 
       <thead>
         <tr>
           <th>
-            问题编号
+          用户信息
           </th>
           <th>
-          领域
+          问题领域
           </th>
           <th>
-            地域
+            所在地域
           </th>
           <th>
             问题缩略
@@ -21,7 +21,7 @@
             更新时间
           </th>
           <th>
-            用户信息
+            问题编号
           </th>
         </tr>
       </thead>
@@ -29,12 +29,12 @@
           <% @questions.each do |question|%>
 
         <tr>
-            <td><%= link_to(question.id,lawyer_question_path(question)) %></td>
+            <td><%= question.user.email %></td>
             <td><%= question.area %></td>
             <td><%= question.district %></td>
             <td><%= link_to(question.content.first(8),lawyer_question_path(question)) %></td>
             <td><%= question.updated_at %></td>
-            <td><%= question.user.email %></td>
+            <td><%= link_to(question.id,lawyer_question_path(question)) %></td>
           <% end %>
         </tr>
 </table>
