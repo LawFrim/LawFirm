@@ -5,4 +5,13 @@ module ApplicationHelper
     messages.present? && messages.last.sender == current_user
   end
 
+  # 用户头像
+  def img_by(user)
+    user.user_avatar.url
+  end
+
+  def time_format(time)
+    DateTime.parse(time.to_s).strftime('%Y-%m-%d %H:%M:%S').to_s
+  end
+
 end

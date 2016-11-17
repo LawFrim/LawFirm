@@ -3,12 +3,12 @@ class Account::QuestionsController < ApplicationController
   before_action :authenticate_user!
   # f120
   before_action :get_mailbox
-  
+
   layout "user"
 
   # 只显示当前用户的问题
   def index
-    @questions = Question.where(user_id: current_user)
+    @questions = Question.where(user_id: current_user).recent
   end
 
 
@@ -27,7 +27,7 @@ class Account::QuestionsController < ApplicationController
     # f120
     # qid = @question.id.to_s
     # 查是否有关于此问题的回复
-    @dialogs = @question.conversations
+    @conversations = @question.conversations
     # binding.pry
 
 

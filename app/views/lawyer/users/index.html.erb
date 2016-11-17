@@ -1,0 +1,46 @@
+<h2>我的资料</h2>
+<div class="row">
+  <div class="col-md-2">
+    <% if !@user.user_avatar.present? %>
+    <%= image_tag "http://placehold.it/150x150" %>
+    <% else %>
+    <%= image_tag (@user.user_avatar.url(:middle)) %>
+    <% end %>
+
+  </div>
+  <div class="col-md-8">
+    <table class="table user-table-info">
+      <tbody>
+         <tr>
+            <td>用户名</td>
+              <td><%= @user.user_name %></td>
+         </tr>
+         <tr>
+          <td>电子邮件</td>
+          <td><%= @user.email %></td>
+           </tr>
+           <tr>
+          <td>所在地区</td>
+            <td><%= @user.district %></td>
+          </tr>
+
+           <tr>
+          <td>领域</td>
+          <td><%= @user.area %></td>
+        </tr>
+        <tr>
+       <td>律师事务所</td>
+       <td><%= @user.lawfirm %></td>
+       </tr>
+
+      </tbody>
+    </table>
+
+    <div>
+      <%= link_to("完善个人资料", edit_lawyer_user_path(@user), :class => "btn btn-sm btn-default") %>
+      <%= link_to("修改密码", "#", class: "btn btn-sm btn-default" ) %>
+
+    </div>
+  </div>
+
+</div>

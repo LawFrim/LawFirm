@@ -1,0 +1,17 @@
+<div class="user-center-detail-block">
+<h2> 修改个人资料 </h2>
+<%= simple_form_for [:lawyer,@user] do |f| %>
+
+<div>
+<%= f.input :user_avatar %>
+ <%=f.input :user_name %>
+<%= f.input :email %>
+<%= f.input :district, label:"地区"%>
+
+<%= f.input :area, label:"领域" %>
+<%= f.input :lawfirm, label:"律师事务所" %>
+
+<%= f.submit "提交", class: "btn btn-sm btn-default" %>
+</div>
+<% end %>
+</div>
