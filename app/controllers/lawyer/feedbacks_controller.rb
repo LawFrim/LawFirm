@@ -24,7 +24,7 @@ class Lawyer::FeedbacksController < ApplicationController
     @feedback = Feedback.new(feedback_params)
     @feedback.user = current_user
     @feedback.document = @document
-    if @feedback.save!
+    if @feedback.save
       redirect_to lawyer_document_feedbacks_path, notice: "合同已上传!"
     else
       render :new
