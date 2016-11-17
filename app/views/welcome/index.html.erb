@@ -17,7 +17,8 @@
                 </h1>
                 <p style="margin-top: 50px;line-height: 33px">做你终身的法律顾问，结案快三倍，为你争取最大合法权益</p>
                 <p style="margin-top: 90px;line-height: 33px" class="btn-app-stroe">
-                  <a class="btn btn-success btn-lg" href="http://localhost:3000/users/sign_up">立即注册，可免费使用30天</a>
+                  <!-- <a class="btn btn-success btn-lg" href="http://localhost:3000/users/sign_up">立即注册，可免费使用30天</a> -->
+                  <%= link_to "立即注册，可免费使用30天", new_user_registration_path, class:"btn btn-success btn-lg" %>
                 </p>
               </center>
               </div>
@@ -41,7 +42,7 @@
           </a>
           <p>
             <!-- <a class="btn btn-info btn-lg" href="http://localhost:3000/account/documents/new">检查合同</a> -->
-            <%= link_to "检查合同", account_documents_path, class:"btn btn-info btn-lg" %>
+            <%= link_to "检查合同", new_account_document_path, class:"btn btn-info btn-lg" %>
           </p>
           <p>
             律师帮您分析合同，30分钟内给出<br>专业意见，为您的权益保驾护航。<br>一键上传，收获一份安心。
@@ -56,7 +57,7 @@
           </a>
           <p>
             <!-- <a class="btn btn-info btn-lg" href="http://localhost:3000/account/questions/new">法律问题，随便问</a> -->
-            <%= link_to "法律问题，随便问", account_questions_path,class:"btn btn-info btn-lg"%>
+            <%= link_to "法律问题，随便问", new_account_question_path,class:"btn btn-info btn-lg"%>
           </p>
           <p>
             律专家就在你身边，满足您任何时<br>间任何地点任何不解、疑惑，便可<br>直接发问，上千律师在线等。
@@ -82,7 +83,7 @@
           <a href="#">
             <img src="https://ooo.0o0.ooo/2016/11/16/582bb654e994d.jpg" alt="5-1401061035020-L.jpg" title="5-1401061035020-L.jpg" height="50" width="50"  />
           </a>
-          <h3 class="three-text-h5">得到法律建议</h3>
+          <h3 class="three-text-h5">快速得到法律建议</h3>
           <p>
             任何一个法律问题，我们在少于一个<br>工作日内，给出详尽的建议
 
@@ -142,9 +143,9 @@
                   </div>
               <br style="clear:both">
               <div class="form-group col-md-2 pull-right">
- 
+
               <!-- <button class="form-control input-sm btn btn-success disabled" id="btnSubmit" name="btnSubmit" type="button" style="height:35px">提交</button> -->
-              <%= link_to "提交", account_documents_path, class:"form-control input-sm btn btn-success"   %>
+              <%= link_to "提交", new_account_question_path, class:"form-control input-sm btn btn-success"   %>
 
 
           </div>
@@ -259,12 +260,12 @@
    <div class="five-text">
      <center>
 
-     <h4 class="five-text-h2">
-       为你扫除法律盲点
-     </h4>
+     <h3 class="five-text-h2">
+        让法律问题从此不再难!
+     </h3>
      <p>
        <!-- <a class="btn btn-danger btn-lg" href="http://localhost:3000/users/sign_up">快联系我们</a> -->
-       <%= link_to "快联系我们", new_user_registration_path, class:"btn btn-info btn-lg" %>
+       <%= link_to "马上注册 扫除烦恼 >>", new_user_registration_path, class:"btn btn-info btn-danger" %>
 
      </p>
    </center>
@@ -408,36 +409,6 @@
 </footer>
 <!--header-->
 
-<div class="footer-bottom">
 
-	<div class="container">
-
-		<div class="row">
-
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-
-				<div class="copyright" pull-rigth>
-
-					© 2016, BanLv, All rights reserved
-
-				</div>
-
-			</div>
-
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-
-				<div class="design">
-
-					 <a href="#">Franchisee </a> |  <a target="_blank" href="http://www.webenlance.com">Web Design & Development by Law</a>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
-</div>
   </body>
 </html>
