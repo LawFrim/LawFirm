@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117071513) do
+ActiveRecord::Schema.define(version: 20161117141141) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -100,8 +100,9 @@ ActiveRecord::Schema.define(version: 20161117071513) do
     t.string   "area"
     t.string   "district"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "is_answered", default: false
   end
 
   create_table "users", force: :cascade do |t|
