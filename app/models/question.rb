@@ -13,13 +13,13 @@ class Question < ApplicationRecord
 
   # 变成被回答状态
   def answered!
-    self.be_answered = true
+    self.is_answered = true
     self.save
   end
   
   # 变成待回答状态
   def reopened!
-    self.be_answered = false
+    self.is_answered = false
     self.save   
   end
 

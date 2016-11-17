@@ -43,6 +43,9 @@ class Account::ConversationsController < ApplicationController
       current_user.reply_to_conversation(conversation, answer_content)
     end
 
+    # f470-变成待回答状态
+    @question.reopened!
+    
     # binding.pry
     flash[:notice] = "回复成功"
     redirect_to :back

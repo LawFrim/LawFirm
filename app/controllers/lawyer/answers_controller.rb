@@ -31,6 +31,9 @@ class Lawyer::AnswersController < ApplicationController
       current_user.reply_to_conversation(conversation, answer_content)
     end
 
+    # f470-变成已回答状态
+    @question.answered!
+
     # binding.pry
     flash[:notice] = "回复成功"
     redirect_to :back
