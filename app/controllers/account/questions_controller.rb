@@ -67,6 +67,20 @@ class Account::QuestionsController < ApplicationController
     redirect_to :back
   end
 
+  # 评价系统
+  def rating
+    message_id = params[:message_id]
+    score = params[:rating]
+    puts '~~~~'
+    puts message_id
+    puts score
+    puts '~~~~'
+    return 'success'
+  end
+
+
+
+
 
   private
 

@@ -23,6 +23,11 @@ Rails.application.routes.draw do
       resources :answers
       resources :conversations
 
+      # 评价系统
+      collection do
+        post :rating
+      end
+  
     end
 
   end
@@ -31,8 +36,7 @@ Rails.application.routes.draw do
   namespace :lawyer do
     resources :users
     resources :questions do
- 
-        resources :answers
+      resources :answers
     end
     resources :documents do
       resources :feedbacks
