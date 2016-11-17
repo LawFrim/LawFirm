@@ -1,6 +1,6 @@
 class Document < ApplicationRecord
   belongs_to :user
-
+  has_many :feedbacks
   mount_uploaders :client_docs, ClientdocsUploader
 
 

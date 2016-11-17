@@ -1,0 +1,21 @@
+<div class="col-md-12">
+
+
+  <h4>客户合同： <%= @document.description %></h4>
+  <div class="thumbnail" style="text-center;">
+
+               <!-- <%= @document.client_docs %> -->
+               <%= link_to image_tag(@document.client_docs[0].preview.url) %>
+
+  <hr>
+
+  <% if @document.client_docs.present? %>
+  <li><%= link_to "下载合同", @document.client_docs[0].url %></li>
+  <% end %>
+  </div>
+
+</div>
+
+<div class="col-md-12">
+  <%= link_to "反馈合同", new_lawyer_document_feedback_path(@document),class: "btn btn-sm btn-primary" %>
+</div>

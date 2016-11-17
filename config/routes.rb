@@ -26,13 +26,18 @@ Rails.application.routes.draw do
     end
 
   end
-  
+
   # 律师路由
   namespace :lawyer do
     resources :users
     resources :questions do
-      resources :answers
-      end
+ 
+        resources :answers
+    end
+    resources :documents do
+      resources :feedbacks
+    end
+
   end
 
 

@@ -1,0 +1,2 @@
+module Lawyer::DocumentsHelper
+end
