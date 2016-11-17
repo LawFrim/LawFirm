@@ -47,10 +47,10 @@ class Lawyer::QuestionsController < ApplicationController
       @new_answer = Answer.new
 
       # f120
-      #qid = @question.id.to_s
+
       # 查是否有关于此问题的回复
-      #dialog = @mailbox.conversations.find_by(subject: qid)
-        dialog = @question.conversations.first
+      dialog = @mailbox.conversations.find_by(question_id: @question)
+
       # binding.pry
       if dialog.present?
         # 如果有就交给@message
