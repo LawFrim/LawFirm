@@ -25,6 +25,7 @@ class Lawyer::FeedbacksController < ApplicationController
     @document = Document.find(params[:document_id])
     @feedback = Feedback.new(feedback_params)
     @feedback.user = current_user
+    @feedback.document = @document
     if @feedback.save!
       redirect_to lawyer_document_feedbacks_path, notice: "合同已上传!"
     else
@@ -38,8 +39,5 @@ class Lawyer::FeedbacksController < ApplicationController
     params.require(:feedback).permit(:description,{client_docs:[]})
   end
 
-  def document_params
-    params.require(:document).permit(:description,{client_docs:[]})
-  end
 
 end
