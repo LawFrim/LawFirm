@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116055114) do
+ActiveRecord::Schema.define(version: 20161117023454) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20161116055114) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "document_id"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
