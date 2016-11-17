@@ -10,7 +10,20 @@ class Question < ApplicationRecord
   scope :recent, -> { order("created_at DESC")}
   scope :area, -> { order("area DESC")}
   scope :district, -> { order("district DESC")}
+
+  # 变成被回答状态
+  def answered!
+    self.be_answered = true
+    self.save
+  end
   
+  # 变成待回答状态
+  def reopened!
+    self.be_answered = false
+    self.save   
+  end
+
+
 end
 
 # == Schema Information
