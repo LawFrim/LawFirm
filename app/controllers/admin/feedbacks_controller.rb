@@ -1,5 +1,5 @@
 class Admin::FeedbacksController < ApplicationController
-  class Lawyer::FeedbacksController < ApplicationController
+ 
 
     before_action :authenticate_user!
     before_action :admin_required
