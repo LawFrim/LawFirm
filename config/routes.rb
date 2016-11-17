@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :questions do
       resources :answers
     end
+    resources :documents
+     resources :feedbacks
+     
     resources :conversations
     resources :users do
       member do
