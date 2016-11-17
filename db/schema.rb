@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20161117071513) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "user_name"
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -35,6 +36,8 @@ ActiveRecord::Schema.define(version: 20161117071513) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "document_id"
+    t.string   "user_name"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|

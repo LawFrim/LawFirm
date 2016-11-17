@@ -28,11 +28,14 @@ class Lawyer::QuestionsController < ApplicationController
       when 'lawyer_district'
         my_district = @user.district
         Question.where(district:my_district)
-      #仅显示登陆的律师所在地区及领域的问题
+      #仅显示登陆的律师所在地区及领域的问题并显示最新时间排序
       when 'lawyer_two'
+    
       my_district = @user.district
       my_area = @user.area
-      Question.where(district:my_district,area:my_area)
+      Question.where(district:my_district,area:my_area).recent
+
+
       else
         #所有问题按照最新时间排序
         Question.recent

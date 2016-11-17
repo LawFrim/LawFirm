@@ -1,7 +1,7 @@
 class Account::DocumentsController < ApplicationController
     before_action :authenticate_user!
     before_action :get_mailbox
-    
+
     layout "user"
 
 
