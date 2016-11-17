@@ -1,4 +1,10 @@
+    <!-- 引入评级插件 -->
+    <link rel="stylesheet" href="http://o7m541j22.bkt.clouddn.com/jquery.raty.css">
+    <script src="http://o7m541j22.bkt.clouddn.com/jquery.raty.js"></script>
+
+
     <!-- 用户端历史信息 -->
+    <%  @conversation.id %>
     <!-- 查看历史信息 -->
     <% if @messages.present? %>
       <% @messages.each do |m| %>
@@ -40,25 +46,23 @@
 
 
 
-        <link rel="stylesheet" href="http://o7m541j22.bkt.clouddn.com/jquery.raty.css">
-        <script src="http://o7m541j22.bkt.clouddn.com/jquery.raty.js"></script>
-          <!-- 律师端的评价系统 -->
-          <hr>
+
+        <!-- 律师端的评价系统 -->
+
+          <!-- <hr> -->
+          <p class="text-center">
             <!-- 如果未评分，则允许评分 -->
             <% if m.rating.blank? %>
-              <div id="rating-for-message-<%= m.id %>"></div>
+              <div id="rating-for-message-<%= m.id %>" class="text-center"></div>
             <!-- 如果评过分，则锁定 -->
             <% else %>
-              <div id="raty-for-message-<%= m.id %>"></div>
+              <div id="raty-for-message-<%= m.id %>" class="text-center"></div>
             <% end %>
+          </p>
 
           <hr>
 
-
-
           <script>
-
-
           $(function() {
 
             // 允许评分的对象
@@ -77,8 +81,6 @@
                 starOn: 'star-on.png',
                 size: 32,
                 click: function(score, evt) {
-                  // log一下
-                  console.log(score);
                   // ajax提交
                   ajaxRating(score);
                   // 锁定rating
@@ -96,19 +98,19 @@
                 type: 'POST',
                 dataType: 'json',
                 data: {
-                  // 指定message的星级评价参数
+                  'conversation_id' : <%= @conversation.id %>,
                   'message_id' : <%= m.id %>,
                   'rating': score
                 },
               })
               .done(function() {
-                console.log("success");
+                console.log("raty success");
               })
               .fail(function() {
-                console.log("error");
+                console.log("raty error");
               })
               .always(function() {
-                console.log("complete");
+                console.log("raty complete");
               });
             }
 
@@ -129,13 +131,9 @@
 
    
           });
-
-
-
-
-
-            
           </script>
+
+          <!-- 律师端的评价系统 -->
 
 
 
