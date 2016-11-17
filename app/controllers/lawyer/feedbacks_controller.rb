@@ -5,8 +5,8 @@ class Lawyer::FeedbacksController < ApplicationController
   before_action :get_mailbox
 
   layout "lawyer"
+
   def index
-    # @user = current_user
     @feedbacks = Feedback.all
 
   end
@@ -15,16 +15,15 @@ class Lawyer::FeedbacksController < ApplicationController
     @feedback = Feedback.new
   end
 
-
   def show
     @feedback = Feedback.find(params[:id])
-
   end
+
   def create
-    # binding.pry
     @document = Document.find(params[:document_id])
     @feedback = Feedback.new(feedback_params)
     @feedback.user = current_user
+    @feedback.document = @document
     if @feedback.save!
       redirect_to lawyer_document_feedbacks_path, notice: "合同已上传!"
     else
@@ -35,11 +34,9 @@ class Lawyer::FeedbacksController < ApplicationController
   private
 
   def feedback_params
-    params.require(:feedback).permit(:description,{client_docs:[]})
+    params.require(:feedback).permit(:description,{client_docs:[]}, :document_id)
   end
 
-  def document_params
-    params.require(:document).permit(:description,{client_docs:[]})
-  end
+
 
 end

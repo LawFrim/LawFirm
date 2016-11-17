@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   # 普通用户路由
   namespace :account do
     resources :documents
+     resources :feedbacks
+
     resources :users
     resources :questions do
       resources :answers
@@ -27,7 +29,7 @@ Rails.application.routes.draw do
       collection do
         post :rating
       end
-  
+
     end
 
   end
@@ -43,6 +45,7 @@ Rails.application.routes.draw do
     end
 
   end
+
 
 
 
