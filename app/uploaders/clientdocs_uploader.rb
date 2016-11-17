@@ -33,15 +33,6 @@ class ClientdocsUploader < CarrierWave::Uploader::Base
 
 
 
-
-
-
-
-
-
-
-
-
  # the other stuff
 
 
