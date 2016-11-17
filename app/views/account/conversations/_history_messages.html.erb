@@ -62,15 +62,11 @@
 
           <hr>
 
+
           <script>
           $(function() {
 
-            // 允许评分的对象
-            var ratableObj = $('#rating-for-message-<%= m.id %>');
-            initRating(ratableObj);
-            // 已经评过分的对象
-            var unRatableObj = $('#raty-for-message-<%= m.id %>');
-            lockRating(unRatableObj,'<%= m.rating %>');
+
 
 
             // 初始化rating选框
@@ -84,10 +80,10 @@
                   // ajax提交
                   ajaxRating(score);
                   // 锁定rating
-                  lockRating(ratableObj,score)
+                  lockRating(obj,score)
                 }
               });
-            }
+            };
 
 
 
@@ -112,7 +108,7 @@
               .always(function() {
                 console.log("raty complete");
               });
-            }
+            };
 
 
 
@@ -127,7 +123,21 @@
                 size: 32,
                 readOnly: true, score: score
               });
-            }
+            };
+
+
+
+
+
+            // 允许评分的对象
+            var ratableObj = $('#rating-for-message-<%= m.id %>');
+            initRating(ratableObj);
+            // 已经评过分的对象
+            var unRatableObj = $('#raty-for-message-<%= m.id %>');
+            lockRating(unRatableObj,'<%= m.rating %>');
+
+
+
 
    
           });
