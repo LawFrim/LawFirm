@@ -14,32 +14,39 @@
         <!-- 历史消息 -->
         <% if m.sender == current_user %>
           <!-- 当前用户的对话样式 -->
-          <blockquote>
+          <blockquote class="blockquote-reverse">
             <div class="media">
-              <a class="media-left" href="#">
-                <!-- 用户头像 -->
-                <%= render(partial: "common/user_img",locals: {user: current_user}) %>  
-                <!-- 用户头像 -->
-              </a>
+
               <div class="media-body">
                 <h3 class="media-heading">我</h3>
                 <h5><%= simple_format(m.body) %></h5>
               </div>
+
+              <a class="media-right" href="#">
+                <!-- 用户头像 -->
+                <%= render(partial: "common/user_img",locals: {user: current_user}) %>  
+                <!-- 用户头像 -->
+              </a>
+
+
             </div>
           </blockquote>
         <% else %>
           <!-- 律师对话样式 -->
-          <blockquote class="blockquote-reverse">
+          <blockquote>
             <div class="media">
-              <div class="media-body">
-                <h3 class="media-heading"><%= m.sender.user_name %></h3>
-                <h5><%= simple_format(m.body) %></h5>
-              </div>
-              <a class="media-right" href="#">
+
+              <a class="media-left" href="#">
                 <!-- 用户头像 -->
                 <%= render(partial: "common/user_img",locals: {user: m.sender}) %>  
                 <!-- 用户头像 -->
               </a>
+
+              <div class="media-body">
+                <h3 class="media-heading"><%= m.sender.user_name %></h3>
+                <h5><%= simple_format(m.body) %></h5>
+              </div>
+
             </div>
           </blockquote>
 
