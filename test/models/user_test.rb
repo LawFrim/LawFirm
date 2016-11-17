@@ -29,6 +29,7 @@ end
 #  district               :string
 #  area                   :string
 #  lawfirm                :string
+#  reset_digest           :string
 #
 # Indexes
 #
