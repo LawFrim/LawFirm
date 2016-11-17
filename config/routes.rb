@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
   # 普通用户路由
   namespace :account do
-    resources :documents
+    resources :documents 
+     resources :feedbacks
+
     resources :users
     resources :questions do
       resources :answers
@@ -31,7 +33,7 @@ Rails.application.routes.draw do
   namespace :lawyer do
     resources :users
     resources :questions do
- 
+
         resources :answers
     end
     resources :documents do
@@ -39,6 +41,7 @@ Rails.application.routes.draw do
     end
 
   end
+
 
 
 

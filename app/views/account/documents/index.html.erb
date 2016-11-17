@@ -13,16 +13,19 @@
           <%= link_to image_tag "http://placehold.it/300?text=合同首页" %>
           <% end %>
         <ul style="list-style: none;">
-        <li>创建时间</li>
-        <li><%= document.created_at %></li>
-        <li>提交意见</li>
+
+        <li><h5>提交意见</h5></li>
         <li><%= document.description %></li>
+        <li><h5>创建时间</h5></li>
+        <li><%= document.created_at %></li>
         <% if document.client_docs.present? %>
         <li><%= link_to "下载合同", document.client_docs[0].url %></li>
         <% end %>
         <%= link_to "编辑", edit_account_document_path(document), class:"btn btn-sm btn-primary"%>
         <%= link_to "删除", account_document_path(document), method: :delete, class: "btn btn-sm btn-danger", data: { confirm: "确认删除合同？"}%>
         </div>
+        <%= link_to "查看反馈合同", account_feedbacks_path(@feedback), class:"btn btn-lg btn-primary"%>
+
       </div>
 
           <% end %>
