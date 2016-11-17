@@ -19,7 +19,11 @@
       <tr>
         <td>
           <% if document.client_docs.present? %>
-          <%= link_to image_tag(document.client_docs[0].preview.url), lawyer_document_path(document) %>
+          <% if document.client_docs[0].preview.present? %>
+        <%= link_to image_tag(document.client_docs[0].preview.url), "#" %>
+        <% else %>
+          <%= link_to image_tag "http://placehold.it/300?text=用户合同" %>
+          <% end %>
           <% else %>
             该用户尚未上传合同附件
             <% end %>

@@ -7,10 +7,10 @@
       <% @documents.each do |document| %>
       <div class="col-md-3 col-md-3">
         <div class="thumbnail" style="text-center;">
-        <% if document.client_docs.present? %>
+          <% if document.client_docs[0].preview.present? %>
         <%= link_to image_tag(document.client_docs[0].preview.url), "#" %>
         <% else %>
-          <%= link_to image_tag "http://placehold.it/300?text=合同首页" %>
+          <%= link_to image_tag "http://placehold.it/300?text=你的合同" %>
           <% end %>
         <ul style="list-style: none;">
 
