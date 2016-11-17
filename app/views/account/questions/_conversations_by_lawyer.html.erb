@@ -5,8 +5,16 @@
         <!-- 律师来答 -->
         <%= link_to account_question_conversation_path(question_id: @question.id,id: c.id) do %>
         <div class="row">
-          <button type="button" class="btn btn-default btn-lg col-md-8">
-            <div class="row">
+
+          <!-- 确定回答框基本警告模式 -->
+          <% if c.last_sender == current_user %>
+          <button type="button" class="btn btn-lg col-md-8 alert alert-warning">
+          <% else %>
+          <button type="button" class="btn btn-lg col-md-8 alert alert-success">
+          <% end %>
+          <!-- 确定回答框基本警告模式 -->
+
+            <div class="row ">
               
               <div class="col-md-2">
 
@@ -39,5 +47,5 @@
 
       <% end %>
     <% else %>
-      <div class="alert alert-info" role="alert">律师们正在紧张的撰写答案...</div>
+      <div class="alert alert-warning" role="alert">律师们正在紧张的撰写答案...</div>
     <% end %>

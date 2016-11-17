@@ -15,10 +15,27 @@
         <th>问题</th>
       </tr> -->
       <% @questions.each do |question|%>
-      <tr>
-        <td><%= link_to(question.content, account_question_path(question)) %></td>
-        <td><%= question.updated_at%></td>
-      </tr>
+      
+        <% if question.is_answered %>
+          <tr class="success">
+            <td>
+              
+              <%= link_to(question.content, account_question_path(question)) %>
+            </td>
+            <td><span class="glyphicon glyphicon-ok-sign"></span> 已被回答</td>
+            <td><%= question.updated_at%></td>
+          </tr>
+          <% else %>
+          <tr class="warning" >
+            <td>
+              <%= link_to(question.content, account_question_path(question)) %>
+            </td>
+            <td><span class="glyphicon glyphicon-question-sign"></span> 等待答复</td>
+            <td><%= question.updated_at%></td>
+          </tr>
+        <% end %>
+
+      
 
       <% end %>
     </table>
