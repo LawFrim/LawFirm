@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+  #a resource for password resets
+  resources :password_resets,     only: [:new, :create, :edit, :update]
   devise_for :users
 
   # 管理员路由
@@ -31,7 +36,7 @@ Rails.application.routes.draw do
   namespace :lawyer do
     resources :users
     resources :questions do
- 
+
         resources :answers
     end
     resources :documents do
