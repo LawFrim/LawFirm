@@ -1,1 +1,2 @@
 require 'carrierwave/processing/rmagick'
+ 

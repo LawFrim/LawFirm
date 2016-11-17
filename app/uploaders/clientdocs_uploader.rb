@@ -20,7 +20,7 @@ class ClientdocsUploader < CarrierWave::Uploader::Base
    end
  end
 
- version :preview do
+ version :preview, :if => :previewable? do
    process :cover
    process :resize_to_fit => [300, 300]
    process :convert => :jpg
@@ -29,6 +29,18 @@ class ClientdocsUploader < CarrierWave::Uploader::Base
      super.chomp(File.extname(super)) + '.jpg'
    end
  end
+
+
+
+
+
+
+
+
+
+
+
+
 
  # the other stuff
 
@@ -57,7 +69,7 @@ class ClientdocsUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
    def extension_whitelist
-     %w(pdf)
+     %w(jpg jpeg gif png pdf doc docx txt mp3 xls xlsx)
    end
 
   # Override the filename of the uploaded files:
@@ -65,5 +77,24 @@ class ClientdocsUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+
+  private
+    def previewable?(new_file)
+      image?(file) || pdf?(file)
+    end
+
+    def image?(new_file)
+
+      self.file.content_type.include? 'image'
+    end
+
+    def pdf?(new_file)
+     self.file.content_type.include? 'pdf'
+  end
+
+
+
+
 
 end
