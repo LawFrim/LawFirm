@@ -1,7 +1,7 @@
     <!-- 查看历史信息 -->
     <% if @conversations.present? %>
       <% @conversations.each do |c| %>
-      
+
         <!-- 律师来答 -->
         <%= link_to account_question_conversation_path(question_id: @question.id,id: c.id) do %>
         <div class="row">
@@ -15,18 +15,18 @@
           <!-- 确定回答框基本警告模式 -->
 
             <div class="row ">
-              
+
               <div class="col-md-2">
 
                 <!-- 用户头像 -->
-                <%= render(partial: "common/user_img",locals: {user: c.originator}) %>  
+                <%= render(partial: "common/user_img",locals: {user: c.originator}) %>
                 <!-- 用户头像 -->
 
               </div>
-              <div class="col-md-10 text-left">
+              <div class="col-md-10 text-center">
                 <% if c.last_sender == current_user %>
                   <h6>  正在等待</h6>
-                  <h4> <%= c.originator.user_name %></h4> 
+                  <h4> <%= c.originator.user_name %></h4>
                   <h6> 的回复... </h6>
                 <% else %>
                   <h4> <%= c.originator.user_name %></h4>
@@ -40,7 +40,7 @@
         <% end %>
         <!-- 律师来答 -->
 
-        <hr> 
+        <hr>
 
 
 

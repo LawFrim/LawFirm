@@ -40,4 +40,4 @@ class Admin::DocumentsController < ApplicationController
 
   end
 
-end
+ 
