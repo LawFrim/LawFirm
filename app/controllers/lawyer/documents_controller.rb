@@ -9,7 +9,6 @@ class Lawyer::DocumentsController < ApplicationController
   def index
     # @user = current_user
     @documents = Document.all
-
   end
 
   def new
@@ -19,7 +18,6 @@ class Lawyer::DocumentsController < ApplicationController
 
   def show
     @document = Document.find(params[:id])
-
   end
 
   private

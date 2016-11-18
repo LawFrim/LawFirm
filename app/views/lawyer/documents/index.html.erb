@@ -8,9 +8,10 @@
       <tr>
         <td>  #</td>
           <td>合同审查需求意见</td>
+            <td>下载合同</td>
           <td>客户信息</td>
           <td>创建时间</td>
-        <td>下载合同</td>
+
       </tr>
   </thead>
 
@@ -19,24 +20,17 @@
       <tr>
         <td>
           <% if document.client_docs.present? %>
-          <% if document.client_docs[0].preview.present? %>
-        <%= link_to image_tag(document.client_docs[0].preview.url), "#" %>
-        <% else %>
-          <%= link_to image_tag "http://placehold.it/300?text=用户合同" %>
-          <% end %>
+                  <% if document.client_docs[0].preview.present? %>
+                        <%= link_to image_tag(document.client_docs[0].preview.url), "#" %>
+                  <% else %>
+                        <%= link_to image_tag "http://placehold.it/300?text=用户合同" %>
+                  <% end %>
           <% else %>
             该用户尚未上传合同附件
             <% end %>
         </td>
         <td>
           <%= link_to document.description ,account_document_path(document) %>
-
-        </td>
-        <td>
-          <%= document.user.email %>
-        </td>
-        <td>
-          <%= document.created_at %>
 
         </td>
         <td>
@@ -48,6 +42,14 @@
           <% end %>
 
         </td>
+        <td>
+          <%= document.user.email %>
+        </td>
+        <td>
+          <%= document.created_at %>
+
+        </td>
+
 
       </tr>
     <% end %>
