@@ -9,7 +9,6 @@ class Admin::DocumentsController < ApplicationController
       def index
         # @user = current_user
         @documents = Document.all
-
       end
 
       def new
@@ -19,7 +18,6 @@ class Admin::DocumentsController < ApplicationController
 
       def show
         @document = Document.find(params[:id])
-
       end
 
       private
@@ -34,10 +32,5 @@ class Admin::DocumentsController < ApplicationController
         def get_mailbox
           @mailbox ||= current_user.mailbox
         end
-
-
-
-
-  end
 
 end
