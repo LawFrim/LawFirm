@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117141141) do
+ActiveRecord::Schema.define(version: 20161121124916) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -93,6 +93,16 @@ ActiveRecord::Schema.define(version: 20161117141141) do
     t.string   "message_id"
     t.index ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
     t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "total"
+    t.integer  "user_id"
+    t.string   "item"
+    t.string   "billing_name"
+    t.string   "billing_address"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "questions", force: :cascade do |t|

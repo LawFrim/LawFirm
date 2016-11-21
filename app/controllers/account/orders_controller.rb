@@ -5,7 +5,8 @@ class Account::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.user = current_user
     @order.item = "包月法律咨询服务费"
-    @order.total = "999RMB"
+    @order.total = "999"
+
 
     if @order.save
       redirect_to order_path(@order)
@@ -18,7 +19,7 @@ class Account::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.user = current_user
     @order.item = "包年法律咨询服务费"
-    @order.total = "9999RMB"
+    @order.total = "9999"
 
     if @order.save
       redirect_to order_path(@order)
@@ -26,6 +27,19 @@ class Account::OrdersController < ApplicationController
       render '/'
     end
   end
+
+  def new
+    @order = Order.new
+  end
+
+  def show
+    @order = Order.find(params[:id])
+  end
+
+  def index
+    @order = Order.all
+  end
+
 
   private
 

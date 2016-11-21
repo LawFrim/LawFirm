@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
     resources :documents
      resources :feedbacks
-     
+
     resources :conversations
     resources :users do
       member do
@@ -21,8 +21,14 @@ Rails.application.routes.draw do
   # 普通用户路由
   namespace :account do
     resources :documents
-     resources :feedbacks
-
+    resources :feedbacks
+    #order路由
+    resources :orders do
+      collection do
+        post :create_m
+        post :create_y
+      end 
+    end
     resources :users
     resources :questions do
       resources :answers
