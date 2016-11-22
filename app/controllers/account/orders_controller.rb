@@ -6,8 +6,8 @@ class Account::OrdersController < ApplicationController
     @order.user = current_user
     @order.item = "包月法律咨询"
     @order.total = "999"
-
-
+    @order.billing_name = current_user.user_name
+    @order.billing_address = current_user.email
     if @order.save
       redirect_to account_order_path(@order)
     else
@@ -20,8 +20,8 @@ class Account::OrdersController < ApplicationController
     @order.user = current_user
     @order.item = "包年法律咨询"
     @order.total = "9999"
-
-
+    @order.billing_name = current_user.user_name
+    @order.billing_address = current_user.email
     if @order.save
       redirect_to account_order_path(@order)
     else
@@ -35,7 +35,8 @@ class Account::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-  
+
+
   end
 
   def pay_with_alipay

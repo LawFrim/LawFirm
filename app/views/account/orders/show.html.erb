@@ -38,28 +38,23 @@
 
     <hr>
 
-    <h2> 填写您的订单信息（我们会对您的个人信息保密）</h2>
+    <h2> 请确认您的订单信息（我们会对您的个人信息保密）</h2>
 
     <div class="order-form">
 
 
-      <%= simple_form_for @order do |f| %>
+
 
           <legend> 用户信息</legend>
           <div class="form-group col-lg-6">
-            <%= f.input :billing_name  %>
+          <%= @order.billing_name%>
           </div>
             <legend> 用户联系方式</legend>
           <div class="form-group col-lg-6">
-            <%= f.input :billing_address  %>
+          <%= @order.billing_address %>
           </div>
 
 
-        <div class="checkout">
-          <%= f.submit "生成订单", class: "btn btn-lg btn-danger pull-right",
-                       data: { disable_with: "Submitting..." } %>
-        </div>
-      <% end %>
 
 
     </div>
