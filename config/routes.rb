@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
     resources :documents
      resources :feedbacks
-
+     resources :orders
     resources :conversations
     resources :users do
       member do
