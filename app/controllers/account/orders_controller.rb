@@ -35,9 +35,8 @@ class Account::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-
-
   end
+
 
   def pay_with_alipay
     @order = Order.find(params[:id])
@@ -55,8 +54,31 @@ class Account::OrdersController < ApplicationController
 
 
   def index
-    @order = Order.all
+    @orders = Order.all.where(user_id: current_user).recent
   end
+
+  def edit
+    @order = Order.find(params[:id])
+  end
+
+  def create
+    @order = Order.new(order_params)
+    if @order.save
+      redirect_to orders_path
+    else
+      render :new
+    end
+  end
+
+  def update
+    @order = Order.find(params[:id])
+    if @order.update(order_params)
+      redirect_to orders_path
+    else
+      render :edit
+    end
+  end
+
 
 
   private
