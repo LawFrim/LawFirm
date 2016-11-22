@@ -21,3 +21,37 @@
 .navbar {
   margin-bottom: 0px;
 }
+
+
+.login-signup {
+  padding: 25 0 25px;
+  margin-top:25px;
+
+}
+
+.login-signup {
+  padding: 0 0 25px;
+}
+
+.form-actions{
+  margin-bottom: 6px;
+
+}
+
+a {
+  color: #23bab5;
+}
+
+ul {
+  list-style-type: none;
+}
+
+article[role="login"] {
+  background: #FFE1AB;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 10px rgba(0, 0, 0, 0.24);
+  webkit-transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 30px 50px;
+  margin-bottom: 20px;
+}

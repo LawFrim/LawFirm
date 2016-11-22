@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
+
 ActiveRecord::Schema.define(version: 20161122080116) do
 
   create_table "activities", force: :cascade do |t|
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 20161122080116) do
     t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
   end
 
+ 
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -170,6 +172,8 @@ ActiveRecord::Schema.define(version: 20161122080116) do
     t.string   "district"
     t.string   "area"
     t.string   "lawfirm"
+    t.integer  "role"
+    t.boolean  "is_vip",                 default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
