@@ -8,12 +8,29 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+
+
+
+                <% if !current_user %>
+                    <li><%= link_to("注册", new_user_registration_path) %> </li>
+                    <li><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
+                <% else %>
+
+                <!-- 添加提醒系统 -->
+                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-bell-o" aria-hidden="true"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>h</li>
+                        <li>h</li>
+                        <li>hehe</li>
+                    </ul>
                 <li>
 
-                    <% if !current_user %>
-                  <li><%= link_to("注册", new_user_registration_path) %> </li>
-                   <li><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
-                <% else %>
+
+
+                <!-- 用户主要下拉菜单 -->
                  <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         Hi!,<% if current_user.user_name.present? %>
@@ -38,7 +55,7 @@
                          <li> <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
                     </ul>
                   </li>
-                    <% end %>
+                <% end %>
                 </li>
             </ul>
         </div>

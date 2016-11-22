@@ -16,10 +16,17 @@ class ApplicationController < ActionController::Base
   end
 
   def lawyer_required
-     if !current_user.lawyer?
+    if !current_user.lawyer?
       redirect_to "/"
-      end
-   end
+    end
+  end
 
+
+   #f783-站内通知系统
+  def noti(user, link, type)
+    # 推送给指定用户信息
+    
+    # 邮箱通知
+  end
 
 end

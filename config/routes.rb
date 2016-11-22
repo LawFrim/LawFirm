@@ -49,7 +49,8 @@ Rails.application.routes.draw do
 
   end
 
-
+  # f783-站内通知
+  resources :notification
 
 
   resources :welcome
