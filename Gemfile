@@ -37,6 +37,9 @@ gem 'gravtastic'
 # f120
 gem 'mailboxer'
 
+# f783
+gem 'public_activity'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
