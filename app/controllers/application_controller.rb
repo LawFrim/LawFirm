@@ -22,11 +22,19 @@ class ApplicationController < ActionController::Base
   end
 
 
-   #f783-站内通知系统
-  def noti(user, link, type)
-    # 推送给指定用户信息
-    
-    # 邮箱通知
+  # f783-addNotificationToNavbar
+  # recipient 接收者
+  # actor 发起者
+  # notifiable_id  哪张表发起的  比如，question要提醒用户，这里就传question
+  # notifiable_type  发起的请求类型，比如如果是"question", 就填"question"
+  # 发送信息
+  def send_notification!(recipient, actor, notifiable)
+    puts notifiable.class
+    Notification.create(recipient_id: recipient, actor_id: actor, notifiable_id: notifiable.id, notifiable_type: notifiable.class)
+    # binding.pry
   end
 
 end
+
+
+

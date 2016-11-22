@@ -2,6 +2,8 @@ class Document < ApplicationRecord
   belongs_to :user
   has_many :feedbacks
   mount_uploaders :client_docs, ClientdocsUploader
+  # 文档对象链接
+  has_many :notifications, as: :notifiable
 
 
   serialize :client_docs, JSON

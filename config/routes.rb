@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   # 普通用户路由
   namespace :account do
     resources :documents
-     resources :feedbacks
+    resources :feedbacks
 
     resources :users
     resources :questions do
@@ -50,10 +50,16 @@ Rails.application.routes.draw do
   end
 
   # f783-站内通知
-  resources :notification
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
 
 
   resources :welcome
+
+  
   root 'welcome#index'
 
 end
