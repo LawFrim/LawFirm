@@ -1,0 +1,40 @@
+<div class="col-md-12">
+  <h4>全站订单动态</h4>
+    <table class="table table-striped">
+      <th>
+<tr>
+  <td>ID</td>
+  <td>订单内容</td>
+  <td>订单总价</td>
+
+  <td>订购人姓名</td>
+  <td>订购人邮箱地址</td>
+  <td>更新时间</td>
+  <td>支付方式</td>
+  <td>支付状态</td>
+</tr>
+      </th>
+
+      <%  @orders.each do |order|%>
+      <tr>
+
+            <td><%= order.id%></td>
+            <td><%= link_to(order.item, account_order_path(order)) %></td>
+            <td><%= order.total%><br>RMB</td>
+          
+            <td><%= order.billing_name %></td>
+            <td><%= order.billing_address%></td>
+            <td><%= order.updated_at%></td>
+            <td><%= order.payment_method%></td>
+            <td>
+              <% if order.is_paid?%>
+              已支付
+              <% else %>
+              未支付
+                <% end %>
+
+            </td>
+            </tr>
+      <% end %>
+    </table>
+</div>

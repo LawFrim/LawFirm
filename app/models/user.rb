@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :answers
   has_many :documents
   has_many :feedbacks
+  has_many :orders
   def admin?
     is_admin
   end
