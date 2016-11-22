@@ -1,48 +1,114 @@
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-           <a class="navbar-brand" href="/">Law </a>
-        </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-
-                    <% if !current_user %>
-                  <li><%= link_to("注册", new_user_registration_path) %> </li>
-                   <li><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
-                <% else %>
-                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Hi!,<% if current_user.user_name.present? %>
-                        <%= current_user.user_name %>
-                        <% else %>
-                        <%= current_user.email %>
-                        <% end %>
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-
-                        <% if current_user.admin? %>
-                        <li> <%= link_to("管理员面板", admin_questions_path) %> </li>
-                        <% else %>
-                        <li><%= link_to("我的动态", account_questions_path) %></li>
-                        <% end %>
-                        <% if current_user.lawyer? %>
-
-                        <li> <%= link_to("律师面板",lawyer_users_path) %> </li>
-                        <% end %>
-
-                         <li> <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
-                    </ul>
-                  </li>
-                    <% end %>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+<header class="main-header">
+<!-- Nested Container Starts -->
+  <div class="container">
+  <!-- Nested Row Starts -->
+    <div class="row">
+    <!-- Logo Starts -->
+      <div class="col-md-3 col-sm-4 col-xs-12">
+        <img src="/images/logo.png" alt="Law Attorney" class="img-responsive img-center-xs logo">
+       
+      </div>
+    <!-- Logo Ends -->
+    <!-- Right Col Starts -->
+      <div class="col-md-9 col-sm-8 col-xs-12 hidden-xs">
+      <!-- Header Links Starts -->
+        <ul class="list-unstyled list-inline header-links text-right-lg text-right-md text-right-sm text-center-xs text-light">
+          <li><a href="#">价格方案</a></li>
+          <li><a href="#">加入我们</a></li>
+          <li><a href="#">关于我们</a></li>
+          <li><a href="#">用户指南</a>
+          <!-- <li><a href="#">Team Members</a></li> -->
+        </ul>
+      <!-- Header Links Ends -->
+      <!-- Starts -->
+        <ul class="list-unstyled list-inline header-info text-center-xs pull-right-lg pull-right-md pull-right-sm">
+          <li class="hidden-sm"><a href="#" class="btn btn-secondary text-uppercase animation flat"><i class="fa fa-comments"></i> 24小时在线客服</a></li>
+          <li class="clearfix">
+            <i class="fa fa-map-marker pull-left"></i>
+            <span class="pull-left">
+              <h6>建外 SOHO </h6>
+                中国北京朝阳区
+            </span>
+          </li>
+          <li class="clearfix">
+            <i class="fa fa-phone pull-left"></i>
+            <span class="pull-left">
+              <h6>400 345 678 9630</h6>
+              免费咨询电话
+            </span>
+          </li>
+        </ul>
+      <!-- Ends -->
+      </div>
+    <!-- Right Col Ends -->
     </div>
-    <!-- /.container-fluid -->
+  <!-- Nested Row Ends -->
+  </div>
+<!-- Nested Container Ends -->
+</header>
+<!-- Main Header Ends -->
+<!-- Main Menu Starts -->
+<nav id="nav" class="main-menu navbar flat">
+<!-- Nested Container Starts -->
+  <div class="container">
+  <!-- Nav Header Starts -->
+    <div class="navbar-header">
+      <button type="button" class="btn btn-navbar navbar-toggle flat animation" data-toggle="collapse" data-target=".navbar-cat-collapse">
+        <span class="sr-only">Toggle Navigation</span>
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+  <!-- Nav Header Ends -->
+  <!-- Navbar Cat collapse Starts -->
+    <div class="collapse navbar-collapse navbar-cat-collapse animation">
+      <ul class="nav navbar-nav text-uppercase text-bold">
+        <li class="active"><a href="index.html">我的动态</a></li>
+        <!-- <li><a href="about.html"></a></li>
+        <li><a href="practice-area.html">Pratice Areas</a></li>
+        <li><a href="attorneys.html">Attorneys</a></li> -->
+
+        </li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right text-right-lg text-right-md hidden-sm hidden-xs">
+        <li class="dropdown">
+
+                      <% if !current_user %>
+                    <li><%= link_to("注册", new_user_registration_path) %> </li>
+                     <li><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
+                  <% else %>
+                   <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          Hi!,<% if current_user.user_name.present? %>
+                          <%= current_user.user_name %>
+                          <% else %>
+                          <%= current_user.email %>
+                          <% end %>
+                          <b class="caret"></b>
+                      </a>
+                      <ul class="dropdown-menu">
+
+                          <% if current_user.admin? %>
+                          <li> <%= link_to("管理员面板", admin_questions_path) %> </li>
+                          <% else %>
+                          <li><%= link_to("我的动态", account_questions_path) %></li>
+                          <% end %>
+                          <% if current_user.lawyer? %>
+
+                          <li> <%= link_to("律师面板",lawyer_users_path) %> </li>
+                          <% end %>
+
+                           <li> <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
+                      </ul>
+                    </li>
+                      <% end %>
+                  </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  <!-- Navbar Cat collapse Ends -->
+  </div>
+<!-- Nested Container Ends -->
 </nav>

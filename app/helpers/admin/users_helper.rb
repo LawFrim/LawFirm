@@ -8,6 +8,17 @@ module Admin::UsersHelper
     end
   end
 
+
+
+
+  def render_user_small_avatar(user)
+    if !user.user_avatar.present?
+    image_tag user.gravatar_url
+  else
+    image_tag (user.user_avatar.url(:small))
+  end
+end
+
   def change_user_status(user)
     if !user.is_lawyer?
       link_to("设为律师", change_to_lawyer_admin_user_path(user), method: :post,data: { confirm: "确认认证为律师么？" }, class:"btn btn-xs btn-info")
