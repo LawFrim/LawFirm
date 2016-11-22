@@ -16,7 +16,13 @@ class User < ApplicationRecord
   has_many :answers
   has_many :documents
   has_many :feedbacks
+ 
+  # f783-提示
+  has_many :notifications
+
+
   has_many :orders
+
   def admin?
     is_admin
   end

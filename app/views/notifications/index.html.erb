@@ -1,0 +1,53 @@
+<h1>提示</h1>
+<% @notifications.each do |n| %>
+  <!-- 如果是回答问题 -->
+  <% case n.notifiable_type %>
+  <% when 'Question' %>
+
+    <p><%= n.actor.user_name %>回答了<%= n.notifiable.content %></p>
+    <button id="read-noti-<%= n.id %>" class="btn btn-default">已读</button>
+  <% when 'Document' %>
+    <p><%= n.actor.user_name %>审核了<%= n.notifiable.description %></p>
+    <a href="<%= mark_as_read_notifications_path %>" class="">已读</a>
+  <% end %>
+  
+
+
+
+
+
+
+<script>
+$(function() {
+  
+  $('#read-noti-<%= n.id %>').bind('click', function() {
+    mark_as_read()
+  });
+
+
+  function mark_as_read() {
+    $.ajax({
+      url: '<%= mark_as_read_notifications_path %>',
+      type: 'POST',
+      dataType: 'json',
+      data: {'read': 'true'},
+    })
+    .done(function() {
+      console.log("success");
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+  }
+
+
+
+});
+  
+</script>
+
+
+<% end %>

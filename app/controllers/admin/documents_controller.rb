@@ -2,7 +2,7 @@ class Admin::DocumentsController < ApplicationController
 
       before_action :authenticate_user!
       before_action :admin_required
-      before_action :get_mailbox
+
 
       layout "admin"
 
@@ -28,12 +28,6 @@ class Admin::DocumentsController < ApplicationController
         params.require(:document).permit(:description,{client_docs:[]})
       end
 
-
-
-        # 建一个邮箱
-        def get_mailbox
-          @mailbox ||= current_user.mailbox
-        end
 
 
 

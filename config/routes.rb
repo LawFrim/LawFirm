@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   namespace :account do
     resources :documents
     resources :feedbacks
+
     #order路由
     resources :orders do
       collection do
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
         post :pay_with_wechat
       end
     end
+
     resources :users
     resources :questions do
       resources :answers
@@ -60,10 +62,17 @@ Rails.application.routes.draw do
 
   end
 
-
+  # f783-站内通知
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
 
 
   resources :welcome
+
+
   root 'welcome#index'
 
 end
