@@ -27,6 +27,8 @@ Rails.application.routes.draw do
       collection do
         post :create_m
         post :create_y
+        post :checkout_m
+        post :checkout_y
       end
       #支付路由
       member do
