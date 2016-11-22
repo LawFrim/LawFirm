@@ -6,7 +6,7 @@
   <td>ID</td>
   <td>订单内容</td>
   <td>订单总价</td>
-  <td>订单创立时间</td>
+
   <td>订购人姓名</td>
   <td>订购人邮箱地址</td>
   <td>更新时间</td>
@@ -21,12 +21,19 @@
             <td><%= order.id%></td>
             <td><%= link_to(order.item, account_order_path(order)) %></td>
             <td><%= order.total%><br>RMB</td>
-            <td><%= order.created_at%></td>
+          
             <td><%= order.billing_name %></td>
             <td><%= order.billing_address%></td>
             <td><%= order.updated_at%></td>
             <td><%= order.payment_method%></td>
-            <td><%= order.is_paid%></td>
+            <td>
+              <% if order.is_paid?%>
+              已支付
+              <% else %>
+              未支付
+                <% end %>
+
+            </td>
             </tr>
       <% end %>
     </table>
