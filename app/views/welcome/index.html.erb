@@ -395,3 +395,412 @@
   <!-- Nested Container Ends -->
   </section>
 <!-- Clients Carousel Section Ends -->
+
+  <body> -->
+    <div class="onepage">
+      <div class="onepage-bg" id="onepagebg"></div>
+        <div class="container">
+          <div class="row">
+            <div class="title-text">
+              <div class="col-md-12 headfontsize">
+              <center>
+                <h1 class="headh1content">
+                  做你的终身伴律，为你搞定一切
+                </h1>
+
+                <p style="margin-top: 30px;line-height: 33px">做你终身的法律顾问，结案快三倍，为你争取最大合法权益</p>
+                <p style="margin-top: 60px;line-height: 33px" class="btn-app-stroe">
+                  <%= link_to "立即注册，可免费使用30天", new_user_registration_path, class:"btn btn-warning btn-lg" %>
+
+                </p>
+              </center>
+              </div>
+
+            </div>
+
+        </div>
+
+        </div>
+    </div>
+    <hr>
+    <div class="towpage">
+      <div class="container">
+       <div class="row">
+         <div class="container">
+
+        <div class="towpage-courses col-md-6">
+        <center>
+          <p style="margin-top: 40px;line-height: 33px" class="btn-app-stroe">
+            <a href="#">
+              <img src="https://ooo.0o0.ooo/2016/11/17/582d76c76fb91.png" height="70" width="70"  />
+          </a></p>
+          <p style="margin-top: 20px;line-height: 33px" class="btn-app-stroe">
+            <!-- <a class="btn btn-info btn-lg" href="http://localhost:3000/account/documents/new">检查合同</a> -->
+
+            <%= link_to "检查合同", account_documents_path, class:"btn btn-warning btn-lg" %>
+
+          </p>
+          <p>
+            律师帮您分析合同，30分钟内给出<br>专业意见，为您的权益保驾护航。<br>一键上传，收获一份安心。
+
+          </p>
+        </center>
+        </div>
+        <div class="towpage-courses col-md-6">
+          <center>
+          <p style="margin-top: 40px;line-height: 33px" class="btn-app-stroe"><a href="#">
+            <img src="https://ooo.0o0.ooo/2016/11/17/582d76a8d9db6.png" height="70" width="70"  />
+          </a></p>
+          <p style="margin-top: 20px;line-height: 33px" class="btn-app-stroe">
+            <!-- <a class="btn btn-info btn-lg" href="http://localhost:3000/account/questions/new">法律问题，随便问</a> -->
+
+            <%= link_to "法律问题，随便问", account_questions_path,class:"btn btn-warning btn-lg"%>
+
+          </p>
+          <p>
+            律专家就在你身边，满足您任何时<br>间任何地点任何不解、疑惑，便可<br>直接发问，上千律师在线等。
+
+          </p>
+        </center>
+        </div>
+      </div>
+       </div>
+      </div>
+    </div>
+    <div class="threepage">
+      <div class="container">
+        <div class="three-text">
+          <center>
+
+          <h2 class="three-text-h2">
+            快速向你身边的律师发问
+          </h2>
+        </div>
+        <div class="towpage-courses col-md-4">
+          <center>
+          <a href="#">
+            <img src="https://ooo.0o0.ooo/2016/11/16/582bb654e994d.jpg" alt="5-1401061035020-L.jpg" title="5-1401061035020-L.jpg" height="90" width="90"  />
+          </a>
+          <h3 class="three-text-h5">快速得到法律建议</h3>
+          <p>
+            任何一个法律问题，我们在少于一个<br>工作日内，给出详尽的建议
+
+
+          </p>
+        </center>
+      </div>
+      <div class="towpage-courses col-md-4">
+        <center>
+        <a href="#">
+          <img src="https://ooo.0o0.ooo/2016/11/16/582bb8ce64f9c.jpg"  alt="yjimage.jpg" title="yjimage.jpg" height="90" width="90"  />
+        </a>
+        <h3 class="h3content">
+          帮你分析文书
+
+        </h3>
+        <p>
+         专业律师在线帮你分析查看你的合同<br>反馈给你一套详尽的法律方案
+        </p>
+      </center>
+    </div>
+    <div class="towpage-courses col-md-4">
+      <center>
+      <a href="#">
+
+        <img src="https://ooo.0o0.ooo/2016/11/17/582d9b912e178.jpeg" height="90" width="90" />
+
+      </a>
+      <h3 class="h5content">
+        团购打折
+
+      </h3>
+      <p>
+        定期举办团购活动，跟你的同事一起购买<br>可享受最多8.8折优惠服务
+
+      </p>
+    </center>
+    </div>
+      </div>
+      <div class="row">
+
+
+      <div class="container">
+        <div class="form-group col-md-6 ">
+          <center>
+          <a href="#">
+            <img src="https://ooo.0o0.ooo/2016/11/17/582d92b7eba34.png" height="450" width="520" ／>
+          </a>
+        </center>
+      </div>
+          <div>
+              <!-- <br style="clear:both"> -->
+                  <div class="form-group col-md-4 pull-right">
+                      <label id="messageLabel" for="message">提出你的问题</label>
+
+                      <textarea class="form-control input-sm " type="textarea" id="message" placeholder="Question" maxlength="500" rows="25"></textarea>
+
+                          <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
+                  </div>
+              <br style="clear:both">
+              <div class="form-group col-md-2 pull-right">
+
+              <!-- <button class="form-control input-sm btn btn-success disabled" id="btnSubmit" name="btnSubmit" type="button" style="height:35px">提交</button> -->
+
+              <%= link_to "提交", account_documents_path, class:"form-control input-sm btn btn-warning"   %>
+
+
+
+          </div>
+      </div>
+    </div>
+  </div>
+<div class="fourpage">
+  <div class="container">
+    <div class="four-text">
+      <center>
+
+      <h2 class="four-text-h1">
+        用户心声
+      </h2>
+      <div class="container">
+        <div class="form-group col-md-6 ">
+          <center>
+            <h4>
+             自从有了拥有了伴律，我再也不用担心，涉及的<br>法律问题，可以全身心的投入到工作，大大减少<br>了我的后顾之忧。创造了更大的价值。
+            </h4>
+        </center>
+        </div>
+        <div class="form-group col-md-6 ">
+          <center>
+            <h4>
+             一年的陪伴，从开始完全没有法律意识，到现在<br>没有任何法律困扰，可以说让我省去了，话费在<br>设计版权的问题上，之前一直被这个问题困扰，<br>感谢伴律。
+            </h4>
+        </center>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="row">
+     <div class="form-group col-md-6 ">
+      <center>
+      <a href="#">
+        <img src="https://ooo.0o0.ooo/2016/11/16/582bb9527c1e7.jpg" height="70" width="68" style="border-radius:50%" />
+      </a>
+      <p>
+        阿峰——互联网水果店拓新者<br>CEO & 网上著名水果店供应商
+      </p>
+    </center>
+    </div>
+    <div class="form-group col-md-6 ">
+     <center>
+     <a href="#">
+       <img src="http://entdata-pic2.stor.vipsinaapp.com/2016031316/56e529de2056a14213915342513.jpg" height="70" width="68" style="border-radius:50%" />
+     </a>
+     <p>
+       曾曾——著名园林设计师<br>CEO & 圆梦园设计有限公司
+     </p>
+   </center>
+   </div>
+  </div>
+
+<!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+
+<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous"> -->
+
+
+<div class="container" >
+  <div class="form-group col-md-4 pull-right ">
+
+        <div class="text-center center-block" >
+            <br />
+                <!-- <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+	            <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+	            <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+	            <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a> -->
+</div>
+</div>
+</div>
+    </div>
+<div class="fivepage">
+  <div class="container">
+    <div class="five-text">
+      <center>
+
+      <h2 class="five-text-h2">
+        我们在这里等你
+      </h2>
+      <div class="form-group col-md-4 ">
+       <center>
+       <a href="#">
+
+         <img src="https://ooo.0o0.ooo/2016/11/17/582d9b917824a.jpg" height="180"; width="180" style="border-radius:80%"／>
+
+       </a>
+       <p>
+         皮特·李<br>北京大学
+       </p>
+     </center>
+     </div>
+     <div class="form-group col-md-4 ">
+      <center>
+      <a href="#">
+          <img src="http://a4.att.hudong.com/51/24/01300543479770144566243407086_s.jpg" height="180" width="180" style="border-radius:80%"／>
+      </a>
+      <p>
+        茱丽叶<br>清华大学
+      </p>
+    </center>
+    </div>
+    <div class="form-group col-md-4 ">
+     <center>
+     <a href="#">
+
+       <img src="https://ooo.0o0.ooo/2016/11/17/582d9d177c276.jpeg" height="180" width="180" style="border-radius:80%" ／>
+
+     </a>
+     <p>
+       安格斯·吴<br>耶鲁大学
+     </p>
+     </center>
+    </div>
+   <div class="five-text">
+     <center>
+
+     <h3 class="five-text-h2">
+        让法律问题从此不再难!
+     </h3>
+     <p>
+       <!-- <a class="btn btn-danger btn-lg" href="http://localhost:3000/users/sign_up">快联系我们</a> -->
+
+       <%= link_to "联系我们", new_user_registration_path, class:"btn btn-warning btn-lg" %>
+
+
+     </p>
+   </center>
+   </div>
+ </div>
+ </div>
+ </div>
+<!-- footer -->
+<!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+
+
+<!--footer-->
+<footer class="footer">
+<div class="container">
+
+<div class="row"><!-- row -->
+
+                <div class="col-lg-3 col-md-3"><!-- widgets column left -->
+                <ul class="list-unstyled clear-margins"><!-- widgets -->
+
+                        	<li class="widget-container widget_nav_menu"><!-- widgets list -->
+
+
+                                <h1 class="title-widget">Aeron</h1>
+
+
+							</li>
+
+                        </ul>
+
+
+                </div><!-- widgets column left end -->
+
+
+
+                <div class="col-lg-3 col-md-3"><!-- widgets column left -->
+
+                <ul class="list-unstyled clear-margins"><!-- widgets -->
+
+                        	<li class="widget-container widget_nav_menu"><!-- widgets list -->
+
+                                <h1 class="title-widget">Bose</h1>
+
+
+							</li>
+
+                        </ul>
+
+
+                </div><!-- widgets column left end -->
+
+
+
+                <div class="col-lg-3 col-md-3"><!-- widgets column left -->
+
+                <ul class="list-unstyled clear-margins"><!-- widgets -->
+
+                        	<li class="widget-container widget_nav_menu"><!-- widgets list -->
+
+
+                                <h1 class="title-widget">Slack</h1>
+
+
+
+							</li>
+
+
+
+                        </ul>
+
+
+                </div><!-- widgets column left end -->
+
+
+                <div class="col-lg-18 col-md-18"><!-- widgets column center -->
+
+
+
+                        <ul class="list-unstyled clear-margins"><!-- widgets -->
+
+                        	<li class="widget-container widget_recent_news"><!-- widgets list -->
+
+
+                                <h1 class="title-widget">Contact Us </h1>
+
+                                <div class="footerp">
+
+                                <h2 class="title-median"> BanLv Pvt. Ltd.</h2>
+                                <p><b>Email id:</b> <a href="mailto:info@webenlance.com">info@webenlance.com</a></p>
+
+                                <h1 class="title-widget  "> </h1>
+
+                                <div class="footerp">
+
+                                <h2 class="title-median">Contact Detail</h2>
+                                <p><b>Email id:</b> <a href="mailto:info@webenlance.com">info@lawfirm.com</a></p>
+
+                                <p><b>Helpline Numbers </b>
+
+    <b style="color:#ffc106;">(10AM to 10PM):</b>  +86-12345678909, +86-010-2356789  </p>
+
+    <p><b>Corp Office / Postal Address</b></p>
+
+    <p><b>Phone Numbers : </b>7042827160, </p>
+    <p> 010-27568832, 9868387223</p>
+
+                                </div>
+
+                                <div class="social-icons">
+
+                                	<ul class="nomargin">
+
+                <a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+	            <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+	            <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+	            <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
+
+                                    </ul>
+                                </div>
+                    		</li>
+                          </ul>
+                       </div>
+                </div>
+</div>
+</footer>
+<!--header-->
+
+
+<!--   </body>
+</html> -->
