@@ -8,12 +8,14 @@ Rails.application.routes.draw do
     end
     resources :documents
      resources :feedbacks
-     
+
     resources :conversations
     resources :users do
       member do
         post :change_to_user
         post :change_to_lawyer
+        post :chenge_to_vip
+        post :chenge_to_visitor
       end
     end
   end
