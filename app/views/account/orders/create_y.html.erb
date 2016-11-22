@@ -64,8 +64,8 @@
   <div class="">
     <% if !@order.is_paid? %>
     <div class="group pull-right">
-      <%= link_to("以支付宝支付", "#", :method => :post, :class => "btn btn-danger") %>
-      <%= link_to("以微信支付", "#", :method => :post, :class => "btn btn-danger") %>
+      <%= link_to("以支付宝支付", pay_with_alipay_account_order_path, :method => :post, :class => "btn btn-danger") %>
+      <%= link_to("以微信支付",pay_with_wechat_account_order_path, :method => :post, :class => "btn btn-danger") %>
     </div>
     <% else %>
       <p class="text-center">您已完成付款</p>

@@ -16,10 +16,10 @@
 
           <tr>
             <td>
-            包月法律咨询服务套餐
+              <%= @order.item%>服务套餐
             </td>
             <td>
-              <%= @order.item%>
+              <%= @order.item%>服务费
             </td>
             <td>
               <%= @order.total%>RMB
@@ -43,22 +43,31 @@
     <div class="order-form">
 
 
+      <%= simple_form_for @order do |f| %>
+
           <legend> 用户信息</legend>
           <div class="form-group col-lg-6">
-            <%= @order.billing_name  %>
+            <%= f.input :billing_name  %>
           </div>
             <legend> 用户联系方式</legend>
           <div class="form-group col-lg-6">
-            <%= @order.billing_address  %>
+            <%= f.input :billing_address  %>
           </div>
+
+
+        <div class="checkout">
+          <%= f.submit "生成订单", class: "btn btn-lg btn-danger pull-right",
+                       data: { disable_with: "Submitting..." } %>
+        </div>
+      <% end %>
 
 
     </div>
     <div class="">
       <% if !@order.is_paid? %>
       <div class="group pull-right">
-        <%= link_to("以支付宝支付", "#", :method => :post, :class => "btn btn-danger") %>
-        <%= link_to("以微信支付", "#", :method => :post, :class => "btn btn-danger") %>
+        <%= link_to("以支付宝支付", pay_with_alipay_account_order_path, :method => :post, class:"btn btn-warning btn-lg") %>
+        <%= link_to("以微信支付", pay_with_wechat_account_order_path, :method => :post, class:"btn btn-warning btn-lg") %>
       </div>
       <% else %>
         <p class="text-center">您已完成付款</p>

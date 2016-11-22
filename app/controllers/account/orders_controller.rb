@@ -4,10 +4,9 @@ class Account::OrdersController < ApplicationController
   def create_m
     @order = Order.new
     @order.user = current_user
-    @order.item = "包月法律咨询服务费"
+    @order.item = "包月法律咨询"
     @order.total = "999"
-    @order.billing_name = current_user.order.billing_name
-    @order.billing_address = current_user.order.billing_address
+
 
     if @order.save
       redirect_to account_order_path(@order)
@@ -19,7 +18,7 @@ class Account::OrdersController < ApplicationController
   def create_y
     @order = Order.new
     @order.user = current_user
-    @order.item = "包年法律咨询服务费"
+    @order.item = "包年法律咨询"
     @order.total = "9999"
 
 
@@ -36,9 +35,22 @@ class Account::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-
+  
   end
 
+  def pay_with_alipay
+    @order = Order.find(params[:id])
+    @order.set_payment_with!("alipay")
+    @order.pay!
+    redirect_to account_order_path(@order)
+  end
+
+  def pay_with_wechat
+    @order = Order.find(params[:id])
+    @order.set_payment_with!("wechat")
+    @order.pay!
+    redirect_to account_order_path(@order)
+  end
 
 
   def index

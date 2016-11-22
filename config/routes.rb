@@ -27,7 +27,12 @@ Rails.application.routes.draw do
       collection do
         post :create_m
         post :create_y
-      end 
+      end
+      #支付路由
+      member do
+        post :pay_with_alipay
+        post :pay_with_wechat
+      end
     end
     resources :users
     resources :questions do

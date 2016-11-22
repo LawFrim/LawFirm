@@ -18,4 +18,6 @@ end
 #  billing_address :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  is_paid         :boolean          default(FALSE)
+#  payment_method  :string
 #
