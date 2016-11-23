@@ -23,18 +23,17 @@ class ApplicationController < ActionController::Base
       end
    end
 
-    #管理员用户登录后跳转到指定页面
-    def after_sign_in_path_for(admin_user)
-      admin_users_path #你的路径
-    end
-    #普通用户登录后跳转到指定页面
-    def after_sign_in_path_for(account_user)
-      account_questions_path #你的路径
-    end
-    #律师用户登录后跳转到指定页面 yishixian
+
+    #不同用户登录后跳转到指定页面
     def after_sign_in_path_for(lawyer_user)
+      if current_user.is_lawyer?
       lawyer_questions_path #你的路径
+    elsif current_user.is_admin?
+      admin_users_path
+    else
+      account_questions_path
     end
+  end
 
   protected
    def configure_permitted_parameters
