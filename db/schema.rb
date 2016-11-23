@@ -10,27 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
-ActiveRecord::Schema.define(version: 20161122080116) do
-
-  create_table "activities", force: :cascade do |t|
-    t.string   "trackable_type"
-    t.integer  "trackable_id"
-    t.string   "owner_type"
-    t.integer  "owner_id"
-    t.string   "key"
-    t.text     "parameters"
-    t.string   "recipient_type"
-    t.integer  "recipient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type"
-    t.index ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type"
-    t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
-  end
-
- 
+ActiveRecord::Schema.define(version: 20161123030149) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -115,7 +95,6 @@ ActiveRecord::Schema.define(version: 20161122080116) do
     t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
   end
 
-
   create_table "notifications", force: :cascade do |t|
     t.integer  "question_id"
     t.integer  "document_id"
@@ -129,6 +108,7 @@ ActiveRecord::Schema.define(version: 20161122080116) do
     t.integer  "recipient_id"
     t.integer  "actor_id"
   end
+
   create_table "orders", force: :cascade do |t|
     t.integer  "total"
     t.integer  "user_id"
@@ -139,7 +119,6 @@ ActiveRecord::Schema.define(version: 20161122080116) do
     t.datetime "updated_at",                      null: false
     t.boolean  "is_paid",         default: false
     t.string   "payment_method"
-
   end
 
   create_table "questions", force: :cascade do |t|
@@ -174,6 +153,8 @@ ActiveRecord::Schema.define(version: 20161122080116) do
     t.string   "lawfirm"
     t.integer  "role"
     t.boolean  "is_vip",                 default: false
+    t.string   "certificate"
+    t.string   "certificate_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

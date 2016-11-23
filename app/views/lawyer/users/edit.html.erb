@@ -3,13 +3,15 @@
 <%= simple_form_for [:lawyer,@user] do |f| %>
 
 <div>
-<%= f.input :user_avatar %>
- <%=f.input :user_name %>
-<%= f.input :email %>
+<%= f.input :user_avatar,label:"上传头像" %>
+ <%=f.input :user_name, label:"用户名" %>
+<%= f.input :email ,label:"邮箱"%>
 <%= f.input :district, label:"地区"%>
 
 <%= f.input :area, label:"领域" %>
 <%= f.input :lawfirm, label:"律师事务所" %>
+<%= f.input :certificate_number, label: "律师证号" %>
+<%= f.input :certificate,label: "上传律师资格证"%>
 
 <%= f.submit "提交", class: "btn btn-sm btn-default" %>
 </div>
