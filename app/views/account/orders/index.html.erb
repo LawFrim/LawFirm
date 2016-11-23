@@ -2,7 +2,7 @@
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span12">
-			<table class="table">
+			<table class="table table-bordered">
 				<thead>
 					<tr>
 						<th>
@@ -23,9 +23,7 @@
             <th>
 							订购人邮箱地址
 						</th>
-            <th>
-							更新时间
-						</th>
+
             <th>
 							支付方式
 						</th>
@@ -43,13 +41,18 @@
             <td><%= order.created_at%></td>
             <td><%= order.billing_name %></td>
             <td><%= order.billing_address%></td>
-            <td><%= order.updated_at%></td>
-            <td><%= order.payment_method%></td>
+
+            <td><% if !order.is_paid?%>
+                等待支付
+                <% else %>
+              <%= order.payment_method%>
+                <% end %>
+            </td>
             <td><% if order.is_paid?%>
             已支付
               <% else %>
-            <%= link_to("以支付宝支付", pay_with_alipay_account_order_path(order), :method => :post, class:"btn btn-warning btn-lg") %>
-            <%= link_to("以微信支付", pay_with_wechat_account_order_path(order), :method => :post, class:"btn btn-warning btn-lg") %>
+            <%= link_to("支付宝支付", pay_with_alipay_account_order_path(order), :method => :post, class:"btn btn-danger btn-lg") %>
+            <%= link_to("微信支付", pay_with_wechat_account_order_path(order), :method => :post, class:"btn btn-danger btn-lg") %>
               <% end %></td>
 					</tr>
             <% end %>
