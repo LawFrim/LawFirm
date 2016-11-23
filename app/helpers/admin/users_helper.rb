@@ -16,6 +16,15 @@ module Admin::UsersHelper
     end
   end
 
+
+
+  def chenge_user_vip(user)
+    if !user.is_vip?
+      link_to("设为VIP", chenge_to_vip_admin_user_path(user), method: :post,data: {confirm: "确认认证VIP？"}, class: "btn btn-xs btn-warning")
+    else
+      link_to("取消VIP", chenge_to_visitor_admin_user_path(user), method: :post, data: {confirm: "取消认证VIP？"}, class: "btn btn-xs btn-warning ")
+    end
+  end
   def render_user_status(user)
     if !user.is_admin?
       if user.is_lawyer?
@@ -28,14 +37,6 @@ module Admin::UsersHelper
     end
   end
 
-  def chenge_user_vip(user)
-    if !user.is_vip?
-      link_to("设为VIP", chenge_to_vip_admin_user_path(user), method: :post,data: {confirm: "确认认证VIP？"}, class: "btn btn-xs btn-warning")
-    else
-      link_to("取消VIP", chenge_to_visitor_admin_user_path(user), method: :post, data: {confirm: "取消认证VIP？"}, class: "btn btn-xs btn-warning ")
-    end
-  end
-
   def render_user_vip(user)
     if !user.is_vip?
       content_tag(:span,"", class:"fa fa-opera")
@@ -44,5 +45,6 @@ module Admin::UsersHelper
     end
 
   end
+
 
 end
