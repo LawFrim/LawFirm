@@ -3,6 +3,7 @@ class Account::UsersController < ApplicationController
   layout "user"
 
 
+
   def index
     @user = current_user
   end

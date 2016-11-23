@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
 
-  
+
 
   # 增加需要管理员登录
   def admin_required
@@ -23,7 +23,18 @@ class ApplicationController < ActionController::Base
       end
    end
 
-
+    #管理员用户登录后跳转到指定页面
+    def after_sign_in_path_for(admin_user)
+      admin_users_path #你的路径
+    end
+    #普通用户登录后跳转到指定页面
+    def after_sign_in_path_for(_user)
+      account_questions_path #你的路径
+    end
+    #律师用户登录后跳转到指定页面 yishixian
+    def after_sign_in_path_for(lawyer_user)
+      lawyer_questions_path #你的路径
+    end
 
   protected
    def configure_permitted_parameters
