@@ -76,6 +76,10 @@ class User < ApplicationRecord
   def lawyer?
   is_lawyer
   end
+  
+  def pay!
+    self.update_columns(is_vip: true)
+  end
 
   scope :recent, -> { order("created_at DESC")}
   scope :area, -> { order("area DESC")}

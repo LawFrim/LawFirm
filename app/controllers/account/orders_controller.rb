@@ -42,14 +42,18 @@ class Account::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.set_payment_with!("alipay")
     @order.pay!
-    redirect_to account_order_path(@order)
+    @order.user = current_user
+    @order.user.pay!#管理员用户中心显示支付状态
+    redirect_to account_orders_path(@order)
   end
 
   def pay_with_wechat
     @order = Order.find(params[:id])
     @order.set_payment_with!("wechat")
     @order.pay!
-    redirect_to account_order_path(@order)
+    @order.user = current_user
+    @order.user.pay!#管理员用户中心显示支付状态
+    redirect_to account_orders_path(@order)
   end
 
 
@@ -73,7 +77,7 @@ class Account::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)
-      redirect_to orders_path
+      redirect_to account_orders_path
     else
       render :edit
     end

@@ -49,18 +49,23 @@
                 <%= link_to("删除用户", admin_user_path(user),
                         method: :delete, data: { confirm: "Are you sure?" },class:"btn btn-xs btn-info")  %>
 
-            </td>
-            <td>
-                <%= chenge_user_vip(user) %>
-            </td>
-            <td><%= user.role %></td>
-            <td>
-                待添加
-            </td>
-            <td>
-                待添加
-            </td>
-        </tr>
-        <% end %>
-    </tbody>
+        </td>
+        <td>
+          <%= chenge_user_vip(user) %>
+        </td>
+        <td><%= user.role %></td>
+        <td>
+          待添加
+        </td>
+        <td>
+          <% if user.is_vip?%>
+          已支付
+          <% else %>
+          未支付
+            <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+
 </table>

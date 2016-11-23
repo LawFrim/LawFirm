@@ -1,33 +1,64 @@
-<div class="col-md-12">
-  <h4>订单动态</h4>
-    <table class="table table-striped">
-      <th>
-<tr>
-  <td>ID</td>
-  <td>订单内容</td>
-  <td>订单总价</td>
-  <td>订单创立时间</td>
-  <td>订购人姓名</td>
-  <td>订购人邮箱地址</td>
-  <td>更新时间</td>
-  <td>支付方式</td>
-  <td>支付状态</td>
-</tr>
-      </th>
+<div class="well">
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>
+							订单编号
+						</th>
+						<th>
+							订单内容
+						</th>
+						<th>
+							订单总价
+						</th>
+						<th>
+							订单创立时间
+						</th>
+            <th>
+							订购人姓名
+						</th>
+            <th>
+							订购人邮箱地址
+						</th>
 
-      <%  @orders.each do |order|%>
-      <tr>
-
+            <th>
+							支付方式
+						</th>
+            <th>
+							支付状态
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+            <%  @orders.each do |order|%>
+					<tr class="success">
             <td><%= order.id%></td>
-            <td><%= link_to(order.item, account_order_path(order)) %></td>
+            <td><%= link_to(order.item, edit_account_order_path(order)) %></td>
             <td><%= order.total%><br>RMB</td>
             <td><%= order.created_at%></td>
             <td><%= order.billing_name %></td>
             <td><%= order.billing_address%></td>
-            <td><%= order.updated_at%></td>
-            <td><%= order.payment_method%></td>
-            <td><%= order.is_paid%></td>
-            </tr>
-      <% end %>
-    </table>
+
+            <td><% if !order.is_paid?%>
+                等待支付
+                <% else %>
+              <%= order.payment_method%>
+                <% end %>
+            </td>
+            <td><% if order.is_paid?%>
+            已支付
+              <% else %>
+            <%= link_to("支付宝支付", pay_with_alipay_account_order_path(order), :method => :post, class:"btn btn-danger btn-lg") %>
+            <%= link_to("微信支付", pay_with_wechat_account_order_path(order), :method => :post, class:"btn btn-danger btn-lg") %>
+              <% end %></td>
+					</tr>
+            <% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	</div>
 </div>
