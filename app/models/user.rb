@@ -25,7 +25,7 @@ class User < ApplicationRecord
   has_many :answers
   has_many :documents
   has_many :feedbacks
- 
+
   # f783-提示
   has_many :notifications
 
@@ -62,14 +62,16 @@ end
   def lawyer?
   is_lawyer
   end
-
+  def pay!
+    self.update_columns(is_vip: true)
+  end
   scope :recent, -> { order("created_at DESC")}
   scope :area, -> { order("area DESC")}
   scope :district, -> { order("district DESC")}
 
   scope :lawyer, -> { where("is_lawyer" => true)}
   scope :account,-> { where("is_lawyer" => false)}
-  
+
 
   include Gravtastic
   gravtastic

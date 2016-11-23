@@ -19,9 +19,9 @@
       <tr>
 
             <td><%= order.id%></td>
-            <td><%= link_to(order.item, account_order_path(order)) %></td>
+            <td><%= link_to(order.item,edit_account_order_path(order)) %></td>
             <td><%= order.total%><br>RMB</td>
-          
+
             <td><%= order.billing_name %></td>
             <td><%= order.billing_address%></td>
             <td><%= order.updated_at%></td>

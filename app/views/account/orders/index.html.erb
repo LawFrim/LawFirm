@@ -1,3 +1,6 @@
+<div class="well">
+
+
 <div class="col-md-12">
   <h4>订单动态</h4>
     <table class="table table-striped">
@@ -19,15 +22,26 @@
       <tr>
 
             <td><%= order.id%></td>
-            <td><%= link_to(order.item, account_order_path(order)) %></td>
+            <td><%= link_to(order.item, edit_account_order_path(order)) %></td>
             <td><%= order.total%><br>RMB</td>
             <td><%= order.created_at%></td>
             <td><%= order.billing_name %></td>
             <td><%= order.billing_address%></td>
             <td><%= order.updated_at%></td>
             <td><%= order.payment_method%></td>
-            <td><%= order.is_paid%></td>
+
+            <td>
+              <% if order.is_paid?%>
+              已支付
+                <% else %>
+              <%= link_to("以支付宝支付", pay_with_alipay_account_order_path(order), :method => :post, class:"btn btn-warning btn-lg") %>
+              <%= link_to("以微信支付", pay_with_wechat_account_order_path(order), :method => :post, class:"btn btn-warning btn-lg") %>
+                <% end %>
+            </td>
             </tr>
       <% end %>
     </table>
+</div>
+
+
 </div>

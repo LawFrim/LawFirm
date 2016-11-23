@@ -57,7 +57,11 @@
           待添加
         </td>
         <td>
-          待添加
+          <% if user.is_vip?%>
+          已支付
+          <% else %>
+          未支付
+            <% end %>
         </td>
       </tr>
     <% end %>
