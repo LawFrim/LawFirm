@@ -31,6 +31,8 @@ end
 #  lawfirm                :string
 #  role                   :integer
 #  is_vip                 :boolean          default(FALSE)
+#  certificate            :string
+#  certificate_number     :string
 #
 # Indexes
 #

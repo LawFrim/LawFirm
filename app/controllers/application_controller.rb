@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
+  before_action :get_notification
 
 
 
@@ -22,6 +23,27 @@ class ApplicationController < ActionController::Base
       redirect_to "/"
       end
    end
+
+
+
+    #不同用户登录后跳转到指定页面
+    def after_sign_in_path_for(lawyer_user)
+      if current_user.is_lawyer?
+        lawyer_questions_path #你的路径
+      elsif current_user.is_admin?
+        admin_users_path
+      else
+        account_questions_path
+      end
+    end
+
+  def get_notification
+    @notifications ||= Notification.where(recipient: current_user).unread
+    # @notifications = current_user.notifications.unread
+  end
+
+
+
 
 
 

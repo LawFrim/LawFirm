@@ -6,6 +6,9 @@ class Question < ApplicationRecord
   # 文档对象链接
   has_many :notifications, as: :notifiable
 
+  # f1042-建立问题附件连接
+  mount_uploader :attachment, Mailboxer::AttachmentUploader
+
 
 
   scope :recent, -> { order("created_at DESC")}
@@ -31,12 +34,14 @@ end
 #
 # Table name: questions
 #
-#  id          :integer          not null, primary key
-#  content     :text
-#  area        :string
-#  district    :string
-#  user_id     :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  is_answered :boolean          default(FALSE)
+#  id           :integer          not null, primary key
+#  content      :text
+#  area         :string
+#  district     :string
+#  user_id      :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  is_answered  :boolean          default(FALSE)
+#  attachment   :string
+#  service_type :string
 #

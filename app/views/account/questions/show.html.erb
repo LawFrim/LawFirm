@@ -1,5 +1,5 @@
 
- 
+
 
 <div class="clearfix">
 
@@ -54,14 +54,37 @@
 
       <div class="questionLogo"></div>
       <div class="info">
+      <!-- 判断存在 -->
+      <% if current_user.user_name.present? %>
       <p><span>姓名:</span><%= current_user.user_name %></p>
+      <% end %>
+
       <p><span>日期:</span> <%= @question.updated_at %></p>
+
+      <% if @question.area.present? %>
       <p><span>领域:</span> <%= @question.area %></p>
+ 
 
       <i class="fa fa-question-circle" aria-hidden="true"></i><span>  您的问题</span>
+
       <div class="answerText">
       <%= @question.content %>
       </div>
+
+
+      <!-- f1042-tryAttachmentForMaibox -->
+      <% if @question.attachment.present? %>
+        <div>
+          <%=  image_tag(@question.attachment.url, class: "thumbnail")  %>
+          <p class="pull-left"><%= @question.attachment.file.filename %></p>
+
+          <a href="<%= @question.attachment.url %>" download="" target="_blank">
+            <button type="button" class="btn btn-primary btn-xs pull-right">下载</button>
+          </a>
+        </div>
+      <% end %>
+      <!-- f1042-tryAttachmentForMaibox -->
+
 
     </div>
 

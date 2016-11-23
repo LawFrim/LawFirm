@@ -14,6 +14,7 @@ class User < ApplicationRecord
 
 
   mount_uploader :user_avatar, AvatarUploader
+  mount_uploader :certificate, CertificateUploader
 
 
 
@@ -25,7 +26,7 @@ class User < ApplicationRecord
   has_many :answers
   has_many :documents
   has_many :feedbacks
- 
+
   # f783-提示
   has_many :notifications
 
@@ -58,9 +59,26 @@ class User < ApplicationRecord
     convo.save
 
     message.deliver false, sanitize_text
-end
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
   def lawyer?
   is_lawyer
+  end
+  
+  def pay!
+    self.update_columns(is_vip: true)
   end
 
   scope :recent, -> { order("created_at DESC")}
@@ -69,7 +87,7 @@ end
 
   scope :lawyer, -> { where("is_lawyer" => true)}
   scope :account,-> { where("is_lawyer" => false)}
-  
+
 
   include Gravtastic
   gravtastic
@@ -101,6 +119,8 @@ end
 #  lawfirm                :string
 #  role                   :integer
 #  is_vip                 :boolean          default(FALSE)
+#  certificate            :string
+#  certificate_number     :string
 #
 # Indexes
 #

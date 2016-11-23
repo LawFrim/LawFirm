@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,:controllers =>{:resgistrations => :resgistrations}
+  as :user do
+  get 'users', :to => 'users#show', :as => :user_root # Rails 3
+end
+
 
   # 管理员路由
   namespace :admin do
@@ -7,7 +11,7 @@ Rails.application.routes.draw do
       resources :answers
     end
     resources :documents
-     resources :feedbacks 
+     resources :feedbacks
      resources :orders
     resources :conversations
     resources :users do
@@ -46,6 +50,7 @@ Rails.application.routes.draw do
       # 评价系统
       collection do
         post :rating
+        get  :new_document
       end
 
     end
