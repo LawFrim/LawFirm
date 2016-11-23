@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
-ActiveRecord::Schema.define(version: 20161122080116) do
+ActiveRecord::Schema.define(version: 20161123130845) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -30,8 +28,6 @@ ActiveRecord::Schema.define(version: 20161122080116) do
     t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
   end
 
- 
-
   create_table "answers", force: :cascade do |t|
     t.text     "content"
     t.integer  "question_id"
@@ -39,6 +35,7 @@ ActiveRecord::Schema.define(version: 20161122080116) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "conversation_id"
+    t.string   "attachment"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -115,7 +112,6 @@ ActiveRecord::Schema.define(version: 20161122080116) do
     t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
   end
 
-
   create_table "notifications", force: :cascade do |t|
     t.integer  "question_id"
     t.integer  "document_id"
@@ -129,6 +125,7 @@ ActiveRecord::Schema.define(version: 20161122080116) do
     t.integer  "recipient_id"
     t.integer  "actor_id"
   end
+
   create_table "orders", force: :cascade do |t|
     t.integer  "total"
     t.integer  "user_id"
@@ -139,7 +136,6 @@ ActiveRecord::Schema.define(version: 20161122080116) do
     t.datetime "updated_at",                      null: false
     t.boolean  "is_paid",         default: false
     t.string   "payment_method"
-
   end
 
   create_table "questions", force: :cascade do |t|
@@ -147,9 +143,11 @@ ActiveRecord::Schema.define(version: 20161122080116) do
     t.string   "area"
     t.string   "district"
     t.integer  "user_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.boolean  "is_answered", default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "is_answered",  default: false
+    t.string   "attachment"
+    t.string   "service_type"
   end
 
   create_table "users", force: :cascade do |t|

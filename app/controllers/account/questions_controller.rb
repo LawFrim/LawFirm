@@ -41,6 +41,15 @@ class Account::QuestionsController < ApplicationController
   # 建立
   def create
     @question = Question.new(question_params)
+
+    # f787makeDocumentAsQuestions区分问题类型为『纯问题』与『文件审核』
+    if question_params[:attachment].present?
+      @question.service_type = 'ducument'
+    else
+      @question.service_type = 'question'
+    end
+    # 
+
     @question.user = current_user
     if @question.save
       redirect_to account_questions_path, notice: "问题已发布!"
@@ -85,6 +94,11 @@ class Account::QuestionsController < ApplicationController
   end
 
 
+  # 附件系统
+  def new_document
+    @question = Question.new
+  end
+
 
 
 
@@ -92,7 +106,7 @@ class Account::QuestionsController < ApplicationController
 
   # 问题参数
   def question_params
-    params.require(:question).permit(:content,:area,:district)
+    params.require(:question).permit(:content,:area,:district,:attachment)
   end
 
   # 答案参数

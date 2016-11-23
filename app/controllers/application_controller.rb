@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
+  before_action :get_notification
 
 
 
@@ -22,6 +23,14 @@ class ApplicationController < ActionController::Base
       redirect_to "/"
       end
    end
+
+
+  def get_notification
+    @notifications ||= Notification.where(recipient: current_user).unread
+    # @notifications = current_user.notifications.unread
+  end
+
+
 
 
 
