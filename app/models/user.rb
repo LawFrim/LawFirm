@@ -14,6 +14,7 @@ class User < ApplicationRecord
 
 
   mount_uploader :user_avatar, AvatarUploader
+  mount_uploader :certificate, CertificateUploader
 
 
 
@@ -25,7 +26,7 @@ class User < ApplicationRecord
   has_many :answers
   has_many :documents
   has_many :feedbacks
- 
+
   # f783-提示
   has_many :notifications
 
@@ -82,7 +83,7 @@ class User < ApplicationRecord
 
   scope :lawyer, -> { where("is_lawyer" => true)}
   scope :account,-> { where("is_lawyer" => false)}
-  
+
 
   include Gravtastic
   gravtastic
@@ -114,6 +115,8 @@ end
 #  lawfirm                :string
 #  role                   :integer
 #  is_vip                 :boolean          default(FALSE)
+#  certificate            :string
+#  certificate_number     :string
 #
 # Indexes
 #
