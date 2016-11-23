@@ -40,7 +40,7 @@ class Account::ConversationsController < ApplicationController
     # binding.pry
 
     if conversation_id.blank?
-      conversation = current_user.send_message(akser ,answer_content ,subject,@question,attachment: attachment).conversation
+      conversation = current_user.send_message(akser ,answer_content ,subject,@question,true,attachment).conversation
         # xdite魔改后的send_message多了一个question参数
     else
       # 通过会话id获取会话

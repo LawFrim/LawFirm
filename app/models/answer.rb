@@ -1,6 +1,6 @@
 class Answer < ApplicationRecord
 
-  mount_uploader :attachment, AttachmentUploader
+  mount_uploader :attachment, Mailboxer::AttachmentUploader
 
   belongs_to :user
   belongs_to :question
