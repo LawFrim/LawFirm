@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       resources :answers
     end
     resources :documents
-     resources :feedbacks 
+     resources :feedbacks
      resources :orders
     resources :conversations
     resources :users do
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       collection do
         post :create_m
         post :create_y
+        post :checkout
       end
       #支付路由
       member do

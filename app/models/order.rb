@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
+  has_many :order_lists
   def set_payment_with!(method)
     self.update_columns(payment_method: method)
   end

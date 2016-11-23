@@ -1,17 +1,39 @@
 class Account::OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:create]#必须注册用户才能建立订单。
+  #结账页
+  def checkout
+    @order = Order.new
+    @order.user = current_user
+    @order.item = "包年法律咨询"
+    @order.total = "9999"
+      if @order.save
+        [:account,@order].each do |order|
+        orders_list = Orders_list.new
+        orders_list.order = @order
+        orders_list.item = @order.item
+        orders_list.total = @order.total
+        orders_list.billing_name = @order.billing_name
+        orders_list.billing_address = @order.billing_address
+        orders_list.user_name = @order.user_name
+        orders_list.save
+          end
+      redirect_to create_y_account_order_path(@order)
+    else
+      render "account/checkout"
+    end
+
+  end
   #按月支付服务费的订单
   def create_m
     @order = Order.new
     @order.user = current_user
     @order.item = "包月法律咨询"
     @order.total = "999"
-    @order.billing_name = current_user.user_name
-    @order.billing_address = current_user.email
+
     if @order.save
       redirect_to account_order_path(@order)
     else
-      redirect_to "/"
+        render 'order/create_m'
     end
   end
   #按年支付服务费的订单
@@ -20,12 +42,11 @@ class Account::OrdersController < ApplicationController
     @order.user = current_user
     @order.item = "包年法律咨询"
     @order.total = "9999"
-    @order.billing_name = current_user.user_name
-    @order.billing_address = current_user.email
+
     if @order.save
       redirect_to account_order_path(@order)
     else
-      redirect_to "/"
+      render :new
     end
   end
 
@@ -35,6 +56,7 @@ class Account::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+
   end
 
 
@@ -62,9 +84,9 @@ class Account::OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = Order.new
     if @order.save
-      redirect_to orders_path
+      redirect_to account_orders_path
     else
       render :new
     end
@@ -73,7 +95,7 @@ class Account::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)
-      redirect_to orders_path
+      redirect_to account_orders_path
     else
       render :edit
     end

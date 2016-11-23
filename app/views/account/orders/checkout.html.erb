@@ -1,0 +1,60 @@
+<div class="row">
+   <div class="col-md-12">
+
+    <h2> 订单明细 </h2>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th width="80%">订单服务明细</th>
+          <th>单价</th>
+        
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>
+              <%= @order.item %>
+            </td>
+            <td>
+              <%= @order.total %>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    <div class="total clearfix">
+      <span class="pull-right">
+        总计 <%= @order.total %> RMB
+      </span>
+    </div>
+
+    <hr>
+
+    <h2> 订单资讯 </h2>
+
+    <div class="order-form">
+
+      <%= simple_form_for [:account, @order] do |f| %>
+
+
+
+          <legend> 订购人</legend>
+          <div class="form-group col-lg-6">
+            <%= f.input :billing_name  %>
+          </div>
+          <div class="form-group col-lg-6">
+            <%= f.input :billing_address  %>
+          </div>
+
+
+
+        <div class="checkout">
+          <%= f.submit "生成订单", class: "btn btn-lg btn-danger pull-right",
+                       data: { disable_with: "Submitting..." } %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
