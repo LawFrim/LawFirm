@@ -43,7 +43,7 @@ class Account::OrdersController < ApplicationController
     @order.set_payment_with!("alipay")
     @order.pay!
     @order.user = current_user
-    @order.user.pay!
+    @order.user.pay!#管理员用户中心显示支付状态
     redirect_to account_orders_path(@order)
   end
 
@@ -52,7 +52,7 @@ class Account::OrdersController < ApplicationController
     @order.set_payment_with!("wechat")
     @order.pay!
     @order.user = current_user
-    @order.user.pay!
+    @order.user.pay!#管理员用户中心显示支付状态
     redirect_to account_orders_path(@order)
   end
 
