@@ -6,15 +6,16 @@
   <!-- <h6>地区： <%#= @question.district %></h6> -->
 
   <!-- 附件显示预览 -->
-  <div>
-  
-    <%= image_tag(@question.attachment.url, class: "thumbnail") %>
-    <p class="pull-left"><%= @question.attachment.file.filename %></p>
+  <% if @question.attachment.present? %>
+    <div>  
+      <%= image_tag(@question.attachment.url, class: "thumbnail") %>
+      <p class="pull-left"><%= @question.attachment.file.filename %></p>
 
-    <a href="<%= @question.attachment.url %>" download="" target="_blank">
-      <button type="button" class="btn btn-primary btn-xs pull-right">下载</button>
-    </a>
-  </div>
+      <a href="<%= @question.attachment.url %>" download="" target="_blank">
+        <button type="button" class="btn btn-primary btn-xs pull-right">下载</button>
+      </a>
+    </div>
+  <% end %>
   <!-- 附件显示预览 -->
   
   <br>
