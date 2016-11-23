@@ -4,6 +4,105 @@
 
 
 
+
+.itemCard {
+   height: 27.12rem;
+   width: 25.43rem;
+   border: .07143rem solid #CCCCCC;
+   border-top-color: rgb(204, 204, 204);
+   border-top-style: solid;
+   border-top-width: 0.07143rem;
+   border-right-color: rgb(204, 204, 204);
+   border-right-style: solid;
+   border-right-width: 0.07143rem;
+   border-bottom-color: rgb(204, 204, 204);
+   border-bottom-style: solid;
+   border-bottom-width: 0.07143rem;
+   border-left-color: rgb(204, 204, 204);
+   border-left-style: solid;
+   border-left-width: 0.07143rem;
+   border-image-source: initial;
+   border-image-slice: initial;
+   border-image-width: initial;
+   border-image-outset: initial;
+   border-image-repeat: initial;
+   background-color: #F2F2F2;
+   transition: transform linear .1s;
+   transition-property: transform;
+   transition-duration: 0.1s;
+   transition-timing-function: linear;
+   transition-delay: initial;
+   overflow: visible;
+   margin-bottom: 20px;
+}
+
+
+
+ .itemCard .cardHeading, {
+    border-bottom: .07143rem solid #CCCCCC;
+    background-color: #FFFFFF;
+    text-align: left;
+}
+
+.cardTitle{
+  height: 1.71432rem;
+  font-size: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: bold;
+  line-height: 1.71432rem;
+  text-overflow: ellipsis;
+  margin-bottom: .35715rem;
+
+}
+
+.topHeading {
+  padding:1.07145rem;
+}
+
+
+.questionDate{
+
+  color: #999999;
+  font-size: 12px;
+  margin-bottom: -2.2857rem;
+
+}
+
+.questionStatus{
+  width: auto;
+  color: #598B25;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.userQuestion{
+  padding: 1.4286rem 1.4286rem 0 1.4286rem;
+  color: #666666;
+  line-height: 1.57146rem;
+  word-wrap: break-word;
+  max-height: 14.286rem;
+  overflow: hidden;
+}
+
+.userQuestion span{
+  display: block;
+  font-weight: bold;
+}
+
+.userQuestion a{
+  color: black;
+  font-weight: normal;
+}
+
+.userQuestion a:hover{
+    text-decoration: none;
+}
+
+
 .cardGrid  .cardDeck  .cardHeightWrap  .itemCard  .cardHeading  .cardTitle  {
     height: 1.71432rem;
     font-size: 1.4286rem;
@@ -54,13 +153,17 @@
       border: 1px solid #cccccc;
       margin-bottom: 20px;
       border-radius: 3px 3px 3px 3px;
-    }
 
+    }
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
 
  .answeredBy.answerFrom .lawyerName {
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 400;
+     font-size: 20px;
+     line-height: 22px;
+     font-weight: 400;
 }
 
 
@@ -75,22 +178,28 @@
 .answerFrom p {
     font-size: 16px;
     line-height: 22px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
+ .answerFrom .answerStatus {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
 
 .answerArrow {
     width: 1.07145rem;
     height: 1.71432rem;
     background-image: url(/assets/img-arrows-sprite.png);
     background-size: 1.07145rem;
-    margin: -0.35711rem 1.4286rem 0 0;
+    margin: 3.15711rem 1.4286rem 0 0;
     float: right;
 }
 
 .lawyerImage {
     float: left;
     margin-right: 10px;
+    margin-left: -15px
   }
 
  .askAvatar {
@@ -99,14 +208,15 @@
 
  .info {
    margin-top: 20px;
+   font-size: 14px;
+   line-height: 12px;
+   font-weight: 500;
 }
-
-
-.info p span {
-    font-size: 14px;
-    line-height: 16px;
+ .info span {
     font-weight: 700;
-}
+ }
+
+
 
 .info .answerText span{
   font-size: 14px;
@@ -117,5 +227,20 @@
 .answerText {
     font-size: 14px;
     line-height: 16px;
-    font-weight: 400;
+    font-weight: 500;
+    margin-top: 8px;
+
+}
+
+
+
+.questionLogo{
+    background-image: url(/assets/questionLogo.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 3.78575rem;
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
 }

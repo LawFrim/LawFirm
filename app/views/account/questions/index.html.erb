@@ -1,6 +1,6 @@
  <h4>问题动态</h4>
 
-<div class="row">
+<div class="cardHeightWrap row">
 
       <% @questions.each do |question| %>
 
@@ -9,27 +9,30 @@
         <div class="cardHeading">
           <div class="topHeading">
           <p class="cardTitle questionTitle"><%= question.area %></p>
-        <div class="rlClearfix">
-        <data-component class="questionDate">
+
+        <div class="questionDate">
           <%= question.updated_at%>
-        </data-component>
+        </div>
           <!---wait for refracotring -->
-          <p class="status questionStatus" >
+          <div class="questionStatus" >
+          </br>
           <% if question.is_answered %>
           <span class="glyphicon glyphicon-ok-sign"></span> 已被回答</td>
             <% else %>
             <span class="glyphicon glyphicon-question-sign"></span> 等待答复</td>
             <% end %>
-          </p>
           </div>
+
         </div>
         </div>
 
-        <div class="card-content">
+        <div class="card-content" ng-click="qaCtrl.toMain('body')">
           <p class="userQuestion">
-          <span>Question</span>
-          <hr>
-          <%= link_to(question.content.first(10),account_question_path(question)) %>
+          <span>Question<span>
+        </br>
+
+          <%= link_to(question.content,account_question_path(question)) %>
+
         </p>
         </div>
       </div>

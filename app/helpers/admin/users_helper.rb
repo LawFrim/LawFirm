@@ -13,9 +13,9 @@ module Admin::UsersHelper
 
   def render_user_small_avatar(user)
     if !user.user_avatar.present?
-    image_tag user.gravatar_url
+    image_tag user.gravatar_url,class:"lawyerImage"
   else
-    image_tag (user.user_avatar.url(:small))
+    image_tag (user.user_avatar.url(:small)),class:"lawyerImage"
   end
 end
 

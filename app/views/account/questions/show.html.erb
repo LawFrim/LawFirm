@@ -1,4 +1,9 @@
 
+
+
+<div class="clearfix">
+
+
 <div class="answersHeading col-md-12">
 我的回答
 </div>
@@ -7,24 +12,27 @@
   <% if @conversations.present? %>
     <% @conversations.each do |c| %>
   <%= link_to account_question_conversation_path(question_id: @question.id,id: c.id) do %>
-  <div class="row answeredBy">
+  <div class= "answeredBy row">
 
         <!-- 确定回答框基本警告模式 -->
 
 
-            <div class="answerFrom col-md-2">
+            <div class="clearfix col-md-2">
               <!-- 用户头像 -->
-              <div class="lawyerImage">
+
               <%= render_user_small_avatar(c.originator) %>
+
             </div>
-            </div>
+            <div class="answerFrom">
               <% if c.last_sender == current_user %>
                 <p class="lawyerName"> <%= c.originator.user_name %></p>
                 <p> 稍后马上回复你的追问 </p>
               <% else %>
                 <p class="lawyerName"> <%= c.originator.user_name %></p>
-                  <p class="answerFrom">回答了您的问题 </p>
+                  <p class="answerStatus">回答了您的问题 </p>
               <% end %>
+
+                </div>
   <div class="answerArrow"></div>
       </div>
       <% end %>
@@ -42,24 +50,23 @@
 
 
 <!---please refactsor -->
-<div class="answer">
+<div class="answer clearfix">
 
-    <div class="Clearfix">
-
-    </div>
+      <div class="questionLogo"></div>
       <div class="info">
       <!-- 判断存在 -->
       <% if current_user.user_name.present? %>
       <p><span>姓名:</span><%= current_user.user_name %></p>
       <% end %>
-      
+
       <p><span>日期:</span> <%= @question.updated_at %></p>
-      
+
       <% if @question.area.present? %>
       <p><span>领域:</span> <%= @question.area %></p>
-      <% end %>
-    </div>
-      <p><%= render_user_small_avatar(current_user) %><span>问题</span> </p>
+ 
+
+      <i class="fa fa-question-circle" aria-hidden="true"></i><span>  您的问题</span>
+
       <div class="answerText">
       <%= @question.content %>
       </div>
@@ -68,12 +75,12 @@
       <!-- f1042-tryAttachmentForMaibox -->
       <% if @question.attachment.present? %>
         <div>
-          <%=  image_tag(@question.attachment.url, class: "thumbnail")  %>  
+          <%=  image_tag(@question.attachment.url, class: "thumbnail")  %>
           <p class="pull-left"><%= @question.attachment.file.filename %></p>
 
           <a href="<%= @question.attachment.url %>" download="" target="_blank">
             <button type="button" class="btn btn-primary btn-xs pull-right">下载</button>
-          </a>      
+          </a>
         </div>
       <% end %>
       <!-- f1042-tryAttachmentForMaibox -->
@@ -89,5 +96,5 @@
 
 
 
-
+</div>
 </div>
