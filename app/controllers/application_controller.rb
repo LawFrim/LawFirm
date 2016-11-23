@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
       admin_users_path #你的路径
     end
     #普通用户登录后跳转到指定页面
-    def after_sign_in_path_for(_user)
+    def after_sign_in_path_for(account_user)
       account_questions_path #你的路径
     end
     #律师用户登录后跳转到指定页面 yishixian
