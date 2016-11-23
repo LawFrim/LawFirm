@@ -20,6 +20,23 @@
               <div class="media-body">
                 <h3 class="media-heading">我</h3>
                 <h5><%= simple_format(m.body) %></h5>
+                
+                <!-- hrh -->
+                <% if m.attachment.present? %>
+
+                  <div class="pull-right">
+                  
+                    <%#= image_tag(m.attachment.url, class: "thumbnail") %>
+                    <p class="pull-left"><%= m.attachment.file.filename %></p>
+
+                    <a href="<%= m.attachment.url %>" download="" target="_blank">
+                      <button type="button" class="btn btn-default btn-xs">下载</button>
+                    </a>
+                  </div>
+                
+                <% end %>
+
+
               </div>
 
               <a class="media-right" href="#">

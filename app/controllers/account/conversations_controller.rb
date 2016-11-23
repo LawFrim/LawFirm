@@ -30,18 +30,29 @@ class Account::ConversationsController < ApplicationController
     answer_content = answer_params[:content]
     # 对话id
     conversation_id = answer_params[:conversation_id]
+    # 获取附件
+    attachment = answer_params[:attachment]
     # mailboxer方法
     # 如果之前没有对话，就新建对话。如果有，就回复对话
+    puts '~~~~'
+    puts attachment
+    puts '~~~~'
+    # binding.pry
 
     if conversation_id.blank?
-      conversation = current_user.send_message(akser ,answer_content ,subject,@question).conversation
+      conversation = current_user.send_message(akser ,answer_content ,subject,@question,attachment: attachment).conversation
         # xdite魔改后的send_message多了一个question参数
     else
       # 通过会话id获取会话
       conversation = @question.conversations.find(conversation_id)
       # binding.pry
-      current_user.reply_to_conversation(conversation, answer_content)
+      puts '!!!!!!!!'
+      current_user.reply_to_conversation(conversation, answer_content,nil,true,true,attachment)
+      puts '!!!!!!!!'
     end
+
+
+    # binding.pry
 
     # f470-变成待回答状态
     @question.reopened!
@@ -59,6 +70,6 @@ class Account::ConversationsController < ApplicationController
   private
 
   def answer_params
-    params.require(:answer).permit(:content,:conversation_id)
+    params.require(:answer).permit(:content,:conversation_id,:attachment)
   end
 end

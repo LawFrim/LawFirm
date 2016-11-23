@@ -9,6 +9,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  conversation_id :integer
+#  attachment      :string
 #
 
 require 'test_helper'
