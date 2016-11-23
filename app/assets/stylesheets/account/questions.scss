@@ -1,3 +1,121 @@
 // Place all the styles related to the account::questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.cardGrid  .cardDeck  .cardHeightWrap  .itemCard  .cardHeading  .cardTitle  {
+    height: 1.71432rem;
+    font-size: 1.4286rem;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: 300;
+    line-height: 1.71432rem;
+    text-overflow: ellipsis;
+    margin-bottom: .35715rem;
+}
+
+.cardGrid .cardDeck .cardHeightWrap .questionCard, .searchRl .cardDeck .cardHeightWrap .questionCard {
+    overflow: visible;
+}
+.cardGrid .cardDeck .cardHeightWrap .itemCard, .searchRl .cardDeck .cardHeightWrap .itemCard {
+    height: 27.12rem;
+    width: 21.43rem;
+    border: .07143rem solid #CCCCCC;
+    background-color: #F2F2F2;
+    transition: transform linear .1s;
+    overflow: visible;
+}
+
+
+@media only screen and (min-width: 40.063rem)
+{
+    height: 27.14rem;
+}
+
+.cardGrid .cardDeck .cardHeightWrap, .searchRl .cardDeck .cardHeightWrap {
+    height: 27.14rem;
+    width: auto;
+    float: left;
+    margin: 0 1.4286rem 1.4286rem 0;
+}
+
+
+
+.answer{
+    border: 1px solid #cccccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 3px 3px 0 0 #cfcfcf;
+  }
+
+
+ .answeredBy {
+      border: 1px solid #cccccc;
+      margin-bottom: 20px;
+      border-radius: 3px 3px 3px 3px;
+    }
+
+
+ .answeredBy.answerFrom .lawyerName {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+}
+
+
+
+ .answeredBy .answerFrom {
+    float: left;
+    color: #333333;
+    max-width: 25%;
+    margin-top: 1.07145rem;
+}
+
+.answerFrom p {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+
+.answerArrow {
+    width: 1.07145rem;
+    height: 1.71432rem;
+    background-image: url(/assets/img-arrows-sprite.png);
+    background-size: 1.07145rem;
+    margin: -0.35711rem 1.4286rem 0 0;
+    float: right;
+}
+
+.lawyerImage {
+    float: left;
+    margin-right: 10px;
+  }
+
+ .askAvatar {
+   float:left;
+ }
+
+ .info {
+   margin-top: 20px;
+}
+
+
+.info p span {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+}
+
+.info .answerText span{
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 700;
+
+}
+.answerText {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+}

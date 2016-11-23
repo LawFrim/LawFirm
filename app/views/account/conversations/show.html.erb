@@ -3,7 +3,20 @@
   <!-- 客户问题 -->
   <h4>问题： <%= @question.content %></h4>
   <h6>领域： <%= @question.area %></h6>
-  <!-- <h6>地区： <%#= @question.district %></h6> -->
+
+  <!-- 附件显示预览 -->
+  <div>
+  
+    <%= image_tag(@question.attachment.url, class: "thumbnail") %>
+    <p class="pull-left"><%= @question.attachment.file.filename %></p>
+
+    <a href="<%= @question.attachment.url %>" download="" target="_blank">
+      <button type="button" class="btn btn-primary btn-xs pull-right">下载</button>
+    </a>
+  </div>
+  <!-- 附件显示预览 -->
+  <br>
+
   <hr>
 
   <!-- 历史消息 -->

@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123030149) do
+
+ActiveRecord::Schema.define(version: 20161123130845) do
+
+  create_table "activities", force: :cascade do |t|
+    t.string   "trackable_type"
+    t.integer  "trackable_id"
+    t.string   "owner_type"
+    t.integer  "owner_id"
+    t.string   "key"
+    t.text     "parameters"
+    t.string   "recipient_type"
+    t.integer  "recipient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type"
+    t.index ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type"
+    t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
+  end
+ 
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -19,6 +37,7 @@ ActiveRecord::Schema.define(version: 20161123030149) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "conversation_id"
+    t.string   "attachment"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -126,9 +145,11 @@ ActiveRecord::Schema.define(version: 20161123030149) do
     t.string   "area"
     t.string   "district"
     t.integer  "user_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.boolean  "is_answered", default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "is_answered",  default: false
+    t.string   "attachment"
+    t.string   "service_type"
   end
 
   create_table "users", force: :cascade do |t|

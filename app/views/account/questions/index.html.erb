@@ -1,44 +1,39 @@
-<div class="col-md-12">
+ <h4>问题动态</h4>
 
-  <!-- <div class="new_question">
-   <%= link_to("新问题", new_account_question_path, class: "btn btn-primary pull-right") %>
+<div class="row">
 
-  </div> -->
+      <% @questions.each do |question| %>
 
-  <h4>问题动态</h4>
+      <div class="col-md-4 cold-sm-6 cardHeightWrap">
+        <div class="itemCard questionCard">
+        <div class="cardHeading">
+          <div class="topHeading">
+          <p class="cardTitle questionTitle"><%= question.area %></p>
+        <div class="rlClearfix">
+        <data-component class="questionDate">
+          <%= question.updated_at%>
+        </data-component>
+          <!---wait for refracotring -->
+          <p class="status questionStatus" >
+          <% if question.is_answered %>
+          <span class="glyphicon glyphicon-ok-sign"></span> 已被回答</td>
+            <% else %>
+            <span class="glyphicon glyphicon-question-sign"></span> 等待答复</td>
+            <% end %>
+          </p>
+          </div>
+        </div>
+        </div>
 
-
-
-
-    <table class="table table-striped">
-<!--       <tr>
-        <th>问题</th>
-      </tr> -->
-      <% @questions.each do |question|%>
-      
-        <% if question.is_answered %>
-          <tr class="success">
-            <td>
-              
-              <%= link_to(question.content, account_question_path(question)) %>
-            </td>
-            <td><span class="glyphicon glyphicon-ok-sign"></span> 已被回答</td>
-            <td><%= question.updated_at%></td>
-          </tr>
-          <% else %>
-          <tr class="warning" >
-            <td>
-              <%= link_to(question.content, account_question_path(question)) %>
-            </td>
-            <td><span class="glyphicon glyphicon-question-sign"></span> 等待答复</td>
-            <td><%= question.updated_at%></td>
-          </tr>
-        <% end %>
-
-      
-
+        <div class="card-content">
+          <p class="userQuestion">
+          <span>Question</span>
+          <hr>
+          <%= link_to(question.content.first(10),account_question_path(question)) %>
+        </p>
+        </div>
+      </div>
+    </div>
       <% end %>
-    </table>
-
-
+    </div>
 </div>

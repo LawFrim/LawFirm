@@ -1,5 +1,7 @@
 class Answer < ApplicationRecord
 
+  mount_uploader :attachment, Mailboxer::AttachmentUploader
+
   belongs_to :user
   belongs_to :question
 
@@ -16,4 +18,5 @@ end
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  conversation_id :integer
+#  attachment      :string
 #

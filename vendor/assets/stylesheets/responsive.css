@@ -1,0 +1,436 @@
+/* Large Devices Styles Starts */
+
+@media (min-width: 1200px) {
+	
+/* Main Menu Styles Starts */
+			
+	.main-menu .navbar-collapse {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.main-menu .dropdown:hover .dropdown-menu {
+		display: block;
+	}
+	
+/* Intro Section Starts */
+
+	.intro-home-section > .container-fluid > .row-fluid > div:first-of-type {
+		background: transparent url(../images/intro-home-big-bg.jpg) no-repeat center top;
+	}
+	.intro-home-section .row-eq-height {
+		display: table;
+	}
+		.intro-home-section .row-eq-height .col-md-6 {
+			float: none;
+			display: table-cell;
+			vertical-align: top;
+		}
+	
+/* Generic Styles Starts */
+
+	.text-left-lg   { text-align: left;   }
+	.text-center-lg { text-align: center; }
+	.text-right-lg  { text-align: right;  }	
+	
+	.pull-left-lg  { float: left;  }
+	.pull-right-lg { 
+		float: right;
+		left: auto;
+		right: 0;
+	}
+	
+}
+
+/* Medium Devices Styles Starts */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+	
+/* Header Styles Starts */
+
+	.main-header .logo {
+		margin-top: 25px;
+		margin-bottom: 0;
+	}
+	
+/* Main Menu Styles Starts */
+			
+		.main-menu .navbar-collapse {
+			padding-left: 0;
+			padding-right: 0;
+		}	
+			.main-menu .navbar-nav.navbar-right > li > a {
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+		.main-menu .dropdown:hover .dropdown-menu {
+			display: block;
+		}
+	
+/* Intro Section Starts */
+
+	.intro-home-section > .container-fluid > .row-fluid > div:first-of-type {
+		background: transparent url(../images/intro-home-big-bg.jpg) no-repeat center top;
+	}
+	.intro-home-section .row-eq-height {
+		display: table;
+	}
+		.intro-home-section .row-eq-height .col-md-6 {
+			float: none;
+			display: table-cell;
+			vertical-align: top;
+		}	
+	
+/* Team Section Styles Starts */
+
+		#team-carousel .owl-controls .owl-buttons div {
+			top: -635px;
+		}
+		#team-carousel .owl-controls .owl-buttons .owl-prev {
+			left:44%;
+		}
+		#team-carousel .owl-controls .owl-buttons .owl-next {
+			right: 44%;
+		}
+	
+/* Clients Section Styles Starts */
+
+		#clients-carousel .owl-controls .owl-buttons .owl-prev {
+			left:44%;
+		}
+		#clients-carousel .owl-controls .owl-buttons .owl-next {
+			right: 44%;
+		}
+	
+/* Generic Styles Starts */
+
+	.img-center-md {
+		margin-left: auto;
+		margin-right: auto;
+	}	
+	
+	.text-left-md   { text-align: left;   }
+	.text-center-md { text-align: center; }
+	.text-right-md  { text-align: right;  }		
+	
+	.pull-left-md  { float: left;  }
+	.pull-right-md { 
+		left: auto;
+		right: 0;
+	}
+
+}
+
+/* Small Devices Styles Starts */
+
+@media (min-width: 768px) and (max-width: 991px) {
+	
+/* Heading Styles Starts */
+
+	.main-heading-1::before, 
+	.main-heading-1::after {
+		width: 28%;
+	}
+	
+	.sub-heading-1 {
+		padding-left: 0;
+		border-left: none;
+	}
+	
+/* Header Styles Starts */
+
+	.main-header .logo {
+		margin-top: 25px;
+		margin-bottom: 0;
+	}
+	
+/* Main Menu Styles Starts */
+			
+		.main-menu .navbar-collapse {
+			padding-left: 0;
+			padding-right: 0;
+		}	
+			.main-menu .navbar-nav > li > a {
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+		.main-menu .dropdown:hover .dropdown-menu {
+			display: block;
+		}
+	
+/* Slider Styles Starts */
+
+	#main-slider .carousel-caption {
+		top: 4%;
+		right: 0;
+		left: 0;
+	}
+	
+/* Intro Section Starts */
+
+		.intro-home-section > .container-fluid > .row-fluid > div:first-of-type {
+			padding-top: 50px;
+		}
+			.intro-home-section > .container-fluid > .row-fluid > div:last-of-type h4 {
+				margin-left: 0;
+			}
+			.intro-home-section > .container-fluid > .row-fluid > div:last-of-type h4::before {
+				display: none;
+			}
+	
+/* Stats Section Starts */
+
+	.stats-section > .container > .row > .col-xs-12 + .col-xs-12 {
+		margin-top: 60px;
+	}
+	
+/* Team Section Styles Starts */
+
+		#team-carousel .owl-controls .owl-buttons div {
+			top: -640px;
+		}
+		#team-carousel .owl-controls .owl-buttons .owl-prev {
+			left:42%;
+		}
+		#team-carousel .owl-controls .owl-buttons .owl-next {
+			right: 42%;
+		}	
+		
+/* Free Consultation Section Styles Starts */
+
+	.free-consultation-section {
+		padding-bottom: 50px;
+	}
+		.free-consultation-section form {
+			padding-top: 50px;
+		}
+
+/* Clients Section Styles Starts */
+
+		#clients-carousel .owl-controls .owl-buttons .owl-prev {
+			left:42%;
+		}
+		#clients-carousel .owl-controls .owl-buttons .owl-next {
+			right: 42%;
+		}
+		
+/* Carousel Styles Starts */
+
+		#carousel-1 .carousel-indicators {
+			bottom: -140px;
+		}
+	
+/* Footer Styles Starts */
+
+	.main-footer {
+		padding-top: 40px;
+	}		
+		.footer-links h4 {
+			margin-top: 40px;
+		}		
+		.copyright ul {
+			margin-top: 15px;
+		}
+		
+/* List Styles Starts */
+
+	.list-style-4 li {
+		margin-top: 30px;
+		padding-left: 50px;
+		position: relative;
+		counter-increment: list-counter-1;				
+	}		
+		.list-style-4 li::before {
+			top: 20px;
+			width: 40px;
+			height: 40px;
+			line-height: 35px;
+			font-size: 24px;
+		}		
+	.list-style-6 li {
+		font-size: 20px;
+	}
+		
+/* Spacer Styles Starts */
+
+	.spacer-2.small {
+		margin-top: 160px;
+	}
+	
+/* Generic Styles Starts */
+
+	.img-center-sm {
+		margin-left: auto;
+		margin-right: auto;
+	}	
+	
+	.text-left-sm   { text-align: left;   }
+	.text-center-sm { text-align: center; }
+	.text-right-sm  { text-align: right;  }	
+
+	.pull-left-sm  { float: left;  }
+	.pull-right-sm { 
+		left: auto;
+		right: 0;
+	}	
+	
+}
+
+/* Extra Small Devices Styles Starts */
+
+@media (max-width: 767px) {
+	
+/* Heading Styles Starts */
+
+	.main-heading-1::before, 
+	.main-heading-1::after {
+		width: 18%;
+	}
+	
+	.sub-heading-1 {
+		padding-left: 0;
+		border-left: none;
+	}
+	
+/* Intro Section Starts */
+
+		.intro-home-section > .container-fluid > .row-fluid > div:first-of-type, .intro-home-section > .container-fluid > .row-fluid > div:last-of-type {
+			padding-top: 30px;
+		}
+			.intro-home-section > .container-fluid > .row-fluid > div:last-of-type h4 {
+				margin-left: 0;
+			}
+			.intro-home-section > .container-fluid > .row-fluid > div:last-of-type h4::before {
+				display: none;
+			}	
+	
+/* Stats Section Starts */
+
+	.stats-section > .container > .row > .col-xs-12 + .col-xs-12 {
+		margin-top: 60px;
+	}
+	
+/* Team Section Styles Starts */
+
+		#team-carousel .owl-controls .owl-buttons div {
+			top: -650px;
+		}
+		#team-carousel .owl-controls .owl-buttons .owl-prev, 
+		#team-carousel .owl-controls .owl-buttons .owl-next {
+			padding: 6px 12px;
+		}
+		#team-carousel .owl-controls .owl-buttons .owl-prev {
+			left:40%;
+		}
+		#team-carousel .owl-controls .owl-buttons .owl-next {
+			right: 40%;
+		}	
+		
+/* Free Consultation Section Styles Starts */
+
+	.free-consultation-section {
+		padding-bottom: 50px;
+	}
+		.free-consultation-section form {
+			padding-top: 50px;
+		}		
+	
+/* Clients Section Styles Starts */
+
+		#clients-carousel .owl-controls .owl-buttons .owl-prev, 
+		#clients-carousel .owl-controls .owl-buttons .owl-next {
+			padding: 6px 12px;
+		}
+		#clients-carousel .owl-controls .owl-buttons .owl-prev {
+			left:30%;
+		}
+		#clients-carousel .owl-controls .owl-buttons .owl-next {
+			right: 30%;
+		}		
+	
+/* Footer Styles Starts */
+
+	.main-footer {
+		padding-top: 40px;
+	}		
+		.footer-links h4 {
+			margin-top: 40px;
+		}
+		.copyright ul {
+			margin-top: 10px;
+		}	
+		
+/* List Styles Starts */
+
+	.list-style-2 li {
+		margin-top: 50px;
+	}
+	
+	.list-style-3 {
+		margin-top: 20px;
+		margin-bottom: 25px;
+	}
+		.list-style-3 li {
+			margin-top: 20px;
+			padding-left: 15px;
+		}	
+			.list-style-3 li h5::before {
+				display: none;
+			}
+			.list-style-3 li h5::first-letter {
+				color: #b00f14;
+			}
+		
+		.list-style-4 li {
+			margin-top: 35px;
+			padding-left: 15px;
+		}
+			.list-style-4 li::before {
+				display: none;
+			}
+			.list-style-4 li h5 {
+				margin-bottom: 15px;
+			}
+	
+/* Generic Styles Starts */
+
+	.img-center-xs {
+		margin-left: auto;
+		margin-right: auto;
+	}	
+	
+	.text-left-xs   { text-align: left;   }
+	.text-center-xs { text-align: center; }
+	.text-right-xs  { text-align: right;  }		
+	
+	.pull-left-xs  { float: left;  }
+	.pull-right-xs { 
+		left: auto;
+		right: 0;
+	}
+	
+}
+
+/* Extremely Small Devices Styles Starts */
+
+@media (max-width: 478px) {
+	
+/* Heading Styles Starts */
+
+	.main-heading-1::before, 
+	.main-heading-1::after {
+		display: none;
+	}	
+	
+/* Team Section Styles Starts */
+
+		#team-carousel .owl-controls .owl-buttons div {
+			top: -665px;
+		}
+		#team-carousel .owl-controls .owl-buttons .owl-prev {
+			left:30%;
+		}
+		#team-carousel .owl-controls .owl-buttons .owl-next {
+			right: 30%;
+		}		
+	
+}

@@ -59,7 +59,20 @@ class User < ApplicationRecord
     convo.save
 
     message.deliver false, sanitize_text
-end
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
   def lawyer?
   is_lawyer
   end
