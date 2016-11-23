@@ -11,15 +11,16 @@
                       <!-- <%= link_to image_tag "http://placehold.it/300?text=合同首页" %> -->
                       <!-- <% end %> -->
                     <ul style="list-style: none;">
-                    <li>创建时间</li>
-                    <li><%= feedback.created_at %></li>
-                    <li>提交意见</li>
+
+                    <li><h4>提交意见</h4></li>
                     <li><%= feedback.description %></li>
-                    <li>客户信息</li>
+                    <li><h4>客户信息</h4></li>
                     <li><%= feedback.user.user_name%></li>
-                    <!-- <% if feedback.client_docs.present? %>
+                    <li><h4>创建时间</h4></li>
+                    <li><%= feedback.created_at %></li>
+                    <% if feedback.client_docs.present? %>
                     <li><%= link_to "下载合同", feedback.client_docs[0].url %></li>
-                    <% end %> -->
+                    <% end %>
                     </div>
                   </div>
 

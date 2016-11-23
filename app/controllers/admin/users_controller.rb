@@ -39,7 +39,20 @@ class Admin::UsersController < ApplicationController
     redirect_to :back
   end
 
+  def chenge_to_vip
+    @user = User.find(params[:id])
+    @user.is_vip = true
+    @user.save
 
+    redirect_to :back
+  end
 
+  def chenge_to_visitor
+    @user = User.find(params[:id])
+    @user.is_vip = false
+    @user.save
+
+    redirect_to :back
+  end
 
 end

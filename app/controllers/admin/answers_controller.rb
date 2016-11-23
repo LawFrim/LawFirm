@@ -21,8 +21,11 @@ class Admin::AnswersController < ApplicationController
     # 如果之前没有对话，就新建对话。如果有，就回复对话
 
     if conversation_id.blank?
+      # 使用修正过得新send_message多加了一个参数
       conversation = current_user.send_message(akser ,answer_content ,subject , @question).conversation
-        # 使用修正过得新send_message多加了一个参数
+      # 发送给用户回答问题的提醒
+      send_notification!(akser.id, current_user.id, conversation.id , 'question')
+
     else
       # 通过会话id获取会话
       conversation = @question.conversations.find(conversation_id)

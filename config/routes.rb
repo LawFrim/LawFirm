@@ -7,13 +7,15 @@ Rails.application.routes.draw do
       resources :answers
     end
     resources :documents
-     resources :feedbacks
-     
+     resources :feedbacks 
+     resources :orders
     resources :conversations
     resources :users do
       member do
         post :change_to_user
         post :change_to_lawyer
+        post :chenge_to_vip
+        post :chenge_to_visitor
       end
     end
   end
@@ -21,7 +23,20 @@ Rails.application.routes.draw do
   # 普通用户路由
   namespace :account do
     resources :documents
-     resources :feedbacks
+    resources :feedbacks
+
+    #order路由
+    resources :orders do
+      collection do
+        post :create_m
+        post :create_y
+      end
+      #支付路由
+      member do
+        post :pay_with_alipay
+        post :pay_with_wechat
+      end
+    end
 
     resources :users
     resources :questions do
@@ -49,10 +64,17 @@ Rails.application.routes.draw do
 
   end
 
-
+  # f783-站内通知
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
 
 
   resources :welcome
+
+
   root 'welcome#index'
 
 end

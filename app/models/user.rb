@@ -1,4 +1,11 @@
 class User < ApplicationRecord
+  enum role: {用户: 0, 律师: 1}
+  after_initialize :set_default_role, :if => :new_record?
+
+  def set_default_role
+    self.role ||= :用户
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,6 +16,8 @@ class User < ApplicationRecord
   mount_uploader :user_avatar, AvatarUploader
 
 
+
+
   # f120-mailbox
   acts_as_messageable
 
@@ -16,6 +25,13 @@ class User < ApplicationRecord
   has_many :answers
   has_many :documents
   has_many :feedbacks
+ 
+  # f783-提示
+  has_many :notifications
+
+
+  has_many :orders
+
   def admin?
     is_admin
   end
@@ -53,7 +69,7 @@ end
 
   scope :lawyer, -> { where("is_lawyer" => true)}
   scope :account,-> { where("is_lawyer" => false)}
-
+  
 
   include Gravtastic
   gravtastic
@@ -83,6 +99,8 @@ end
 #  district               :string
 #  area                   :string
 #  lawfirm                :string
+#  role                   :integer
+#  is_vip                 :boolean          default(FALSE)
 #
 # Indexes
 #

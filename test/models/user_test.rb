@@ -29,6 +29,8 @@ end
 #  district               :string
 #  area                   :string
 #  lawfirm                :string
+#  role                   :integer
+#  is_vip                 :boolean          default(FALSE)
 #
 # Indexes
 #
