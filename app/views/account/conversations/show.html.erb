@@ -23,6 +23,55 @@
 
 
 
+    <div class="answer">
+      <div class="questionLogo"></div>
+
+      <!-- 用户端历史信息 -->
+      <%  @conversation.id %>
+      <!-- 查看历史信息 -->
+      <% if @messages.present? %>
+        <% @messages.each do |m| %>
+
+        <h6 class="text-center"><small><em> — <%= time_format(m.created_at) %> — </em></small></h6>
+
+          <!-- 历史消息 -->
+          <% if m.sender == current_user %>
+            <!-- 当前用户的对话样式 -->
+            <blockquote class="blockquote-reverse">
+              <div class="media">
+
+                <div class="media-body">
+                  <h3 class="media-heading">我</h3>
+                  <h5><%= simple_format(m.body) %></h5>
+
+                  <!-- 附件显示（当前上传pdf有问题） -->
+                  <% if m.attachment.present? %>
+
+                    <div class="pull-right">
+
+                      <%= image_tag(m.attachment.url, class: "thumbnail") %>
+                      <p class="pull-left"><%= m.attachment.file.filename %></p>
+
+                      <a href="<%= m.attachment.url %>" download="" target="_blank">
+                        <button type="button" class="btn btn-primary btn-xs pull-right">下载</button>
+                      </a>
+                    </div>
+
+                  <% end %>
+                  <% end %>
+                  <% end %>
+                  <% end %>
+                  <!-- 附件显示（当前上传pdf有问题） -->
+
+
+
+
+
+
+    </div>
+
+
+
 
 
 <div class="col-md-12">
@@ -33,13 +82,14 @@
 
   <!-- 附件显示预览 -->
   <div>
-  
+  <% if @question.attachment.present? %>
     <%= image_tag(@question.attachment.url, class: "thumbnail") %>
     <p class="pull-left"><%= @question.attachment.file.filename %></p>
 
     <a href="<%= @question.attachment.url %>" download="" target="_blank">
       <button type="button" class="btn btn-primary btn-xs pull-right">下载</button>
     </a>
+    <% end %>
   </div>
   <!-- 附件显示预览 -->
   <br>

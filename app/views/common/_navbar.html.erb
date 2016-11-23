@@ -73,7 +73,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right text-right-lg text-right-md hidden-sm hidden-xs">
 
-        
+
 
 
 
@@ -122,32 +122,23 @@
 
 
         <!-- 添加提醒系统 -->
-        <div class="pull-right">
-            <button id='btn-notification' type="button" class="btn btn-success"
+        <div class="notificationIcon">
+            <li id='btn-notification' type="button" class="btn btn-danger"
                     data-container="body" data-toggle="popover" data-placement="bottom"
                     data-content="
-
-
-
-
                     <!-- 插入的html触发码 -->
                     <% if @notifications.present? %>
-
                       <% @notifications.each do |n| %>
                         <p><%= n.actor.user_name %>回答了
                           <a href=<%= account_question_path(n.notifiable) %>><%= n.notifiable.content %></a>
                         </p>
-                    
                       <% end %>
                     <% else %>
                     <p>没有新的消息</p>
                     <% end %>
-
-
-
                     ">
-                <i class="fa fa-bell-o" aria-hidden="true"></i>
-            </button>
+                <i class="fa fa-bell-o fa-2x" aria-hidden="true"></i>
+            </li>
         </div>
         <!--  -->
 
@@ -168,12 +159,12 @@
 
 
 
- 
+
 <script>
 $(function (){
   // 绑定触发条件
   $("#btn-notification").popover({
-            trigger:'click', //触发方式           
+            trigger:'click', //触发方式
             html: true, // 为true的话，data-content里就能放html代码了
         });
 
@@ -195,32 +186,10 @@ $(function (){
         console.log("complete");
       });
   })
-  // 
+  //
 
 
 
 
 });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
