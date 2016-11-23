@@ -10,6 +10,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  is_answered :boolean          default(FALSE)
+#  attachment  :string
 #
 
 require 'test_helper'

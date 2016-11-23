@@ -92,7 +92,7 @@ class Account::QuestionsController < ApplicationController
 
   # 问题参数
   def question_params
-    params.require(:question).permit(:content,:area,:district)
+    params.require(:question).permit(:content,:area,:district,:attachment)
   end
 
   # 答案参数

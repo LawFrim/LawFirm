@@ -57,6 +57,19 @@
       <%= @question.content %>
       </div>
 
+
+      <!-- f1042-tryAttachmentForMaibox -->
+      <div>
+        <%=  image_tag(@question.attachment.url, class: "thumbnail")  %>  
+        <p class="pull-left"><%= @question.attachment.file.filename %></p>
+
+        <a href="<%= @question.attachment.url %>" download="" target="_blank">
+          <button type="button" class="btn btn-primary btn-xs pull-right">下载</button>
+        </a>      
+      </div>
+      <!-- f1042-tryAttachmentForMaibox -->
+
+
     </div>
 
   </div>
