@@ -59,7 +59,7 @@
 
 
       <!-- f1042-tryAttachmentForMaibox -->
-      <%= if @question.attachment.present? %>
+      <% if @question.attachment.present? %>
         <div>
           <%=  image_tag(@question.attachment.url, class: "thumbnail")  %>  
           <p class="pull-left"><%= @question.attachment.file.filename %></p>
