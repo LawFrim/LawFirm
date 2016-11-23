@@ -10,8 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
 ActiveRecord::Schema.define(version: 20161122080116) do
 
   create_table "activities", force: :cascade do |t|
@@ -29,8 +27,6 @@ ActiveRecord::Schema.define(version: 20161122080116) do
     t.index ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type"
     t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
   end
-
- 
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -115,7 +111,6 @@ ActiveRecord::Schema.define(version: 20161122080116) do
     t.index ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
   end
 
-
   create_table "notifications", force: :cascade do |t|
     t.integer  "question_id"
     t.integer  "document_id"
@@ -129,6 +124,7 @@ ActiveRecord::Schema.define(version: 20161122080116) do
     t.integer  "recipient_id"
     t.integer  "actor_id"
   end
+
   create_table "orders", force: :cascade do |t|
     t.integer  "total"
     t.integer  "user_id"
@@ -139,7 +135,6 @@ ActiveRecord::Schema.define(version: 20161122080116) do
     t.datetime "updated_at",                      null: false
     t.boolean  "is_paid",         default: false
     t.string   "payment_method"
-
   end
 
   create_table "questions", force: :cascade do |t|
