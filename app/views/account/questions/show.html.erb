@@ -48,9 +48,16 @@
 
     </div>
       <div class="info">
+      <!-- 判断存在 -->
+      <% if current_user.user_name.present? %>
       <p><span>姓名:</span><%= current_user.user_name %></p>
+      <% end %>
+      
       <p><span>日期:</span> <%= @question.updated_at %></p>
+      
+      <% if @question.area.present? %>
       <p><span>领域:</span> <%= @question.area %></p>
+      <% end %>
     </div>
       <p><%= render_user_small_avatar(current_user) %><span>问题</span> </p>
       <div class="answerText">
