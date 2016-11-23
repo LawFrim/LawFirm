@@ -73,14 +73,17 @@
       </ul>
       <ul class="nav navbar-nav navbar-right text-right-lg text-right-md hidden-sm hidden-xs">
 
-                        <!-- 添加提醒系统 -->
-                         <li>
-                            <a href="<%= notifications_path %>">
-                                <i class="fa fa-bell-o" aria-hidden="true"></i>
-                            </a>
-                        <li>
+        
 
-        <li class="dropdown">
+
+
+
+
+
+
+
+
+        <li class="dropdown pull-right">
 
                       <% if !current_user %>
                     <li><%= link_to("注册", new_user_registration_path) %> </li>
@@ -114,9 +117,110 @@
                   </li>
           </ul>
         </li>
+
+
+
+
+        <!-- 添加提醒系统 -->
+        <div class="pull-right">
+            <button id='btn-notification' type="button" class="btn btn-success"
+                    data-container="body" data-toggle="popover" data-placement="bottom"
+                    data-content="
+
+
+
+
+                    <!-- 插入的html触发码 -->
+                    <% if @notifications.present? %>
+
+                      <% @notifications.each do |n| %>
+                        <p><%= n.actor.user_name %>回答了
+                          <a href=<%= account_question_path(n.notifiable) %>><%= n.notifiable.content %></a>
+                        </p>
+                    
+                      <% end %>
+                    <% else %>
+                    <p>没有新的消息</p>
+                    <% end %>
+
+
+
+                    ">
+                <i class="fa fa-bell-o" aria-hidden="true"></i>
+            </button>
+        </div>
+        <!--  -->
+
+
+
+
       </ul>
     </div>
   <!-- Navbar Cat collapse Ends -->
   </div>
 <!-- Nested Container Ends -->
 </nav>
+
+
+
+
+
+
+
+
+ 
+<script>
+$(function (){
+  // 绑定触发条件
+  $("#btn-notification").popover({
+            trigger:'click', //触发方式           
+            html: true, // 为true的话，data-content里就能放html代码了
+        });
+
+  // 标记已读
+  $('#btn-notification').on('shown.bs.popover', function () {
+        $.ajax({
+        url: '<%= mark_as_read_notifications_path %>',
+        type: 'POST',
+        dataType: 'json',
+        data: {'read': 'true'},
+      })
+      .done(function() {
+        console.log("success");
+      })
+      .fail(function() {
+        console.log("error");
+      })
+      .always(function() {
+        console.log("complete");
+      });
+  })
+  // 
+
+
+
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
