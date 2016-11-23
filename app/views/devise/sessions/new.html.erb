@@ -29,11 +29,6 @@
                                                     <%= f.input :password,label: "🔑密码", required: false %>
                                                     <%= f.input :remember_me,label:"记住密码" ,as: :boolean if devise_mapping.rememberable? %>
                                                 </div>
-
-                                                <div class="form-actions">
-                                                    <%= f.select :role, 选择角色: User.roles.keys.to_a %>
-                                                </div>
-
                                                 <div class="form-actions">
                                                     <%= f.button :submit, "登入" %>
                                                 </div>

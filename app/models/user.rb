@@ -14,6 +14,7 @@ class User < ApplicationRecord
 
 
   mount_uploader :user_avatar, AvatarUploader
+  mount_uploader :certificate, CertificateUploader
 
 
 
@@ -58,7 +59,20 @@ class User < ApplicationRecord
     convo.save
 
     message.deliver false, sanitize_text
-end
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
   def lawyer?
   is_lawyer
   end
@@ -105,6 +119,8 @@ end
 #  lawfirm                :string
 #  role                   :integer
 #  is_vip                 :boolean          default(FALSE)
+#  certificate            :string
+#  certificate_number     :string
 #
 # Indexes
 #

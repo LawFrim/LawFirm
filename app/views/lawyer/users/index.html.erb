@@ -1,46 +1,65 @@
 <h2>我的资料</h2>
 <div class="row">
-  <div class="col-md-2">
-    <% if !@user.user_avatar.present? %>
-    <%= image_tag "http://placehold.it/150x150" %>
+    <div class="col-md-2">
+        <% if !@user.user_avatar.present? %>
+        <%= image_tag "http://placehold.it/150x150" %>
     <% else %>
-    <%= image_tag (@user.user_avatar.url(:middle)) %>
-    <% end %>
+        <%= image_tag (@user.user_avatar.url(:middle)) %>
+        <% end %>
 
-  </div>
-  <div class="col-md-8">
-    <table class="table user-table-info">
-      <tbody>
-         <tr>
-            <td>用户名</td>
-              <td><%= @user.user_name %></td>
-         </tr>
-         <tr>
-          <td>电子邮件</td>
-          <td><%= @user.email %></td>
-           </tr>
-           <tr>
-          <td>所在地区</td>
-            <td><%= @user.district %></td>
-          </tr>
+    </div>
+    <div class="col-md-8">
+        <table class="table user-table-info">
+            <tbody>
+              <tr>
+                  <td><h4>用户认证</h4></td>
+                  <td><%= render_user_vip(@user) %></td>
+              </tr>
+                <tr>
+                    <td><h4>用户名</h4></td>
+                    <td><%= @user.user_name %></td>
+                </tr>
+                <tr>
+                    <td><h4>电子邮件</h4></td>
+                    <td><%= @user.email %></td>
+                </tr>
+                <tr>
+                    <td><h4>所在地区</h4></td>
+                    <td><%= @user.district %></td>
+                </tr>
 
-           <tr>
-          <td>领域</td>
-          <td><%= @user.area %></td>
-        </tr>
-        <tr>
-       <td>律师事务所</td>
-       <td><%= @user.lawfirm %></td>
-       </tr>
+                <tr>
+                    <td><h4>领域</h4></td>
+                    <td><%= @user.area %></td>
+                </tr>
+                <tr>
+                    <td><h4>律师事务所</h4></td>
+                    <td><%= @user.lawfirm %></td>
+                </tr>
+                <tr>
+                    <td><h4>律师证号</h4></td>
+                    <td><%= @user.certificate_number %></td>
+                </tr>
+                <td><h4>律师证</h4></td>
+                <td>
 
-      </tbody>
-    </table>
+                    <% if !@user.certificate.present? %>
+                    <%= image_tag "http://placehold.it/150x150" %>
+                <% else %>
+                    <%= image_tag(@user.certificate.preview.url) %>
+                    <% end %>
+                </td>
+
+            </tbody>
+        </table>
+
 
     <div>
       <%= link_to("完善个人资料", edit_lawyer_user_path(@user), :class => "btn btn-sm btn-default") %>
       <%= link_to("修改密码", edit_user_registration_path, class: "btn btn-sm btn-default" ) %>
 
+
+        </div>
     </div>
-  </div>
 
 </div>

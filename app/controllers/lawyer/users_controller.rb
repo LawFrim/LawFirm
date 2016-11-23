@@ -32,7 +32,7 @@ class Lawyer::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:user_name,:email,:user_avatar,:district,:area,:lawfirm)
+    params.require(:user).permit(:user_name,:email,:user_avatar,:district,:area,:lawfirm,:certificate,:certificate_number)
   end
 
 end

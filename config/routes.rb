@@ -50,6 +50,7 @@ end
       # 评价系统
       collection do
         post :rating
+        get  :new_document
       end
 
     end
