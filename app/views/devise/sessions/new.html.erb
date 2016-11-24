@@ -1,8 +1,3 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <body>
@@ -25,8 +20,8 @@
 
                                                 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                                                 <div class="form-inputs">
-                                                    <%= f.input :email, label: "📮邮箱",required: false, autofocus: true %>
-                                                    <%= f.input :password,label: "🔑密码", required: false %>
+                                                    <%= f.input :email, label: "邮箱",required: false, autofocus: true %>
+                                                    <%= f.input :password,label: "密码", required: false %>
                                                     <%= f.input :remember_me,label:"记住密码" ,as: :boolean if devise_mapping.rememberable? %>
                                                 </div>
                                                 <div class="form-actions">

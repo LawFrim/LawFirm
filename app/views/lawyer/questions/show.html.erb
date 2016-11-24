@@ -1,3 +1,10 @@
+<div class="row">
+  <div class="container">
+
+  <div class="container-fluid" style="background:url(https://ooo.0o0.ooo/2016/11/24/583691e5c2104.jpg); background-size: 85%;background-repeat: repeat-y;min-height:500px;">
+
+    	<div class="row well"  style="opacity:0.95;width:80%;">
+
 <div class="col-md-12">
 
   <!-- 客户问题 -->
@@ -7,7 +14,7 @@
 
   <!-- 附件显示预览 -->
   <% if @question.attachment.present? %>
-    <div>  
+    <div>
       <%= image_tag(@question.attachment.url, class: "thumbnail") %>
       <p class="pull-left"><%= @question.attachment.file.filename %></p>
 
@@ -17,7 +24,7 @@
     </div>
   <% end %>
   <!-- 附件显示预览 -->
-  
+
   <br>
 
   <hr>
@@ -38,5 +45,7 @@
 
 
 
+</div>
+</div>
 
 </div>

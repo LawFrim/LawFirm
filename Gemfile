@@ -33,7 +33,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'rmagick'
 gem 'mini_magick'
 gem 'gravtastic'
-
+gem 'jquery-turbolinks'
 # f120
 gem 'mailboxer'
 

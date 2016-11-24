@@ -1,6 +1,6 @@
 class Account::UsersController < ApplicationController
   before_action :authenticate_user!
-  layout "user"
+  layout "user"  
 
 
 
@@ -18,6 +18,7 @@ class Account::UsersController < ApplicationController
   def show
     @user = current_user
   end
+
 
   def update
     @user = User.find(params[:id])

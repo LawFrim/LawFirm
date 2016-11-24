@@ -1,3 +1,9 @@
+<div class="row">
+  <div class="container">
+
+  <div class="container-fluid" style="background:url(https://ooo.0o0.ooo/2016/11/24/583691e5c2104.jpg); background-size: 85%;background-repeat: repeat-y;min-height:500px;">
+
+    <div class="row well"  style="opacity:0.95;width:80%;">
 <ul class="breadcrumb">
     <li class="active">
         <%= link_to("所有用户", admin_users_path) %>
@@ -33,10 +39,11 @@
             </td>
             <td>
                 <%= render_user_status(user) %>
-                <%= user.user_name %>
+                <%= user.user_name%>
                 <%= render_user_vip(user) %>
 
             </td>
+
             <td>
                 <%= user.created_at %>
             </td>
@@ -69,3 +76,6 @@
   </tbody>
 
 </table>
+</div>
+</div>
+</div>

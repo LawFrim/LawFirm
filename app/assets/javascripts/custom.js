@@ -31,7 +31,7 @@ $(function() {
 		}
 	}
 	$(".badges-counter").each(function() {
-	  $(this).data('count', parseInt($(this).html(), 10));
+	  $(this).data('count', parseInt($(this).html(), 1000));
 	  $(this).html('0');
 	  count($(this));
 	});
