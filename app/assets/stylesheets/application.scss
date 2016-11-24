@@ -22,6 +22,23 @@
 
 
 
+ .well {
+       
+      background-color: #e3e3e3;
+      box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.05);
+      opacity:0.95;
+ }
+
+ .registration-block .input {
+     float: right;
+     max-width: 360px;
+     text-align: left;
+ }
+
+
+
+
+
 .body {
      text-rendering: optimizeLegibility;
      font-family: 'Hiragino Sans GB','Avenir Next',Avenir,'Helvetica Neue',Helvetica,'Lantinghei SC',sans-serif;
@@ -73,6 +90,11 @@
        right: -21px;
        color: rgba(0, 0, 0, 0.075);
    }
+
+
+.loginContainer{
+  margin-top: 20px;
+}
 
 
 .pageContainer {
