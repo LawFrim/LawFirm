@@ -1,4 +1,3 @@
-<div class="container-fluid" style="background:url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-103295.jpg); background-size: 100%;background-repeat: repeat-y;min-height:900px;">
 
     <div class="container">
 
@@ -17,21 +16,21 @@
                     <h4>我的资料</h4>
                 </h3>
                 <br>
-                <td>用户认证</td>
+                <td>用户认证：</td>
                 <td><%= render_user_vip(@user) %></td>
                 <br>
 
                 <p style="color: green">
-                    <td>用户名</td>
+                    <td>用户名：</td>
                     <td><%= @user.user_name %></td>
                 </p>
                 <p>
-                    <td>电子邮件</td>
+                    <td>电子邮件：   </td>
                     <td><%= @user.email %></td>
                 </p>
-                <p>
-                    <td><h6>所在地区</h6>
-                    <%= @user.district %></td>
+                <p style="color: green">
+                    <td>所在地区： </td>
+                    <td><%= @user.district %></td>
                 </p>
 
                 <div>

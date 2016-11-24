@@ -5,10 +5,21 @@
   <%= link_to :back %>
   <div class= "answeredBy row">
 
-    <!-- 确定回答框基本警告模式 -->
-    <div class="clearfix col-md-2">
-      <!-- 用户头像 -->
-      <%= render_user_small_avatar(@conversation.originator) %>
+<<<<<<< HEAD
+      <!-- 确定回答框基本警告模式 -->
+
+
+          <div class="clearfix col-md-2">
+            <!-- 用户头像 -->
+
+            <%= render_user_small_avatar(@conversation.originator) %>
+
+          </div>
+          <div class="answerFrom">
+              <p class="lawyerName"> <%= @conversation.originator.user_name %></p>
+              <p class="answerStatus">回答了您的问题 </p>
+              </div>
+
 
     </div>
     <div class="answerFrom">
@@ -22,6 +33,7 @@
 
   <div class="answer">
     <div class="questionLogo"></div>
+
 
 
     <!-- 历史问答 -->
@@ -45,6 +57,7 @@
           </div>
         </div>
       </div>
+ 
     </div>
     <% end %>
 
