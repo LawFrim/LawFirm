@@ -523,7 +523,7 @@ input[type=email].form-control {
 	.free-consultation-section .heading-block {
 		padding-top: 30px;
 		padding-bottom: 30px;
-	 
+
 	}
 		.free-consultation-section form {
 			padding-top: 80px;
@@ -548,6 +548,7 @@ input[type=email].form-control {
 	padding-top: 30px;
 	padding-bottom: 60px;
 	background-color: #b00f14;
+	margin-bottom: -50px
 }
 	#clients-carousel {
 		margin-top: 100px;
@@ -1346,11 +1347,14 @@ input[type=email].form-control {
 
 .side-block-2 {
 	margin-bottom: 40px;
+	margin-top: 10px;
+	padding-left: initial;
+
 }
 	.side-block-2 h6 {
 		margin-top: 0;
 		margin-bottom: 0;
-		padding: 15px 25px;
+		padding: 2px 25px;
 		color: #fff;
 		font-weight: 500;
 		text-transform: uppercase;
