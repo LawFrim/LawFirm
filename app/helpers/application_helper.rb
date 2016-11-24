@@ -7,6 +7,7 @@ module ApplicationHelper
 
   # 用户头像
   def img_by(user)
+    
     user.user_avatar.url(:small)
   end
 

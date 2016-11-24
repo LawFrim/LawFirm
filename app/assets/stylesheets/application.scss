@@ -19,6 +19,13 @@
  @import "responsive";
  @import "style";
 
+
+.pageContainer {
+  margin-top: 7px;
+}
+
+
+
 .notificationIcon {
   margin-top: 3px;
   margin-right: 1px;
@@ -41,4 +48,8 @@
 
 .statusBar {
     border: .14286rem solid #598b25;
+}
+
+.info h5 {
+  font-size:14px;
 }
