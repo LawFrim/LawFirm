@@ -22,9 +22,6 @@
 
 
 
-
-
-
 $(document).ready(function(){
     $('#characterLeft').text('600 个字');
     $('#message').keyup(function () {

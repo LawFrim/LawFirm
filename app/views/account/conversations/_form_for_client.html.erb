@@ -17,7 +17,7 @@
       <% if @conversation.present? %>
       <!-- <h1>对话id:<%#= @conversation.id %></h1> -->
       <!-- 隐藏提交当前会话id -->
- 
+
       <%= a.input :conversation_id, :as => :hidden, :input_html => { :value => @conversation.id } %>
 
       <% end %>
@@ -35,8 +35,7 @@
       <%= a.submit "提交", class: "btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交..." } %>
       <% end %>
 
-      <%= a.submit "提交", class: "btn btn-primary col-md-12", data: { disable_with: "提交..." } %>
-      <% end %>
+   
       <!--  -->
 
 
