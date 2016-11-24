@@ -49,30 +49,33 @@
 <!---please refactsor -->
 <div class="answer clearfix">
 
-      <div class="questionLogo"></div>
-      <div class="info">
-      <!-- 判断存在 -->
+  <div class="questionLogo"></div>
+  <div class="info">
+  <!-- 判断存在 -->
 
-      <p><span>姓名:</span><%= current_user.user_name %></p>
+  <p><span>姓名:</span><%= current_user.user_name %></p>
 
-      <p><span>日期:</span> <%= @question.updated_at %></p>
+  <p><span>日期:</span> <%= @question.updated_at %></p>
 
-      <p><span>领域:</span> <%= @question.area %></p>
-
-
-      <i class="fa fa-question-circle" aria-hidden="true"></i><span>  您的问题</span>
-
-      <div class="answerText">
-      <%= @question.content %>
-      </div>
+  <p><span>领域:</span> <%= @question.area %></p>
+  <hr>
 
 
-      <!-- f1042-tryAttachmentForMaibox -->
-      <% if @question.attachment.present? %>
-        <div>
-          <%=  image_tag(@question.attachment.url, class: "thumbnail")  %>
-          <p class="pull-left"><%= @question.attachment.file.filename %></p>
+  <i class="fa fa-question-circle" aria-hidden="true"></i><span>  您的问题</span>
+  <br>
 
+  <div>
+  <h5><%= @question.content %></h5>
+  </div>
+
+
+  <!-- f1042-tryAttachmentForMaibox -->
+  <% if @question.attachment.present? %>
+    <div>
+      <%=  image_tag(@question.attachment.url, class: "thumbnail")  %>
+      <p class="pull-left"><%= @question.attachment.file.filename %></p>
+
+ 
           <a href="<%= @question.attachment.url %>" download="" target="_blank">
             <button type="button" class="btn  btn-secondary text-uppercase flat animation pull-right">下载</button>
           </a>
@@ -81,9 +84,7 @@
       <!-- f1042-tryAttachmentForMaibox -->
 
 
-    </div>
 
-  </div>
 
 </div>
 </div>
