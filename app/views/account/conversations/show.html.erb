@@ -55,6 +55,11 @@
 
 
 
+
+    <a href="<%= @question.attachment.url %>" download="" target="_blank">
+      <button type="button" class="btn  btn-secondary text-uppercase flat animation pull-right">下载</button>
+    </a>
+
 <!-- ———————————————————————————————————————————————————————————————————————————————— -->
   <!-- 如果最后一条是用户自己的问题，则显示出来 -->
     <!-- 如果最后一条是自己的留言，则不让再追问 -->
@@ -144,7 +149,7 @@
             // 锁定星星不可重新提交
             function lockRating(obj,score) {
               // 锁定部分样式
-              obj.raty({ 
+              obj.raty({
                 path:"/",
                 starOff: 'star-off.png',
                 starOn: 'star-on.png',
@@ -173,6 +178,7 @@
 
       <!-- 用户追问栏 -->
       <%= render 'form_for_client' %>
+
     <% end %>
   <!--  -->
 <!-- ———————————————————————————————————————————————————————————————————————————————————— -->

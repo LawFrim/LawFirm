@@ -20,20 +20,20 @@
               <div class="media-body">
                 <h3 class="media-heading">我</h3>
                 <h5><%= simple_format(m.body) %></h5>
-                
+
                 <!-- 附件显示（当前上传pdf有问题） -->
                 <% if m.attachment.present? %>
 
                   <div class="pull-right">
-                  
+
                     <%= image_tag(m.attachment.url, class: "thumbnail") %>
                     <p class="pull-left"><%= m.attachment.file.filename %></p>
 
                     <a href="<%= m.attachment.url %>" download="" target="_blank">
-                      <button type="button" class="btn btn-primary btn-xs pull-right">下载</button>
+                      <button type="button" class="btn  btn-secondary text-uppercase flat animation pull-right">下载</button>
                     </a>
                   </div>
-                
+
                 <% end %>
                 <!-- 附件显示（当前上传pdf有问题） -->
 
@@ -42,7 +42,7 @@
 
               <a class="media-right" href="#">
                 <!-- 用户头像 -->
-                <%= render(partial: "common/user_img",locals: {user: current_user}) %>  
+                <%= render(partial: "common/user_img",locals: {user: current_user}) %>
                 <!-- 用户头像 -->
               </a>
 
@@ -56,7 +56,7 @@
 
               <a class="media-left" href="#">
                 <!-- 用户头像 -->
-                <%= render(partial: "common/user_img",locals: {user: m.sender}) %>  
+                <%= render(partial: "common/user_img",locals: {user: m.sender}) %>
                 <!-- 用户头像 -->
               </a>
 
@@ -69,15 +69,15 @@
                 <% if m.attachment.present? %>
 
                   <div class="pull-left">
-                  
+
                     <%= image_tag(m.attachment.url, class: "thumbnail") %>
                     <p class="pull-left"><%= m.attachment.file.filename %></p>
 
                     <a href="<%= m.attachment.url %>" download="" target="_blank">
-                      <button type="button" class="btn btn-primary btn-xs pull-right">下载</button>
+                      <button type="button" class="btn  btn-secondary text-uppercase flat animation pull-right">下载</button>
                     </a>
                   </div>
-                
+
                 <% end %>
                 <!-- 附件显示（当前上传pdf有问题） -->
 
@@ -87,7 +87,7 @@
 
 
 
-                
+
               </div>
 
             </div>
@@ -166,7 +166,7 @@
             // 锁定星星不可重新提交
             function lockRating(obj,score) {
               // 锁定部分样式
-              obj.raty({ 
+              obj.raty({
                 path:"/",
                 starOff: 'star-off.png',
                 starOn: 'star-on.png',
@@ -189,7 +189,7 @@
 
 
 
-   
+
           });
           </script>
 
@@ -206,4 +206,4 @@
         <% end %>
       <% end %>
       <!-- 历史消息 -->
-    <% end %>   
+    <% end %>
