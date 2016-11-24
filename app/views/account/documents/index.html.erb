@@ -21,10 +21,10 @@
         <% if document.client_docs.present? %>
         <li><%= link_to "下载合同", document.client_docs[0].url %></li>
         <% end %>
-        <%= link_to "编辑", edit_account_document_path(document), class:"btn btn-sm btn-primary"%>
-        <%= link_to "删除", account_document_path(document), method: :delete, class: "btn btn-sm btn-danger", data: { confirm: "确认删除合同？"}%>
+        <%= link_to "编辑", edit_account_document_path(document), class:"btn  btn-secondary text-uppercase flat animation"%>
+        <%= link_to "删除", account_document_path(document), method: :delete, class: "btn  btn-secondary text-uppercase flat animation", data: { confirm: "确认删除合同？"}%>
         </div>
-        <%= link_to "查看反馈合同", account_feedbacks_path(@feedback), class:"btn btn-lg btn-primary"%>
+        <%= link_to "查看反馈合同", account_feedbacks_path(@feedback), class:"btn  btn-secondary text-uppercase flat animation"%>
 
       </div>
 

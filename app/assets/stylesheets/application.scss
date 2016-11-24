@@ -19,12 +19,69 @@
  @import "responsive";
  @import "style";
 
+
+
+.kbd {
+   padding: 2px 4px;
+   font-size: 77% !important;
+   color: #fff;
+   background-color: #333;
+   border-radius: 3px;
+
+}
+
+
+.download-button {
+  margin-top: 10px;
+}
+
+
+
+ .arrowDown{
+     float: right;
+
+ }
+
+
+ .alert-success {
+     background-color: #222;
+     border-color: rgba(255, 255, 255, 0.15);
+     color: #fcf8e3;
+     margin: 1px auto 1px auto;
+   }
+
+
+   .alert-dismissable .close {
+       position: relative;
+       top: -2px;
+       right: -21px;
+       color: rgba(0, 0, 0, 0.075);
+   }
+
+
+.pageContainer {
+  margin-top: 7px;
+}
+
+
+
 .notificationIcon {
   margin-top: 3px;
   margin-right: 1px;
   float:right;
 }
 
+#btn-notification{
+  color: #fff;
+  background-color: #222;
+  border-color: #222;
+}
+
+#btn-notification > i > kbd{
+  color: #fff;
+  background-color: #222;
+  border-color: #222;
+}
 
 
 .list-style-2 li h6{
@@ -39,6 +96,16 @@
     }
 
 
-.statusBar {
+.statusBar-response {
     border: .14286rem solid #598b25;
+}
+
+
+.statusBar-waiting {
+    border: .14286rem solid #e0820e;
+  }
+
+.info h5 {
+  font-size:14px;
+
 }

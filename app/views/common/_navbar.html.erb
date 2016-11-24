@@ -7,6 +7,7 @@
     <!-- Logo Starts -->
       <div class="col-md-3 col-sm-4 col-xs-12">
 
+
         <%=link_to(image_tag("/images/logo.png",alt:"Law Attorney", class:"img-responsive img-center-xs logo"),root_path)%>
       </div>
     <!-- Logo Ends -->
@@ -65,8 +66,20 @@
   <!-- Navbar Cat collapse Starts -->
     <div class="collapse navbar-collapse navbar-cat-collapse animation">
       <ul class="nav navbar-nav text-uppercase text-bold">
-        <li class="active"><%= link_to("我的动态",account_questions_path) %></li>
+        <li class="active">
+         <% if !current_user %>
 
+              <% elsif current_user.admin? %>
+              <%= link_to("管理员面板", admin_questions_path) %>
+
+              <% elsif current_user.lawyer? %>
+
+               <%= link_to("律师面板",lawyer_users_path) %>
+              <% else %>
+              <%= link_to("我的动态", account_questions_path) %>
+          <% end %>
+
+            </li>
 
         </li>
 
@@ -86,42 +99,46 @@
         <li class="dropdown pull-right">
 
                       <% if !current_user %>
+
                     <li><%= link_to(content_tag(:i, '注册', class: 'fa fa-user-circle'), new_user_registration_path) %></li>
 
+
                      <li><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
-                  <% else %>
+                    <% else %>
                    <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          Hi!,<% if current_user.user_name.present? %>
+                          你好，<% if current_user.user_name.present? %>
                           <%= current_user.user_name %>
                           <% else %>
                           <%= current_user.email %>
                           <% end %>
                           <b class="caret"></b>
                       </a>
+
                       <ul class="dropdown-menu">
 
                           <% if current_user.admin? %>
-                          <li> <%= link_to(content_tag(:i, '管理员面板', class: 'fa fa-universal-access'), admin_questions_path ) %> </li>
-                          <li> <%= link_to(content_tag(:i, '管理员中心', class: 'fa fa-users'), admin_users_path ) %> </li>
+                          <li> <%= link_to(content_tag(:i, ' 管理员面板', class: 'fa fa-universal-access'), admin_questions_path ) %> </li>
+                          <li> <%= link_to(content_tag(:i, ' 管理员中心', class: 'fa fa-users'), admin_users_path ) %> </li>
 
                           <% else %>
-                          <li> <%= link_to(content_tag(:i, '我的动态', class: 'fa fa-user-secret'), account_questions_path ) %> </li>
-                          <li> <%= link_to(content_tag(:i, '用户中心', class: 'fa fa-university'), account_users_path ) %> </li>
-                          <li> <%= link_to(content_tag(:i, '支付中心', class: 'fa fa-paypal'), account_orders_path ) %> </li>
+                          <li> <%= link_to(content_tag(:i, ' 我的动态', class: 'fa fa-user-secret'), account_questions_path ) %> </li>
+                          <li> <%= link_to(content_tag(:i, ' 用户中心', class: 'fa fa-university'), account_users_path ) %> </li>
+                          <li> <%= link_to(content_tag(:i, ' 支付中心', class: 'fa fa-paypal'), account_orders_path ) %> </li>
                           <% end %>
                           <% if current_user.lawyer? %>
 
-                          <li> <%= link_to(content_tag(:i, '律师面板', class: 'fa fa-university'), lawyer_users_path ) %> </li>
-                          <li> <%= link_to(content_tag(:i, '用户中心', class: 'fa fa-vcard'), lawyer_users_path ) %> </li>
+                          <li> <%= link_to(content_tag(:i, ' 律师面板', class: 'fa fa-university'), lawyer_users_path ) %> </li>
+                          <li> <%= link_to(content_tag(:i, ' 用户中心', class: 'fa fa-vcard'), lawyer_users_path ) %> </li>
 
                           <% end %>
 
-                           <li> <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
+                           <li> <%= link_to(content_tag(:i, ' 登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
                       </ul>
+
                     </li>
                       <% end %>
-                  </li>
+
           </ul>
         </li>
 
@@ -130,21 +147,31 @@
 
         <!-- 添加提醒系统 -->
         <div class="notificationIcon">
-            <li id='btn-notification' type="button" class="btn btn-danger pull-right"
+            <li id='btn-notification' type="button" class="btn  btn-secondary text-uppercase flat animation pull-right"
                     data-container="body" data-toggle="popover" data-placement="bottom"
                     data-content="
+
                     <!-- 插入的html触发码 -->
                     <% if @notifications.present? %>
                       <% @notifications.each do |n| %>
-                        <p><%= n.actor.user_name %>回答了
+                        <p><%= n.actor.user_name %>回复了
                           <a href=<%= account_question_path(n.notifiable) %>><%= n.notifiable.content %></a>
                         </p>
                       <% end %>
                     <% else %>
-                    <p>没有新的消息</p>
+                      <p>没有新的消息</p>
                     <% end %>
+
                     ">
-                <i class="fa fa-bell-o fa-2x" aria-hidden="true"></i>
+                <i class="fa fa-bell-o fa-2x" aria-hidden="true">
+
+                  <% if @notifications.present? %>
+                    <kbd>
+                    <%= @notifications.count %>
+                    </kbd>
+                  <% end %>
+
+                </i>
             </li>
         </div>
         <!--  -->

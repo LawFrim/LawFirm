@@ -49,41 +49,42 @@
 <!---please refactsor -->
 <div class="answer clearfix">
 
-      <div class="questionLogo"></div>
-      <div class="info">
-      <!-- 判断存在 -->
+  <div class="questionLogo"></div>
+  <div class="info">
+  <!-- 判断存在 -->
 
-      <p><span>姓名:</span><%= current_user.user_name %></p>
+  <p><span>姓名:</span><%= current_user.user_name %></p>
 
-      <p><span>日期:</span> <%= @question.updated_at %></p>
+  <p><span>日期:</span> <%= @question.updated_at %></p>
 
-      <p><span>领域:</span> <%= @question.area %></p>
-
-
-      <i class="fa fa-question-circle" aria-hidden="true"></i><span>  您的问题</span>
-
-      <div class="answerText">
-      <%= @question.content %>
-      </div>
+  <p><span>领域:</span> <%= @question.area %></p>
+  <hr>
 
 
-      <!-- f1042-tryAttachmentForMaibox -->
-      <% if @question.attachment.present? %>
-        <div>
-          <%=  image_tag(@question.attachment.url, class: "thumbnail")  %>
-          <p class="pull-left"><%= @question.attachment.file.filename %></p>
+  <i class="fa fa-question-circle" aria-hidden="true"></i><span>  您的问题</span>
+  <br>
 
-          <a href="<%= @question.attachment.url %>" download="" target="_blank">
-            <button type="button" class="btn btn-primary btn-xs pull-right">下载</button>
-          </a>
+  <div>
+  <h5><%= @question.content %></h5>
+  </div>
+
+
+  <!-- f1042-tryAttachmentForMaibox -->
+  <% if @question.attachment.questionView.present? %>
+    <div>
+      <%=  image_tag(@question.attachment.questionView.url)  %>
+      <p class="pull-left"><%= @question.attachment.file.filename %></p>
+      <% else %>
+      <%=  image_tag "http://placehold.it/300?text=您的文件" %>
         </div>
+        <div class="download-button"><a href="<%= @question.attachment.url %>" download="" target="_blank">
+          <button type="button" class="btn  btn-secondary text-uppercase flat animation pull-left">下载</button>
+        </a></div>
       <% end %>
       <!-- f1042-tryAttachmentForMaibox -->
 
 
-    </div>
 
-  </div>
 
 </div>
 </div>

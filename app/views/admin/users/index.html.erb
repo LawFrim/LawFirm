@@ -1,9 +1,7 @@
-<div class="row">
-  <div class="container">
 
-  <div class="container-fluid" style="background:url(https://ooo.0o0.ooo/2016/11/24/583691e5c2104.jpg); background-size: 85%;background-repeat: repeat-y;min-height:500px;">
 
-    <div class="row well"  style="opacity:0.95;width:80%;">
+
+    <div class="row well"  style="opacity:0.95;width:100%;">
 <ul class="breadcrumb">
     <li class="active">
         <%= link_to("所有用户", admin_users_path) %>
@@ -54,7 +52,7 @@
                 <!-- <%= link_to("Edit", edit_admin_user_path(user))%>  -->
                 <%= change_user_status(user) %>|
                 <%= link_to("删除用户", admin_user_path(user),
-                        method: :delete, data: { confirm: "Are you sure?" },class:"btn btn-xs btn-info")  %>
+                        method: :delete, data: { confirm: "Are you sure?" },class:"btn  btn-danger btn-xs")  %>
 
         </td>
         <td>
@@ -76,6 +74,4 @@
   </tbody>
 
 </table>
-</div>
-</div>
 </div>

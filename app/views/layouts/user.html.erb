@@ -6,6 +6,8 @@
 
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <link rel="stylesheet" href="http://o7m541j22.bkt.clouddn.com/jquery.raty.css">
+        <script src="http://o7m541j22.bkt.clouddn.com/jquery.raty.js"></script>
     </head>
 
     <body>
@@ -19,24 +21,19 @@
                 <div class="col-md-2  nav-sidebar side-block-2">
                   <h6></h6>
                   <ul class="list-unstyled list-links">
-                    <li class="clearfix"><i class="fa  fa-fw fa-rocket" aria-hidden="true"></i><%= link_to(" 用户动态", account_questions_path ) %></li>
-                    <li class="clearfix"> <i class="fa  fa-fw fa fa-pencil-square-o" aria-hidden="true"></i> <%= link_to("提出问题", new_account_question_path ) %></li></li>
+                    <li class="clearfix"><i class="fa  fa-fw fa-rocket" aria-hidden="true"></i><%= link_to("  用户动态", account_questions_path ) %></li>
+                    <li class="clearfix"> <i class="fa  fa-fw fa fa-pencil-square-o" aria-hidden="true"></i> <%= link_to("  提出问题", new_account_question_path ) %></li></li>
                     <li class="clearfix"> <i class="fa  fa-fw fa-paper-plane" aria-hidden="true"></i> <%= link_to("  合同审核", new_document_account_questions_path ) %></li>
                   </ul>
                 </div>
 
 
-
-
-
-
-
-
+<!-- 侧边栏 -->
 
 
 
                 <!-- 内容 -->
-                <div class="col-md-10">
+                <div class="pageContainer col-md-10">
                     <%= yield %>
                 </div>
             </div>

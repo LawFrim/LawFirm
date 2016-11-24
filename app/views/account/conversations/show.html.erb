@@ -2,8 +2,9 @@
 
 <div class="pull-left col-sm-12 col-md-8">
 
-<%= link_to :back %>
-<div class= "answeredBy row">
+
+  <div class= "answeredBy row">
+
 
       <!-- 确定回答框基本警告模式 -->
 
@@ -16,94 +17,203 @@
           </div>
           <div class="answerFrom">
               <p class="lawyerName"> <%= @conversation.originator.user_name %></p>
-                <p class="answerStatus">回答了您的问题 </p>
+              <p class="answerStatus">回答了您的问题 </p>
               </div>
 
-    </div>
 
-
-
-    <div class="answer">
-      <div class="questionLogo"></div>
-      <!-- 用户端历史信息 -->
-      <%  @conversation.id %>
-      <!-- 查看历史信息 -->
-      <% if @messages.present? %>
-        <% @messages.each do |m| %>
-        <div class="questionMessage">
-        <p class="date"> <%= time_format(m.created_at) %></p>
-          <!-- 历史消息 -->
-          <% if m.sender == current_user %>
-            <!-- 当前用户的对话样式 -->
-                  <div class="answerText"><%= simple_format(m.body) %></div>
-                  <div class="answerer">我</h3>
-                  <!-- 附件显示（当前上传pdf有问题） -->
-                  <% if m.attachment.present? %>
-
-                    <div class="pull-right">
-                      <% if m.attachment.thumbview.present? %>
-                      <%= image_tag(m.attachment.thumbview.url, class: "thumbnail") %>
-                      <% else %>
-                      <%= link_to image_tag "http://placehold.it/80?text=你的材料" %>
-                      <% end %>
-                      <p class="pull-left"><%= m.attachment.file.filename %></p>
-
-                      <a href="<%= m.attachment.url %>" download="" target="_blank">
-                        <button type="button" class="btn btn-primary btn-xs pull-right">下载</button>
-                      </a>
-                    </div>
-
-                  <% end %>
-                  <% end %>
-                  <% end %>
-                  <% end %>
-                  <!-- 附件显示（当前上传pdf有问题） -->
-
-
-
-
-
-</div>
     </div>
 
 
 
 
 
-<div class="col-md-12">
+  <div class="answer">
+    <div class="questionLogo"></div>
 
-  <!-- 客户问题 -->
-  <h4>问题： <%= @question.content %></h4>
-  <h6>领域： <%= @question.area %></h6>
 
-  <!-- 附件显示预览 -->
-  <div>
-  <% if @question.attachment.present? %>
-    <%= image_tag(@question.attachment.url, class: "thumbnail") %>
-    <p class="pull-left"><%= @question.attachment.file.filename %></p>
+
+    <!-- 历史问答 -->
+    <% if  @conversation.messages.count > 1 %>
+    <div class="panel-group">
+      
+        <div class="panel panel-default row">
+          <a data-toggle="collapse" href="#answer-history" aria-expanded="true" aria-controls="answer-history">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                
+                <p class="col-md-8">历史记录</p>
+                <div class="col-md-4">
+                  <span id="span-collapse" class="glyphicon glyphicon-chevron-down pull-right"></span>
+                </div>
+
+              </h4>
+            </div>
+          </a>
+          <div id="answer-history" class="panel-collapse collapse" >
+            <div class="panel-body">
+
+
+              <%= render 'history' %>
+
+
+            </div>
+          </div>
+        </div>
+      
+
+    </div>
+
+    <!-- 收放按钮 -->
+    <script>
+      $('#answer-history').on('show.bs.collapse', function () {
+        $('#span-collapse').removeClass("glyphicon-chevron-down");// 执行一些动作...
+        $('#span-collapse').addClass("glyphicon-chevron-up");
+      });
+      $('#answer-history').on('hide.bs.collapse', function () {
+        $('#span-collapse').removeClass("glyphicon-chevron-up");// 执行一些动作...
+        $('#span-collapse').addClass("glyphicon-chevron-down");
+      })       
+    </script>
+    <!--  -->
+
+
+    <% end %>
+
+
+
+
+
+
+
+
 
     <a href="<%= @question.attachment.url %>" download="" target="_blank">
-      <button type="button" class="btn btn-primary btn-xs pull-right">下载</button>
+      <button type="button" class="btn  btn-secondary text-uppercase flat animation pull-right">下载</button>
     </a>
+
+<!-- ———————————————————————————————————————————————————————————————————————————————— -->
+  <!-- 如果最后一条是用户自己的问题，则显示出来 -->
+    <!-- 如果最后一条是自己的留言，则不让再追问 -->
+    <hr>
+    <% if i_send_last_message(@messages) %>
+      <p><i class="fa fa-question-circle" aria-hidden="true"></i><span> 您的当前问题</span></p>
+      <p class="lead"><strong><%= @messages.last.body %></strong></p>
+      <p class="small footer">正在等待律师的回答...</p>
+
+    <!-- 如果不是，则显示一个form让填写（附件） -->
+    <% else %>
+
+
+      <!-- 用户问题 -->
+      <% if @messages[-2].present? %>
+        <% current_question = @messages[-2] %>
+        <% current_question_content = @messages[-2].body %>
+      <% else %>
+        <% current_question = @question %>
+        <% current_question_content = @question.content %>
+      <% end %>
+      <h6><small><em><%= time_format(current_question.created_at) %></em></small></h6>
+      <p><i class="fa fa-question-circle" aria-hidden="true"></i><span> 您的当前问题</span></p>
+      <p class="lead"><strong><%= current_question_content %></strong></p>
+      <br>
+      <!-- 律师解答 -->
+      <h6><small><em><%= time_format(@messages.last.created_at) %></em></small></h6>
+      <p><span class="glyphicon glyphicon-ok-sign"></span><span> 律师解答</span></p>
+      <p class="lead"><strong><%= @messages.last.body %></strong></p>
+
+
+        <!-- 律师端的评价系统 -->
+          <p class="text-center">
+            <!-- 如果未评分，则允许评分 -->
+            <% if @messages.last.rating.blank? %>
+              <div id="rating-for-message-<%= @messages.last.id %>" class="text-center"></div>
+            <!-- 如果评过分，则锁定 -->
+            <% else %>
+              <div id="raty-for-message-<%= @messages.last.id %>" class="text-center"></div>
+            <% end %>
+          </p>
+
+          <hr>
+
+          <script>
+          $(function() {
+
+            // 初始化rating选框
+            function initRating(obj) {
+              obj.raty({
+                path:"/",
+                starOff: 'star-off.png',
+                starOn: 'star-on.png',
+                size: 32,
+                click: function(score, evt) {
+                  // ajax提交
+                  ajaxRating(score);
+                  // 锁定rating
+                  lockRating(obj,score)
+                }
+              });
+            };
+
+            // ajax提交评级
+            function ajaxRating(score) {
+              $.ajax({
+                url: '<%= rating_account_questions_path %>',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                  'conversation_id' : <%= @conversation.id %>,
+                  'message_id' : <%= @messages.last.id %>,
+                  'rating': score
+                },
+              })
+              .done(function() {
+                console.log("raty success");
+              })
+              .fail(function() {
+                console.log("raty error");
+              })
+              .always(function() {
+                console.log("raty complete");
+              });
+            };
+
+            // 锁定星星不可重新提交
+            function lockRating(obj,score) {
+              // 锁定部分样式
+              obj.raty({
+                path:"/",
+                starOff: 'star-off.png',
+                starOn: 'star-on.png',
+                size: 32,
+                readOnly: true, score: score
+              });
+            };
+
+            // 允许评分的对象
+            var ratableObj = $('#rating-for-message-<%= @messages.last.id %>');
+            initRating(ratableObj);
+            // 已经评过分的对象
+            var unRatableObj = $('#raty-for-message-<%= @messages.last.id %>');
+            lockRating(unRatableObj,'<%= @messages.last.rating %>');
+
+          });
+          </script>
+          <!-- 律师端的评价系统 -->
+
+
+
+
+
+
+
+
+      <!-- 用户追问栏 -->
+      <%= render 'form_for_client' %>
+
     <% end %>
+  <!--  -->
+<!-- ———————————————————————————————————————————————————————————————————————————————————— -->
   </div>
-  <!-- 附件显示预览 -->
-  <br>
-
-  <hr>
-
-  <!-- 历史消息 -->
-
-
-  <!-- 如果最后一条是自己的留言，则不让再追问 -->
-  <% if i_send_last_message(@messages) %>
-    <div class="alert alert-success text-center" role="alert">正在等待律师的回答...</div>
-  <% else %>
-    <!-- 用户追问栏 -->
-    <%= render 'form_for_client' %>
-  <% end %>
-
-
 
 </div>
 </div>
