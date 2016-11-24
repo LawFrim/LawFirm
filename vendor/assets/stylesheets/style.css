@@ -108,6 +108,15 @@ h6 { font-size: 18px; }
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
+
+.side-block-2  > li.active > a {
+	  background-color: #b00f14;
+}
+
+
+
+
+
 .font3,
 .sub-heading-2,
 #main-slider .carousel-caption h2,
