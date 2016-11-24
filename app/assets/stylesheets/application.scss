@@ -23,9 +23,18 @@
  .alert-success {
      background-color: #222;
      border-color: rgba(255, 255, 255, 0.15);
-     color: #3c763d;
-     margin: 1px auto 0 auto;
+     color: #fcf8e3;
+     margin: 1px auto 1px auto;
    }
+
+
+   .alert-dismissable .close {
+       position: relative;
+       top: -2px;
+       right: -21px;
+       color: rgba(0, 0, 0, 0.075);
+   }
+
 
 .pageContainer {
   margin-top: 7px;
