@@ -460,6 +460,8 @@ input[type=email].form-control {
 			padding: 5px;
 			border: solid #ebebeb;
 			border-width: 1px 1px 5px 1px;
+			height: 500px;
+
 		}
 		.team-col.profile {
 			margin-top: 50px;

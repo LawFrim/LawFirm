@@ -19,10 +19,16 @@
   </div>
   <br>
 <div class="container text-center">
+  <% if current_user %>
   <%= link_to "按月支付",create_m_account_orders_path, method: :post, class:
           "btn  btn-secondary text-uppercase flat animation"%>
   <%= link_to "按年支付",create_y_account_orders_path, method: :post, class:
           "btn  btn-secondary text-uppercase flat animation"%>
+            <% else %>
+            <%= link_to"马上拥有", new_user_registration_path ,class:
+                    "btn  btn-secondary text-uppercase flat animation"%>
+
+              <% end %>
 </div>
 
 <div class="">
