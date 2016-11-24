@@ -98,6 +98,23 @@
     <% if i_send_last_message(@messages) %>
       <p><i class="fa fa-question-circle" aria-hidden="true"></i><span> 您的当前问题</span></p>
       <p class="lead"><strong><%= @messages.last.body %></strong></p>
+
+        <!-- f1042-tryAttachmentForMaibox -->
+        <% if @messages.last.attachment.present? %>
+          <span class="glyphicon glyphicon-file">  附件</span>
+          <br>
+          <div>
+            <a href="<%= @messages.last.attachment.url %>" download="" target="_blank">
+              
+              <h4><i class="fa fa-file-text" aria-hidden="true"></i></h4>
+              <p><%= @messages.last.attachment.file.filename %></p>
+
+            </a>
+          </div>   
+        <% end %>
+        <!-- f1042-tryAttachmentForMaibox -->
+
+
       <p class="small footer">正在等待律师的回答...</p>
 
     <!-- 如果不是，则显示一个form让填写（附件） -->
@@ -115,11 +132,45 @@
       <h6><small><em><%= time_format(current_question.created_at) %></em></small></h6>
       <p><i class="fa fa-question-circle" aria-hidden="true"></i><span> 您的当前问题</span></p>
       <p class="lead"><strong><%= current_question_content %></strong></p>
+
+        <!-- f1042-tryAttachmentForMaibox -->
+        <% if current_question.attachment.present? %>
+          <span class="glyphicon glyphicon-file">  附件</span>
+          <br>
+          <div>
+            <a href="<%= current_question.attachment.url %>" download="" target="_blank">
+              
+              <h4><i class="fa fa-file-text" aria-hidden="true"></i></h4>
+              <p><%= current_question.attachment.file.filename %></p>
+
+            </a>
+          </div>   
+        <% end %>
+        <!-- f1042-tryAttachmentForMaibox -->
+
+
+      
       <br>
       <!-- 律师解答 -->
       <h6><small><em><%= time_format(@messages.last.created_at) %></em></small></h6>
       <p><span class="glyphicon glyphicon-ok-sign"></span><span> 律师解答</span></p>
       <p class="lead"><strong><%= @messages.last.body %></strong></p>
+      
+        <!-- f1042-tryAttachmentForMaibox -->
+        <% if @messages.last.attachment.present? %>
+          <span class="glyphicon glyphicon-file">  附件</span>
+          <br>
+          <div>
+            <a href="<%= @messages.last.attachment.url %>" download="" target="_blank">
+              
+              <h4><i class="fa fa-file-text" aria-hidden="true"></i></h4>
+              <p><%= @messages.last.attachment.file.filename %></p>
+
+            </a>
+          </div>   
+        <% end %>
+        <!-- f1042-tryAttachmentForMaibox -->
+
 
 
         <!-- 律师端的评价系统 -->
