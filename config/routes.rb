@@ -77,12 +77,7 @@ end
   end
 
 
-  resources :welcome do
-    collection do
-      post :pricing
-    end
-  end
-
+  resources :welcome
 
 
   root 'welcome#index'
