@@ -1,5 +1,12 @@
-<h2>我的资料</h2>
+
+
 <div class="row">
+  <div class="container">
+
+  <div class="container-fluid" style="background:url(https://ooo.0o0.ooo/2016/11/24/583691e5c2104.jpg); background-size: 85%;background-repeat: repeat-y;min-height:900px;">
+
+    	<div class="row well"  style="opacity:0.95;width:80%;">
+
     <div class="col-md-2">
         <% if !@user.user_avatar.present? %>
         <%= image_tag "http://placehold.it/150x150" %>
@@ -12,35 +19,39 @@
         <table class="table user-table-info">
             <tbody>
               <tr>
-                  <td><h4>用户认证</h4></td>
+                <h4>我的资料</h4>
+
+              </tr>
+              <tr>
+                  <td>用户认证</td>
                   <td><%= render_user_vip(@user) %></td>
               </tr>
                 <tr>
-                    <td><h4>用户名</h4></td>
+                    <td>用户名</td>
                     <td><%= @user.user_name %></td>
                 </tr>
                 <tr>
-                    <td><h4>电子邮件</h4></td>
+                    <td>电子邮件</td>
                     <td><%= @user.email %></td>
                 </tr>
                 <tr>
-                    <td><h4>所在地区</h4></td>
+                    <td>所在地区</td>
                     <td><%= @user.district %></td>
                 </tr>
 
                 <tr>
-                    <td><h4>领域</h4></td>
+                    <td>领域</td>
                     <td><%= @user.area %></td>
                 </tr>
                 <tr>
-                    <td><h4>律师事务所</h4></td>
+                    <td>律师事务所</td>
                     <td><%= @user.lawfirm %></td>
                 </tr>
                 <tr>
-                    <td><h4>律师证号</h4></td>
+                    <td>律师证号</td>
                     <td><%= @user.certificate_number %></td>
                 </tr>
-                <td><h4>律师证</h4></td>
+                <td>律师证</td>
                 <td>
 
                     <% if !@user.certificate.present? %>
@@ -55,11 +66,25 @@
 
 
     <div>
-      <%= link_to("完善个人资料", edit_lawyer_user_path(@user), :class => "btn btn-sm btn-default") %>
-      <%= link_to("修改密码", edit_user_registration_path, class: "btn btn-sm btn-default" ) %>
+      <%= link_to("完善个人资料", edit_lawyer_user_path(@user), :class => "btn btn-sx btn-warning") %>
+      <%= link_to("修改密码", edit_user_registration_path, class: "btn btn-sx btn-warning" ) %>
 
-
+          </div>
+        </div>
         </div>
     </div>
-
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>

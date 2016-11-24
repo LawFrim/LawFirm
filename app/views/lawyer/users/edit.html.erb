@@ -1,5 +1,13 @@
+
+<div class="row">
+  <div class="container">
+
+  <div class="container-fluid" style="background:url(https://ooo.0o0.ooo/2016/11/24/583691e5c2104.jpg); background-size: 85%;background-repeat: repeat-y;min-height:1000px;">
+
+    	<div class="row well"  style="opacity:0.95;width:80%;">
+
 <div class="user-center-detail-block">
-<h2> 修改个人资料 </h2>
+<h4> 修改个人资料 </h4>
 <%= simple_form_for [:lawyer,@user] do |f| %>
 
 <div>
@@ -13,7 +21,9 @@
 <%= f.input :certificate_number, label: "律师证号" %>
 <%= f.input :certificate,label: "上传律师资格证"%>
 
-<%= f.submit "提交", class: "btn btn-sm btn-default" %>
+<%= f.submit "提交", class: "btn btn-sx btn-warning" %>
 </div>
 <% end %>
+</div>
+</div>
 </div>

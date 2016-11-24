@@ -22,3 +22,38 @@
 .notificationIcon {
   margin-top: 3px;
 }
+
+
+
+
+
+
+.nav-sidebar {
+    width: 100%;
+    padding: 30px 0;
+    border-right: 1px solid #ddd;
+}
+
+.nav-sidebar .active a {
+    cursor: default;
+    background-color: #222222;
+    color: #fff;
+}
+.nav-sidebar .active a:hover {
+    background-color: #AE131C;
+}
+
+article h4{color:#01000c;}
+h4{color:#0b56a8;}
+ .margin10{margin-bottom:10px; margin-right:10px;}
+
+
+
+
+ .container-fluid {
+     margin-right: 15px;
+     margin-left: 15px;
+     padding-top: 30px;
+    padding-bottom: 60px;
+     padding-left: 60px;
+ }
