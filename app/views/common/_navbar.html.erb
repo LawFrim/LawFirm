@@ -138,18 +138,28 @@
             <li id='btn-notification' type="button" class="btn  btn-secondary text-uppercase flat animation pull-right"
                     data-container="body" data-toggle="popover" data-placement="bottom"
                     data-content="
+
                     <!-- 插入的html触发码 -->
                     <% if @notifications.present? %>
                       <% @notifications.each do |n| %>
-                        <p><%= n.actor.user_name %>回答了
+                        <p><%= n.actor.user_name %>回复了
                           <a href=<%= account_question_path(n.notifiable) %>><%= n.notifiable.content %></a>
                         </p>
                       <% end %>
                     <% else %>
-                    <p>没有新的消息</p>
+                      <p>没有新的消息</p>
                     <% end %>
+
                     ">
-                <i class="fa fa-bell-o fa-2x" aria-hidden="true"></i>
+                <i class="fa fa-bell-o fa-2x" aria-hidden="true">
+                  
+                  <% if @notifications.present? %>
+                    <kbd>
+                    <%= @notifications.count %>
+                    </kbd>
+                  <% end %>
+                  
+                </i>
             </li>
         </div>
         <!--  -->

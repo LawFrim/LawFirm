@@ -2,10 +2,10 @@
 
 <div class="pull-left col-sm-12 col-md-8">
 
-  <%= link_to :back %>
+
   <div class= "answeredBy row">
 
-<<<<<<< HEAD
+
       <!-- 确定回答框基本警告模式 -->
 
 
@@ -22,12 +22,8 @@
 
 
     </div>
-    <div class="answerFrom">
-      <p class="lawyerName"> <%= @conversation.originator.user_name %></p>
-      <p class="answerStatus">回答了您的问题 </p>
-    </div>
 
-  </div>
+
 
 
 
@@ -45,6 +41,7 @@
             <a  data-toggle="collapse" href="#answer_history" aria-expanded="true" aria-controls="answer_history">
               历史记录
             </a>
+            <span class="arrowDown" data-toggle="collapse" href="#answer_history" aria-expanded="true" aria-controls="answer_history"><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
           </h4>
         </div>
         <div id="answer_history" class="panel-collapse collapse" >
@@ -57,7 +54,7 @@
           </div>
         </div>
       </div>
- 
+
     </div>
     <% end %>
 
@@ -197,4 +194,5 @@
 <!-- ———————————————————————————————————————————————————————————————————————————————————— -->
   </div>
 
+</div>
 </div>
