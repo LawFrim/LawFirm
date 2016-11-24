@@ -13,6 +13,7 @@
         <div class="questionDate">
           <%= question.updated_at%>
         </div>
+        <br>
           <!---wait for refracotring -->
           <div class="questionStatus" >
           </br>
@@ -28,7 +29,7 @@
 
         <div class="card-content" ng-click="qaCtrl.toMain('body')">
           <p class="userQuestion">
-          <span>Question<span>
+          <span>问题描述<span>
         </br>
 
           <%= link_to(question.content,account_question_path(question)) %>
