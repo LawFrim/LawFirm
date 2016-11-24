@@ -126,7 +126,8 @@
             <li id='btn-notification' type="button" class="btn btn-danger"
                     data-container="body" data-toggle="popover" data-placement="bottom"
                     data-content="
-                    <!-- 插入的html触发码 -->
+
+                    <!-- 插入的html触发提示 -->
                     <% if @notifications.present? %>
                       <% @notifications.each do |n| %>
                         <p><%= n.actor.user_name %>回答了
@@ -136,7 +137,9 @@
                     <% else %>
                     <p>没有新的消息</p>
                     <% end %>
+                    
                     ">
+
                 <i class="fa fa-bell-o fa-2x" aria-hidden="true"></i>
             </li>
         </div>

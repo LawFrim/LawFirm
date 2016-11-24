@@ -1,42 +1,162 @@
- <h4>问题动态</h4>
+<h4>问题动态</h4>
 
 <div class="cardHeightWrap row">
 
-      <% @questions.each do |question| %>
+  <% @questions.each do |question| %>
+  <!-- f1170-makeDifferentBetweenDocumentAndQuestion循环question -->
+
+
+    <!-- 判断文件类型-->
+    <!-- 如果是document -->
+    <% if question.attachment.present? %>
+      
 
       <div class="col-md-4 cold-sm-6 cardHeightWrap">
         <div class="itemCard questionCard">
-        <div class="cardHeading">
-          <div class="topHeading">
-          <p class="cardTitle questionTitle"><%= question.area %></p>
 
-        <div class="questionDate">
-          <%= question.updated_at%>
-        </div>
-          <!---wait for refracotring -->
-          <div class="questionStatus" >
-          </br>
-          <% if question.is_answered %>
-          <span class="glyphicon glyphicon-ok-sign"></span> 已被回答</td>
-            <% else %>
-            <span class="glyphicon glyphicon-question-sign"></span> 等待答复</td>
-            <% end %>
+          <!-- 卡头 -->
+          <div class="cardHeading">
+            <div class="topHeading row">
+
+              <div class="col-md-8 col-sm-8">
+                <p class="cardTitle questionTitle"><%= question.area %></p>
+                <div class="questionDate">
+                  <%= time_format(question.updated_at) %>
+                </div>
+                <!---回答状态 -->
+                <div class="questionStatus" >
+                  <br>
+                  <br>
+
+                  <!-- 如果回答了 -->
+                  <% if question.is_answered %>
+                    <p class="text-success">
+                      <span class="glyphicon glyphicon-file"></span> 已被审核
+                    </p>
+                  <!-- 如果没回答 -->
+                  <% else %>
+                    <p class="text-warning">
+                      <span class="glyphicon glyphicon-file"></span> 等待审核
+                    </p>
+                  <% end %>
+
+                </div>
+              </div>
+
+
+            </div>
           </div>
+          <!--  -->
 
-        </div>
-        </div>
+          <!-- 卡body -->
+          <div class="card-content" ng-click="qaCtrl.toMain('body')">
+            <p class="userQuestion">
+              <span>Document<span>
 
-        <div class="card-content" ng-click="qaCtrl.toMain('body')">
-          <p class="userQuestion">
-          <span>Question<span>
-        </br>
 
-          <%= link_to(question.content,account_question_path(question)) %>
+              </br>
+                <% if question.attachment.present? %>
+                  <a href="<%= account_question_path(question) %>">
+                    <div>
+                      <%=  image_tag(question.attachment.url, class: "thumbnail")  %>
+                    </div>
+                  </a>
+                <% end %>
 
-        </p>
+            </p>
+          </div>
+          <!--  -->
+
         </div>
       </div>
-    </div>
-      <% end %>
-    </div>
+      <!--  -->
+
+
+
+
+
+
+    <!-- 如果不是document,而是纯问题 -->
+    <% else %>
+
+      <div class="col-md-4 cold-sm-6 cardHeightWrap">
+        <div class="itemCard questionCard">
+
+          <!-- 卡头 -->
+          <div class="cardHeading">
+            <div class="topHeading row">
+
+              <div class="col-md-8 col-sm-8">
+                <p class="cardTitle questionTitle"><%= question.area %></p>
+                <div class="questionDate">
+                  <%= time_format(question.updated_at) %>
+                </div>
+                <!---回答状态 -->
+                <div class="questionStatus" >
+                  <br>
+                  <br>
+
+                  <!-- 如果回答了 -->
+                  <% if question.is_answered %>
+                    <p class="text-success">
+                      <span class="glyphicon glyphicon-question-sign"></span> 已被回答
+                    </p>
+                  <!-- 如果没回答 -->
+                  <% else %>
+                    <p class="text-warning">
+                      <span class="glyphicon glyphicon-question-sign"></span> 等待回复
+                    </p>
+                  <% end %>
+
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <!--  -->
+
+
+          <!-- 卡body -->
+          <div class="card-content" ng-click="qaCtrl.toMain('body')">
+            <p class="userQuestion">
+              <span>Question<span>
+              </br>
+              <%= link_to(question.content,account_question_path(question)) %>
+            </p>
+          </div>
+          <!--  -->
+
+        </div>
+      </div>
+      <!--  -->
+
+
+
+    <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <% end %>
 </div>
