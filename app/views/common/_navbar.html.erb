@@ -99,31 +99,43 @@
         <li class="dropdown pull-right">
 
                       <% if !current_user %>
-                     <li><%= link_to("注册", new_user_registration_path) %> </li>
+
+                    <li><%= link_to(content_tag(:i, '注册', class: 'fa fa-user-circle'), new_user_registration_path) %></li>
+
+
                      <li><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
                     <% else %>
                    <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          Hi!,<% if current_user.user_name.present? %>
+                          你好，<% if current_user.user_name.present? %>
                           <%= current_user.user_name %>
                           <% else %>
                           <%= current_user.email %>
                           <% end %>
                           <b class="caret"></b>
                       </a>
-                                <ul class="dropdown-menu">
-                                  <% if current_user.admin? %>
-                                    <li> <%= link_to("管理员面板", admin_questions_path) %> </li>
-                                    <li><%= link_to("管理员中心", admin_users_path ) %> </li>
-                                    <% elsif current_user.lawyer? %>
-                                    <li> <%= link_to("律师面板",lawyer_questions_path) %> </li>
-                                    <li> <%= link_to("用户中心",lawyer_users_path )%> </li>
-                                    <% else %>
-                                    <li><%= link_to("我的动态", account_questions_path) %></li>
-                                    <li> <%= link_to("用户中心",account_users_path )%> </li>
-                                    <% end %>
-                                     <li> <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
-                                </ul>
+
+                      <ul class="dropdown-menu">
+
+                          <% if current_user.admin? %>
+                          <li> <%= link_to(content_tag(:i, ' 管理员面板', class: 'fa fa-universal-access'), admin_questions_path ) %> </li>
+                          <li> <%= link_to(content_tag(:i, ' 管理员中心', class: 'fa fa-users'), admin_users_path ) %> </li>
+
+                          <% else %>
+                          <li> <%= link_to(content_tag(:i, ' 我的动态', class: 'fa fa-user-secret'), account_questions_path ) %> </li>
+                          <li> <%= link_to(content_tag(:i, ' 用户中心', class: 'fa fa-university'), account_users_path ) %> </li>
+                          <li> <%= link_to(content_tag(:i, ' 支付中心', class: 'fa fa-paypal'), account_orders_path ) %> </li>
+                          <% end %>
+                          <% if current_user.lawyer? %>
+
+                          <li> <%= link_to(content_tag(:i, ' 律师面板', class: 'fa fa-university'), lawyer_users_path ) %> </li>
+                          <li> <%= link_to(content_tag(:i, ' 用户中心', class: 'fa fa-vcard'), lawyer_users_path ) %> </li>
+
+                          <% end %>
+
+                           <li> <%= link_to(content_tag(:i, ' 登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
+                      </ul>
+
                     </li>
                       <% end %>
 
