@@ -19,6 +19,29 @@
  @import "responsive";
  @import "style";
 
+
+ .alert-success {
+     background-color: #222;
+     border-color: rgba(255, 255, 255, 0.15);
+     color: #fcf8e3;
+     margin: 1px auto 1px auto;
+   }
+
+
+   .alert-dismissable .close {
+       position: relative;
+       top: -2px;
+       right: -21px;
+       color: rgba(0, 0, 0, 0.075);
+   }
+
+
+.pageContainer {
+  margin-top: 7px;
+}
+
+
+
 .notificationIcon {
   margin-top: 3px;
   margin-right: 1px;
@@ -41,4 +64,8 @@
 
 .statusBar {
     border: .14286rem solid #598b25;
+}
+
+.info h5 {
+  font-size:14px;
 }
