@@ -69,7 +69,7 @@
 
 }
 
-.questionStatus{
+.questionStatus-response{
   width: auto;
   color: #598B25;
   font-size: 14px;
@@ -77,6 +77,16 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.questionStatus-waiting{
+  width: auto;
+  color: #e0820e;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 
 
 .userQuestion{
