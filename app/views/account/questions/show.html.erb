@@ -70,19 +70,20 @@
 
 
   <!-- f1042-tryAttachmentForMaibox -->
-  <% if @question.attachment.questionView.present? %>
+  <% if @question.attachment.present? %>
+    <span class="glyphicon glyphicon-file">  附件</span>
+    <br>
+    <br>
     <div>
-      <%=  image_tag(@question.attachment.questionView.url)  %>
-      <p class="pull-left"><%= @question.attachment.file.filename %></p>
-      <% else %>
-      <%=  image_tag "http://placehold.it/300?text=您的文件" %>
-        </div>
-        <div class="download-button"><a href="<%= @question.attachment.url %>" download="" target="_blank">
-          <button type="button" class="btn  btn-secondary text-uppercase flat animation pull-left">下载</button>
-        </a></div>
-      <% end %>
-      <!-- f1042-tryAttachmentForMaibox -->
+      <a href="<%= @question.attachment.url %>" download="" target="_blank">
+        
+        <h4><i class="fa fa-file-text" aria-hidden="true"></i></h4>
+        <p><%= @question.attachment.file.filename %></p>
 
+      </a>
+    </div>   
+  <% end %>
+  <!-- f1042-tryAttachmentForMaibox -->
 
 
 
