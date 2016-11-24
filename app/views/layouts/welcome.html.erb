@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lawfirm </title>
+        <%= csrf_meta_tags %>
+
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <link rel="stylesheet" href="http://o7m541j22.bkt.clouddn.com/jquery.raty.css">
+        <script src="http://o7m541j22.bkt.clouddn.com/jquery.raty.js"></script>
+
+
+    </head>
+
+    <body>
+
+        <div>
+            <%= render "common/navbar" %>
+            <%= render "common/flashes" %>
+          <!-- This is a temporary layout setting. Move it to layout/user,after controller accounts is created-->
+
+          <%= yield %>
+        </div>
+
+
+        </div>
+
+        <%= render "common/footer" %>
+
+    </body>
+</html>

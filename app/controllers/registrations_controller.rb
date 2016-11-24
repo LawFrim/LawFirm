@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  layout 'welcome'
   protected
   def after_update_path_for(user)
     # admin_users_path #你的路径

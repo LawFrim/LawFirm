@@ -1,71 +1,47 @@
-<h2>我的资料</h2>
-<div class="row">
-    <div class="col-md-2">
-        <!-- <% if !@user.user_avatar.present? %>
-    <%= image_tag "http://placehold.it/150x150" %>
-    <% else %>
-    <%= image_tag (@user.user_avatar.url(:middle)) %>
-    <% end %> -->
+<div class="container-fluid" style="background:url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-103295.jpg); background-size: 100%;background-repeat: repeat-y;min-height:900px;">
 
+    <div class="container">
 
-    <%= render_user_avatar(@user) %>
+        <div class="row well" style="opacity:0.95;width:70%;">
 
-  </div>
-  <div class="col-md-8">
-    <table class="table user-table-info">
-      <tbody>
-         <tr>
-            <td>用户名</td>
-              <td><%= @user.user_name %></td>
-         </tr>
-         <tr>
-          <td>电子邮件</td>
-          <td><%= @user.email %></td>
-           </tr>
-           <tr>
-          <td>所在地区</td>
-            <td><%= @user.district %></td>
-          </tr>
+            <!-- major photo -->
+            <div class="col-md-2">
+                <br>
+                <%= render_user_avatar(@user) %>
+                <div style="letter-spacing: -4px"></div>
+            </div>
 
+            <!-- title, description and add to cart -->
+            <div class="col-md-4 col-md-offset-1">
+                <h3>
+                    <h4>我的资料</h4>
+                </h3>
+                <br>
+                <td>用户认证</td>
+                <td><%= render_user_vip(@user) %></td>
+                <br>
 
-
-      </tbody>
-    </table>
-
-    <div>
-      <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn btn-sm btn-default") %>
-      <%= link_to("修改密码", edit_user_registration_path, class: "btn btn-sm btn-default" ) %>
-
-
-    </div>
-    <div class="col-md-8">
-        <table class="table user-table-info">
-            <tbody>
-                <tr>
-                    <td>用户认证</td>
-                    <td><%= render_user_vip(@user) %></td>
-                </tr>
-                <tr>
+                <p style="color: green">
                     <td>用户名</td>
                     <td><%= @user.user_name %></td>
-                </tr>
-                <tr>
+                </p>
+                <p>
                     <td>电子邮件</td>
                     <td><%= @user.email %></td>
-                </tr>
-                <tr>
-                    <td>所在地区</td>
-                    <td><%= @user.district %></td>
-                </tr>
+                </p>
+                <p>
+                    <td><h6>所在地区</h6>
+                    <%= @user.district %></td>
+                </p>
 
-            </tbody>
-        </table>
+                <div>
+                    <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn btn-sx btn-warning") %>
+                    <%= link_to("修改密码", "#", class: "btn btn-sx btn-warning" ) %>
 
-        <div>
-            <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn btn-sm btn-default") %>
-            <%= link_to("修改密码", "#", class: "btn btn-sm btn-default" ) %>
+                </div>
+            </div>
 
+
+                </div>
+            </div>
         </div>
-    </div>
-
-</div>

@@ -1,4 +1,4 @@
-
+<%= javascript_include_tag "application" %>
 
 <!-- Slider Starts -->
   <div id="main-slider" class="carousel slide" data-ride="carousel">
@@ -11,7 +11,8 @@
           <h2 class="text-thin">终身伴律</h2>
           <h1 class="text-light">为你摆平一切</h1>
           <p>让顶级律师成为你随身的法律顾问 <br>从此法律零门槛 </p>
-          <a href="#" class="btn btn-secondary animation text-uppercase flat">立即咨询</a>
+          <!-- <a href="#" class="btn btn-secondary animation text-uppercase flat">立即咨询</a> -->
+          <%= link_to "立即咨询", account_questions_path,class:"btn btn-secondary animation text-uppercase flat"%>
         </div>
       </div>
     <!-- Slide #1 Ends -->
@@ -22,7 +23,8 @@
           <h2 class="text-thin">终身伴律</h2>
           <h1 class="text-light">为你摆平一切 </h1>
           <p>让顶级律师成为你随身的法律顾问 <br>从此法律零门槛</p>
-          <a href="#" class="btn btn-secondary animation text-uppercase flat">立即咨询</a>
+          <!-- <a href="#" class="btn btn-secondary animation text-uppercase flat">立即咨询</a> -->
+          <%= link_to "立即咨询", account_questions_path,class:"btn btn-secondary animation text-uppercase flat"%>
         </div>
       </div>
     <!-- Slide #2 Ends -->
@@ -75,125 +77,65 @@
   <!-- Nested Container Ends -->
   </section>
 <!-- Intro Section Ends -->
-<!-- Legal Practice Section Starts -->
-  <section class="section-area">
+<!-- featureSection Starts -->
+		<section class="section-area practice-overview-section parallax text-center-xs">
   <!-- Nested Container Starts -->
     <div class="container">
-      <h3 class="main-heading-1 text-center">Legal Practice Areas</h3>
-      <p class="text-center">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, fermentum massa justo sit amet risus. Sed posuere consec. Suspendisse commodo auctor molestie. Mauris arisusvitae massa consequat pharetra. Suspendisse dapibus erat lectus rutrum bibendum.</p>
+      <h4 class="text-normal text-center">你的随身法律专家</h4>
+
+
     <!-- Nested Row Starts -->
       <ul class="row list-unstyled list-style-2 text-center">
       <!-- Col #1 Starts -->
-        <li class="col-md-3 col-sm-6 col-xs-12">
-          <h6>Family Law</h6>
-          <p><i class="fa fa-bank"></i></p>
-          <p>Mauris arisusvitae massa consequat pharetra. Suspendisse dapibus erat lectus rutrum bibendum.</p>
-          <a href="#">know more...</a>
+        <li class="col-md-4  col-sm-12">
+          <h6 class="text-normal">快速得到法律建议</h6>
+          <p><i class="fa fa-question-circle"></i></p>
+          <p>任何一个法律问题，我们在少于一个
+工作日内，给出详尽的建议</p>
         </li>
       <!-- Col #1 Ends -->
       <!-- Col #2 Starts -->
-        <li class="col-md-3 col-sm-6 col-xs-12">
-          <h6>Business Law</h6>
-          <p><i class="fa fa-cubes"></i></p>
-          <p>Mauris arisusvitae massa consequat pharetra. Suspendisse dapibus erat lectus rutrum bibendum.</p>
-          <a href="#">know more...</a>
+        <li class="col-md-4 col-sm-12">
+          <h6 class="text-normal">帮你分析文书</h6>
+          <p><i class="fa fa-file-text"></i></p>
+          <p>专业律师在线帮你分析查看你的合同
+反馈给你一套详尽的法律方案</p>
+
         </li>
       <!-- Col #2 Ends -->
       <!-- Col #3 Starts -->
-        <li class="col-md-3 col-sm-6 col-xs-12">
-          <h6>Civil Litigation</h6>
-          <p><i class="fa fa-cloud-download"></i></p>
-          <p>Mauris arisusvitae massa consequat pharetra. Suspendisse dapibus erat lectus rutrum bibendum.</p>
-          <a href="#">know more...</a>
+        <li class="col-md-4 col-sm-6 col-xs-12">
+          <h6 class="text-normal">感恩优惠</h6>
+          <p><i class="fa fa-credit-card"></i></p>
+          <p>感恩节特惠，现在注册，前十二月免费。</p>
         </li>
-      <!-- Col #3 Ends -->
-      <!-- Col #4 Starts -->
-        <li class="col-md-3 col-sm-6 col-xs-12">
-          <h6>Trust &amp; Estates</h6>
-          <p><i class="fa fa-cube"></i></p>
-          <p>Mauris arisusvitae massa consequat pharetra. Suspendisse dapibus erat lectus rutrum bibendum.</p>
-          <a href="#">know more...</a>
-        </li>
-      <!-- Col #4 Ends -->
-      <!-- Col #5 Starts -->
-        <li class="col-md-3 col-sm-6 col-xs-12">
-          <h6>Corporate Law</h6>
-          <p><i class="fa fa-connectdevelop"></i></p>
-          <p>Mauris arisusvitae massa consequat pharetra. Suspendisse dapibus erat lectus rutrum bibendum.</p>
-          <a href="#">know more...</a>
-        </li>
-      <!-- Col #5 Ends -->
-      <!-- Col #6 Starts -->
-        <li class="col-md-3 col-sm-6 col-xs-12">
-          <h6>Capital Market</h6>
-          <p><i class="fa fa-area-chart"></i></p>
-          <p>Mauris arisusvitae massa consequat pharetra. Suspendisse dapibus erat lectus rutrum bibendum.</p>
-          <a href="#">know more...</a>
-        </li>
-      <!-- Col #6 Ends -->
-      <!-- Col #7 Starts -->
-        <li class="col-md-3 col-sm-6 col-xs-12">
-          <h6>Personal Injury</h6>
-          <p><i class="fa fa-binoculars"></i></p>
-          <p>Mauris arisusvitae massa consequat pharetra. Suspendisse dapibus erat lectus rutrum bibendum.</p>
-          <a href="#">know more...</a>
-        </li>
-      <!-- Col #7 Ends -->
-      <!-- Col #8 Starts -->
-        <li class="col-md-3 col-sm-6 col-xs-12">
-          <h6>Employment Law</h6>
-          <p><i class="fa fa-book"></i></p>
-          <p>Mauris arisusvitae massa consequat pharetra. Suspendisse dapibus erat lectus rutrum bibendum.</p>
-          <a href="#">know more...</a>
-        </li>
-      <!-- Col #8 Ends -->
+
       </ul>
     <!-- Nested Row Ends -->
     </div>
   <!-- Nested Container Ends -->
   </section>
-<!-- Legal Practice Section Ends -->
-<!-- Stats Section Starts -->
-  <section class="section-area silver stats-section">
-  <!-- Nested Container Starts -->
-    <div class="container text-center-sm text-center-xs">
-    <!-- Nested Row Starts -->
-      <div class="row">
-      <!-- Graph Starts -->
-        <div class="col-md-6 col-xs-12">
-          <img src="images/graph-img1.png" alt="Graph" class="img-center img-responsive">
-        </div>
-      <!-- Graph Ends -->
-      <!-- Starts -->
-        <div class="col-md-6 col-xs-12">
-          <h3>Our Last Eight Years Statistics</h3>
-          <h5 class="sub-heading-1 text-uppercase text-light">year 2008 - 2015 ( 985 cases won )</h5>
-          <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, fermentum massa justo sit amet risus. Sed posuere consec. Suspendisse commodo auctor molestie. Mauris arisusvitae massa consequat pharetra. Suspendisse dapibus erat lectus rutrum bibendum. Praesent scscelerisque.</p>
-          <p>Proin vel diam id dui pharetra commodo. Praesent commodo enim non molestie varius. Phasellus and elementum odio faucibus diam sollicitudin, in bibendum quam feugiat. Duis tortor lectus, vehicula in vulputate eu, malesuada quis felis.</p>
-        </div>
-      <!-- Ends -->
-      </div>
-    <!-- Nested Row Ends -->
-    </div>
-  <!-- Nested Container Ends -->
-  </section>
-<!-- Stats Section Ends -->
-<!-- Meet Our Attorneys Section Starts -->
+<!-- feature Section Ends -->
+
+
+
+<!-- Meet Our clients Starts -->
   <section class="section-area team-section">
   <!-- Nested Container Starts -->
     <div class="container text-center">
-      <h3 class="main-heading-1">Meet Our Attorneys</h3>
-      <p class="">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, fermentum massa justo sit amet risus. Sed posuere consec. Suspendisse commodo auctor molestie. Mauris arisusvitae massa consequat pharetra. Suspendisse dapibus erat lectus rutrum bibendum.</p>
+      <h3 class="main-heading-1">听听他们怎么说</h3>
+
     <!-- Team Members Carousel Starts -->
+    <br>
+
       <div id="team-carousel" class="owl-carousel">
       <!-- Team #1 Starts -->
         <div class="team-col animation">
-          <img src="images/team/team-img1.jpg" alt="Helen Jones" class="img-responsive img-center">
+          <img src="assets/team-img1.jpg" alt="lawyer Sun" class="img-responsive img-center">
           <div class="team-col-content">
-            <h6>Helen Jones</h6>
-            <span class="designation text-light">Bank &amp; Fiancial Lawyer</span>
-            <p>Phasellus and elementum odio faucibus diam sollicitudin, in bibendum quam feugiat.</p>
-            <a href="#">Read Profile</a>
+            <h6>孙雁鸣</h6>
+            <span class="designation text-light">伴律 &amp; 首席签约律师</span>
+            <p> “伴律网让我能更加专注地提供法务咨询，普及法律，用自己的实际行动为全面依法治国的中国梦贡献了自己的心力” </p>
             <ul class="list-unstyled list-inline team-sm-links animation">
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
@@ -204,12 +146,11 @@
       <!-- Team #1 Ends -->
       <!-- Team #2 Starts -->
         <div class="team-col animation">
-          <img src="images/team/team-img2.jpg" alt="Helen Jones" class="img-responsive img-center">
+          <img src="assets/team-img2.jpg" alt="Helen Jones" class="img-responsive img-center">
           <div class="team-col-content">
-            <h6>Helen Jones</h6>
-            <span class="designation text-light">Bank &amp; Fiancial Lawyer</span>
-            <p>Phasellus and elementum odio faucibus diam sollicitudin, in bibendum quam feugiat.</p>
-            <a href="#">Read Profile</a>
+            <h6>黄喵</h6>
+            <span class="designation text-light">某知名VC &amp; 投资人</span>
+            <p>"感谢伴律， 让我在实现财务自由后，摆脱法律焦虑，安心入睡，实现人身自由。"</p>
             <ul class="list-unstyled list-inline team-sm-links animation">
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
@@ -220,12 +161,12 @@
       <!-- Team #2 Ends -->
       <!-- Team #3 Starts -->
         <div class="team-col animation">
-          <img src="images/team/team-img3.jpg" alt="Helen Jones" class="img-responsive img-center">
+          <img src="assets/team-img3.jpg" alt="Helen Jones" class="img-responsive img-center">
           <div class="team-col-content">
-            <h6>Helen Jones</h6>
-            <span class="designation text-light">Bank &amp; Fiancial Lawyer</span>
-            <p>Phasellus and elementum odio faucibus diam sollicitudin, in bibendum quam feugiat.</p>
-            <a href="#">Read Profile</a>
+            <h6>朱大维</h6>
+            <span class="designation text-light"> 新兴科技公司 &amp; 首席执行官</span>
+            <p>“律伴网让有了个贴身律师，随时咨询，及时得到专业解答。婚前协议请律伴网的梁律师看了一下，从此可以无顾虑去dine with 约饭。”</p>
+
             <ul class="list-unstyled list-inline team-sm-links animation">
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
@@ -236,12 +177,15 @@
       <!-- Team #3 Ends -->
       <!-- Team #4 Starts -->
         <div class="team-col animation">
-          <img src="images/team/team-img4.jpg" alt="Helen Jones" class="img-responsive img-center">
+          <img src="assets/team-img4.jpg" alt="Helen Jones" class="img-responsive img-center">
           <div class="team-col-content">
-            <h6>Helen Jones</h6>
-            <span class="designation text-light">Bank &amp; Fiancial Lawyer</span>
-            <p>Phasellus and elementum odio faucibus diam sollicitudin, in bibendum quam feugiat.</p>
-            <a href="#">Read Profile</a>
+            <h6>Eve</h6>
+            <span class="designation text-light">《北京观察》 &amp; 作家</span>
+            <p>一年的陪伴，从开始完全没有法律意识，到现在
+没有任何法律困扰，可以说让我省去了，话费在
+设计版权的问题上，之前一直被这个问题困扰，
+感谢伴律。</p>
+
             <ul class="list-unstyled list-inline team-sm-links animation">
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
@@ -252,12 +196,14 @@
       <!-- Team #4 Ends -->
       <!-- Team #5 Starts -->
         <div class="team-col animation">
-          <img src="images/team/team-img1.jpg" alt="Helen Jones" class="img-responsive img-center">
+          <img src="assets/team-img5.jpg" alt="Helen Jones" class="img-responsive img-center">
           <div class="team-col-content">
-            <h6>Helen Jones</h6>
-            <span class="designation text-light">Bank &amp; Fiancial Lawyer</span>
-            <p>Phasellus and elementum odio faucibus diam sollicitudin, in bibendum quam feugiat.</p>
-            <a href="#">Read Profile</a>
+            <h6>黄里昂</h6>
+            <span class="designation text-light"> 台北某夜店 &amp; 老板</span>
+            <p>"自从有了拥有了伴律，我再也不用担心，涉及的
+法律问题，可以全身心的投入到工作，大大减少
+了我的后顾之忧。创造了更大的价值。"</p>
+
             <ul class="list-unstyled list-inline team-sm-links animation">
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
@@ -268,12 +214,12 @@
       <!-- Team #5 Ends -->
       <!-- Team #6 Starts -->
         <div class="team-col animation">
-          <img src="images/team/team-img2.jpg" alt="Helen Jones" class="img-responsive img-center">
+          <img src="assets/team-img6.jpg" alt="Helen Jones" class="img-responsive img-center">
           <div class="team-col-content">
-            <h6>Helen Jones</h6>
-            <span class="designation text-light">Bank &amp; Fiancial Lawyer</span>
-            <p>Phasellus and elementum odio faucibus diam sollicitudin, in bibendum quam feugiat.</p>
-            <a href="#">Read Profile</a>
+            <h6>秦凤</h6>
+            <span class="designation text-light">水果店 &amp; 店主</span>
+            <p>”感谢，律伴网让我的水果卖向全世界同时，免去聘请单独法务的顾虑。”</p>
+
             <ul class="list-unstyled list-inline team-sm-links animation">
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
@@ -284,12 +230,11 @@
       <!-- Team #6 Ends -->
       <!-- Team #7 Starts -->
         <div class="team-col animation">
-          <img src="images/team/team-img3.jpg" alt="Helen Jones" class="img-responsive img-center">
+          <img src="assets/team-img7.jpg" alt="Helen Jones" class="img-responsive img-center">
           <div class="team-col-content">
-            <h6>Helen Jones</h6>
-            <span class="designation text-light">Bank &amp; Fiancial Lawyer</span>
-            <p>Phasellus and elementum odio faucibus diam sollicitudin, in bibendum quam feugiat.</p>
-            <a href="#">Read Profile</a>
+            <h6>陈小精</h6>
+            <span class="designation text-light">橘子设计 &amp; 首席设计师</span>
+            <p>“律伴网让高雅的设计师拿起了法律的武器，合同审核让我在做稿前不用担心自己的智慧产权被侵犯。”</p>
             <ul class="list-unstyled list-inline team-sm-links animation">
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
@@ -297,36 +242,67 @@
             </ul>
           </div>
         </div>
-      <!-- Team #7 Ends -->
-      <!-- Team #8 Starts -->
-        <div class="team-col animation">
-          <img src="images/team/team-img4.jpg" alt="Helen Jones" class="img-responsive img-center">
-          <div class="team-col-content">
-            <h6>Helen Jones</h6>
-            <span class="designation text-light">Bank &amp; Fiancial Lawyer</span>
-            <p>Phasellus and elementum odio faucibus diam sollicitudin, in bibendum quam feugiat.</p>
-            <a href="#">Read Profile</a>
-            <ul class="list-unstyled list-inline team-sm-links animation">
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      <!-- Team #8 Ends -->
+
       </div>
     <!-- Team Members Carousel Ends -->
     </div>
   <!-- Nested Container Ends -->
   </section>
-<!-- Meet Our Attorneys Section Ends -->
+<!-- Meet Our clients Section Ends -->
+
+
+
+
+
+
+
+<!-- Cases Stats Info Section Starts -->
+  <section class="section-area cases-stats-info parallax">
+  <!-- Nested Container Starts -->
+    <div class="container text-center">
+    <!-- Nested Row Starts -->
+      <div class="row">
+      <!-- #1 Starts -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <h2 class="text-light badges-counter">100000</h2>
+          <h5 class="text-uppercase">份合同已经被审核</h5>
+        </div>
+      <!-- #1 Ends -->
+      <!-- #2 Starts -->
+        <div class="col-md-4  col-sm-12">
+          <h2 class="text-light badges-counter">500000</h2>
+          <h5 class="text-uppercase">个问题得到满意回答</h5>
+        </div>
+      <!-- #2 Ends -->
+      <!-- #3 Starts -->
+        <div class="col-md-4 col-sm-12">
+          <h2 class="text-light badges-counter">20000</h2>
+          <h5 class="text-uppercase">名客户已经</h5>
+        </div>
+      <!-- #3 Ends -->
+
+      </div>
+    <!-- Nested Row Ends -->
+    </div>
+  <!-- Nested Container Ends -->
+  </section>
+<!-- Cases Stats Info Section Ends -->
+
+
+
+
+
+
+
+
+
 <!-- Free Consultation Section Starts -->
   <section class="section-area silver free-consultation-section text-center-sm text-center-xs">
   <!-- Heading Block Starts -->
     <div class="heading-block">
       <div class="container">
-        <h3>Get Free Consultation</h3>
-        <h5 class="sub-heading-1 text-light text-uppercase">Law is complicate matter. Let us help you!</h5>
+        <h3>现在加入，首年免费</h3>
+        <h5 class="sub-heading-1 text-light text-uppercase">越过法律高门槛，我们在你身边</h5>
       </div>
     </div>
   <!-- Heading Block Ends -->
@@ -338,32 +314,26 @@
         <div class="col-md-6 col-xs-12">
           <form action="#">
             <div class="form-group">
-              <label for="fs-name" class="sr-only">Your Name</label>
-              <input type="text" id="fs-name" class="form-control flat" placeholder="Your Name">
+              <label for="fs-name" class="sr-only">你的姓名</label>
+              <input type="text" id="fs-name" class="form-control flat" placeholder="你的姓名">
             </div>
             <div class="form-group">
-              <label for="fs-name" class="sr-only">Your Email</label>
-              <input type="email" id="fs-email" class="form-control flat" placeholder="Your Email">
+              <label for="fs-name" class="sr-only">你的邮件</label>
+              <input type="email" id="fs-email" class="form-control flat" placeholder="你的邮件">
             </div>
             <div class="form-group">
-              <label for="fs-contact-no" class="sr-only">Contact Number</label>
-              <input type="text" id="fs-contact-no" class="form-control flat" placeholder="Contact Number">
+              <label for="fs-contact-no" class="sr-only">联系方式</label>
+              <input type="text" id="fs-contact-no" class="form-control flat" placeholder="联系方式">
             </div>
             <div class="form-group">
-              <label for="fs-msg" class="sr-only">Your Message</label>
-              <textarea id="fs-msg" class="form-control flat" rows="8" placeholder="Your Message"></textarea>
+              <label for="fs-msg" class="sr-only">你的问题</label>
+              <textarea id="fs-msg" class="form-control flat" rows="8" placeholder="请留下你的问题"></textarea>
             </div>
-            <button type="submit" class="btn btn-block btn-secondary text-uppercase flat animation">send message</button>
+            <button type="submit" class="btn btn-block btn-secondary text-uppercase flat animation">立即拥有私人法务</button>
           </form>
         </div>
       <!-- Form Ends -->
-      <!-- Image Block Starts -->
-        <div class="col-md-6 col-xs-12 hidden-sm hidden-xs">
-          <div class="img-block">
-            <img src="images/free-consultation-img1.png" alt="Consultation">
-          </div>
-        </div>
-      <!-- Image Block Ends -->
+
       </div>
     <!-- Nested Row Ends -->
     </div>
@@ -374,435 +344,20 @@
   <section class="clients-section">
   <!-- Nested Container Starts -->
     <div class="container text-center">
-      <h3 class="main-heading-1 light">Few Of Our Clients</h3>
+      <h3 class="main-heading-1 light">媒体见证</h3>
     <!-- Carousel Starts -->
       <div id="clients-carousel" class="owl-carousel">
-        <img src="images/clients/clients-carousel-img1.png" alt="Image" class="img-responsive img-center">
-        <img src="images/clients/clients-carousel-img1.png" alt="Image" class="img-responsive img-center">
-        <img src="images/clients/clients-carousel-img1.png" alt="Image" class="img-responsive img-center">
-        <img src="images/clients/clients-carousel-img1.png" alt="Image" class="img-responsive img-center">
-        <img src="images/clients/clients-carousel-img1.png" alt="Image" class="img-responsive img-center">
-        <img src="images/clients/clients-carousel-img1.png" alt="Image" class="img-responsive img-center">
-        <img src="images/clients/clients-carousel-img1.png" alt="Image" class="img-responsive img-center">
-        <img src="images/clients/clients-carousel-img1.png" alt="Image" class="img-responsive img-center">
-        <img src="images/clients/clients-carousel-img1.png" alt="Image" class="img-responsive img-center">
-        <img src="images/clients/clients-carousel-img1.png" alt="Image" class="img-responsive img-center">
-        <img src="images/clients/clients-carousel-img1.png" alt="Image" class="img-responsive img-center">
-        <img src="images/clients/clients-carousel-img1.png" alt="Image" class="img-responsive img-center">
+        <img src="assets/clients-carousel-img1.png" alt="Image" class="img-responsive img-center">
+        <img src="assets/clients-carousel-img2.png" alt="Image" class="img-responsive img-center">
+        <img src="assets/clients-carousel-img3.png" alt="Image" class="img-responsive img-center">
+        <img src="assets/clients-carousel-img4.png" alt="Image" class="img-responsive img-center">
+        <img src="assets/clients-carousel-img5.png" alt="Image" class="img-responsive img-center">
+        <img src="assets/clients-carousel-img6.png" alt="Image" class="img-responsive img-center">
+        <img src="assets/clients-carousel-img7.png" alt="Image" class="img-responsive img-center">
+        <img src="assets/clients-carousel-img8.png" alt="Image" class="img-responsive img-center">
       </div>
     <!-- Carousel Ends -->
     </div>
   <!-- Nested Container Ends -->
   </section>
 <!-- Clients Carousel Section Ends -->
-
-  <body> -->
-    <div class="onepage">
-      <div class="onepage-bg" id="onepagebg"></div>
-        <div class="container">
-          <div class="row">
-            <div class="title-text">
-              <div class="col-md-12 headfontsize">
-              <center>
-                <h1 class="headh1content">
-                  做你的终身伴律，为你搞定一切
-                </h1>
-
-                <p style="margin-top: 30px;line-height: 33px">做你终身的法律顾问，结案快三倍，为你争取最大合法权益</p>
-                <p style="margin-top: 60px;line-height: 33px" class="btn-app-stroe">
-                  <%= link_to "立即注册，可免费使用30天", new_user_registration_path, class:"btn btn-warning btn-lg" %>
-                  <%= link_to "按月支付",create_m_account_orders_path, method: :post, class:"btn btn-warning btn-lg"%>
-                  <%= link_to "按年支付",create_y_account_orders_path, method: :post, class:"btn btn-warning btn-lg"%>
-
-                </p>
-              </center>
-              </div>
-
-            </div>
-
-        </div>
-
-        </div>
-    </div>
-    <hr>
-    <div class="towpage">
-      <div class="container">
-       <div class="row">
-         <div class="container">
-
-        <div class="towpage-courses col-md-6">
-        <center>
-          <p style="margin-top: 40px;line-height: 33px" class="btn-app-stroe">
-            <a href="#">
-              <img src="https://ooo.0o0.ooo/2016/11/17/582d76c76fb91.png" height="70" width="70"  />
-          </a></p>
-          <p style="margin-top: 20px;line-height: 33px" class="btn-app-stroe">
-            <!-- <a class="btn btn-info btn-lg" href="http://localhost:3000/account/documents/new">检查合同</a> -->
-
-            <%= link_to "检查合同", account_documents_path, class:"btn btn-warning btn-lg" %>
-
-          </p>
-          <p>
-            律师帮您分析合同，30分钟内给出<br>专业意见，为您的权益保驾护航。<br>一键上传，收获一份安心。
-
-          </p>
-        </center>
-        </div>
-        <div class="towpage-courses col-md-6">
-          <center>
-          <p style="margin-top: 40px;line-height: 33px" class="btn-app-stroe"><a href="#">
-            <img src="https://ooo.0o0.ooo/2016/11/17/582d76a8d9db6.png" height="70" width="70"  />
-          </a></p>
-          <p style="margin-top: 20px;line-height: 33px" class="btn-app-stroe">
-            <!-- <a class="btn btn-info btn-lg" href="http://localhost:3000/account/questions/new">法律问题，随便问</a> -->
-
-            <%= link_to "法律问题，随便问", account_questions_path,class:"btn btn-warning btn-lg"%>
-
-          </p>
-          <p>
-            律专家就在你身边，满足您任何时<br>间任何地点任何不解、疑惑，便可<br>直接发问，上千律师在线等。
-
-          </p>
-        </center>
-        </div>
-      </div>
-       </div>
-      </div>
-    </div>
-    <div class="threepage">
-      <div class="container">
-        <div class="three-text">
-          <center>
-
-          <h2 class="three-text-h2">
-            快速向你身边的律师发问
-          </h2>
-        </div>
-        <div class="towpage-courses col-md-4">
-          <center>
-          <a href="#">
-            <img src="https://ooo.0o0.ooo/2016/11/16/582bb654e994d.jpg" alt="5-1401061035020-L.jpg" title="5-1401061035020-L.jpg" height="90" width="90"  />
-          </a>
-          <h3 class="three-text-h5">快速得到法律建议</h3>
-          <p>
-            任何一个法律问题，我们在少于一个<br>工作日内，给出详尽的建议
-
-
-          </p>
-        </center>
-      </div>
-      <div class="towpage-courses col-md-4">
-        <center>
-        <a href="#">
-          <img src="https://ooo.0o0.ooo/2016/11/16/582bb8ce64f9c.jpg"  alt="yjimage.jpg" title="yjimage.jpg" height="90" width="90"  />
-        </a>
-        <h3 class="h3content">
-          帮你分析文书
-
-        </h3>
-        <p>
-         专业律师在线帮你分析查看你的合同<br>反馈给你一套详尽的法律方案
-        </p>
-      </center>
-    </div>
-    <div class="towpage-courses col-md-4">
-      <center>
-      <a href="#">
-
-        <img src="https://ooo.0o0.ooo/2016/11/17/582d9b912e178.jpeg" height="90" width="90" />
-
-      </a>
-      <h3 class="h5content">
-        团购打折
-
-      </h3>
-      <p>
-        定期举办团购活动，跟你的同事一起购买<br>可享受最多8.8折优惠服务
-
-      </p>
-    </center>
-    </div>
-      </div>
-      <div class="row">
-
-
-      <div class="container">
-        <div class="form-group col-md-6 ">
-          <center>
-          <a href="#">
-            <img src="https://ooo.0o0.ooo/2016/11/17/582d92b7eba34.png" height="450" width="520" ／>
-          </a>
-        </center>
-      </div>
-          <div>
-              <!-- <br style="clear:both"> -->
-                  <div class="form-group col-md-4 pull-right">
-                      <label id="messageLabel" for="message">提出你的问题</label>
-
-                      <textarea class="form-control input-sm " type="textarea" id="message" placeholder="Question" maxlength="500" rows="25"></textarea>
-
-                          <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
-                  </div>
-              <br style="clear:both">
-              <div class="form-group col-md-2 pull-right">
-
-              <!-- <button class="form-control input-sm btn btn-success disabled" id="btnSubmit" name="btnSubmit" type="button" style="height:35px">提交</button> -->
-
-              <%= link_to "提交", account_documents_path, class:"form-control input-sm btn btn-warning"   %>
-
-
-
-          </div>
-      </div>
-    </div>
-  </div>
-<div class="fourpage">
-  <div class="container">
-    <div class="four-text">
-      <center>
-
-      <h2 class="four-text-h1">
-        用户心声
-      </h2>
-      <div class="container">
-        <div class="form-group col-md-6 ">
-          <center>
-            <h4>
-             自从有了拥有了伴律，我再也不用担心，涉及的<br>法律问题，可以全身心的投入到工作，大大减少<br>了我的后顾之忧。创造了更大的价值。
-            </h4>
-        </center>
-        </div>
-        <div class="form-group col-md-6 ">
-          <center>
-            <h4>
-             一年的陪伴，从开始完全没有法律意识，到现在<br>没有任何法律困扰，可以说让我省去了，话费在<br>设计版权的问题上，之前一直被这个问题困扰，<br>感谢伴律。
-            </h4>
-        </center>
-        </div>
-      </div>
-    </div>
-    </div>
-    <div class="row">
-     <div class="form-group col-md-6 ">
-      <center>
-      <a href="#">
-        <img src="https://ooo.0o0.ooo/2016/11/16/582bb9527c1e7.jpg" height="70" width="68" style="border-radius:50%" />
-      </a>
-      <p>
-        阿峰——互联网水果店拓新者<br>CEO & 网上著名水果店供应商
-      </p>
-    </center>
-    </div>
-    <div class="form-group col-md-6 ">
-     <center>
-     <a href="#">
-       <img src="http://entdata-pic2.stor.vipsinaapp.com/2016031316/56e529de2056a14213915342513.jpg" height="70" width="68" style="border-radius:50%" />
-     </a>
-     <p>
-       曾曾——著名园林设计师<br>CEO & 圆梦园设计有限公司
-     </p>
-   </center>
-   </div>
-  </div>
-
-<!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
-
-<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous"> -->
-
-
-<div class="container" >
-  <div class="form-group col-md-4 pull-right ">
-
-        <div class="text-center center-block" >
-            <br />
-                <!-- <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-	            <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-	            <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-	            <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a> -->
-</div>
-</div>
-</div>
-    </div>
-<div class="fivepage">
-  <div class="container">
-    <div class="five-text">
-      <center>
-
-      <h2 class="five-text-h2">
-        我们在这里等你
-      </h2>
-      <div class="form-group col-md-4 ">
-       <center>
-       <a href="#">
-
-         <img src="https://ooo.0o0.ooo/2016/11/17/582d9b917824a.jpg" height="180"; width="180" style="border-radius:80%"／>
-
-       </a>
-       <p>
-         皮特·李<br>北京大学
-       </p>
-     </center>
-     </div>
-     <div class="form-group col-md-4 ">
-      <center>
-      <a href="#">
-          <img src="http://a4.att.hudong.com/51/24/01300543479770144566243407086_s.jpg" height="180" width="180" style="border-radius:80%"／>
-      </a>
-      <p>
-        茱丽叶<br>清华大学
-      </p>
-    </center>
-    </div>
-    <div class="form-group col-md-4 ">
-     <center>
-     <a href="#">
-
-       <img src="https://ooo.0o0.ooo/2016/11/17/582d9d177c276.jpeg" height="180" width="180" style="border-radius:80%" ／>
-
-     </a>
-     <p>
-       安格斯·吴<br>耶鲁大学
-     </p>
-     </center>
-    </div>
-   <div class="five-text">
-     <center>
-
-     <h3 class="five-text-h2">
-        让法律问题从此不再难!
-     </h3>
-     <p>
-       <!-- <a class="btn btn-danger btn-lg" href="http://localhost:3000/users/sign_up">快联系我们</a> -->
-
-       <%= link_to "联系我们", new_user_registration_path, class:"btn btn-warning btn-lg" %>
-
-
-     </p>
-   </center>
-   </div>
- </div>
- </div>
- </div>
-<!-- footer -->
-<!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
-
-
-<!--footer-->
-<footer class="footer">
-<div class="container">
-
-<div class="row"><!-- row -->
-
-                <div class="col-lg-3 col-md-3"><!-- widgets column left -->
-                <ul class="list-unstyled clear-margins"><!-- widgets -->
-
-                        	<li class="widget-container widget_nav_menu"><!-- widgets list -->
-
-
-                                <h1 class="title-widget">Aeron</h1>
-
-
-							</li>
-
-                        </ul>
-
-
-                </div><!-- widgets column left end -->
-
-
-
-                <div class="col-lg-3 col-md-3"><!-- widgets column left -->
-
-                <ul class="list-unstyled clear-margins"><!-- widgets -->
-
-                        	<li class="widget-container widget_nav_menu"><!-- widgets list -->
-
-                                <h1 class="title-widget">Bose</h1>
-
-
-							</li>
-
-                        </ul>
-
-
-                </div><!-- widgets column left end -->
-
-
-
-                <div class="col-lg-3 col-md-3"><!-- widgets column left -->
-
-                <ul class="list-unstyled clear-margins"><!-- widgets -->
-
-                        	<li class="widget-container widget_nav_menu"><!-- widgets list -->
-
-
-                                <h1 class="title-widget">Slack</h1>
-
-
-
-							</li>
-
-
-
-                        </ul>
-
-
-                </div><!-- widgets column left end -->
-
-
-                <div class="col-lg-18 col-md-18"><!-- widgets column center -->
-
-
-
-                        <ul class="list-unstyled clear-margins"><!-- widgets -->
-
-                        	<li class="widget-container widget_recent_news"><!-- widgets list -->
-
-
-                                <h1 class="title-widget">Contact Us </h1>
-
-                                <div class="footerp">
-
-                                <h2 class="title-median"> BanLv Pvt. Ltd.</h2>
-                                <p><b>Email id:</b> <a href="mailto:info@webenlance.com">info@webenlance.com</a></p>
-
-                                <h1 class="title-widget  "> </h1>
-
-                                <div class="footerp">
-
-                                <h2 class="title-median">Contact Detail</h2>
-                                <p><b>Email id:</b> <a href="mailto:info@webenlance.com">info@lawfirm.com</a></p>
-
-                                <p><b>Helpline Numbers </b>
-
-    <b style="color:#ffc106;">(10AM to 10PM):</b>  +86-12345678909, +86-010-2356789  </p>
-
-    <p><b>Corp Office / Postal Address</b></p>
-
-    <p><b>Phone Numbers : </b>7042827160, </p>
-    <p> 010-27568832, 9868387223</p>
-
-                                </div>
-
-                                <div class="social-icons">
-
-                                	<ul class="nomargin">
-
-                <a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
-	            <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
-	            <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
-	            <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
-
-                                    </ul>
-                                </div>
-                    		</li>
-                          </ul>
-                       </div>
-                </div>
-</div>
-</footer>
-<!--header-->
-
-
-<!--   </body>
-</html> -->
