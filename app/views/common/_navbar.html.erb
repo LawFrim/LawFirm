@@ -6,15 +6,16 @@
     <div class="row">
     <!-- Logo Starts -->
       <div class="col-md-3 col-sm-4 col-xs-12">
-        <img src="/images/logo.png" alt="Law Attorney" class="img-responsive img-center-xs logo">
-
+  <%=link_to(image_tag("/images/logo.png"),root_path,alt:"Law Attorney", class:"img-responsive img-center-xs logo")%>
       </div>
     <!-- Logo Ends -->
     <!-- Right Col Starts -->
       <div class="col-md-9 col-sm-8 col-xs-12 hidden-xs">
       <!-- Header Links Starts -->
         <ul class="list-unstyled list-inline header-links text-right-lg text-right-md text-right-sm text-center-xs text-light">
-          <li><a href="#">价格方案</a></li>
+          <li><%= link_to("价格方案",pricing_welcome_index_path) %></li>
+
+
           <li><a href="#">加入我们</a></li>
           <li><a href="#">关于我们</a></li>
           <li><a href="#">用户指南</a>
@@ -63,10 +64,8 @@
   <!-- Navbar Cat collapse Starts -->
     <div class="collapse navbar-collapse navbar-cat-collapse animation">
       <ul class="nav navbar-nav text-uppercase text-bold">
-        <li class="active"><a href="#">我的动态</a></li>
-        <!-- <li><a href="about.html"></a></li>
-        <li><a href="practice-area.html">Pratice Areas</a></li>
-        <li><a href="attorneys.html">Attorneys</a></li> -->
+        <li class="active"><%= link_to("我的动态",account_questions_path) %></li>
+
 
         </li>
 
@@ -102,12 +101,18 @@
 
                           <% if current_user.admin? %>
                           <li> <%= link_to("管理员面板", admin_questions_path) %> </li>
+                          <li><%= link_to("管理员中心", admin_users_path ) %> </li>
                           <% else %>
                           <li><%= link_to("我的动态", account_questions_path) %></li>
+                          <li> <%= link_to("用户中心",account_users_path )%> </li>
+                          <li> <%= link_to("支付中心",account_orders_path )%> </li>
+
                           <% end %>
                           <% if current_user.lawyer? %>
 
-                          <li> <%= link_to("律师面板",lawyer_users_path) %> </li>
+                          <li> <%= link_to("律师面板",lawyer_questions_path) %> </li>
+                          <li> <%= link_to("用户中心",lawyer_users_path )%> </li>
+
                           <% end %>
 
                            <li> <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
