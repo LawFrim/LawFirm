@@ -1,4 +1,3 @@
-<h2>我的资料</h2>
 <div class="row">
     <div class="col-md-2">
         <!-- <% if !@user.user_avatar.present? %>
@@ -11,34 +10,10 @@
     <%= render_user_avatar(@user) %>
 
   </div>
-  <div class="col-md-8">
-    <table class="table user-table-info">
-      <tbody>
-         <tr>
-            <td>用户名</td>
-              <td><%= @user.user_name %></td>
-         </tr>
-         <tr>
-          <td>电子邮件</td>
-          <td><%= @user.email %></td>
-           </tr>
-           <tr>
-          <td>所在地区</td>
-            <td><%= @user.district %></td>
-          </tr>
 
-
-
-      </tbody>
-    </table>
-
-    <div>
-      <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn btn-sm btn-default") %>
-      <%= link_to("修改密码", edit_user_registration_path, class: "btn btn-sm btn-default" ) %>
-
-
-    </div>
     <div class="col-md-8">
+      <h4>我的资料</h4>
+
         <table class="table user-table-info">
             <tbody>
                 <tr>
@@ -62,8 +37,8 @@
         </table>
 
         <div>
-            <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn btn-sm btn-default") %>
-            <%= link_to("修改密码", "#", class: "btn btn-sm btn-default" ) %>
+            <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn  btn-secondary text-uppercase flat animation") %>
+            <%= link_to("修改密码", "#", class: "btn  btn-secondary text-uppercase flat animation" ) %>
 
         </div>
     </div>
