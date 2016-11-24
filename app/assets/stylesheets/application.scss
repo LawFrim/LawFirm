@@ -21,6 +21,22 @@
 
 
 
+
+.body {
+     text-rendering: optimizeLegibility;
+     font-family: 'Hiragino Sans GB','Avenir Next',Avenir,'Helvetica Neue',Helvetica,'Lantinghei SC',sans-serif;
+
+ }
+
+
+
+
+ @media (min-width: 1200px){
+  .container {
+     width: auto;
+ }
+}
+
 .kbd {
    padding: 2px 4px;
    font-size: 77% !important;

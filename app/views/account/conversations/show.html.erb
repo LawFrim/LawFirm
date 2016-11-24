@@ -35,12 +35,12 @@
     <!-- 历史问答 -->
     <% if  @conversation.messages.count > 1 %>
     <div class="panel-group">
-      
+
         <div class="panel panel-default row">
           <a data-toggle="collapse" href="#answer-history" aria-expanded="true" aria-controls="answer-history">
             <div class="panel-heading">
               <h4 class="panel-title">
-                
+
                 <p class="col-md-8">历史记录</p>
                 <div class="col-md-4">
                   <span id="span-collapse" class="glyphicon glyphicon-chevron-down pull-right"></span>
@@ -59,7 +59,7 @@
             </div>
           </div>
         </div>
-      
+
 
     </div>
 
@@ -72,7 +72,7 @@
       $('#answer-history').on('hide.bs.collapse', function () {
         $('#span-collapse').removeClass("glyphicon-chevron-up");// 执行一些动作...
         $('#span-collapse').addClass("glyphicon-chevron-down");
-      })       
+      })
     </script>
     <!--  -->
 
@@ -94,7 +94,7 @@
 <!-- ———————————————————————————————————————————————————————————————————————————————— -->
   <!-- 如果最后一条是用户自己的问题，则显示出来 -->
     <!-- 如果最后一条是自己的留言，则不让再追问 -->
-    <hr>
+
     <% if i_send_last_message(@messages) %>
       <p><i class="fa fa-question-circle" aria-hidden="true"></i><span> 您的当前问题</span></p>
       <p class="lead"><strong><%= @messages.last.body %></strong></p>
@@ -105,12 +105,12 @@
           <br>
           <div>
             <a href="<%= @messages.last.attachment.url %>" download="" target="_blank">
-              
+
               <h4><i class="fa fa-file-text" aria-hidden="true"></i></h4>
               <p><%= @messages.last.attachment.file.filename %></p>
 
             </a>
-          </div>   
+          </div>
         <% end %>
         <!-- f1042-tryAttachmentForMaibox -->
 
@@ -139,35 +139,35 @@
           <br>
           <div>
             <a href="<%= current_question.attachment.url %>" download="" target="_blank">
-              
+
               <h4><i class="fa fa-file-text" aria-hidden="true"></i></h4>
               <p><%= current_question.attachment.file.filename %></p>
 
             </a>
-          </div>   
+          </div>
         <% end %>
         <!-- f1042-tryAttachmentForMaibox -->
 
 
-      
-      <br>
+
+
       <!-- 律师解答 -->
       <h6><small><em><%= time_format(@messages.last.created_at) %></em></small></h6>
       <p><span class="glyphicon glyphicon-ok-sign"></span><span> 律师解答</span></p>
       <p class="lead"><strong><%= @messages.last.body %></strong></p>
-      
+
         <!-- f1042-tryAttachmentForMaibox -->
         <% if @messages.last.attachment.present? %>
           <span class="glyphicon glyphicon-file">  附件</span>
           <br>
           <div>
             <a href="<%= @messages.last.attachment.url %>" download="" target="_blank">
-              
+
               <h4><i class="fa fa-file-text" aria-hidden="true"></i></h4>
               <p><%= @messages.last.attachment.file.filename %></p>
 
             </a>
-          </div>   
+          </div>
         <% end %>
         <!-- f1042-tryAttachmentForMaibox -->
 
@@ -184,7 +184,6 @@
             <% end %>
           </p>
 
-          <hr>
 
           <script>
           $(function() {

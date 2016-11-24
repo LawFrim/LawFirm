@@ -1,5 +1,5 @@
 body {
-	font: 14px/24px 'Roboto', Arial, Helvetica, sans-serif;
+	font: 14px/24px 'pingFang' Helvetica, sans-serif;
 	color: #696969;
 	background: #fff;
 	counter-reset: list-counter-1;
@@ -23,7 +23,7 @@ h4,
 h5,
 h6 {
 	color: #000;
-	font-family: 'Roboto Condensed', sans-serif;
+	font-family: 'Avenir Condensed', sans-serif;
 }
 h1 { font-size: 72px; }
 h2 { font-size: 48px; }
@@ -129,7 +129,7 @@ h6 { font-size: 18px; }
 .list-style-8 li,
 .blog-post-info li,
 .side-block-1 ul {
-	font-family: 'Roboto Slab', serif;
+	font-family: 'pingFang', sans-serif;
 }
 
 /* Form & Buttons Styles Starts */
