@@ -5,12 +5,12 @@
   <% when 'Question' %>
 
     <p><%= n.actor.user_name %>回答了<%= n.notifiable.content %></p>
-    <button id="read-noti-<%= n.id %>" class="btn btn-default">已读</button>
+    <button id="read-noti-<%= n.id %>" class="btn  btn-secondary text-uppercase flat animation">已读</button>
   <% when 'Document' %>
     <p><%= n.actor.user_name %>审核了<%= n.notifiable.description %></p>
     <a href="<%= mark_as_read_notifications_path %>" class="">已读</a>
   <% end %>
-  
+
 
 
 
@@ -19,7 +19,7 @@
 
 <script>
 $(function() {
-  
+
   $('#read-noti-<%= n.id %>').bind('click', function() {
     mark_as_read()
   });
@@ -46,7 +46,7 @@ $(function() {
 
 
 });
-  
+
 </script>
 
 

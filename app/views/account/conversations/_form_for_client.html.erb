@@ -1,20 +1,45 @@
+<!-- 追问框-->
+<div class="panel panel-default">
+  <div class="panel-heading" >
+    <h4 class="panel-title">
+      <a  data-toggle="collapse" href="#new_question" aria-expanded="true" aria-controls="new_question">
+        继续追问...
+      </a>
+    </h4>
+  </div>
+  <div id="new_question" class="panel-collapse collapse" >
+    <div class="panel-body">
+
+
       <!-- 普通用户表单 -->
       <!-- 如果有了新的律师回答，则可以追问 -->
       <%= simple_form_for @new_answer ,url: account_question_conversations_path(@question) do |a| %>
       <% if @conversation.present? %>
       <!-- <h1>对话id:<%#= @conversation.id %></h1> -->
       <!-- 隐藏提交当前会话id -->
+ 
       <%= a.input :conversation_id, :as => :hidden, :input_html => { :value => @conversation.id } %>
-      
+
       <% end %>
-      
+
       <div class="form-group">
 
           <%= a.input :content, label: '追问:',input_html: { class: "form-control",rows: "15"} %>
-          
+
+
       </div>
       <div class="form-group">
             <%= a.input :attachment ,label: '附件'%>
       </div>
-      <%= a.submit "提交", class: "btn btn-primary", data: { disable_with: "提交..." } %>
+
+      <%= a.submit "提交", class: "btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交..." } %>
       <% end %>
+
+      <%= a.submit "提交", class: "btn btn-primary col-md-12", data: { disable_with: "提交..." } %>
+      <% end %>
+      <!--  -->
+
+
+    </div>
+  </div>
+</div>

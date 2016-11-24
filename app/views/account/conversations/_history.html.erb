@@ -1,101 +1,40 @@
-    <!-- 引入评级插件 -->
-    <link rel="stylesheet" href="http://o7m541j22.bkt.clouddn.com/jquery.raty.css">
-    <script src="http://o7m541j22.bkt.clouddn.com/jquery.raty.js"></script>
-
-
     <!-- 用户端历史信息 -->
     <%  @conversation.id %>
     <!-- 查看历史信息 -->
     <% if @messages.present? %>
-      <% @messages.each do |m| %>
+
+      <!-- 修正过的用户端原始提问样式 -->
+      <h6 class="text-center"><small><em> — <%= time_format(@question.created_at) %> — </em></small></h6>
+      <p><i class="fa fa-question-circle" aria-hidden="true"></i><span> 问题</span></p>
+      <p class="lead"><strong><%= @question.content %></strong></p>
+      <br>
+
+      <!-- 如果不是当前用户，则历史记录筛检三个 -->
+      <% if i_send_last_message(@messages) %>
+        <% messages_by_fiter = @messages[0..-2] %>
+      <% else %>
+        <% messages_by_fiter = @messages[0..-3] %>
+      <% end %>
+      
+      <!-- 历史记录循环 -->
+      <% messages_by_fiter.each do |m| %>
 
       <h6 class="text-center"><small><em> — <%= time_format(m.created_at) %> — </em></small></h6>
 
         <!-- 历史消息 -->
         <% if m.sender == current_user %>
-          <!-- 当前用户的对话样式 -->
-          <blockquote class="blockquote-reverse">
-            <div class="media">
 
-              <div class="media-body">
-                <h3 class="media-heading">我</h3>
-                <h5><%= simple_format(m.body) %></h5>
+        <!-- 修正过的用户端对话样式 -->
+        <!-- <h6><small><em><%#= time_format(m.created_at) %></em></small></h6> -->
+        <p><i class="fa fa-question-circle" aria-hidden="true"></i><span> 问题</span></p>
+        <p class="lead"><strong><%= m.body %></strong></p>
+        <br>
 
-                <!-- 附件显示（当前上传pdf有问题） -->
-                <% if m.attachment.present? %>
-
-                  <div class="pull-right">
-
-                    <%= image_tag(m.attachment.url, class: "thumbnail") %>
-                    <p class="pull-left"><%= m.attachment.file.filename %></p>
-
-                    <a href="<%= m.attachment.url %>" download="" target="_blank">
-                      <button type="button" class="btn  btn-secondary text-uppercase flat animation pull-right">下载</button>
-                    </a>
-                  </div>
-
-                <% end %>
-                <!-- 附件显示（当前上传pdf有问题） -->
-
-
-              </div>
-
-              <a class="media-right" href="#">
-                <!-- 用户头像 -->
-                <%= render(partial: "common/user_img",locals: {user: current_user}) %>
-                <!-- 用户头像 -->
-              </a>
-
-
-            </div>
-          </blockquote>
         <% else %>
-          <!-- 律师对话样式 -->
-          <blockquote>
-            <div class="media">
-
-              <a class="media-left" href="#">
-                <!-- 用户头像 -->
-                <%= render(partial: "common/user_img",locals: {user: m.sender}) %>
-                <!-- 用户头像 -->
-              </a>
-
-              <div class="media-body">
-                <h3 class="media-heading"><%= m.sender.user_name %></h3>
-                <h5><%= simple_format(m.body) %></h5>
-
-
-                <!-- 附件显示（当前上传pdf有问题） -->
-                <% if m.attachment.present? %>
-
-                  <div class="pull-left">
-
-                    <%= image_tag(m.attachment.url, class: "thumbnail") %>
-                    <p class="pull-left"><%= m.attachment.file.filename %></p>
-
-                    <a href="<%= m.attachment.url %>" download="" target="_blank">
-                      <button type="button" class="btn  btn-secondary text-uppercase flat animation pull-right">下载</button>
-                    </a>
-                  </div>
-
-                <% end %>
-                <!-- 附件显示（当前上传pdf有问题） -->
-
-
-
-
-
-
-
-
-              </div>
-
-            </div>
-          </blockquote>
-
-
-
-
+          <!-- 修正过的律师解答 -->
+          <!-- <h6><small><em><%#= time_format(@messages.last.created_at) %></em></small></h6> -->
+          <p><span class="glyphicon glyphicon-ok-sign"></span><span> 律师解答</span></p>
+          <p class="lead"><strong><%= m.body %></strong></p>
 
         <!-- 律师端的评价系统 -->
 
@@ -116,9 +55,6 @@
           <script>
           $(function() {
 
-
-
-
             // 初始化rating选框
             function initRating(obj) {
               obj.raty({
@@ -134,8 +70,6 @@
                 }
               });
             };
-
-
 
             // ajax提交评级
             function ajaxRating(score) {
@@ -160,13 +94,10 @@
               });
             };
 
-
-
-
             // 锁定星星不可重新提交
             function lockRating(obj,score) {
               // 锁定部分样式
-              obj.raty({
+              obj.raty({ 
                 path:"/",
                 starOff: 'star-off.png',
                 starOn: 'star-on.png',
@@ -175,10 +106,6 @@
               });
             };
 
-
-
-
-
             // 允许评分的对象
             var ratableObj = $('#rating-for-message-<%= m.id %>');
             initRating(ratableObj);
@@ -186,13 +113,8 @@
             var unRatableObj = $('#raty-for-message-<%= m.id %>');
             lockRating(unRatableObj,'<%= m.rating %>');
 
-
-
-
-
           });
           </script>
-
           <!-- 律师端的评价系统 -->
 
 
@@ -206,4 +128,4 @@
         <% end %>
       <% end %>
       <!-- 历史消息 -->
-    <% end %>
+    <% end %>   

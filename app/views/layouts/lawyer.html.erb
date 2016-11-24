@@ -16,6 +16,7 @@
             <%= render "common/navbar" %>
             <%= render "common/flashes" %>
             <div class="row">
+
                 <!-- 现有侧边栏 -->
                 <div class="col-md-2  nav-sidebar side-block-2">
                   <h6></h6>
@@ -24,11 +25,12 @@
                     <li class="clearfix"> <i class="fa  fa-fw fa fa-pencil-square-o" aria-hidden="true"></i> <%= link_to("  回答新问题", lawyer_questions_path(:order => "lawyer_two") ) %></li></li>
                     <li class="clearfix"> <i class="fa  fa-fw fa-paper-plane" aria-hidden="true"></i> <%= link_to("  审查合同", lawyer_documents_path ) %></li>
                   </ul>
+
                 </div>
   <!-- 现有侧边栏 -->
 
                 <!-- 内容 -->
-                <div class="col-md-10">
+                <div class="pageContainer col-md-10">
                     <%= yield %>
                 </div>
             </div>
