@@ -7,7 +7,9 @@
       <div class="col-md-4 cold-sm-6 cardHeightWrap">
         <div class="itemCard questionCard">
         <div class="cardHeading">
+        <p class="bg-success">&nbsp;</p>
           <div class="topHeading">
+
           <p class="cardTitle questionTitle"><%= question.area %></p>
 
         <div class="questionDate">
@@ -15,7 +17,8 @@
         </div>
           <!---wait for refracotring -->
           <div class="questionStatus" >
-          </br>
+          <br>
+          <br>
           <% if question.is_answered %>
           <span class="glyphicon glyphicon-ok-sign"></span> 已被回答</td>
             <% else %>

@@ -1,0 +1,131 @@
+    <!-- 用户端历史信息 -->
+    <%  @conversation.id %>
+    <!-- 查看历史信息 -->
+    <% if @messages.present? %>
+
+      <!-- 修正过的用户端原始提问样式 -->
+      <h6 class="text-center"><small><em> — <%= time_format(@question.created_at) %> — </em></small></h6>
+      <p><i class="fa fa-question-circle" aria-hidden="true"></i><span> 问题</span></p>
+      <p class="lead"><strong><%= @question.content %></strong></p>
+      <br>
+
+      <!-- 如果不是当前用户，则历史记录筛检三个 -->
+      <% if i_send_last_message(@messages) %>
+        <% messages_by_fiter = @messages[0..-2] %>
+      <% else %>
+        <% messages_by_fiter = @messages[0..-3] %>
+      <% end %>
+      
+      <!-- 历史记录循环 -->
+      <% messages_by_fiter.each do |m| %>
+
+      <h6 class="text-center"><small><em> — <%= time_format(m.created_at) %> — </em></small></h6>
+
+        <!-- 历史消息 -->
+        <% if m.sender == current_user %>
+
+        <!-- 修正过的用户端对话样式 -->
+        <!-- <h6><small><em><%#= time_format(m.created_at) %></em></small></h6> -->
+        <p><i class="fa fa-question-circle" aria-hidden="true"></i><span> 问题</span></p>
+        <p class="lead"><strong><%= m.body %></strong></p>
+        <br>
+
+        <% else %>
+          <!-- 修正过的律师解答 -->
+          <!-- <h6><small><em><%#= time_format(@messages.last.created_at) %></em></small></h6> -->
+          <p><span class="glyphicon glyphicon-ok-sign"></span><span> 律师解答</span></p>
+          <p class="lead"><strong><%= m.body %></strong></p>
+
+        <!-- 律师端的评价系统 -->
+
+          <!-- <hr> -->
+          <p class="text-center">
+            <!-- 如果未评分，则允许评分 -->
+            <% if m.rating.blank? %>
+              <div id="rating-for-message-<%= m.id %>" class="text-center"></div>
+            <!-- 如果评过分，则锁定 -->
+            <% else %>
+              <div id="raty-for-message-<%= m.id %>" class="text-center"></div>
+            <% end %>
+          </p>
+
+          <hr>
+
+
+          <script>
+          $(function() {
+
+            // 初始化rating选框
+            function initRating(obj) {
+              obj.raty({
+                path:"/",
+                starOff: 'star-off.png',
+                starOn: 'star-on.png',
+                size: 32,
+                click: function(score, evt) {
+                  // ajax提交
+                  ajaxRating(score);
+                  // 锁定rating
+                  lockRating(obj,score)
+                }
+              });
+            };
+
+            // ajax提交评级
+            function ajaxRating(score) {
+              $.ajax({
+                url: '<%= rating_account_questions_path %>',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                  'conversation_id' : <%= @conversation.id %>,
+                  'message_id' : <%= m.id %>,
+                  'rating': score
+                },
+              })
+              .done(function() {
+                console.log("raty success");
+              })
+              .fail(function() {
+                console.log("raty error");
+              })
+              .always(function() {
+                console.log("raty complete");
+              });
+            };
+
+            // 锁定星星不可重新提交
+            function lockRating(obj,score) {
+              // 锁定部分样式
+              obj.raty({ 
+                path:"/",
+                starOff: 'star-off.png',
+                starOn: 'star-on.png',
+                size: 32,
+                readOnly: true, score: score
+              });
+            };
+
+            // 允许评分的对象
+            var ratableObj = $('#rating-for-message-<%= m.id %>');
+            initRating(ratableObj);
+            // 已经评过分的对象
+            var unRatableObj = $('#raty-for-message-<%= m.id %>');
+            lockRating(unRatableObj,'<%= m.rating %>');
+
+          });
+          </script>
+          <!-- 律师端的评价系统 -->
+
+
+
+
+
+
+
+
+
+        <% end %>
+      <% end %>
+      <!-- 历史消息 -->
+    <% end %>   
