@@ -47,25 +47,6 @@ class Mailboxer::AttachmentUploader < CarrierWave::Uploader::Base
   # end
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     def cover
      manipulate! do |frame, index|
        frame if index.zero? # take only the first page of the file
@@ -81,6 +62,18 @@ class Mailboxer::AttachmentUploader < CarrierWave::Uploader::Base
        super.chomp(File.extname(super)) + '.jpg'
      end
    end
+
+
+   version :thumbview, :if => :previewable? do
+      process :cover
+      process :resize_to_fit => [80, 80]
+      process :convert => :jpg
+
+     def full_filename (for_file = model.source.file)
+       super.chomp(File.extname(super)) + '.jpg'
+     end
+   end
+
 
    # the other stuff
 

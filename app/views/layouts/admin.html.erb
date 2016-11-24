@@ -17,23 +17,23 @@
                 <!-- 侧边栏 -->
                 <div class="col-md-2 sidebar" >
                     <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
+ 
                       <div class="container">
                         <div class="col-sm-2">
                           <nav class="nav-sidebar">
                           <ul class="nav tabs">
 
-                            <li class="active"><%= link_to("全网用户管理", admin_users_path ) %> </li>
+                            <li><%= link_to("用户管理", admin_users_path ) %> </li>
+                        <li><%= link_to("全部动态", admin_questions_path ) %> </li>
+                        <li><%= link_to("订单管理", admin_orders_path) %></li>
 
-                            <li class="active"><%= link_to("所有客户问题", admin_questions_path ) %> </li>
-                            <li class="active"><%= link_to("全部审查合同", admin_documents_path) %></li>
-                            <li class="active"><%= link_to("全部反馈合同", admin_feedbacks_path) %></li>
-                            <li class="active"><%= link_to("全部订单管理", admin_orders_path) %></li>
 
                           </ul>
                         </nav>
                       </div>
 
                     </div>
+
 
 
                     </ul>
