@@ -7,13 +7,14 @@
             <div class="col-md-2">
                 <br>
                 <%= render_user_avatar(@user) %>
+
                 <div style="letter-spacing: -4px"></div>
             </div>
 
             <!-- title, description and add to cart -->
             <div class="col-md-4 col-md-offset-1">
                 <h3>
-                    <h4>我的资料</h4>
+                    <h4><small>我的资料</small></h4>
                 </h3>
                 <br>
                 <td>用户认证：</td>
@@ -32,6 +33,16 @@
                     <td>所在地区： </td>
                     <td><%= @user.district %></td>
                 </p>
+                <div class="">
+                  <td><%= link_to("  订单管理", account_orders_path , class: "btn  btn-secondary text-uppercase flat animation" )%></td>
+                  <br>
+                    <br>
+                      <br>
+                        <br>
+                </div>
+<br>
+<br>
+
 
                 <div>
                     <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn  btn-secondary text-uppercase flat animation") %>
