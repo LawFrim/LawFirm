@@ -14,8 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+
 //= require_tree .
-//= require/owl-carousel/owl.carousel
+
+
+
+
+
+
+
+
+
 $(document).ready(function(){
     $('#characterLeft').text('600 个字');
     $('#message').keyup(function () {
