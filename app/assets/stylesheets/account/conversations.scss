@@ -1,3 +1,22 @@
 // Place all the styles related to the account::conversations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+  .date {
+    color: #999999;
+    float: right;
+    font-weight: 400;
+}
+
+ .questionMessage {
+   background-color: #FFFFFF;
+}
+
+.answerText {
+    font-size: 1.00002rem;
+    line-height: 1.4286rem;
+    margin-bottom: 1.4286rem;
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    float:right;
+}

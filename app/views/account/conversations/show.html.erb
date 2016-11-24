@@ -25,31 +25,27 @@
 
     <div class="answer">
       <div class="questionLogo"></div>
-
       <!-- 用户端历史信息 -->
       <%  @conversation.id %>
       <!-- 查看历史信息 -->
       <% if @messages.present? %>
         <% @messages.each do |m| %>
-
-        <h6 class="text-center"><small><em> — <%= time_format(m.created_at) %> — </em></small></h6>
-
+        <div class="questionMessage">
+        <p class="date"> <%= time_format(m.created_at) %></p>
           <!-- 历史消息 -->
           <% if m.sender == current_user %>
             <!-- 当前用户的对话样式 -->
-            <blockquote class="blockquote-reverse">
-              <div class="media">
-
-                <div class="media-body">
-                  <h3 class="media-heading">我</h3>
-                  <h5><%= simple_format(m.body) %></h5>
-
+                  <div class="answerText"><%= simple_format(m.body) %></div>
+                  <div class="answerer">我</h3>
                   <!-- 附件显示（当前上传pdf有问题） -->
                   <% if m.attachment.present? %>
 
                     <div class="pull-right">
-
-                      <%= image_tag(m.attachment.url, class: "thumbnail") %>
+                      <% if m.attachment.thumbview.present? %>
+                      <%= image_tag(m.attachment.thumbview.url, class: "thumbnail") %>
+                      <% else %>
+                      <%= link_to image_tag "http://placehold.it/80?text=你的材料" %>
+                      <% end %>
                       <p class="pull-left"><%= m.attachment.file.filename %></p>
 
                       <a href="<%= m.attachment.url %>" download="" target="_blank">
@@ -67,7 +63,7 @@
 
 
 
-
+</div>
     </div>
 
 
@@ -97,7 +93,7 @@
   <hr>
 
   <!-- 历史消息 -->
-  <%= render 'history_messages' %>
+
 
   <!-- 如果最后一条是自己的留言，则不让再追问 -->
   <% if i_send_last_message(@messages) %>
