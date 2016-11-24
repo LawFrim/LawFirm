@@ -1,5 +1,7 @@
  <h4>问题动态</h4>
 
+
+
 <div class="cardHeightWrap row">
 
       <% @questions.each do |question| %>
@@ -12,8 +14,15 @@
         <div class="cardHeading">
       
           <div class="topHeading">
+            <!-- 判断附件是否存在 -->
+            <% if question.attachment.present?%>
+              <p class="cardTitle questionTitle">合同</p>
+            <!-- 如果无附件 -->
+            <% else %>
+              <p class="cardTitle questionTitle"><%= question.area %></p>    
+            <% end %>
 
-          <p class="cardTitle questionTitle"><%= question.area %></p>
+          
 
         <div class="questionDate">
           <%= question.updated_at%>
@@ -23,7 +32,8 @@
           <br>
           <br>
           <% if question.is_answered %>
-          <span class="glyphicon glyphicon-ok-sign"></span> 已被回答</td>
+
+            <span class="glyphicon glyphicon-ok-sign"></span> 已被回答</td>
             <% else %>
             <span class="glyphicon glyphicon-question-sign"></span> 等待答复</td>
             <% end %>
@@ -34,12 +44,39 @@
 
         <div class="card-content" ng-click="qaCtrl.toMain('body')">
           <p class="userQuestion">
-          <span>Question<span>
-        </br>
 
-          <%= link_to(question.content,account_question_path(question)) %>
 
-        </p>
+          <!-- 判断附件是否存在 -->
+          <% if question.attachment.present?%>
+
+            <span>Document<span>
+            </br>
+              <%= link_to(question.content,account_question_path(question)) %>
+            </p>  
+
+            
+          <!-- 如果无附件 -->
+          <% else %>
+            <span>Question<span>
+            </br>
+              <%= link_to(question.content,account_question_path(question)) %>
+            </p>            
+          <% end %>
+
+
+
+
+<!-- 判断附件是否存在 -->
+<% if question.attachment.present?%>
+  
+<!-- 如果无附件 -->
+<% else %>
+
+  
+<% end %>
+
+
+
         </div>
       </div>
     </div>
