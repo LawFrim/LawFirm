@@ -20,6 +20,13 @@
  @import "style";
 
 
+ .alert-success {
+     background-color: #222;
+     border-color: rgba(255, 255, 255, 0.15);
+     color: #3c763d;
+     margin: 1px auto 0 auto;
+   }
+
 .pageContainer {
   margin-top: 7px;
 }
