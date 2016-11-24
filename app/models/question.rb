@@ -9,6 +9,9 @@ class Question < ApplicationRecord
   # f1042-建立问题附件连接
   mount_uploader :attachment, Mailboxer::AttachmentUploader
 
+  # f1113-问题和文件审核必须有描述
+  validates :content, presence: true
+
 
 
   scope :recent, -> { order("created_at DESC")}

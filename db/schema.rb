@@ -10,8 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
 ActiveRecord::Schema.define(version: 20161123130845) do
 
   create_table "activities", force: :cascade do |t|
@@ -30,7 +28,6 @@ ActiveRecord::Schema.define(version: 20161123130845) do
     t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
   end
 
- 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
     t.integer  "question_id"
