@@ -48,7 +48,7 @@ class Account::QuestionsController < ApplicationController
     else
       @question.service_type = 'question'
     end
-    # 
+    #
 
     @question.user = current_user
     if @question.save

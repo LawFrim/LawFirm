@@ -1,5 +1,6 @@
 class Account::OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:create]#必须注册用户才能建立订单。
+  layout "user"
   #按月支付服务费的订单
   def create_m
     @order = Order.new

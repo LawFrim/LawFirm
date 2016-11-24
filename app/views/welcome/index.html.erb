@@ -11,8 +11,7 @@
           <h2 class="text-thin">终身伴律</h2>
           <h1 class="text-light">为你摆平一切</h1>
           <p>让顶级律师成为你随身的法律顾问 <br>从此法律零门槛 </p>
-          <!-- <a href="#" class="btn btn-secondary animation text-uppercase flat">立即咨询</a> -->
-          <%= link_to "立即咨询", account_questions_path,class:"btn btn-secondary animation text-uppercase flat"%>
+          <a href="#" class="btn btn-secondary animation text-uppercase flat">立即咨询</a>
         </div>
       </div>
     <!-- Slide #1 Ends -->
@@ -23,8 +22,7 @@
           <h2 class="text-thin">终身伴律</h2>
           <h1 class="text-light">为你摆平一切 </h1>
           <p>让顶级律师成为你随身的法律顾问 <br>从此法律零门槛</p>
-          <!-- <a href="#" class="btn btn-secondary animation text-uppercase flat">立即咨询</a> -->
-          <%= link_to "立即咨询", account_questions_path,class:"btn btn-secondary animation text-uppercase flat"%>
+          <a href="#" class="btn btn-secondary animation text-uppercase flat">立即咨询</a>
         </div>
       </div>
     <!-- Slide #2 Ends -->
@@ -314,13 +312,17 @@
         <div class="col-md-6 col-xs-12">
           <form action="#">
             <div class="form-group">
+
               <label for="fs-name" class="sr-only">你的姓名</label>
               <input type="text" id="fs-name" class="form-control flat" placeholder="你的姓名">
+
             </div>
             <div class="form-group">
               <label for="fs-name" class="sr-only">你的邮件</label>
               <input type="email" id="fs-email" class="form-control flat" placeholder="你的邮件">
+
             </div>
+
             <div class="form-group">
               <label for="fs-contact-no" class="sr-only">联系方式</label>
               <input type="text" id="fs-contact-no" class="form-control flat" placeholder="联系方式">
@@ -329,7 +331,12 @@
               <label for="fs-msg" class="sr-only">你的问题</label>
               <textarea id="fs-msg" class="form-control flat" rows="8" placeholder="请留下你的问题"></textarea>
             </div>
-            <button type="submit" class="btn btn-block btn-secondary text-uppercase flat animation">立即拥有私人法务</button>
+            <button type="submit" class="btn btn-block btn-secondary text-uppercase flat animation">
+              <%= link_to("立即拥有私人法务",user_session_path) %>
+              </button>
+
+
+
           </form>
         </div>
       <!-- Form Ends -->
