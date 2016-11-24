@@ -20,20 +20,8 @@
                 <div class="col-md-2 sidebar" >
                     <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
 
-                      <li class="active"><%#= link_to("客户问题", lawyer_questions_path ) %> </li>
-                        <li class="active"><%= link_to("律师信息管理",lawyer_users_path )%></li>
-                        <li class="active"><%= link_to("回答新问题", lawyer_questions_path(:order => "lawyer_two")) %></li>
-
-                      <!-- <li><%= link_to("我回答的问题", lawyer_questions_path ) %> </li> 暂时还不能显示真正回答过的问题-->
-                      <!-- <li><%= link_to("回答新问题", "#") %></li> -->
-                      <!-- <li><%= link_to("我审查的合同", "#") %></li> -->
-                      <!-- <li><%= link_to("上传新合同审核" ) %></li> -->
-
-                      <li class="active"><%= link_to("审查合同", lawyer_documents_path) %></li>
-                      <!-- <li class="active"><%= link_to("领域问题", lawyer_questions_path(:order => "lawyer_area")) %></li>
-                      <li class="active"><%= link_to("地区问题", lawyer_questions_path(:order => "lawyer_district")) %></li> -->
-
-
+                      <li class="active"><%= link_to("最新问题", lawyer_questions_path(:order => "lawyer_two")) %></li>
+                      <li class="active"><%= link_to("历史回答", lawyer_questions_path) %></li>
 
                     </ul>
                 </div>
