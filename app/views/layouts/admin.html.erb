@@ -14,32 +14,20 @@
             <%= render "common/navbar" %>
             <%= render "common/flashes" %>
             <div class="row">
-                <!-- 侧边栏 -->
-                <div class="col-md-2 sidebar" >
-                    <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
- 
-                      <div class="container">
-                        <div class="col-sm-2">
-                          <nav class="nav-sidebar">
-                          <ul class="nav tabs">
-
-                            <li><%= link_to("用户管理", admin_users_path ) %> </li>
-                        <li><%= link_to("全部动态", admin_questions_path ) %> </li>
-                        <li><%= link_to("订单管理", admin_orders_path) %></li>
-
-
-                          </ul>
-                        </nav>
-                      </div>
-
-                    </div>
-
-
-
-                    </ul>
+                <!-- 现有侧边栏 -->
+                <div class="col-md-2  nav-sidebar side-block-2">
+                  <h6></h6>
+                  <ul class="list-unstyled list-links">
+                    <li class="clearfix"><i class="fa  fa-fw fa-rocket" aria-hidden="true"></i><%= link_to(" 用户管理", admin_users_path )%></li>
+                    <li class="clearfix"> <i class="fa  fa-fw fa fa-pencil-square-o" aria-hidden="true"></i><%= link_to(" 全部动态", admin_questions_path )%></li></li>
+                    <li class="clearfix"> <i class="fa  fa-fw fa-paper-plane" aria-hidden="true"></i><%= link_to("  订单管理", admin_orders_path ) %></li>
+                  </ul>
                 </div>
+
+                  <!-- 现有侧边栏 -->
+
                 <!-- 内容 -->
-                <div class="col-md-10">
+                <div class="pageContainer col-md-10">
                     <%= yield %>
                 </div>
             </div>

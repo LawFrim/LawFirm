@@ -54,7 +54,7 @@
 
 
         <div class="checkout">
-          <%= f.submit "生成订单", class: "btn btn-lg btn-danger pull-right",
+          <%= f.submit "生成订单", class: "btn  btn-secondary text-uppercase flat animation pull-right",
                        data: { disable_with: "Submitting..." } %>
         </div>
       <% end %>
@@ -64,8 +64,8 @@
   <div class="">
     <% if !@order.is_paid? %>
     <div class="group pull-right">
-      <%= link_to("以支付宝支付", "#", :method => :post, :class => "btn btn-danger") %>
-      <%= link_to("以微信支付", "#", :method => :post, :class => "btn btn-danger") %>
+      <%= link_to("以支付宝支付", "#", :method => :post, :class => "btn  btn-secondary text-uppercase flat animation") %>
+      <%= link_to("以微信支付", "#", :method => :post, :class => "btn  btn-secondary text-uppercase flat animation") %>
     </div>
     <% else %>
       <p class="text-center">您已完成付款</p>
