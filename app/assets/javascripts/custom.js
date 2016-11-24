@@ -50,3 +50,5 @@ $(function() {
 		});
 		return false; // avoid to execute the actual submit of the form.
 	});
+
+})
