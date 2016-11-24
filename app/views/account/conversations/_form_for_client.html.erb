@@ -1,13 +1,19 @@
 <!-- 追问框-->
-<div class="panel panel-default">
-  <div class="panel-heading" >
-    <h4 class="panel-title">
-      <a  data-toggle="collapse" href="#new_question" aria-expanded="true" aria-controls="new_question">
-        继续追问...
-      </a>
-    </h4>
-  </div>
-  <div id="new_question" class="panel-collapse collapse" >
+<div class="panel panel-default row">
+
+  <a data-toggle="collapse" href="#new-question" aria-expanded="true" aria-controls="new-question">
+    <div class="panel-heading" >
+      <h4 class="panel-title">
+
+        <p class="col-md-8">追问...</p>
+        <div class="col-md-4">
+          <span id="collapse-answer" class="glyphicon glyphicon-chevron-down pull-right"></span>
+        </div>
+
+      </h4>
+    </div>
+  </a>
+  <div id="new-question" class="panel-collapse collapse" >
     <div class="panel-body">
 
 
@@ -24,7 +30,7 @@
 
       <div class="form-group">
 
-          <%= a.input :content, label: '追问:',input_html: { class: "form-control",rows: "15"} %>
+          <%= a.input :content, label: false,input_html: { class: "form-control",rows: "15"} %>
 
 
       </div>
@@ -32,13 +38,29 @@
             <%= a.input :attachment ,label: '附件'%>
       </div>
 
-      <%= a.submit "提交", class: "btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交..." } %>
+      <%= a.submit "提交", class: "btn  btn-secondary text-uppercase flat animation col-md-12", data: { disable_with: "提交..." } %>
       <% end %>
 
-   
+ 
       <!--  -->
 
 
     </div>
   </div>
 </div>
+
+
+
+
+    <!-- 收放按钮 -->
+    <script>
+      $('#new-question').on('show.bs.collapse', function () {
+        $('#collapse-answer').removeClass("glyphicon-chevron-down");// 执行一些动作...
+        $('#collapse-answer').addClass("glyphicon-chevron-up");
+      });
+      $('#new-question').on('hide.bs.collapse', function () {
+        $('#collapse-answer').removeClass("glyphicon-chevron-up");// 执行一些动作...
+        $('#collapse-answer').addClass("glyphicon-chevron-down");
+      })
+    </script>
+    <!--  -->
