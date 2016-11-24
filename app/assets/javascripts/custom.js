@@ -7,7 +7,7 @@ $(function() {
 		autoPlay: true, //Set AutoPlay to 3 seconds
 		items : 6,
 		stopOnHover : true,
-		navigation : false, // Show next and prev buttons
+		navigation : true, // Show next and prev buttons
 		pagination : false,
 		navigationText : ["<span class='fa fa-angle-left'></span>","<span class='fa fa-angle-right'></span>"]
 	});
@@ -31,7 +31,7 @@ $(function() {
 		}
 	}
 	$(".badges-counter").each(function() {
-	  $(this).data('count', parseInt($(this).html(), 1000));
+	  $(this).data('count', parseInt($(this).html(), 10));
 	  $(this).html('0');
 	  count($(this));
 	});
@@ -50,3 +50,16 @@ $(function() {
 		});
 		return false; // avoid to execute the actual submit of the form.
 	});
+
+	// GOOGLE MAP
+	function initialize($) {
+		var mapOptions = {
+			zoom: 8,
+			center: new google.maps.LatLng(17.421306, 78.457553),
+			disableDefaultUI: true
+		};
+		var map = new google.maps.Map(document.querySelector('.map'), mapOptions);
+	}
+	//google.maps.event.addDomListener(window, 'load', initialize);
+
+});
