@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  # 首页选项字段
   enum role: {用户: 0, 律师: 1}
   after_initialize :set_default_role, :if => :new_record?
 
@@ -26,6 +27,14 @@ class User < ApplicationRecord
   has_many :answers
   has_many :documents
   has_many :feedbacks
+
+
+
+  # 将用户与律师角色建立一对一关系
+  has_one :lawyer
+  # 将律师与问题建立多对多关系
+  # 律师不得问问题！！！
+  # has_many :answered_questions, :through => :lawyer_answereds, :source => :question
 
   # f783-提示
   has_many :notifications
@@ -65,7 +74,11 @@ class User < ApplicationRecord
 
 
 
-
+  def is_lawyer!
+    lawyer = Lawyer.new
+    lawyer.user_id = self.id
+    lawyer.save
+  end
 
 
 
@@ -91,6 +104,16 @@ class User < ApplicationRecord
 
   include Gravtastic
   gravtastic
+
+
+  # 自己答过的问题
+  def answered_questions
+    q = self.lawyer.lawyer_answered_questions
+    questions = q.map {|x| x.question }
+    return questions
+  end
+  # 
+
 
 end
 # == Schema Information
@@ -121,6 +144,7 @@ end
 #  is_vip                 :boolean          default(FALSE)
 #  certificate            :string
 #  certificate_number     :string
+#  answered_question_id   :integer
 #
 # Indexes
 #
