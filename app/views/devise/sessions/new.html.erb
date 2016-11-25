@@ -1,22 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <body>
-<div class="container">
- <div class="container">
-  <div class="col-md-12 col-lg-offset-2">
-   <div class="login-signup">
-     <div class="row">
-        <div class="col-md-8 nav-tab-holder"></div>
-     </div>
-
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="home">
-                                <div class="row">
-
-                                    <div class="col-md-8 mobile-pull">
-                                        <article role="login">
-                                            <h3 class="text-center">
-                                                <i class="fa fa-btc"></i>  伴律</h3>
+<div class=" col-md-6 col-md-offset-3">
+   <div class="well loginContainer container">
 
                                                 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                                                 <div class="form-inputs">
@@ -31,5 +14,5 @@
 
                                                 <%= render "devise/shared/links" %>
 
-                                        </body>
-                                    </html>
+</div>
+</div>
