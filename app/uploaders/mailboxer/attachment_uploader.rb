@@ -75,15 +75,15 @@ class Mailboxer::AttachmentUploader < CarrierWave::Uploader::Base
    end
 
 
-   version :questionView, :if => :previewable? do
-      process :cover
-      process :resize_to_fit => [80, 80]
-      process :convert => :jpg
+   # version :questionView, :if => :previewable? do
+   #    process :cover
+   #    process :resize_to_fit => [800, 800]
+   #    process :convert => :jpg
 
-     def full_filename (for_file = model.source.file)
-       super.chomp(File.extname(super)) + '.jpg'
-     end
-   end
+   #   def full_filename (for_file = model.source.file)
+   #     super.chomp(File.extname(super)) + '.jpg'
+   #   end
+   # end
 
 
 

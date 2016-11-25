@@ -6,7 +6,7 @@
       <!-- 修正过的用户端原始提问样式 -->
       <h6 class="text-center"><small><em> — <%= time_format(@question.created_at) %> — </em></small></h6>
       <p><i class="fa fa-question-circle" aria-hidden="true"></i><span> 问题</span></p>
-      <p class="lead"><strong><%= @question.content %></strong></p>
+      <p><strong><%= @question.content %></strong></p>
       <br>
 
       <!-- 如果不是当前用户，则历史记录筛检三个 -->
@@ -15,7 +15,7 @@
       <% else %>
         <% messages_by_fiter = @messages[0..-3] %>
       <% end %>
-      
+
       <!-- 历史记录循环 -->
       <% messages_by_fiter.each do |m| %>
 
@@ -27,14 +27,50 @@
         <!-- 修正过的用户端对话样式 -->
         <!-- <h6><small><em><%#= time_format(m.created_at) %></em></small></h6> -->
         <p><i class="fa fa-question-circle" aria-hidden="true"></i><span> 问题</span></p>
-        <p class="lead"><strong><%= m.body %></strong></p>
+        <p><strong><%= m.body %></strong></p>
+
+        <!-- f1042-tryAttachmentForMaibox附件 -->
+        <% if m.attachment.present? %>
+          <span class="glyphicon glyphicon-file">  附件</span>
+          <br>
+          <div>
+            <a href="<%= m.attachment.url %>" download="" target="_blank">
+
+              <h4><i class="fa fa-file-text" aria-hidden="true"></i></h4>
+              <p><%= m.attachment.file.filename %></p>
+
+            </a>
+          </div>
+        <% end %>
+        <!-- f1042-tryAttachmentForMaibox -->
+
+
         <br>
 
         <% else %>
           <!-- 修正过的律师解答 -->
           <!-- <h6><small><em><%#= time_format(@messages.last.created_at) %></em></small></h6> -->
           <p><span class="glyphicon glyphicon-ok-sign"></span><span> 律师解答</span></p>
-          <p class="lead"><strong><%= m.body %></strong></p>
+          <p><strong><%= m.body %></strong></p>
+
+
+          <!-- f1042-tryAttachmentForMaibox -->
+          <% if m.attachment.present? %>
+            <span class="glyphicon glyphicon-file">  附件</span>
+            <br>
+            <div>
+              <a href="<%= m.attachment.url %>" download="" target="_blank">
+
+                <h4><i class="fa fa-file-text" aria-hidden="true"></i></h4>
+                <p><%= m.attachment.file.filename %></p>
+
+              </a>
+            </div>
+          <% end %>
+          <!-- f1042-tryAttachmentForMaibox -->
+
+
+
 
         <!-- 律师端的评价系统 -->
 
@@ -97,7 +133,7 @@
             // 锁定星星不可重新提交
             function lockRating(obj,score) {
               // 锁定部分样式
-              obj.raty({ 
+              obj.raty({
                 path:"/",
                 starOff: 'star-off.png',
                 starOn: 'star-on.png',
@@ -128,4 +164,4 @@
         <% end %>
       <% end %>
       <!-- 历史消息 -->
-    <% end %>   
+    <% end %>
