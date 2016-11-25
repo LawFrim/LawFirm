@@ -30,8 +30,7 @@ class ApplicationController < ActionController::Base
     def after_sign_in_path_for(_user)
       if current_user.is_admin?
         admin_users_path
-        current_user.is_lawyer?
-        lawyer_questions_path #你的路径
+        
       elsif   current_user.is_lawyer?
         lawyer_questions_path #你的路径
       else
