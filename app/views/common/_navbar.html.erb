@@ -120,17 +120,13 @@
                           <% if current_user.admin? %>
                           <li> <%= link_to(content_tag(:i, ' 管理员面板', class: 'fa fa-universal-access'), admin_questions_path ) %> </li>
                           <li> <%= link_to(content_tag(:i, ' 管理员中心', class: 'fa fa-users'), admin_users_path ) %> </li>
-
+                          <% elsif current_user.lawyer? %>
+                          <li> <%= link_to(content_tag(:i, ' 律师面板', class: 'fa fa-university'), lawyer_questions_path ) %> </li>
+                          <li> <%= link_to(content_tag(:i, ' 用户中心', class: 'fa fa-vcard'), lawyer_users_path ) %> </li>
                           <% else %>
                           <li> <%= link_to(content_tag(:i, ' 我的动态', class: 'fa fa-user-secret'), account_questions_path ) %> </li>
                           <li> <%= link_to(content_tag(:i, ' 用户中心', class: 'fa fa-university'), account_users_path ) %> </li>
                           <li> <%= link_to(content_tag(:i, ' 支付中心', class: 'fa fa-paypal'), account_orders_path ) %> </li>
-                          <% end %>
-                          <% if current_user.lawyer? %>
-
-                          <li> <%= link_to(content_tag(:i, ' 律师面板', class: 'fa fa-university'), lawyer_users_path ) %> </li>
-                          <li> <%= link_to(content_tag(:i, ' 用户中心', class: 'fa fa-vcard'), lawyer_users_path ) %> </li>
-
                           <% end %>
 
                            <li> <%= link_to(content_tag(:i, ' 登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
