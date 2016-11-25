@@ -28,10 +28,12 @@ class ApplicationController < ActionController::Base
 
     #不同用户登录后跳转到指定页面
     def after_sign_in_path_for(_user)
-      if current_user.is_lawyer?
-        lawyer_questions_path #你的路径
-      elsif current_user.is_admin?
+      if current_user.is_admin?
         admin_users_path
+        current_user.is_lawyer?
+        lawyer_questions_path #你的路径
+      elsif   current_user.is_lawyer?
+        lawyer_questions_path #你的路径
       else
         account_questions_path
       end
