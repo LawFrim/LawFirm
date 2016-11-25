@@ -1,3 +1,5 @@
+ 
+
 $(function() {
 
     "use strict";
@@ -50,7 +52,7 @@ $(function() {
 		});
 		return false; // avoid to execute the actual submit of the form.
 	});
- 
+
 	// GOOGLE MAP
 	function initialize($) {
 		var mapOptions = {

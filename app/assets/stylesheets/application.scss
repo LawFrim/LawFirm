@@ -21,6 +21,39 @@
 
 
 
+
+ .well {
+
+      background-color: #e3e3e3;
+      box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.05);
+      opacity:0.95;
+ }
+
+ .registration-block .input {
+     float: right;
+     max-width: 360px;
+     text-align: left;
+ }
+
+
+
+
+
+.body {
+     text-rendering: optimizeLegibility;
+     font-family: 'Hiragino Sans GB','Avenir Next',Avenir,'Helvetica Neue',Helvetica,'Lantinghei SC',sans-serif;
+
+ }
+
+
+
+
+ @media (min-width: 1200px){
+  .container {
+     width: auto;
+ }
+}
+
 .kbd {
    padding: 2px 4px;
    font-size: 77% !important;
@@ -48,6 +81,7 @@
      border-color: rgba(255, 255, 255, 0.15);
      color: #fcf8e3;
      margin: 1px auto 1px auto;
+     opacity: 0.75;
    }
 
 
@@ -59,8 +93,13 @@
    }
 
 
+.loginContainer{
+  margin-top: 20px;
+}
+
+
 .pageContainer {
-  margin-top: 7px;
+  margin-top:11px;
 }
 
 
