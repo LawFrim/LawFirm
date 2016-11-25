@@ -35,7 +35,7 @@
 				</thead>
 				<tbody>
             <%  @orders.each do |order|%>
-					<tr class="success">
+					<tr>
             <td><%= order.id%></td>
             <td><%= link_to(order.item, edit_account_order_path(order)) %></td>
             <td><%= order.total%><br>RMB</td>

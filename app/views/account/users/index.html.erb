@@ -8,10 +8,9 @@
                 <br>
                 <%= render_user_avatar(@user) %>
 
-<<<<<<< HEAD
-=======
+
                 <div style="letter-spacing: -4px"></div>
->>>>>>> 64f1c9400285d78fcf71b6cac1a31827ee94b86b
+
             </div>
 
             <!-- title, description and add to cart -->
@@ -20,14 +19,9 @@
                     <h4><small>我的资料</small></h4>
                 </h3>
 
-<<<<<<< HEAD
+
                 <p>用户认证： <%= render_user_vip(@user) %></p>
 
-                    <p>用户名： <%= @user.user_name %></p>
-
-
-                    <p>电子邮件： <%= @user.email %></p>
-=======
                 <p style="color: green">
                     <td>用户名：</td>
                     <td><%= @user.user_name %></td>
@@ -48,11 +42,10 @@
                         <br>
                 </div>
 <br>
-<br>
->>>>>>> 64f1c9400285d78fcf71b6cac1a31827ee94b86b
 
 
-                    <p>所在地区：<%= @user.district %></p>
+
+                
                     <br>
                 <div>
                     <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn  btn-secondary text-uppercase flat animation") %>
