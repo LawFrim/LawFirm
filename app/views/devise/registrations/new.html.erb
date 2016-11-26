@@ -1,4 +1,7 @@
-<div class="container col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-4" style="margin-top: 50px;" >
+<div class="col-md-6 col-md-offset-3">
+
+
+<div class="well container">
 
 
 <h3><small>新用户注册</small></h3>
@@ -13,6 +16,15 @@
     <%= f.input :password_confirmation, required: true %>
   </div>
 
+<div class="form-actions">
+    <label for="">选择角色</label>
+  <%= f.select :role,选择角色: User.roles.keys.to_a %>
+  <label for="">律师</label>
+  <input type='radio' value = "true" name = "is_lawyer" checked=""/>
+  <label for="">用户</label>
+  <input type='radio' value = "false" name = "is_lawyer" checked="checked"/>
+
+</div>
   <div class="form-actions">
     <%= f.button :submit, "注册" %>
   </div>
@@ -20,3 +32,4 @@
 
 <%= render "devise/shared/links" %>
   </div>
+</div>
