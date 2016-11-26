@@ -1,5 +1,5 @@
 class Admin::DocumentsController < ApplicationController
-
+  class Account::DocumentsController < ApplicationController
       before_action :authenticate_user!
       before_action :admin_required
 
@@ -9,7 +9,7 @@ class Admin::DocumentsController < ApplicationController
       def index
         # @user = current_user
         @documents = Document.all
-
+        
       end
 
       def new
