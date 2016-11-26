@@ -6,7 +6,7 @@ class Account::UsersController < ApplicationController
 
   def index
     @user = current_user
-
+    render :layout =>'user_panel_order'
   end
 
 
@@ -18,7 +18,7 @@ class Account::UsersController < ApplicationController
 
   def show
     @user = current_user
-    render :layout =>'user_panel_order'
+  
   end
 
 

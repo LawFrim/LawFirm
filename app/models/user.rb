@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   def set_default_role
     self.role ||= :律师
-    self.is_lawyer = true
+    # self.is_lawyer = true
   end
 
     #尝试注册传递律师，结果都是律师了
