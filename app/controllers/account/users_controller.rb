@@ -1,11 +1,12 @@
 class Account::UsersController < ApplicationController
   before_action :authenticate_user!
-  layout "user"  
+  layout "user"
 
 
 
   def index
     @user = current_user
+
   end
 
 
@@ -17,6 +18,7 @@ class Account::UsersController < ApplicationController
 
   def show
     @user = current_user
+    render :layout =>'user_panel_order'
   end
 
 

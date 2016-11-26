@@ -1,11 +1,8 @@
 class Lawyer::QuestionsController < ApplicationController
-
-
-
     # 必须律师登录才能查看问题
     before_action :authenticate_user!
     before_action :lawyer_required
-     before_action :get_mailbox
+    before_action :get_mailbox
 
     layout "lawyer"
 
@@ -30,7 +27,7 @@ class Lawyer::QuestionsController < ApplicationController
         Question.where(district:my_district)
       #仅显示登陆的律师所在地区及领域的问题并显示最新时间排序
       when 'lawyer_two'
-    
+
       my_district = @user.district
       my_area = @user.area
       Question.where(district:my_district,area:my_area).recent
