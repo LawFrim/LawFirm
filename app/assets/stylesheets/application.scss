@@ -19,7 +19,17 @@
  @import "responsive";
  @import "style";
 
+
+
+
+ .carousel-inner > .item > img,
+ .carousel-inner > .item > a > img {
+
+   width: 100% !important;
+
  
+ }
+
 
  .well {
 
@@ -166,4 +176,3 @@
     text-decoration: none;
     margin-left: -1.2em;
 }
-

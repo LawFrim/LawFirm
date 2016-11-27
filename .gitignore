@@ -22,3 +22,8 @@
 db/schema.rb
 public/uploads
 vendor/cache
+config/applicaiton.yml
+config/initializers/carrierwaver.rb
+
+# Ignore application configuration
+/config/application.yml
