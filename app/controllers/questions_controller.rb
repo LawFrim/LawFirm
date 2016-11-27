@@ -1,9 +1,7 @@
 class QuestionsController < ApplicationController
-
-
   # 必须登录才能问问题
   before_action :authenticate_user!
-
+  layout :user_layout
 
   # 只显示当前用户的问题
   def index
@@ -25,7 +23,7 @@ class QuestionsController < ApplicationController
 
 
     # mailbox方法
-    
+
 
 
   end
@@ -63,7 +61,17 @@ class QuestionsController < ApplicationController
     @question.destroy
     redirect_to :back
   end
+  protected
 
+   def user_layout
+     if current_user.is_admin?
+       "admin"
+     elsif current_user.is_lawyer?
+       "lawyer"
+     else
+       "user"
+     end
+   end
 
   private
 
