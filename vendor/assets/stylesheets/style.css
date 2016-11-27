@@ -142,7 +142,8 @@ h6 { font-size: 18px; }
 	border-color: #bcbcbc;
 }
 input[type=text].form-control,
-input[type=email].form-control {
+input[type=email].form-control,
+input[type=password].form-control {
 	height: 50px;
 }
 
