@@ -45,7 +45,11 @@ Rails.application.routes.draw do
     resources :users
     resources :questions do
       resources :answers
-      resources :conversations
+      resources :conversations do
+        member  do
+          get :show_lawyer
+         end
+      end
 
       # 评价系统
       collection do
