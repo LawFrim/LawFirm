@@ -38,6 +38,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
+  # 拿到提示
   def get_notification
     @notifications ||= Notification.where(recipient: current_user).unread
     # @notifications = current_user.notifications.unread
