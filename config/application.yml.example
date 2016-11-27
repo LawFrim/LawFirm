@@ -6,6 +6,4 @@
 # stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
 # stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
 #
- production:
-   AWS_ACCESS_KEY_ID: AKIAJ7EPPIIC2H6B52TQ
-   AWS_SECRET_ACCESS_KEY: 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
+ 
