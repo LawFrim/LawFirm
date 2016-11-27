@@ -41,7 +41,7 @@ gem 'devise-i18n'
 # f783
 gem 'public_activity'
 
-gem "fog-aws"
+gem "fog"
 gem 'figaro'
 
 # Use Redis adapter to run Action Cable in production
