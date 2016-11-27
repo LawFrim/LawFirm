@@ -38,6 +38,9 @@ class ApplicationController < ActionController::Base
       end
     end
 
+
+  # 拿到提示
+
     def after_sign_up_path_for(resource)
        #  account_questions_path #你的路径
        if current_user.is_lawyer?
@@ -46,6 +49,7 @@ class ApplicationController < ActionController::Base
          account_questions_path
        end
       end
+
 
   def get_notification
     @notifications ||= Notification.where(recipient: current_user).unread

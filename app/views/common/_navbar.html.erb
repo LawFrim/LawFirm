@@ -150,9 +150,19 @@
                     <!-- 插入的html触发码 -->
                     <% if @notifications.present? %>
                       <% @notifications.each do |n| %>
-                        <p><%= n.actor.user_name %>回复了
-                          <a href=<%= account_question_path(n.notifiable) %>><%= n.notifiable.content %></a>
-                        </p>
+
+                        <!-- 律师见到的 -->
+                        <% if current_user.lawyer? %>
+                          <p><%= n.actor.user_name %>追问了
+                            <a href=<%= lawyer_question_path(n.notifiable) %>><%= n.notifiable.content %></a>
+                          </p>
+                        <!-- 普通用户见到的 -->
+                        <% else %>
+                          <p><%= n.actor.user_name %>回复了
+                            <a href=<%= account_question_path(n.notifiable) %>><%= n.notifiable.content %></a>
+                          </p>
+                        <% end %>
+                        
                       <% end %>
                     <% else %>
                       <p>没有新的消息</p>
