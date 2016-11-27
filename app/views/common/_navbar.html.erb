@@ -161,11 +161,13 @@
                     ">
                 <i class="fa fa-bell-o fa-2x" aria-hidden="true">
 
+                  <!-- f1275-cgNumToRedPoint 提醒换成原点-->
                   <% if @notifications.present? %>
-                    <kbd>
-                    <%= @notifications.count %>
-                    </kbd>
+                    <div class='notification-point'>
+                      <%= @notifications.count %>
+                    </div>
                   <% end %>
+                  <!--  -->
 
                 </i>
             </li>
@@ -200,11 +202,12 @@ $(function (){
 
   // 标记已读
   $('#btn-notification').on('shown.bs.popover', function () {
-        $.ajax({
-        url: '<%= mark_as_read_notifications_path %>',
-        type: 'POST',
-        dataType: 'json',
-        data: {'read': 'true'},
+      $(".notification-point").remove();
+      $.ajax({
+      url: '<%= mark_as_read_notifications_path %>',
+      type: 'POST',
+      dataType: 'json',
+      data: {'read': 'true'},
       })
       .done(function() {
         console.log("success");
