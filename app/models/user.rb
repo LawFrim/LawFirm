@@ -1,11 +1,29 @@
 class User < ApplicationRecord
+
   # 首页选项字段
   enum role: {用户: 0, 律师: 1}
+
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role
-    self.role ||= :用户
+    self.role ||= :律师
+    # self.is_lawyer = true
   end
+
+    #尝试注册传递律师，结果都是律师了
+  # after_initialize :set_user, :if => :new_record?
+  # def set_user
+  #   if
+  #     self.role = 1
+  #     self.is_lawyer = true
+  #     self.is_admin = false
+  #   else
+  #     self.role = 0
+  #     self.is_lawyer = false
+  #     self.is_admin = false
+  #   end
+  #  end
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -89,7 +107,7 @@ class User < ApplicationRecord
   def lawyer?
   is_lawyer
   end
-  
+
   def pay!
     self.update_columns(is_vip: true)
   end
@@ -112,7 +130,7 @@ class User < ApplicationRecord
     questions = q.map {|x| x.question }
     return questions
   end
-  # 
+  #
 
 
 end

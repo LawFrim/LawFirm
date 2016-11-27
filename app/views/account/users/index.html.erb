@@ -25,7 +25,7 @@
                     <p>用户名： <%= @user.user_name %></p>
 
 
-             
+
 
                     <td>用户名：</td>
                     <td><%= @user.user_name %></td>
@@ -44,7 +44,7 @@
                   </div>
                   <br>
                   <div>
-                    <%= link_to("修改密码", "#", class: "btn  btn-secondary text-uppercase flat animation" ) %>
+                    <%= link_to("修改密码", edit_user_registration_path(@user), class: "btn  btn-secondary text-uppercase flat animation" ) %>
                 </div>
             </div>
 

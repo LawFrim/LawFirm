@@ -50,7 +50,7 @@
             </td>
             <td>
                 <!-- <%= link_to("Edit", edit_admin_user_path(user))%>  -->
-                <%= change_user_status(user) %>|
+                <%= change_user_status(user) %><br>
                 <%= link_to("删除用户", admin_user_path(user),
                         method: :delete, data: { confirm: "Are you sure?" },class:"btn  btn-danger btn-xs")  %>
 
@@ -72,6 +72,10 @@
       </tr>
     <% end %>
   </tbody>
-
 </table>
+</div>
+
+<div class="row">
+  <p style="padding:220px;"></p>
+  <!--此行代码解决页面中footer在上面的问题  -->
 </div>
