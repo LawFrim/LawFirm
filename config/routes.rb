@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users,:controllers =>{:resgistrations => :resgistrations}
-  as :user do
-  get 'users', :to => 'users#show', :as => :user_root # Rails 3
-end
+#   as :user do
+#   get 'users', :to => 'users#show', :as => :user_root # Rails 3
+# end
 
 
   # 管理员路由
@@ -45,7 +45,11 @@ end
     resources :users
     resources :questions do
       resources :answers
-      resources :conversations
+      resources :conversations do
+        member  do
+          get :show_lawyer
+         end
+      end
 
       # 评价系统
       collection do
@@ -79,7 +83,7 @@ end
 
   resources :welcome do
     collection do
-      post :pricing
+      post :pricing  #支付路由
     end
   end
 

@@ -1,0 +1,68 @@
+
+
+<div class="row">
+  <div class="container">
+
+
+    	<div class="row well"  style="opacity:0.95;width:80%;">
+
+    <div class="col-md-2">
+      <%= render_user_small_avatar(@conversation.originator) %>
+
+
+    </div>
+    <div class="col-md-8 col-md-offset-1">
+        <table class="table user-table-info">
+            <tbody>
+
+
+                 <tr>
+                    <td>用户名</td>
+                    <td><%= @conversation.originator.user_name %></td>
+                </tr>
+                <tr>
+                    <td>电子邮件</td>
+                    <td><%= @conversation.originator.email %></td>
+                </tr>
+                <tr>
+                    <td>所在地区</td>
+                    <td><%= @conversation.originator.district %></td>
+                </tr>
+
+                <tr>
+                    <td>领域</td>
+                    <td><%= @conversation.originator.area %></td>
+                </tr>
+                <tr>
+                    <td>律师事务所</td>
+                    <td><%= @conversation.originator.lawfirm %></td>
+                </tr>
+                <tr>
+                    <td>律师证号</td>
+                    <td><%= @conversation.originator.certificate_number %></td>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+
+
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>

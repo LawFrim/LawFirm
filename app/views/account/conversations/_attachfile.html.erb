@@ -1,0 +1,17 @@
+        <!-- f1042-tryAttachmentForMaibox -->
+        <% if message.attachment.present? %>
+          <span class="glyphicon glyphicon-file">  附件</span>
+          <br>
+          <div>
+            <a href="<%= message.attachment.url %>" download="" target="_blank">
+
+              <h4><i class="fa fa-file-text" aria-hidden="true"></i></h4>
+              <p><%= message.attachment.file.filename %></p>
+
+            </a>
+          </div>
+        <% end %>
+        <!-- f1042-tryAttachmentForMaibox -->
+
+
+

@@ -36,7 +36,8 @@ gem 'gravtastic'
 gem 'jquery-turbolinks'
 # f120
 gem 'mailboxer'
-
+#f1143
+gem 'devise-i18n'
 # f783
 gem 'public_activity'
 
