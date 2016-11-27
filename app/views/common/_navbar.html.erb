@@ -74,7 +74,7 @@
 
               <% elsif current_user.lawyer? %>
 
-               <%= link_to("律师面板",lawyer_questions_path(:order => "waiting_for_answer")) %>
+               <%= link_to("律师面板",lawyer_users_path) %>
               <% else %>
               <%= link_to("我的动态", account_questions_path) %>
           <% end %>
@@ -121,7 +121,7 @@
                           <li> <%= link_to(content_tag(:i, ' 管理员面板', class: 'fa fa-universal-access'), admin_questions_path ) %> </li>
                           <li> <%= link_to(content_tag(:i, ' 管理员中心', class: 'fa fa-users'), admin_users_path ) %> </li>
                           <% elsif current_user.lawyer? %>
-                          <li> <%= link_to(content_tag(:i, ' 律师面板', class: 'fa fa-university'), lawyer_questions_path(:order => "waiting_for_answer") ) %> </li>
+                          <li> <%= link_to(content_tag(:i, ' 律师面板', class: 'fa fa-university'), lawyer_questions_path ) %> </li>
                           <li> <%= link_to(content_tag(:i, ' 用户中心', class: 'fa fa-vcard'), lawyer_users_path ) %> </li>
                           <% else %>
                           <li> <%= link_to(content_tag(:i, ' 我的动态', class: 'fa fa-user-secret'), account_questions_path ) %> </li>

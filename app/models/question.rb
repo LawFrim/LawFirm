@@ -6,14 +6,6 @@ class Question < ApplicationRecord
   # 文档对象链接
   has_many :notifications, as: :notifiable
 
-
-
-  # 律师与问题的多对多关系
-  has_many :lawyer_answered_questions
-  # has_and_belongs_to_many :lawyers
- 
-
-
   # f1042-建立问题附件连接
   mount_uploader :attachment, Mailboxer::AttachmentUploader
 
@@ -36,13 +28,6 @@ class Question < ApplicationRecord
   def reopened!
     self.is_answered = false
     self.save   
-  end
-
-
-  def answered_lawyers
-    q = self.lawyer_answered_questions
-    users = q.map {|x| x.lawyer.user }
-    return users
   end
 
 

@@ -33,7 +33,6 @@ end
 #  is_vip                 :boolean          default(FALSE)
 #  certificate            :string
 #  certificate_number     :string
-#  answered_question_id   :integer
 #
 # Indexes
 #

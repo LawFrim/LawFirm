@@ -38,9 +38,6 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.is_lawyer= true
     @user.save
-    # f1195-fixLawyerQuestionSystem
-    @user.is_lawyer!
-    # 
     redirect_to :back
   end
 
@@ -59,7 +56,5 @@ class Admin::UsersController < ApplicationController
 
     redirect_to :back
   end
-
-
 
 end

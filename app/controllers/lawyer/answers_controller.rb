@@ -19,9 +19,6 @@ class Lawyer::AnswersController < ApplicationController
     attachment = answer_params[:attachment]
     # 对话id
     conversation_id = answer_params[:conversation_id]
-
-
-
     # mailboxer方法
     # 如果之前没有对话，就新建对话。如果有，就回复对话
 
@@ -43,21 +40,8 @@ class Lawyer::AnswersController < ApplicationController
 
     end
 
-    # binding.pry
-
-    # 
-    # 更新律师与问题的多对多回答表
-    lawyer_answer_question = LawyerAnsweredQuestion.new
-    lawyer_answer_question.lawyer = current_user.lawyer
-    lawyer_answer_question.question = @question
-    lawyer_answer_question.save
-    # 
-
-
-
     # f470-变成已回答状态
     @question.answered!
-
 
     # binding.pry
     flash[:notice] = "回复成功"
