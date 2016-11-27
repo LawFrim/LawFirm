@@ -15,3 +15,6 @@ module Lawfirm
   end
 
 end
+
+
+config.serve_static_assets = true
