@@ -1,4 +1,4 @@
- 
+//= require jquery.turbolinks
 
 $(function() {
 

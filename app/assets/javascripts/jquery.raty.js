@@ -1,3 +1,5 @@
+//= require jquery.turbolinks
+
 /*!
  * jQuery Raty - A Star Rating Plugin
  *
