@@ -13,10 +13,10 @@
             <!-- 用户头像 -->
 
             <%= render_user_small_avatar(@conversation.originator) %>
-
+              <%# binding.pry %>
           </div>
           <div class="answerFrom">
-              <p class="lawyerName"> <%= @conversation.originator.user_name %></p>
+              <p class="lawyerName"> <%= link_to @conversation.originator.user_name, show_lawyer_account_question_conversation_path %></p>
               <p class="answerStatus">回答了您的问题 </p>
               </div>
 

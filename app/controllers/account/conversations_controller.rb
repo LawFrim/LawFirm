@@ -17,6 +17,10 @@ class Account::ConversationsController < ApplicationController
     # binding.pry
   end
 
+  def show_lawyer
+    @question = Question.find(params[:question_id])
+    @conversation = @question.conversations.find(params[:id])
+  end 
 
 
   # 追问问题
@@ -50,18 +54,17 @@ class Account::ConversationsController < ApplicationController
       current_user.reply_to_conversation(conversation, answer_content,nil,true,true,attachment)
       puts '!!!!!!!!'
     end
-
+c
 
     # binding.pry
 
     # f470-变成待回答状态
     @question.reopened!
-    
+
     # binding.pry
     flash[:notice] = "回复成功"
     redirect_to :back
   end
-
 
 
 
