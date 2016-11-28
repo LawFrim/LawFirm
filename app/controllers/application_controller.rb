@@ -60,8 +60,9 @@ class ApplicationController < ActionController::Base
 
 
 
-
+  # 可继承的方法
   protected
+
    def configure_permitted_parameters
      devise_parameter_sanitizer.permit(:sign_up, keys: [:role])
      devise_parameter_sanitizer.permit(:account_update, keys: [:role])
@@ -77,6 +78,61 @@ class ApplicationController < ActionController::Base
     puts notifiable.class
     Notification.create(recipient_id: recipient, actor_id: actor, notifiable_id: notifiable.id, notifiable_type: notifiable.class)
     # binding.pry
+    # 消息系统中嵌入邮件发送
+    send_notification_mail(recipient,notifiable)
   end
+
+
+  # 邮件系统-通知(使用mailgun客户端)
+  def send_notification_mail(user,question)
+    mg_client = Mailgun::Client.new
+
+    message_params =  noti_message_params('response',user,question: question)
+
+    result = mg_client.send_message('whenmgone.com', message_params)
+  end
+  # 
+
+
+  # 邮件系统-注册密码(使用mailgun客户端)
+  def send_password_mail(user,password)
+    mg_client = Mailgun::Client.new
+
+    message_params =  noti_message_params('register',reciver,password: password)
+
+    result = mg_client.send_message('whenmgone.com', message_params)
+  end
+  # 
+
+
+  # 消息模板
+  def noti_message_params(message_type,reciver,question = nil,password = nil)
+    reciver_obj = User.find(reciver)
+    question_obj = question.values.last
+    case message_type
+    # 回复类邮件
+    when 'response'
+      message_params =  {
+                     from: 'whenmgonetest@163.com',
+                     to:   reciver_obj.email,
+                     subject: 'Lawyer法律咨询平台',
+                     html:    '<p>有人回复了问题 <a href="'+ ENV['DOMAIN'] + account_question_path(question_obj.id) +'">' + question_obj.content + '</a></p>...'
+                    }  
+      return  message_params
+    # 注册邮件
+    when 'register'
+      message_params =  {
+                     from: 'whenmgonetest@163.com',
+                     to:   reciver_obj.email,
+                     subject: 'Lawyer法律咨询平台',
+                     html:    '<p>您已成功注册，您的当前密码为'+ password +'，可以登陆后修改</p>,...'
+                    }  
+      return  message_params
+    end
+  end
+  # 
+
+
+
 
 end

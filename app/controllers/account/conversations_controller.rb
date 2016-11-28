@@ -59,7 +59,7 @@ class Account::ConversationsController < ApplicationController
       # 客户发给律师提醒追问
       send_notification!(conversation.originator.id, current_user.id, @question)
     end
-c
+
 
     # binding.pry
 
