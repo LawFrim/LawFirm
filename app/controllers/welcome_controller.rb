@@ -31,7 +31,7 @@ class WelcomeController < ApplicationController
     # User.create(:email => new_user_email, :password => generated_password)
     
     # 发送邮件通知用户新密码
-    binding.pry
+    # binding.pry
     send_password_mail(user.id,generated_password)
 
     # 为这个用户建立新问题
