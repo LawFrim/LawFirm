@@ -87,7 +87,17 @@ class ApplicationController < ActionController::Base
   def send_notification_mail(user,question)
     mg_client = Mailgun::Client.new
 
-    message_params =  noti_message_params('response',user,question: question)
+
+    reciver_obj = User.find(user)
+    question_obj = question.values.last
+    message_params =  {
+                   from: 'whenmgonetest@163.com',
+                   to:   reciver_obj.email,
+                   subject: 'Lawyer法律咨询平台',
+                   html:    "<p>有人回复了问题 <a href='"+ ENV['DOMAIN'] + account_question_path(question_obj.id) +"'>" + question_obj.content + "</a></p>..."
+                  }  
+
+
 
     result = mg_client.send_message('whenmgone.com', message_params)
   end
@@ -97,42 +107,20 @@ class ApplicationController < ActionController::Base
   # 邮件系统-注册密码(使用mailgun客户端)
   def send_password_mail(user,password)
     mg_client = Mailgun::Client.new
+    reciver_obj = User.find(user)
+    # binding.pry
+    message_params =  {
+                   from: 'whenmgonetest@163.com',
+                   to:   reciver_obj.email,
+                   subject: 'Lawyer法律咨询平台',
+                   html:    "<p>您已成功注册，您的当前密码为 <kbd>"+ password +"</kbd> 可以登陆后修改</p>,..."
+                  } 
 
-    message_params =  noti_message_params('register',user,password: password)
+
+
 
     result = mg_client.send_message('whenmgone.com', message_params)
   end
   # 
-
-
-  # 消息模板
-  def noti_message_params(message_type,reciver,question = nil,password = nil)
-    reciver_obj = User.find(reciver)
-    question_obj = question.values.last
-    case message_type
-    # 回复类邮件
-    when 'response'
-      message_params =  {
-                     from: 'whenmgonetest@163.com',
-                     to:   reciver_obj.email,
-                     subject: 'Lawyer法律咨询平台',
-                     html:    '<p>有人回复了问题 <a href="'+ ENV['DOMAIN'] + account_question_path(question_obj.id) +'">' + question_obj.content + '</a></p>...'
-                    }  
-      return  message_params
-    # 注册邮件
-    when 'register'
-      message_params =  {
-                     from: 'whenmgonetest@163.com',
-                     to:   reciver_obj.email,
-                     subject: 'Lawyer法律咨询平台',
-                     html:    '<p>您已成功注册，您的当前密码为 <kbd>'+ password +'</kbd> 可以登陆后修改</p>,...'
-                    }  
-      return  message_params
-    end
-  end
-  # 
-
-
-
 
 end
