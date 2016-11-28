@@ -98,7 +98,7 @@ class ApplicationController < ActionController::Base
   def send_password_mail(user,password)
     mg_client = Mailgun::Client.new
 
-    message_params =  noti_message_params('register',reciver,password: password)
+    message_params =  noti_message_params('register',user,password: password)
 
     result = mg_client.send_message('whenmgone.com', message_params)
   end
@@ -125,7 +125,7 @@ class ApplicationController < ActionController::Base
                      from: 'whenmgonetest@163.com',
                      to:   reciver_obj.email,
                      subject: 'Lawyer法律咨询平台',
-                     html:    '<p>您已成功注册，您的当前密码为'+ password +'，可以登陆后修改</p>,...'
+                     html:    '<p>您已成功注册，您的当前密码为 <kbd>'+ password +'</kbd> 可以登陆后修改</p>,...'
                     }  
       return  message_params
     end

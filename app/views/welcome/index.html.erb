@@ -282,7 +282,32 @@
       <div class="row">
       <!-- Form Starts -->
         <div class="col-md-6 col-xs-12">
-          <form action="#">
+
+
+
+
+          <!-- form -->
+          <%= simple_form_for  @temp_question,url: get_temp_question_welcome_index_path do |t| %>
+
+          <div class="form-group">
+              <%= t.input :content, label: '问题描述',input_html: { class: "form-control"} %>
+              <%= t.input :email, label: '邮箱',input_html: { class: "form-control"} %>
+          </div>
+          <%= t.submit "立即拥有私人法务", class: "btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交..." } %>
+          <% end %>
+          <!--  -->
+
+
+
+
+
+
+
+
+
+
+
+<!--           <form action="#">
             <div class="form-group">
 
               <label for="fs-name" class="sr-only">你的姓名</label>
@@ -306,10 +331,10 @@
             <button type="submit" class="btn btn-block btn-secondary text-uppercase flat animation">
                立即拥有私人法务
               </button>
+          </form> -->
 
 
 
-          </form>
         </div>
       <!-- Form Ends -->
 

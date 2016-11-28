@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161125104511) do
+ActiveRecord::Schema.define(version: 20161128074653) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -161,6 +161,13 @@ ActiveRecord::Schema.define(version: 20161125104511) do
     t.boolean  "is_answered",  default: false
     t.string   "attachment"
     t.string   "service_type"
+  end
+
+  create_table "temp_questions", force: :cascade do |t|
+    t.text     "content"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
