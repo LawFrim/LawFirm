@@ -2,6 +2,101 @@
 
 <div class="cardHeightWrap row">
 
+    <% if @questions.blank? %>
+
+
+
+
+      <div class="col-md-4 cold-sm-6 cardHeightWrap">
+
+
+
+        <div class="itemCard questionCard animation">
+
+
+
+          <div class=""></div>
+
+
+        <!-- 上边条 -->
+        <div class="statusBar">
+        </div>
+        <!--  -->
+
+        <div class="cardHeading">
+
+          <div class="topHeading">
+
+              <p class="cardTitle questionTitle">您当前还没有提出任何问题</p>
+
+
+
+
+        <div class="questionDate">
+
+        </div>
+          <!---wait for refracotring -->
+
+          <!-- 判断回答状态 -->
+            <div class="questionStatus-response" >
+            <br>
+            <br>
+
+
+          </div>
+
+        </div>
+        </div>
+
+        <!-- 链接指定项目 -->
+        <a href="<%= new_account_question_path %>">
+          <div class="jumbotron" style="line-height: 14em;">
+            <div class="container">
+            <!-- 临时方案做按钮 -->
+              <h5> <br></h5>
+              <h1 class="text-center"><span class="glyphicon glyphicon-plus"></span></h1>
+              <h3><br></h3>
+              <!--  -->
+            </div>
+          </div>
+
+        </a>
+      </div>
+
+
+      <!--  -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <% end %>
+
       <% @questions.each do |question| %>
 
       <div class="col-md-4 cold-sm-6 cardHeightWrap">
