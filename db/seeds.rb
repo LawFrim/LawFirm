@@ -12,7 +12,8 @@ puts "创建两个 admin 账户（默认也是律师），和四个当事人，�
 User.create([email:"a@lawyer.com",user_name:"孙大律师", password:"111111", password_confirmation:"111111", is_admin:"true", is_lawyer:"true",district:"北京", area:"民事"])
 User.create([email:"b@lawyer.com", user_name:"静律师",password:"111111", password_confirmation:"111111", is_admin:"true",is_lawyer:"false",district:"北京", area:"民事"])
 User.create([email:"c@lawyer.com",user_name:"梁大锤", password:"111111", password_confirmation:"111111", is_admin:"false",is_lawyer:"true",district:"上海", area:"民事"])
-
+Lawyer.create([user_id: 1])
+Lawyer.create([user_id: 3])
 
 puts "3 Admin account created."
 
