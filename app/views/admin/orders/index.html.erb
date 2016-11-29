@@ -1,16 +1,11 @@
-<div class="container">
+  <div class="container-fluid well">
 
-
-  <div class="well">
-  <div class="container-fluid">
-  <div class="row-fluid">
   <div class="span12">
     <table class="table table-bordered">
       <h4><small>订单动态</small></h4>
     	<thead>
 <tr>
   <td>ID</td>
-  <td>订单内容</td>
   <td>订单总价</td>
   <td>订购人姓名</td>
   <td>订购人邮箱地址</td>
@@ -24,7 +19,6 @@
       <tr>
 
             <td><%= order.id%></td>
-            <td><%= link_to(order.item,edit_account_order_path(order)) %></td>
             <td><%= order.total%><br>RMB</td>
             <td><%= order.billing_name %></td>
             <td><%= order.billing_address%></td>
@@ -43,8 +37,3 @@
     </table>
 </div>
 </div>
-</div>
-</div>
-</div>
-
- 
