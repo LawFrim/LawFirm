@@ -38,9 +38,10 @@ class WelcomeController < ApplicationController
       question = Question.create(content: new_quesion_content, user: user)
       flash[:notice] = "请查收邮箱获取默认密码！"
 
-      # 重定向到首页 
-      # redirect_to '/'
+      
+      # 用户登录
       sign_in user
+      # 用户重定向
       redirect_to account_questions_path
 
     else
