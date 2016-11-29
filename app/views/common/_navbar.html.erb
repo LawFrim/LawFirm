@@ -1,4 +1,3 @@
-
 <header class="main-header">
 <!-- Nested Container Starts -->
   <div class="container">
@@ -8,7 +7,7 @@
       <div class="col-md-3 col-sm-4 col-xs-12">
 
 
-        <%=link_to(image_tag("/images/logo.png",alt:"Law Attorney", class:"img-responsive img-center-xs logo"),root_path)%>
+        <%=link_to(image_tag("logo.png",alt:"Law Attorney", class:"img-responsive img-center-xs logo"),root_path)%>
       </div>
     <!-- Logo Ends -->
     <!-- Right Col Starts -->
@@ -84,7 +83,7 @@
         </li>
 
       </ul>
-      <ul class="nav navbar-nav navbar-right text-right-lg text-right-md hidden-sm hidden-xs">
+      <ul class="nav navbar-nav navbar-right text-right-lg text-right-md ">
 
 
 
@@ -162,7 +161,7 @@
                             <a href=<%= account_question_path(n.notifiable) %>><%= n.notifiable.content %></a>
                           </p>
                         <% end %>
-                        
+
                       <% end %>
                     <% else %>
                       <p>没有新的消息</p>

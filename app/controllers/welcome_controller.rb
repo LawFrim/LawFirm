@@ -1,6 +1,10 @@
 class WelcomeController < ApplicationController
+<<<<<<< HEAD
   layout 'welcome'
   
+=======
+ # layout 'welcome'
+>>>>>>> develop
   def index
     # flash[:notice] = "早安！你好！"
     # 给个可以发临时问题的页面，可以接收问题和用户邮箱
