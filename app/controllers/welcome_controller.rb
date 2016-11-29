@@ -34,22 +34,20 @@ class WelcomeController < ApplicationController
       # send_password_mail(user.id,generated_password)
       
       ModelMailer.send_password_mail(user.id,generated_password).deliver
-      flash[:notice] = "请查收邮箱获取密码！"
+      # 为这个用户建立新问题
+      question = Question.create(content: new_quesion_content, user: user)
+      flash[:notice] = "请查收邮箱获取默认密码！"
+
+      
+      # 用户登录
+      sign_in user
+      # 用户重定向
+      redirect_to account_questions_path
+
     else
-      flash[:notice] = "您的问题已发布！"
+      # 如果是已存在用户让他登录
+      redirect_to new_user_session_path
     end
-
-    # 发送邮件通知用户新密码
-    # binding.pry
-    
-
-    # 为这个用户建立新问题
-    question = Question.create(content: new_quesion_content, user: user)
-    puts 'build question success!!!'
-
-    # 重定向到首页
-    
-    redirect_to '/'
   end
 
 
