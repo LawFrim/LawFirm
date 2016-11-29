@@ -1,10 +1,5 @@
 class WelcomeController < ApplicationController
-<<<<<<< HEAD
-  layout 'welcome'
-  
-=======
- # layout 'welcome'
->>>>>>> develop
+ 
   def index
     # flash[:notice] = "早安！你好！"
     # 给个可以发临时问题的页面，可以接收问题和用户邮箱
@@ -23,7 +18,7 @@ class WelcomeController < ApplicationController
     temp_queston = TempQuestion.create(temp_question_params)
     new_user_email = temp_question_params[:email]
     new_quesion_content = temp_question_params[:content]
-    
+
     # hash用户的密码
     generated_password = Devise.friendly_token.first(8)
     # 建立新用户
@@ -33,7 +28,7 @@ class WelcomeController < ApplicationController
     user.password_confirmation = generated_password
     user.save
     # User.create(:email => new_user_email, :password => generated_password)
-    
+
     # 发送邮件通知用户新密码
     # binding.pry
     send_password_mail(user.id,generated_password)
@@ -47,7 +42,7 @@ class WelcomeController < ApplicationController
 
     # 重定向到首页
     flash[:notice] = "请查收邮箱获取密码！"
-    redirect_to '/' 
+    redirect_to '/'
   end
 
 
