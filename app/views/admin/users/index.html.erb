@@ -1,4 +1,6 @@
+
 <div class="container-fluid well">
+ 
 <ul class="breadcrumb">
     <li class="active">
         <%= link_to("所有用户", admin_users_path) %>
@@ -15,13 +17,15 @@
         <tr>
             <td>用户ID</td>
             <td>用户名</td>
+            <td>用户邮箱</td>
             <td>注册时间</td>
             <td>上次登录时间</td>
             <td>管理选项</td>
-            <td>身份认证</td>
+            <td>律师认证</td>
             <td>注册角色</td>
-            <td>律师声誉</td>
             <td>支付状况</td>
+
+
         </tr>
     </thead>
 
@@ -30,9 +34,9 @@
             <% @users.each do |user| %>
             <tr>
                 <%= render :partial => "admin_index_table", :locals =>{:user => user},:as => :user %>
-
             </tr>
             <% end %>
+
         </tbody>
     </table>
 </div>

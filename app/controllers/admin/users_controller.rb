@@ -11,9 +11,14 @@ class Admin::UsersController < ApplicationController
     when 'by_account'
       User.account
     else
-      User.all
+      User.all.recent
     end
   end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
 
   def destroy
     @user = User.find(params[:id])
@@ -40,7 +45,7 @@ class Admin::UsersController < ApplicationController
     @user.save
     # f1195-fixLawyerQuestionSystem
     @user.is_lawyer!
-    # 
+    #
     redirect_to :back
   end
 
