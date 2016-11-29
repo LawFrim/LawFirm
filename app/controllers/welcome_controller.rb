@@ -7,4 +7,14 @@ class WelcomeController < ApplicationController
  def show
  end
 
+ def join_us
+
+ end
+
+ def abouts
+
+ end
+
+ def map_guides
+ end
 end

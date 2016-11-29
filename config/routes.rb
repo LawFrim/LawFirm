@@ -82,9 +82,11 @@ Rails.application.routes.draw do
 
 
   resources :welcome do
+    
     collection do
       post :pricing  #支付路由
     end
+
   end
 
 
