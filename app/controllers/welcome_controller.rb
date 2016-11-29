@@ -1,12 +1,18 @@
 class WelcomeController < ApplicationController
- 
+
   def index
     # flash[:notice] = "早安！你好！"
     # 给个可以发临时问题的页面，可以接收问题和用户邮箱
     @temp_question = TempQuestion.new
   end
 
-
+  def mapguide
+  end
+  def aboutus
+  end
+  def joinus
+  end
+  
 
   def show
   end
@@ -32,7 +38,7 @@ class WelcomeController < ApplicationController
     if user.blank?
       user =  User.create(:email => new_user_email, :password => generated_password)
       # send_password_mail(user.id,generated_password)
-      
+
       ModelMailer.send_password_mail(user.id,generated_password).deliver
       flash[:notice] = "请查收邮箱获取密码！"
     else
@@ -41,14 +47,14 @@ class WelcomeController < ApplicationController
 
     # 发送邮件通知用户新密码
     # binding.pry
-    
+
 
     # 为这个用户建立新问题
     question = Question.create(content: new_quesion_content, user: user)
     puts 'build question success!!!'
 
     # 重定向到首页
-    
+
     redirect_to '/'
   end
 
