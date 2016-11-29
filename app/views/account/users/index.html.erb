@@ -1,3 +1,5 @@
+<div class="container">
+
 
     <div class="container-fluid">
 
@@ -28,19 +30,26 @@
                 </p>
 
 
-                    <p>所在地区：<%= @user.district %></p>
+                <%= render :partial => "common/user_name", :locals =>{:account => @user},:as => :user %>
+            </p>
+            <p>
+                <td>电子邮件：
+                </td>
+                <td><%= @user.email %></td>
+            </p>
 
-                    <br>
-                <div>
-                    <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn  btn-secondary text-uppercase flat animation") %>
-                  </div>
-                  <br>
-                  <div>
-                    <%= link_to("修改密码", edit_user_registration_path(@user), class: "btn  btn-secondary text-uppercase flat animation" ) %>
-                </div>
+            <p>所在地区：<%= @user.district %></p>
+
+            <br>
+            <div>
+                <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn  btn-secondary text-uppercase flat animation") %>
             </div>
-
-
-                </div>
+            <br>
+            <div>
+                <%= link_to("修改密码", edit_user_registration_path(@user), class: "btn  btn-secondary text-uppercase flat animation" ) %>
             </div>
         </div>
+
+    </div>
+</div>
+</div>
