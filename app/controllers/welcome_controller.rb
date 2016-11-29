@@ -21,27 +21,32 @@ class WelcomeController < ApplicationController
 
     # hash用户的密码
     generated_password = Devise.friendly_token.first(8)
+
+    # 看这个用户是否之前建立过
+
+
+
+
     # 建立新用户
-    user = User.new
-    user.email = new_user_email
-    user.password = generated_password
-    user.password_confirmation = generated_password
-    user.save
-    # User.create(:email => new_user_email, :password => generated_password)
+    user = User.find_by(email: new_user_email)
+    if user.blank?
+      user =  User.create(:email => new_user_email, :password => generated_password)
+      send_password_mail(user.id,generated_password)
+      flash[:notice] = "请查收邮箱获取密码！"
+    else
+      flash[:notice] = "您的问题已发布！"
+    end
 
     # 发送邮件通知用户新密码
     # binding.pry
-    send_password_mail(user.id,generated_password)
+    
 
     # 为这个用户建立新问题
-    question = Question.new
-    question.content = new_quesion_content
-    question.user = user
-    question.save
+    question = Question.create(content: new_quesion_content, user: user)
     puts 'build question success!!!'
 
     # 重定向到首页
-    flash[:notice] = "请查收邮箱获取密码！"
+    
     redirect_to '/'
   end
 
