@@ -36,7 +36,7 @@
                 <%= render_user_status(user) %>
                 <%= user.user_name%>
                 <%= render_user_vip(user) %>
-
+                <%= render :partial => "user_names", :collection => @user_name, :as => :user_name %>
             </td>
 
             <td>
