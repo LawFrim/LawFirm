@@ -60,8 +60,9 @@ class ApplicationController < ActionController::Base
 
 
 
-
+  # 可继承的方法
   protected
+
    def configure_permitted_parameters
      devise_parameter_sanitizer.permit(:sign_up, keys: [:role])
      devise_parameter_sanitizer.permit(:account_update, keys: [:role])
@@ -77,6 +78,21 @@ class ApplicationController < ActionController::Base
     puts notifiable.class
     Notification.create(recipient_id: recipient, actor_id: actor, notifiable_id: notifiable.id, notifiable_type: notifiable.class)
     # binding.pry
+    # 消息系统中嵌入邮件发送
+    # send_notification_mail(recipient,notifiable)s
+    user = User.find(recipient)
+    if user.lawyer?
+      question_url = ENV['DOMAIN_NAME'] + lawyer_question_path(@question)
+    else
+      question_url = ENV['DOMAIN_NAME'] + account_question_path(@question)
+    end
+
+    # 邮箱发送提醒信件
+    ModelMailer.send_notification_mail(recipient, @question,question_url).deliver
   end
+
+
+
+
 
 end

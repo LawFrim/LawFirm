@@ -9,6 +9,8 @@ class Account::QuestionsController < ApplicationController
   # 只显示当前用户的问题
   def index
     @questions = Question.where(user_id: current_user).recent
+    # send_simple_message
+    # binding.pry
   end
 
 
