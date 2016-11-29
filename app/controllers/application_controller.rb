@@ -87,7 +87,7 @@ class ApplicationController < ActionController::Base
       question_url = ENV['DOMAIN_NAME'] + account_question_path(@question)
     end
 
-    
+    # 邮箱发送提醒信件
     ModelMailer.send_notification_mail(recipient, @question,question_url).deliver
   end
 
