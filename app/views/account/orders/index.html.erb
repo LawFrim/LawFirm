@@ -1,16 +1,9 @@
-<div class="container">
-<div class="well">
-<div class="container-fluid">
-	<div class="row-fluid">
-		<div class="span12">
+<div class="well container-fluid">
 			<table class="table table-bordered">
 				<thead>
 					<tr>
 						<th>
 							订单编号
-						</th>
-						<th>
-							订单内容
 						</th>
 						<th>
 							订单总价
@@ -24,7 +17,6 @@
             <th>
 							订购人邮箱地址
 						</th>
-
             <th>
 							支付方式
 						</th>
@@ -37,12 +29,10 @@
             <%  @orders.each do |order|%>
 					<tr>
             <td><%= order.id%></td>
-            <td><%= link_to(order.item, edit_account_order_path(order)) %></td>
-            <td><%= order.total%><br>RMB</td>
+           <td><%= order.total%><br>RMB</td>
             <td><%= order.created_at%></td>
             <td><%= order.billing_name %></td>
             <td><%= order.billing_address%></td>
-
             <td><% if !order.is_paid?%>
                 等待支付
                 <% else %>
@@ -52,15 +42,11 @@
             <td><% if order.is_paid?%>
             已支付
               <% else %>
-            <%= link_to("支付宝", pay_with_alipay_account_order_path(order), :method => :post, class:"btn  btn-secondary text-uppercase flat animation") %>
-            <%= link_to("微信", pay_with_wechat_account_order_path(order),   :method => :post, class:"btn  btn-secondary text-uppercase flat animation") %>
+           <%= link_to("支付宝", pay_with_alipay_account_order_path(order), :method => :post, class:"btn  btn-secondary text-uppercase flat animation") %>
+				 	<%= link_to("微信", pay_with_wechat_account_order_path(order),   :method => :post, class:"btn  btn-secondary text-uppercase flat animation") %>
               <% end %></td>
 					</tr>
             <% end %>
 				</tbody>
 			</table>
 		</div>
-	</div>
-	</div>
-</div>
-</div>
