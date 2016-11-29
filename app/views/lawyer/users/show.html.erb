@@ -11,7 +11,7 @@
 
     </tr>
     <tr>
-      <%= render :partial => "user_names", :collection => @user_name, :as => :user_name %>
+      <%= render :partial => "common/user_name", :locals =>{:lawyer => @user},:as => :user %>
 
 
         <td><%= @user.email %></td>

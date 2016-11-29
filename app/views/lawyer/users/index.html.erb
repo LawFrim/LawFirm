@@ -21,18 +21,10 @@
                 <h6>我的资料</h6>
 
               </tr>
-              <tr>
-                  <td>用户认证</td>
-                  <td><%= render_user_vip(@user) %></td>
-                  parial
-                  <%= render :partial => "user_names", :collection => @user_name, :as => :user_name %>
 
-              </tr>
                 <tr>
                     <td>用户名</td>
-                    <td><%= @user.user_name %></td>
-                    parical2
-                    <%= render :partial => "user_names", :collection => @user_name, :as => :user_name %>
+                  <td>  <%= render :partial => "common/user_name", :locals =>{:lawyer => @user},:as => :user %></td>
 
                 </tr>
                 <tr>

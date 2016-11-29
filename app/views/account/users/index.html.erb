@@ -15,34 +15,28 @@
                 <h6>我的资料</h6>
             </h3>
 
-            <p>用户认证：
-                <%= render_user_vip(@user) %></p>
-
             <p>用户名：
-                <%= @user.user_name %></p>
 
-            <td>用户名partial：</td>
-            <%= render :partial => "user_names", :collection => @user_name, :as => :user_name %>
+                <%= render :partial => "common/user_name", :locals =>{:account => @user},:as => :user %>
+            </p>
+            <p>
+                <td>电子邮件：
+                </td>
+                <td><%= @user.email %></td>
+            </p>
 
-        </p>
-        <p>
-            <td>电子邮件：
-            </td>
-            <td><%= @user.email %></td>
-        </p>
+            <p>所在地区：<%= @user.district %></p>
 
-        <p>所在地区：<%= @user.district %></p>
-
-        <br>
-        <div>
-            <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn  btn-secondary text-uppercase flat animation") %>
+            <br>
+            <div>
+                <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn  btn-secondary text-uppercase flat animation") %>
+            </div>
+            <br>
+            <div>
+                <%= link_to("修改密码", edit_user_registration_path(@user), class: "btn  btn-secondary text-uppercase flat animation" ) %>
+            </div>
         </div>
-        <br>
-        <div>
-            <%= link_to("修改密码", edit_user_registration_path(@user), class: "btn  btn-secondary text-uppercase flat animation" ) %>
-        </div>
+
     </div>
-
-</div>
 </div>
 </div>
