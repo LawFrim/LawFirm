@@ -12,7 +12,7 @@
 
     </tr>
     <tr>
-      <%= render :partial => "common/user_name", :locals =>{:lawyer => @user},:as => :user %>
+      <%= render :partial => "common/user_name", :locals =>{:user => @user} %>
 
         <td><div id="average_rating"></div></td>
         <td><%= @user.email %></td>

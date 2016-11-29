@@ -20,13 +20,18 @@
               <%= render_user_small_avatar(c.originator) %>
 
             </div>
+
+            <!-- 用户身份 -->
+            
+            <!--  -->
+            
             <div class="answerFrom">
               <% if c.last_sender == current_user %>
               
-                <p class="lawyerName"> <%= c.originator.user_name %></p>
+                <p class="lawyerName"> <%= render :partial => "common/user_name", :locals =>{:user => c.originator} %></p>
                 <p class="answerStatus"> 稍后马上回复你的追问 </p>
               <% else %>
-                <p class="lawyerName"> <%= c.originator.user_name %></p>
+                <p class="lawyerName"> <%= render :partial => "common/user_name", :locals =>{:user => c.originator} %></p>
                   <p class="answerStatus">回答了您的问题 </p>
               <% end %>
 

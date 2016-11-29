@@ -1,6 +1,5 @@
 <div class="container">
 
-
     <div class="container-fluid">
 
         <div class="row well">
@@ -9,10 +8,6 @@
             <div class="col-md-2">
                 <br>
                 <%= render_user_avatar(@user) %>
-
-
-
-
             </div>
 
             <!-- title, description and add to cart -->
@@ -20,36 +15,32 @@
                 <h3>
                     <h6>我的资料</h6>
                 </h3>
-
-
-                <p>用户认证： <%= render_user_vip(@user) %></p>
-
-                    <p>用户名： <%= @user.user_name %></p>
-                    <td>电子邮件：   </td>
-                    <td><%= @user.email %></td>
-                </p>
-
-
-                <%= render :partial => "common/user_name", :locals =>{:account => @user},:as => :user %>
-            </p>
-            <p>
-                <td>电子邮件：
-                </td>
-                <td><%= @user.email %></td>
-            </p>
-
-            <p>所在地区：<%= @user.district %></p>
-
-            <br>
-            <div>
-                <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn  btn-secondary text-uppercase flat animation") %>
+                <table class="table">
+                    <tr>
+                        <td>用户名</td>
+                        <td>  <%= render :partial => "common/user_name", :locals =>{:user => @user} %></td>
+                    </tr>
+                    <tr>
+                        <td>电子邮件</td>
+                        <td>  <%= @user.email %></td>
+                    </tr>
+                    <tr>
+                        <td>所在地区</td>
+                        <td>  <%= @user.district %></td>
+                    </tr>
+                </table>
+                <br>
+                <div class="col-md-4"> 
+                    <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn  btn-secondary text-uppercase flat animation") %>
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+                <div class="col-md-4">
+                    <%= link_to("修改密码", edit_user_registration_path(@user), class: "btn  btn-secondary text-uppercase flat animation" ) %>
+                </div>
             </div>
-            <br>
-            <div>
-                <%= link_to("修改密码", edit_user_registration_path(@user), class: "btn  btn-secondary text-uppercase flat animation" ) %>
-            </div>
+
         </div>
-
     </div>
-</div>
 </div>
