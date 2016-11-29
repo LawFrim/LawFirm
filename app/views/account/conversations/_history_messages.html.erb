@@ -122,9 +122,10 @@
             // 初始化rating选框
             function initRating(obj) {
               obj.raty({
-                path:"/",
-                starOff: 'star-off.png',
-                starOn: 'star-on.png',
+                // 设置rating路径
+                path:"https://ooo.0o0.ooo/2016/11/29/",
+                starOff: '583d4cc6dae6a.png',
+                starOn: '583d4cc7067dc.png',
                 size: 32,
                 click: function(score, evt) {
                   // ajax提交
@@ -167,9 +168,10 @@
             function lockRating(obj,score) {
               // 锁定部分样式
               obj.raty({
-                path:"/",
-                starOff: 'star-off.png',
-                starOn: 'star-on.png',
+                // 设置rating路径
+                path:"https://ooo.0o0.ooo/2016/11/29/",
+                starOff: '583d4cc6dae6a.png',
+                starOn: '583d4cc7067dc.png',
                 size: 32,
                 readOnly: true, score: score
               });

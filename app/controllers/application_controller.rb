@@ -92,6 +92,10 @@ class ApplicationController < ActionController::Base
   end
 
 
+  # 星星评级
+  def average_rating
+    
+  end
 
 
 
