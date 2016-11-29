@@ -79,48 +79,20 @@ class ApplicationController < ActionController::Base
     Notification.create(recipient_id: recipient, actor_id: actor, notifiable_id: notifiable.id, notifiable_type: notifiable.class)
     # binding.pry
     # 消息系统中嵌入邮件发送
-    send_notification_mail(recipient,notifiable)
+    # send_notification_mail(recipient,notifiable)s
+    user = User.find(recipient)
+    if user.lawyer?
+      question_url = ENV['DOMAIN_NAME'] + lawyer_question_path(@question)
+    else
+      question_url = ENV['DOMAIN_NAME'] + account_question_path(@question)
+    end
+
+    
+    ModelMailer.send_notification_mail(recipient, @question,question_url).deliver
   end
 
 
-  # 邮件系统-通知(使用mailgun客户端)
-  def send_notification_mail(user,question)
-    mg_client = Mailgun::Client.new
 
 
-    reciver_obj = User.find(user)
-    question_obj = question.values.last
-    message_params =  {
-                   from: 'whenmgonetest@163.com',
-                   to:   reciver_obj.email,
-                   subject: 'Lawyer法律咨询平台',
-                   html:    "<p>有人回复了问题 <a href='"+ ENV['DOMAIN'] + account_question_path(question_obj.id) +"'>" + question_obj.content + "</a></p>..."
-                  }  
-
-
-
-    result = mg_client.send_message('whenmgone.com', message_params)
-  end
-  # 
-
-
-  # 邮件系统-注册密码(使用mailgun客户端)
-  def send_password_mail(user,password)
-    mg_client = Mailgun::Client.new
-    reciver_obj = User.find(user)
-    # binding.pry
-    message_params =  {
-                   from: 'whenmgonetest@163.com',
-                   to:   reciver_obj.email,
-                   subject: 'Lawyer法律咨询平台',
-                   html:    "<p>您已成功注册，您的当前密码为 <kbd>"+ password +"</kbd> 可以登陆后修改</p>,..."
-                  } 
-
-
-
-
-    result = mg_client.send_message('whenmgone.com', message_params)
-  end
-  # 
 
 end

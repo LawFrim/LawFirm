@@ -31,7 +31,9 @@ class WelcomeController < ApplicationController
     user = User.find_by(email: new_user_email)
     if user.blank?
       user =  User.create(:email => new_user_email, :password => generated_password)
-      send_password_mail(user.id,generated_password)
+      # send_password_mail(user.id,generated_password)
+      
+      ModelMailer.send_password_mail(user.id,generated_password).deliver
       flash[:notice] = "请查收邮箱获取密码！"
     else
       flash[:notice] = "您的问题已发布！"
