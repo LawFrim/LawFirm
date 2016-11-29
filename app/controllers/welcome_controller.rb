@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
     # flash[:notice] = "早安！你好！"
     # 给个可以发临时问题的页面，可以接收问题和用户邮箱
     @temp_question = TempQuestion.new
+    # binding.pry
   end
 
 
