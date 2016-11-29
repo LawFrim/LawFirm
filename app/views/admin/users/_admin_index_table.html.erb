@@ -1,0 +1,44 @@
+<td>
+    <%= user.id %>
+
+</td>
+<td>
+    <%if !user.is_admin?%>
+            <%  if user.is_lawyer?%>
+            <%=  content_tag(:span,"",class:"fa fa-user-plus")%>
+        <%   else%>
+            <%=   content_tag(:span, "", class: "fa fa-user")%>
+            <%   end%>
+<% else%>
+          <%= content_tag(:span,"",class:"fa fa-star-o")%>
+    <%end%>
+
+    <%= user.user_name%>
+    <%if !user.is_vip?%>
+    <%= content_tag(:span,"", class:"fa fa-opera")%>
+    <%else%>
+    <%= content_tag(:span,"", class:"fa fa-vimeo")%>
+    <%end%>
+  </td>
+
+<td><%= link_to user.email,admin_user_path(user),method: :get%></td>
+<td>
+    <%= user.created_at %>
+</td>
+<td>
+    <%= user.last_sign_in_at %>
+</td>
+
+<td>
+    <%= chenge_user_vip(user) %>
+
+</td>
+<td><%= user.role %></td>
+
+<td>
+    <% if user.is_vip?%>
+    <p class="btn btn-danger">已支付</p>
+    <% else %>
+    <p> 未支付</p>
+    <% end %>
+</td>

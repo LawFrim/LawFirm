@@ -7,12 +7,13 @@ module ApplicationHelper
 
   # 用户头像
   def img_by(user)
-    
+
     user.user_avatar.url(:small)
   end
 
   def time_format(time)
     DateTime.parse(time.to_s).strftime('%Y-%m-%d %H:%M:%S').to_s
   end
+
 
 end

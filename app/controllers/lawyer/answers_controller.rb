@@ -30,6 +30,8 @@ class Lawyer::AnswersController < ApplicationController
       conversation = current_user.send_message(akser ,answer_content ,subject , @question,true,attachment).conversation
       # 发送给用户回答问题的提醒
       send_notification!(akser.id, current_user.id, @question)
+      # ModelMailer.send_notification_mail(akser.id, @question).deliver
+
       # binding.pry
 
     else
@@ -39,6 +41,8 @@ class Lawyer::AnswersController < ApplicationController
       current_user.reply_to_conversation(conversation, answer_content,nil,true,true,attachment)
       # 发送给用户回答问题的提醒
       send_notification!(akser.id, current_user.id, @question)
+      # ModelMailer.send_notification_mail(akser.id, @question).deliver
+
       # binding.pry
 
     end

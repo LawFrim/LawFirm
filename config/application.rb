@@ -13,6 +13,7 @@ module Lawfirm
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.default_locale = :"zh-CN"
     config.serve_static_assets = true
+    config.time_zone = 'Asia/Shanghai'
   end
 
 end

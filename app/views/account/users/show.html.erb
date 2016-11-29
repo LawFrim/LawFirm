@@ -1,16 +1,17 @@
 <h2>个人信息</h2>
 <table class="table table-boldered">
-  <tr>
-    <th>用户名</th>
-    <th>用户邮箱</th>
+    <tr>
+        <th>用户名</th>
+        <th>用户邮箱</th>
 
+        <th>城市</th>
+    </tr>
+    <tr>
+        <td><%= @user.user_name %></td>
+        <%= render :partial => "user_names", :member => @user_name, :as => :user_name %>
 
-    <th>城市</th>
-  </tr>
-  <tr>
-  <td><%= @user.user_name %></td>
-  <td><%= @user.email %></td>
+        <td><%= @user.email %></td>
 
-  <td><%= @user.district %></td>
-</tr>
+        <td><%= @user.district %></td>
+    </tr>
 </table>

@@ -47,7 +47,7 @@ class Account::ConversationsController < ApplicationController
       # 其实上面这段if永远不会被调用，因为用户不会发起一个message
       conversation = current_user.send_message(akser ,answer_content ,subject,@question,true,attachment).conversation
         # xdite魔改后的send_message多了一个question参数
-      # send_notification!(recipient, akser, notifiable)
+      send_notification!(recipient, akser, notifiable)
 
     else
       # 通过会话id获取会话
@@ -57,9 +57,10 @@ class Account::ConversationsController < ApplicationController
       current_user.reply_to_conversation(conversation, answer_content,nil,true,true,attachment)
       puts '!!!!!!!!'
       # 客户发给律师提醒追问
+      
       send_notification!(conversation.originator.id, current_user.id, @question)
     end
-c
+
 
     # binding.pry
 

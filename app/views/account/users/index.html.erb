@@ -1,7 +1,7 @@
 
-    <div class="container">
+    <div class="container-fluid well">
 
-        <div class="row well" style="opacity:0.95;width:70%;">
+
 
             <!-- major photo -->
             <div class="col-md-2">
@@ -23,32 +23,30 @@
                 <p>用户认证： <%= render_user_vip(@user) %></p>
 
                     <p>用户名： <%= @user.user_name %></p>
-
-
-
-
-                    <td>用户名：</td>
-                    <td><%= @user.user_name %></td>
-                </p>
-                <p>
                     <td>电子邮件：   </td>
                     <td><%= @user.email %></td>
                 </p>
 
 
-                    <p>所在地区：<%= @user.district %></p>
+                <%= render :partial => "common/user_name", :locals =>{:account => @user},:as => :user %>
+            </p>
+            <p>
+                <td>电子邮件：
+                </td>
+                <td><%= @user.email %></td>
+            </p>
 
-                    <br>
-                <div>
-                    <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn  btn-secondary text-uppercase flat animation") %>
-                  </div>
-                  <br>
-                  <div>
-                    <%= link_to("修改密码", edit_user_registration_path(@user), class: "btn  btn-secondary text-uppercase flat animation" ) %>
-                </div>
+            <p>所在地区：<%= @user.district %></p>
+
+            <br>
+            <div>
+                <%= link_to("修改个人资料", edit_account_user_path(@user), :class => "btn  btn-secondary text-uppercase flat animation") %>
             </div>
-
-
-                </div>
+            <br>
+            <div>
+                <%= link_to("修改密码", edit_user_registration_path(@user), class: "btn  btn-secondary text-uppercase flat animation" ) %>
             </div>
         </div>
+
+    </div>
+ 

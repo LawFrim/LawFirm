@@ -1,10 +1,5 @@
 
-
-<div class="row">
-  <div class="container">
-
-
-    	<div class="row well"  style="opacity:0.95;width:80%;">
+<div class="container-fluid well">
 
     <div class="col-md-2">
         <% if !@user.user_avatar.present? %>
@@ -21,13 +16,11 @@
                 <h6>我的资料</h6>
 
               </tr>
-              <tr>
-                  <td>用户认证</td>
-                  <td><%= render_user_vip(@user) %></td>
-              </tr>
+
                 <tr>
                     <td>用户名</td>
-                    <td><%= @user.user_name %></td>
+                  <td>  <%= render :partial => "common/user_name", :locals =>{:lawyer => @user},:as => :user %></td>
+
                 </tr>
                 <tr>
                     <td>电子邮件</td>
@@ -74,16 +67,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-    </body>
-</html>
