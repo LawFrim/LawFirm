@@ -6,19 +6,17 @@ class User < ApplicationRecord
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role
-    self.role ||= :律师
-    # self.is_lawyer = true
+     self.role ||= :用户
+    #  self.is_lawyer = false
   end
 
     #尝试注册传递律师，结果都是律师了
   # after_initialize :set_user, :if => :new_record?
   # def set_user
-  #   if
-  #     self.role = 1
+  #   if self.role ||=:律师
   #     self.is_lawyer = true
   #     self.is_admin = false
   #   else
-  #     self.role = 0
   #     self.is_lawyer = false
   #     self.is_admin = false
   #   end
@@ -162,6 +160,7 @@ end
 #  is_vip                 :boolean          default(FALSE)
 #  certificate            :string
 #  certificate_number     :string
+#  answered_question_id   :integer
 #
 # Indexes
 #
