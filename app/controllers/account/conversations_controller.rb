@@ -17,9 +17,14 @@ class Account::ConversationsController < ApplicationController
     # binding.pry
   end
 
+  # 显示律师信息
   def show_lawyer
     @question = Question.find(params[:question_id])
     @conversation = @question.conversations.find(params[:id])
+    @lawyer = @conversation.originator
+    # binding.pry
+    # 获取律师评价值
+    @lawyer_rating = average_rating(@lawyer)
   end 
 
 
@@ -81,4 +86,6 @@ class Account::ConversationsController < ApplicationController
   def answer_params
     params.require(:answer).permit(:content,:conversation_id,:attachment)
   end
+
+
 end

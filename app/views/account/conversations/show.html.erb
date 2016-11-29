@@ -17,7 +17,7 @@
           </div>
           <div class="answerFrom">
               <p class="lawyerName"> 
-              <%= link_to @conversation.originator.user_name, lawyer_path(@conversation.originator.id) %>
+              <%= link_to @conversation.originator.user_name, show_lawyer_account_question_conversation_path %>
                 
               </p>
               <p class="answerStatus">回答了您的问题 </p>

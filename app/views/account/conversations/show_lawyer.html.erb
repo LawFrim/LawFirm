@@ -4,65 +4,81 @@
   <div class="container">
 
 
-    	<div class="row well"  style="opacity:0.95;width:80%;">
+    <div class="row well"  style="opacity:0.95;width:80%;">
 
-    <div class="col-md-2">
-      <%= render_user_small_avatar(@conversation.originator) %>
-
-
-    </div>
-    <div class="col-md-8 col-md-offset-1">
-        <table class="table user-table-info">
-            <tbody>
-
-
-                 <tr>
-                    <td>用户名</td>
-                    <td><%= @conversation.originator.user_name %></td>
-                </tr>
-                <tr>
-                    <td>电子邮件</td>
-                    <td><%= @conversation.originator.email %></td>
-                </tr>
-                <tr>
-                    <td>所在地区</td>
-                    <td><%= @conversation.originator.district %></td>
-                </tr>
-
-                <tr>
-                    <td>领域</td>
-                    <td><%= @conversation.originator.area %></td>
-                </tr>
-                <tr>
-                    <td>律师事务所</td>
-                    <td><%= @conversation.originator.lawfirm %></td>
-                </tr>
-                <tr>
-                    <td>律师证号</td>
-                    <td><%= @conversation.originator.certificate_number %></td>
-                </tr>
-
-
-            </tbody>
-        </table>
-
+        <div class="col-md-2">
+          <%= render_user_small_avatar(@lawyer) %>
 
 
         </div>
+        <div class="col-md-8 col-md-offset-1">
+            <table class="table user-table-info">
+                <tbody>
+
+
+                     <tr>
+                        <td>用户名</td>
+                        <td><%= @lawyer.user_name %></td>
+                    </tr>
+                    <tr>
+                        <td>电子邮件</td>
+                        <td><%= @lawyer.email %></td>
+                    </tr>
+                    <tr>
+                        <td>所在地区</td>
+                        <td><%= @lawyer.district %></td>
+                    </tr>
+
+                    <tr>
+                        <td>领域</td>
+                        <td><%= @lawyer.area %></td>
+                    </tr>
+                    <tr>
+                        <td>律师事务所</td>
+                        <td><%= @lawyer.lawfirm %></td>
+                    </tr>
+                    <tr>
+                        <td>律师证号</td>
+                        <td><%= @lawyer.certificate_number %></td>
+                    </tr>
+                    <tr>
+                        <td>好评</td>
+                        <td><div id="average_rating"></div></td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+
+            </div>
         </div>
     </div>
   </div>
-</div>
+
+ <!-- 星星评级  -->
+<script>
+
+$(function() {
+
+  // 锁定部分样式
+  $('#average_rating').raty({
+    // 设置rating路径
+    path:"https://ooo.0o0.ooo/2016/11/29/",
+    starOff: '583d7514b7242.jpg',
+    starHalf: '583d7514d2220.jpg',
+    starOn: '583d7514f04c2.jpg',
+    size: 32,
+    readOnly: true, 
+    score: <%= @lawyer_rating %>,
+    round: { down: .25, full: .6, up: .76 } 
+  });
+
+    
+});
+
+
+</script>
 
 
 
-
-
-
-
-
-
-
-
-    </body>
-</html>

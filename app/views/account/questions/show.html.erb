@@ -22,6 +22,7 @@
             </div>
             <div class="answerFrom">
               <% if c.last_sender == current_user %>
+              
                 <p class="lawyerName"> <%= c.originator.user_name %></p>
                 <p class="answerStatus"> 稍后马上回复你的追问 </p>
               <% else %>
