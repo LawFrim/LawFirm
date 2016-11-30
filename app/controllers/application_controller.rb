@@ -88,7 +88,7 @@ class ApplicationController < ActionController::Base
     end
 
     # 邮箱发送提醒信件
-    ModelMailer.send_notification_mail(recipient, @question,question_url).deliver
+    ModelMailer.send_notification_mail(recipient, @question,question_url).deliver_later
   end
 
 

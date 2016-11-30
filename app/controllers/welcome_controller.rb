@@ -38,20 +38,28 @@ class WelcomeController < ApplicationController
     user = User.find_by(email: new_user_email)
     if user.blank?
       user =  User.create(:email => new_user_email, :password => generated_password)
-      binding.pry
+      # binding.pry
       # send_password_mail(user.id,generated_password)
 
-      ModelMailer.send_password_mail(user.id,generated_password).deliver
-      # 为这个用户建立新问题
-      question = Question.create(content: new_quesion_content, user: user)
-      flash[:notice] = "请查收邮箱获取默认密码！"
+      # 验证devise是否成功建立用户
+      if user.id.blank?
+        flash[:notice] = "注册信息有误，提问失败，请输入有效邮箱注册！"
+        redirect_to new_user_session_path
+      else
 
+        # 延迟发送邮件
+        ModelMailer.send_password_mail(user.id,generated_password).deliver_later
+        # 为这个用户建立新问题
+        question = Question.create(content: new_quesion_content, user: user)
+        flash[:notice] = "请查收邮箱获取默认密码！"
 
+        # 用户登录
+        sign_in user
+        # 用户重定向
+        redirect_to account_questions_path
+  
+      end
 
-      # 用户登录
-      sign_in user
-      # 用户重定向
-      redirect_to account_questions_path
 
     else
       # 如果是已存在用户让他登录
