@@ -8,7 +8,7 @@ class Notification < ApplicationRecord
   # 读过的
   scope :unread, -> { where(read_at: nil) }
   # 最近5条
-  scope :recent, -> { order(created_at: :desc).limit(5) }
+  #scope :recent, -> { order(created_at: :desc).limit(5) }
 
 end
 
