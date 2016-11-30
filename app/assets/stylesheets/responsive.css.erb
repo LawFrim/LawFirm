@@ -1,5 +1,6 @@
 /* Large Devices Styles Starts */
 
+
 @media (min-width: 1921px) {
 
 /* Main Menu Styles Starts */
@@ -15,11 +16,13 @@
 /* Intro Section Starts */
 
 	.intro-home-section > .container-fluid > .row-fluid > div:first-of-type {
-		background: transparent url(/assets/intro-home-big-bg.jpg) no-repeat center top;
+		background:  transparent url(<%= asset_path("intro-home-big-bg.jpg")%>) no-repeat center top;
 	}
 	.intro-home-section .row-eq-height {
 		display: table;
-	}
+		width: 100%;
+		}
+
 		.intro-home-section .row-eq-height .col-md-6 {
 			float: none;
 			display: table-cell;
@@ -41,9 +44,55 @@
 
 }
 
+
+
+
+
+
+@media (min-width: 1200px) and (max-width: 1921px) {
+
+/* Main Menu Styles Starts */
+
+	.main-menu .navbar-collapse {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.main-menu .dropdown:hover .dropdown-menu {
+		display: block;
+	}
+
+/* Intro Section Starts */
+
+	.intro-home-section > .container-fluid > .row-fluid > div:first-of-type {
+		background: transparent url(<%= asset_path("intro-home-big-bg.jpg")%>) no-repeat center top;
+	}
+	.intro-home-section .row-eq-height {
+		display: table;
+		width: 100%;
+	}
+		.intro-home-section .row-eq-height .col-md-6 {
+			float: none;
+			display: table-cell;
+			vertical-align: top;
+		}
+
+/* Generic Styles Starts */
+
+	.text-left-lg   { text-align: left;   }
+	.text-center-lg { text-align: center; }
+	.text-right-lg  { text-align: right;  }
+
+	.pull-left-lg  { float: left;  }
+	.pull-right-lg {
+		float: right;
+		left: auto;
+		right: 0;
+	}
+
+}
 /* Medium Devices Styles Starts */
 
-@media (min-width: 992px) and (max-width: 1921) {
+@media (min-width: 991px) and (max-width: 1200px) {
 
 /* Header Styles Starts */
 
@@ -69,7 +118,7 @@
 /* Intro Section Starts */
 
 	.intro-home-section > .container-fluid > .row-fluid > div:first-of-type {
-		background: transparent url(../images/intro-home-big-bg.jpg) no-repeat center top;
+		background: transparent url(<%= asset_path("intro-home-big-bg.jpg") %>) no-repeat center top;
 	}
 	.intro-home-section .row-eq-height {
 		display: table;
