@@ -271,7 +271,7 @@ $(function (){
         });
 
   // 标记已读
-  $('#btn-notification').on('shown.bs.popover', function () {
+  $('.btn-notification').on('shown.bs.popover', function () {
       $(".notification-point").remove();
       $.ajax({
       url: '<%= mark_as_read_notifications_path %>',
