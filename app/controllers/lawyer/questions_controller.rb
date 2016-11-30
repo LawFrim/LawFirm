@@ -50,7 +50,7 @@ class Lawyer::QuestionsController < ApplicationController
           #所有问题按照最新时间排序
           Question.recent
         end
- 
+
     end
 
 
@@ -69,7 +69,7 @@ class Lawyer::QuestionsController < ApplicationController
       if dialog.present?
         # 如果有就交给@message
         # 生产异常message序列，使用逆序
-        @messages = dialog.messages.order(id: :asce_desc)
+        @messages = dialog.messages.order(id: :asc)
 
         binding.pry
         @conversation = dialog
