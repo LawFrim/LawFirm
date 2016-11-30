@@ -110,13 +110,13 @@ class User < ApplicationRecord
     self.update_columns(is_vip: true)
   end
 
-  scope :recent, -> { order("created_at DESC")}
+  #scope :recent, -> { order("created_at DESC")}
   scope :area, -> { order("area DESC")}
   scope :district, -> { order("district DESC")}
 
   scope :lawyer, -> { where("is_lawyer" => true)}
   scope :account,-> { where("is_lawyer" => false)}
-  
+
 
 
   include Gravtastic
