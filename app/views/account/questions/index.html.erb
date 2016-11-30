@@ -1,36 +1,21 @@
 <div class="container-fluid">
-
 <div class="cardHeightWrap row">
-
-
-
-
-
     <!-- 新建链接 -->
     <div class="col-md-4 cold-sm-6 cardHeightWrap">
 
-      <a href="<%= new_account_question_path %>">
+      <%= link_to new_account_question_path do %>
             <div class="itemCard questionCard animation new-question">
               <div class="text-center">
               <p>提出新问题</p>
-              <span class="glyphicon glyphicon-plus"></span>
+              <span class="glyphicon glyphicon-plus New_question"></span>
               </div>
               <!-- 链接指定项目 -->
-            </div>  
-      </a>
- 
+            </div>
+      <% end %>
     </div>
-    <!--  -->
-
       <% @questions.each do |question| %>
-
       <div class="col-md-4 cold-sm-6 cardHeightWrap">
-
-
-
         <div class="itemCard questionCard animation">
-
-
         <!-- 判断附件是否存在 -->
         <% if question.is_answered? %>
           <!-- 上边条 -->
@@ -42,12 +27,10 @@
           <div class="statusBar-waiting"></div>
           <!--  -->
         <% end %>
-
         <!-- 上边条 -->
         <div class="statusBar">
         </div>
         <!--  -->
-
         <div class="cardHeading">
 
           <div class="topHeading">
@@ -58,14 +41,10 @@
             <% else %>
               <p class="cardTitle questionTitle"><span class="glyphicon glyphicon-question-sign"></span> <%= question.area %></p>
             <% end %>
-
-
-
         <div class="questionDate">
           <%= time_format(question.updated_at) %>
         </div>
           <!---wait for refracotring -->
-
           <!-- 判断回答状态 -->
           <% if question.is_answered %>
             <div class="questionStatus-response" >
@@ -82,38 +61,27 @@
 
         </div>
         </div>
-
         <!-- 链接指定项目 -->
         <a href="<%= account_question_path(question) %>">
           <div class="card-content" ng-click="qaCtrl.toMain('body')">
             <p class="userQuestion">
-
-
             <!-- 判断附件是否存在 -->
             <% if question.attachment.present?%>
 
               <span>Document<span>
               </br>
-                <%= link_to(question.content,account_question_path(question)) %>
+                <%= link_to(question.content.first(80),account_question_path(question)) %>
               </p>
-
-
             <!-- 如果无附件 -->
             <% else %>
               <span>Question<span>
               </br>
-                <%= link_to(question.content,account_question_path(question)) %>
+                <%= link_to(question.content.first(80),account_question_path(question)) %>
               </p>
             <% end %>
-
-
-
-
           </div>
         </a>
       </div>
-
-
       <!--  -->
     </div>
   <% end %>
