@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
- 
+
   def index
     # flash[:notice] = "早安！你好！"
     # 给个可以发临时问题的页面，可以接收问题和用户邮箱
@@ -7,6 +7,12 @@ class WelcomeController < ApplicationController
     # binding.pry
   end
 
+  def mapguide
+  end
+  def aboutus
+  end
+  def joinus
+  end
 
 
   def show
@@ -34,13 +40,14 @@ class WelcomeController < ApplicationController
       user =  User.create(:email => new_user_email, :password => generated_password)
       binding.pry
       # send_password_mail(user.id,generated_password)
-      
+
       ModelMailer.send_password_mail(user.id,generated_password).deliver
       # 为这个用户建立新问题
       question = Question.create(content: new_quesion_content, user: user)
       flash[:notice] = "请查收邮箱获取默认密码！"
 
-      
+
+
       # 用户登录
       sign_in user
       # 用户重定向
@@ -50,6 +57,7 @@ class WelcomeController < ApplicationController
       # 如果是已存在用户让他登录
       redirect_to new_user_session_path
     end
+ 
   end
 
 
