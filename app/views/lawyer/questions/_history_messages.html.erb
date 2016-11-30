@@ -20,7 +20,8 @@
 
                   <div class="pull-right">
 
-                    <%= image_tag(m.attachment.url, class: "thumbnail") %>
+                    <%= image_tag(m.attachment[0].thumbview.url, class: "thumbnail") %>
+                    
                     <p class="pull-left"><%= m.attachment.file.filename %></p>
 
                     <a href="<%= m.attachment.url %>" download="" target="_blank">

@@ -8,7 +8,7 @@
   <!-- 附件显示预览 -->
   <% if @question.attachment.thumbview.present? %>
     <div>
-      <%= image_tag(@question.attachment.thumbview.url, class: "thumbnail") %>
+      <%= image_tag(@question.attachment[0].thumbview.url, class: "thumbnail") %>
       <p class="pull-left"><%= @question.attachment.file.filename %></p>
       <%#= link_to image_tag(@document.client_docs[0].preview.url) %>
 
