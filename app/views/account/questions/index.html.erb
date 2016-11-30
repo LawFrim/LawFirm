@@ -2,23 +2,25 @@
 
 <div class="cardHeightWrap row">
 
-    <%# if @questions.blank? %>
 
 
 
 
+    <!-- 新建链接 -->
     <div class="col-md-4 cold-sm-6 cardHeightWrap">
 
-      <div class="itemCard questionCard animation ">
-        <div class="new-question"><span class="glyphicon glyphicon-plus"></span></div>
-
-        <!-- 链接指定项目 -->
-      </div>
-
+      <a href="<%= new_account_question_path %>">
+            <div class="itemCard questionCard animation new-question">
+              <div class="text-center">
+              <p>提出新问题</p>
+              <span class="glyphicon glyphicon-plus"></span>
+              </div>
+              <!-- 链接指定项目 -->
+            </div>  
+      </a>
  
     </div>
-
-    <%# end %>
+    <!--  -->
 
       <% @questions.each do |question| %>
 
