@@ -10,6 +10,7 @@
     <div>
       <%= image_tag(@question.attachment.thumbview.url, class: "thumbnail") %>
       <p class="pull-left"><%= @question.attachment.file.filename %></p>
+      <%#= link_to image_tag(@document.client_docs[0].preview.url) %>
 
       <a href="<%= @question.attachment.url %>" download="" target="_blank">
         <button type="button" class="btn  btn-secondary text-uppercase flat animation pull-right">下载</button>
