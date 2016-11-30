@@ -38,7 +38,7 @@ class WelcomeController < ApplicationController
     user = User.find_by(email: new_user_email)
     if user.blank?
       user =  User.create(:email => new_user_email, :password => generated_password)
-      binding.pry
+      # binding.pry
       # send_password_mail(user.id,generated_password)
 
       ModelMailer.send_password_mail(user.id,generated_password).deliver_later
