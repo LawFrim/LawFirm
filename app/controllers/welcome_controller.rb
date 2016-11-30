@@ -60,4 +60,14 @@ class WelcomeController < ApplicationController
     params.require(:temp_question).permit(:email,:content)
   end
 
+ def join_us
+
+ end
+
+ def abouts
+
+ end
+
+ def map_guides
+ end
 end

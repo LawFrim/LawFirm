@@ -1,0 +1,111 @@
+<div class="container-fluid well">
+
+    <div class="col-md-2">
+        <% if !@user.user_avatar.present? %>
+        <%= image_tag "http://placehold.it/150x150" %>
+    <% else %>
+        <%= image_tag (@user.user_avatar.url(:middle)) %>
+        <% end %>
+
+    </div>
+    <div class="col-md-8 col-md-offset-1">
+        <table class="table user-table-info">
+            <tbody>
+                <tr>
+                    <h6>用户资料</h6>
+
+                </tr>
+
+                <tr>
+                    <td>用户名</td>
+                    <td>
+                        <%= render :partial => "common/user_name", :locals =>{:lawyer => @user},:as => :user %></td>
+
+                </tr>
+                <tr>
+                    <td>电子邮件</td>
+                    <td><%= @user.email %></td>
+                </tr>
+                <tr>
+                    <td>所在地区</td>
+                    <td><%= @user.district %></td>
+                </tr>
+
+                <tr>
+                    <td>领域</td>
+                    <td><%= @user.area %></td>
+                </tr>
+                <tr>
+                    <td>律师事务所</td>
+                    <td><%= @user.lawfirm %></td>
+                </tr>
+                <tr>
+                    <td>律师证号</td>
+                    <td><%= @user.certificate_number %></td>
+                </tr>
+                <tr>
+                    <td>支付状态</td>
+                    <td>
+                        <% if @user.is_vip?%>
+                        <p class="btn btn-danger">已支付</p>
+                    <% else %>
+                        <p>未支付</p>
+                        <% end %></td>
+                </tr>
+                <tr>
+                    <td>注册时间</td>
+                    <td>
+                        <%= @user.created_at %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>注册身份</td>
+                    <td><%= @user.role %></td>
+                </tr>
+                <br>
+
+                <tr>
+                    <td>最后登陆时间</td>
+                    <td>
+                        <%= @user.last_sign_in_at %>
+                    </td>
+                </tr>
+                <td>律师证</td>
+                <td>
+
+                    <% if !@user.certificate.present? %>
+                    <%= image_tag "http://placehold.it/150x150" %>
+                <% else %>
+                    <%= image_tag(@user.certificate.preview.url) %>
+                    <% end %>
+                </td>
+
+            </tbody>
+        </table>
+
+        <div>
+
+            <tr>
+                <td>
+
+                </td>
+
+                <td>
+                    <%= change_user_status(@user) %>
+                </td>
+                <td>
+                    <%= chenge_user_vip(@user) %>
+                </td>
+                <td>
+                    <%= link_to("删除用户", admin_user_path(@user),
+                  method: :delete, data: { confirm: "Are you sure?" },class:"btn  btn-danger btn-xs")  %>
+                </td>
+            </tr>
+
+            <td></td>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>

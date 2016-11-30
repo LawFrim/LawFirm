@@ -14,36 +14,31 @@
     <%end%>
 
     <%= user.user_name%>
-
     <%if !user.is_vip?%>
     <%= content_tag(:span,"", class:"fa fa-opera")%>
     <%else%>
     <%= content_tag(:span,"", class:"fa fa-vimeo")%>
-    <%end%></td>
+    <%end%>
+  </td>
 
+<td><%= link_to user.email,admin_user_path(user),method: :get%></td>
 <td>
     <%= user.created_at %>
 </td>
 <td>
     <%= user.last_sign_in_at %>
 </td>
-<td>
-    <%= change_user_status(user) %><br>
-    <%= link_to("删除用户", admin_user_path(user),
-        method: :delete, data: { confirm: "Are you sure?" },class:"btn  btn-danger btn-xs")  %>
 
-</td>
 <td>
     <%= chenge_user_vip(user) %>
+
 </td>
 <td><%= user.role %></td>
-<td>
-    待添加
-</td>
+
 <td>
     <% if user.is_vip?%>
-    已支付
-<% else %>
-    未支付
+    <p class="btn btn-danger">已支付</p>
+    <% else %>
+    <p> 未支付</p>
     <% end %>
 </td>
