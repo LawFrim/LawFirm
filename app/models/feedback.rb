@@ -1,7 +1,6 @@
 class Feedback < ApplicationRecord
 
   belongs_to :user
-  belongs_to :document
 
   mount_uploaders :client_docs, ClientdocsUploader
   serialize :client_docs, JSON
