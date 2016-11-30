@@ -69,9 +69,9 @@ class Lawyer::QuestionsController < ApplicationController
       if dialog.present?
         # 如果有就交给@message
         # 生产异常message序列，使用逆序
-        @messages = dialog.messages.order(id: :asc)
+        @messages = dialog.messages.order(created_at: :ASC)
 
-        binding.pry
+        # binding.pry
         @conversation = dialog
       end
 
