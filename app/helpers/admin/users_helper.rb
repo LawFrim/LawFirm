@@ -21,7 +21,7 @@ end
 
   def change_user_status(user)
     if !user.is_lawyer?
-      link_to("设为律师", change_to_lawyer_admin_user_path(user), method: :post,data: { confirm: "确认认证为律师么？" }, class:"btn btn-xs btn-warning")
+      link_to("设为律师", change_to_lawyer_admin_user_path(user), method: :post,data: { confirm: "确认认证为律师么？" }, class:"btn btn-xs btn-danger")
     else
       link_to("设为用户", change_to_user_admin_user_path(user), method: :post,data: { confirm: "确认降级为顾客么？" }, class:"btn btn-xs btn-warning")
     end
@@ -31,7 +31,7 @@ end
   #认证律师
   def change_lawyer_status(user)
     if  !user.is_lawyer? && user.role == "律师"
-      link_to("设为律师", change_to_lawyer_admin_user_path(user), method: :post,data: { confirm: "确认认证为律师么？" }, class:"btn btn-xs btn-warning")
+      link_to("设为律师", change_to_lawyer_admin_user_path(user), method: :post,data: { confirm: "确认认证为律师么？" }, class:"btn btn-xs btn-danger")
     else user.is_lawyer && user.role == "用户"
       link_to("设为用户", change_to_user_admin_user_path(user), method: :post,data: { confirm: "确认降级为顾客么？" }, class:"btn btn-xs btn-warning")
     end

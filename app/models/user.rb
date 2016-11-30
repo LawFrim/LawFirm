@@ -116,6 +116,7 @@ class User < ApplicationRecord
 
   scope :lawyer, -> { where("is_lawyer" => true)}
   scope :account,-> { where("is_lawyer" => false)}
+  
 
 
   include Gravtastic

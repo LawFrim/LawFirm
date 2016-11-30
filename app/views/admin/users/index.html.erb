@@ -1,35 +1,28 @@
-
 <div class="container-fluid well">
- 
-<ul class="breadcrumb">
-    <li class="active">
-        <%= link_to("所有用户", admin_users_path) %>
-    </li>
-    <li>
-        <%= link_to("所有会员", admin_users_path(:order => "by_account")) %>
-    </li>
-    <li>
-        <%= link_to("所有律师", admin_users_path(:order => "by_lawyer")) %>
-    </li>
-</ul>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <td>用户ID</td>
-            <td>用户名</td>
-            <td>用户邮箱</td>
-            <td>注册时间</td>
-            <td>上次登录时间</td>
-          
-            <td>律师认证</td>
-            <td>注册角色</td>
-            <td>支付状况</td>
 
+    <ul class="breadcrumb">
+        <li class="active">
+            <%= link_to("所有用户", admin_users_path) %>
+        </li>
+        <li>
+            <%= link_to("所有会员", admin_users_path(:order => "by_account")) %>
+        </li>
+        <li>
+            <%= link_to("所有律师", admin_users_path(:order => "by_lawyer")) %>
+        </li>
 
-        </tr>
-    </thead>
-
-
+    </ul>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>用户ID</td>
+                <td>用户名</td>
+                <td>用户邮箱</td>
+                <td>身份认证</td>
+                <td>支付状况</td>
+            </tr>
+        </thead>
+        
         <tbody>
             <% @users.each do |user| %>
             <tr>
