@@ -68,16 +68,7 @@ class Lawyer::AnswersController < ApplicationController
     redirect_to :back
   end
 
-  # 更新回答
-  def update
-    @question = Question.find(params[:question_id])
-    @answer = Answer.find(params[:id])
-    if @answer.update(answer_params)
-      redirect_to admin_question_path(@question), notice: "答案修改成功!"
-    else
-      render :back, notice: "答案修改失败!"
-    end
-  end
+
 
 
 
