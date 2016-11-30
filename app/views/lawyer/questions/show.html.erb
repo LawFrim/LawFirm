@@ -6,9 +6,9 @@
   <!-- <h6>地区： <%#= @question.district %></h6> -->
 
   <!-- 附件显示预览 -->
-  <% if @question.attachment.present? %>
+  <% if @question.attachment.thumbview.present? %>
     <div>
-      <%= image_tag(@question.attachment.url, class: "thumbnail") %>
+      <%= image_tag(@question.attachment.thumbview.url, class: "thumbnail") %>
       <p class="pull-left"><%= @question.attachment.file.filename %></p>
 
       <a href="<%= @question.attachment.url %>" download="" target="_blank">
