@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 #   get 'users', :to => 'users#show', :as => :user_root # Rails 3
 # end
 
-
+get "/how_it_works", to: "welcome#how_it_works"
+get "/about_us", to: "welcome#about_us"
+get "/help_term", to: "welcome#help_term"
+get "/contact_us", to: "welcome#contact_us"
+get "/price",to: "welcome#price"
   # 管理员路由
   namespace :admin do
     resources :questions do
@@ -82,22 +86,13 @@ Rails.application.routes.draw do
 
 
   resources :welcome do
-    
+
     collection do
       post :pricing  #支付路由
       # 获取路人问题
       post :get_temp_question
     end
-
   end
-
-  resources :mapguide
-  resources :aboutus
-
-  resources :joinus
-  
-
-  resources :lawyers
 
 
   root 'welcome#index'
