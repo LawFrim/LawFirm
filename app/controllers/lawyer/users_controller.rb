@@ -6,6 +6,7 @@ class Lawyer::UsersController < ApplicationController
 
   def index
     @user = current_user
+    @lawyer_rating = average_rating(current_user)
   end
 
 
@@ -17,6 +18,7 @@ class Lawyer::UsersController < ApplicationController
 
   def show
     @user = current_user
+
   end
 
   def update

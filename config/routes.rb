@@ -82,11 +82,13 @@ Rails.application.routes.draw do
 
 
   resources :welcome do
+    
     collection do
       post :pricing  #支付路由
       # 获取路人问题
       post :get_temp_question
     end
+
   end
 
   resources :mapguide
@@ -94,6 +96,8 @@ Rails.application.routes.draw do
 
   resources :joinus
   
+
+  resources :lawyers
 
 
   root 'welcome#index'

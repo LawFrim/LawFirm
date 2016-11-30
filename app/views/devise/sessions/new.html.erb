@@ -1,19 +1,27 @@
+<div class="container-fluid common-block">
+  <div class="hidden-xs col-md-5">
+<%= render "devise/sign" %>
+</div>
+  <!-- #分割线 -->
+  <div class="col-sm-1">
 
-<div class=" col-md-6 col-md-offset-3 col-lg-6 col-lg-6">
-    <div class="well loginContainer">
-
+     <div class="login_line hidden-xs"></div>
+   </div>
+<div class=" col-md-6">
+       <h5 class="sign-h6">登入</h5>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-inputs">
-            <%= f.input :email, label: "邮箱",required: false, autofocus: true %>
-            <%= f.input :password,label: "密码", required: false %>
-            <%= f.input :remember_me,label:"记住密码" ,as: :boolean if devise_mapping.rememberable? %>
+        <div class="form-inputs ">
+          <%= f.input :email, required: false, autofocus: true,label:false, :placeholder => "电子邮箱" %>
+          <%= f.input :password, required: false,label:false, :placeholder => "密码"  %>
+          <%= f.input :remember_me, inline_label: '记住我', as: :boolean if devise_mapping.rememberable? %>
         </div>
         <div class="form-actions">
-            <%= f.button :submit, "登入" %>
+          <%= f.button :submit, "登 录", :class => "btn btn-devise btn-block"  %>
         </div>
         <% end %>
-
+      </br>
         <%= render "devise/shared/links" %>
 
-    </div>
+</div>
+
 </div>
