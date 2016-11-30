@@ -92,6 +92,35 @@ class ApplicationController < ActionController::Base
   end
 
 
+  # 星星评级
+  def average_rating(lawyer)
+    # 获取到所有的对话
+    conversations = lawyer.mailbox.conversations
+    # 遍历每个对话的rating并将其加和，最后除总数
+    
+    # 设置初始值
+    sum_raty = 0
+    sum_count = 0
+
+    conversations.each do |c|
+      # 先筛选出每个对话中其中有rating的message
+      messages = c.messages.where.not(rating: nil)
+      # 得到总的raty值
+      total_raty = 0
+      messages.each do |m|
+        total_raty = total_raty + m.rating
+      end
+
+      # 加总
+      sum_count = sum_count + messages.count
+      sum_raty = sum_raty + total_raty
+
+    end
+    # 相除得到平均值
+    return (sum_raty.to_f/sum_count).round(1)
+
+
+  end
 
 
 

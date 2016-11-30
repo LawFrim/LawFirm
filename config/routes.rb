@@ -92,6 +92,8 @@ Rails.application.routes.draw do
   end
 
 
+  resources :lawyers
+
 
   root 'welcome#index'
 

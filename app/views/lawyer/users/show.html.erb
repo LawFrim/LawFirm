@@ -2,6 +2,7 @@
 <table class="table table-boldered">
     <tr>
         <th>用户名</th>
+        <th>好评</th>
         <th>用户邮箱</th>
 
         <th>律师事务所</th>
@@ -11,9 +12,9 @@
 
     </tr>
     <tr>
-      <%= render :partial => "common/user_name", :locals =>{:lawyer => @user},:as => :user %>
+      <%= render :partial => "common/user_name", :locals =>{:user => @user} %>
 
-
+        <td><div id="average_rating"></div></td>
         <td><%= @user.email %></td>
         <td><%= @user.lawfirm %></td>
         <td><%= @user.area %></td>
@@ -22,3 +23,27 @@
 
     </tr>
 </table>
+
+ <!-- 星星评级  -->
+<script>
+
+$(function() {
+
+  // 锁定部分样式
+  $('#average_rating').raty({
+    // 设置rating路径
+    path:"https://ooo.0o0.ooo/2016/11/29/",
+    starOff: '583d7514b7242.jpg',
+    starHalf: '583d7514d2220.jpg',
+    starOn: '583d7514f04c2.jpg',
+    size: 32,
+    readOnly: true, 
+    score: <%= @lawyer_rating %>,
+    round: { down: .25, full: .6, up: .76 } 
+  });
+
+    
+});
+
+
+</script>
