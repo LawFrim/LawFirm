@@ -28,33 +28,11 @@
       <!-- Header Links Ends -->
       <!-- Starts -->
         <ul class="list-unstyled list-inline header-info text-center-xs pull-right-lg pull-right-md pull-right-sm">
-          <li class="hidden-sm"><a href="https://static.meiqia.com/dist/standalone.html?eid=42973" class="btn btn-secondary text-uppercase animation flat"><i class="fa fa-comments"></i> 24小时在线客服</a>
-            <script type='text/javascript'>
-                (function(m, ei, q, i, a, j, s) {
-                    m[i] = m[i] || function() {
-                        (m[i].a = m[i].a || []).push(arguments)
-                    };
-                    j = ei.createElement(q),
-                        s = ei.getElementsByTagName(q)[0];
-                    j.async = true;
-                    j.charset = 'UTF-8';
-                    j.src = '//static.meiqia.com/dist/meiqia.js';
-                    s.parentNode.insertBefore(j, s);
-                })(window, document, 'script', '_MEIQIA');
-                _MEIQIA('entId', 42973);
+          <li class="hidden-sm">
 
-                // 在这里开启无按钮模式（常规情况下，需要紧跟在美洽嵌入代码之后）
-                _MEIQIA('withoutBtn');
-            </script>
+          <a href="javascript:void(0)" onclick="_MEIQIA('showPanel')" class="btn btn-secondary text-uppercase animation flat"><i class="fa fa-comments"></i>24小时在线客服</a>
 
-        </script>
-        <script type='text/javascript'>
-            // 当你使用了「手动初始化」时，就可以在自己的逻辑中选择合适的时机调用 withoutBtn
-            // 只要是在美洽初始化之前，就可以被正确执行
-            _MEIQIA('withoutBtn');
-            _MEIQIA('init');
-        </script>
-                 </li>
+          </li>
           <li class="clearfix">
             <i class="fa fa-map-marker pull-left"></i>
             <span class="pull-left">
@@ -266,3 +244,33 @@ $(function (){
 
 });
 </script>
+
+
+
+
+
+
+<!-- 美洽代码 -->
+<script type='text/javascript'>
+    (function(m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function() {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        j = ei.createElement(q),
+            s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = '//static.meiqia.com/dist/meiqia.js';
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    _MEIQIA('entId', 42733);
+</script>
+<script>
+    // 你可以自己的代码中选择合适的时机来调用手动初始化
+    _MEIQIA('init');
+</script>
+<!--  -->
+
+
+
+
