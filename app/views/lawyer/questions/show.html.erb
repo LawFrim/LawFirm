@@ -8,12 +8,16 @@
   <!-- 附件显示预览 -->
   <% if @question.attachment.present? %>
     <div>
-      <%= image_tag(@question.attachment.url, class: "thumbnail") %>
-      <p class="pull-left"><%= @question.attachment.file.filename %></p>
 
+      <!-- 附件 -->
       <a href="<%= @question.attachment.url %>" download="" target="_blank">
-        <button type="button" class="btn  btn-secondary text-uppercase flat animation pull-right">下载</button>
+
+        <h4><i class="fa fa-file-text" aria-hidden="true"></i></h4>
+        <p><%= @question.attachment.file.filename %></p>
+
       </a>
+      <!--  -->
+
     </div>
   <% end %>
   <!-- 附件显示预览 -->

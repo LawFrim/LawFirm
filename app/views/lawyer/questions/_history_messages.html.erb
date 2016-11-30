@@ -17,17 +17,19 @@
 
                 <!-- 附件显示（当前上传pdf有问题） -->
                 <% if m.attachment.present? %>
-
                   <div class="pull-right">
 
-                    <%= image_tag(m.attachment.url, class: "thumbnail") %>
-                    <p class="pull-left"><%= m.attachment.file.filename %></p>
-
+                    <!-- 附件 -->
                     <a href="<%= m.attachment.url %>" download="" target="_blank">
-                      <button type="button" class="btn  btn-secondary text-uppercase flat animation pull-right">下载</button>
-                    </a>
-                  </div>
 
+                      <h4><i class="fa fa-file-text" aria-hidden="true"></i></h4>
+                      <p><%= m.attachment.file.filename %></p>
+
+                    </a>
+                    <!--  -->
+
+
+                  </div>
                 <% end %>
                 <!-- 附件显示（当前上传pdf有问题） -->
 
