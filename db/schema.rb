@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161125104511) do
+ActiveRecord::Schema.define(version: 20161128074653) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -20,25 +20,6 @@ ActiveRecord::Schema.define(version: 20161125104511) do
     t.datetime "updated_at",      null: false
     t.integer  "conversation_id"
     t.string   "attachment"
-  end
-
-  create_table "documents", force: :cascade do |t|
-    t.text     "description"
-    t.string   "client_docs"
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "user_name"
-  end
-
-  create_table "feedbacks", force: :cascade do |t|
-    t.text     "description"
-    t.string   "client_docs"
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "document_id"
-    t.string   "user_name"
   end
 
   create_table "lawyer_answered_questions", force: :cascade do |t|
@@ -145,6 +126,13 @@ ActiveRecord::Schema.define(version: 20161125104511) do
     t.boolean  "is_answered",  default: false
     t.string   "attachment"
     t.string   "service_type"
+  end
+
+  create_table "temp_questions", force: :cascade do |t|
+    t.text     "content"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
