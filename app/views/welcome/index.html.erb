@@ -294,7 +294,7 @@
           <%= simple_form_for  @temp_question,url: get_temp_question_welcome_index_path do |t| %>
 
           <div class="form-group">
-              <%= t.input :content, label: '马上留下你的提问',input_html: {class: "form-control flat", rows:"8", id:"fs-msg",placeholder:"请留下你的问题"}%>
+              <%= t.input :content, label: '马上留下你的提问',input_html: {class: "form-control flat", rows:"6", id:"fs-msg",placeholder:"请留下你的问题"}%>
               <%= t.input :email, label: '邮箱',input_html: { class: "form-control"} %>
           </div>
           <%= t.submit "立即拥有私人法务", class: "btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交..." } %>
