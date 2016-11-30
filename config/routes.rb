@@ -82,22 +82,19 @@ Rails.application.routes.draw do
 
 
   resources :welcome do
-    
+
     collection do
-      post :pricing  #支付路由
+      # post :pricing  #支付路由
       # 获取路人问题
       post :get_temp_question
     end
 
   end
 
-  resources :mapguide
-  resources :aboutus
-
-  resources :joinus
-  
-
-  resources :lawyers
+  get "/price", to: "welcome#price"
+  get "/about_us", to: "welcome#about_us"
+  get "/help_term", to: "welcome#help_term"
+  get "/contact_us", to: "welcome#contact_us"
 
 
   root 'welcome#index'
