@@ -21,11 +21,20 @@
 
 
 
+ html,
+ body { height: 100%; }
 
+ body {
+   display: table;
+   width: 100%;
+ }
 
+ .page-row {
+   display: table-row;
+   height: 1px;
+ }
 
- 
-
+ .page-row-expanded { height: 100%; }
 
 
  .alert-notice {
