@@ -4,13 +4,13 @@
 </td>
 <td>
     <%if !user.is_admin?%>
-            <%  if user.is_lawyer?%>
-            <%=  content_tag(:span,"",class:"fa fa-user-plus")%>
-        <%   else%>
-            <%=   content_tag(:span, "", class: "fa fa-user")%>
-            <%   end%>
+    <%  if user.is_lawyer?%>
+    <%=  content_tag(:span,"",class:"fa fa-user-plus")%>
+<%   else%>
+    <%=   content_tag(:span, "", class: "fa fa-user")%>
+    <%   end%>
 <% else%>
-          <%= content_tag(:span,"",class:"fa fa-star-o")%>
+    <%= content_tag(:span,"",class:"fa fa-star-o")%>
     <%end%>
 
     <%= user.user_name%>
@@ -19,26 +19,29 @@
     <%else%>
     <%= content_tag(:span,"", class:"fa fa-vimeo")%>
     <%end%>
-  </td>
+</td>
 
 <td><%= link_to user.email,admin_user_path(user),method: :get%></td>
-<td>
-    <%= user.created_at %>
-</td>
-<td>
-    <%= user.last_sign_in_at %>
-</td>
 
 <td>
+    <% if user.role == "律师" && !user.is_lawyer %>
+    注册申请成为律师
+    <%= change_user_status(user) %>
+<% else user.role == "用户" && !user.is_lawyer %>
+    注册身份是用户
+    <%if !user.is_vip?%>
     <%= chenge_user_vip(user) %>
-
+<% else %>
+    已经是VIP
+    <% end %>
+    <% end %>
 </td>
-<td><%= user.role %></td>
 
 <td>
     <% if user.is_vip?%>
-    <p class="btn btn-danger">已支付</p>
-    <% else %>
-    <p> 未支付</p>
+    支付成功
+<% else %>
+    <p>
+        未支付</p>
     <% end %>
 </td>
