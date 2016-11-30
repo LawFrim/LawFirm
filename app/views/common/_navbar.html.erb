@@ -69,7 +69,7 @@
       </button>
 <!--mobile display notifications-->
       <div class="hidden-md hidden-sm hidden-lg smallnotificationIcon">
-            <li id='btn-notification' type="button" class="btn  btn-secondary btn-secondary-black text-uppercase flat animation pull-right"
+            <li type="button" class="btn  btn-notification btn-secondary btn-secondary-black text-uppercase flat animation pull-right"
                     data-container="body" data-toggle="popover" data-placement="bottom"
                     data-content="
 
@@ -95,7 +95,7 @@
                     <% end %>
 
                     ">
-                <i class="fa fa-bell-o fa-2x" aria-hidden="true">
+                <i class="fa fa-bell-o fa-notification" aria-hidden="true">
 
                   <!-- f1275-cgNumToRedPoint 提醒换成原点-->
                   <% if @notifications.present? %>
@@ -200,7 +200,7 @@
 
         <!-- 添加提醒系统 -->
         <div class="notificationIcon hidden-xs">
-          <li id='btn-notification' type="button" class="btn  btn-secondary btn-secondary-black text-uppercase flat animation pull-right"
+          <li type="button" class="btn btn-notification btn-secondary btn-secondary-black text-uppercase flat animation pull-right"
                   data-container="body" data-toggle="popover" data-placement="bottom"
                   data-content="
 
@@ -226,7 +226,7 @@
                   <% end %>
 
                   ">
-              <i class="fa fa-bell-o fa-2x" aria-hidden="true">
+              <i class="fa fa-bell-o fa-notification" aria-hidden="true">
 
                 <!-- f1275-cgNumToRedPoint 提醒换成原点-->
                 <% if @notifications.present? %>
@@ -265,7 +265,7 @@
 <script>
 $(function (){
   // 绑定触发条件
-  $("#btn-notification").popover({
+  $(".btn-notification").popover({
             trigger:'click', //触发方式
             html: true, // 为true的话，data-content里就能放html代码了
         });
@@ -322,7 +322,3 @@ $(function (){
     _MEIQIA('init');
 </script>
 <!--  -->
-
-
-
-
