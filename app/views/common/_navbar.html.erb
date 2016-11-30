@@ -89,7 +89,56 @@
         <span class="sr-only">Toggle Navigation</span>
         <i class="fa fa-bars"></i>
       </button>
+<!--mobile display notifications-->
+      <div class="hidden-md hidden-sm hidden-lg smallnotificationIcon">
+            <li id='btn-notification' type="button" class="btn  btn-secondary text-uppercase flat animation pull-right"
+                    data-container="body" data-toggle="popover" data-placement="bottom"
+                    data-content="
+
+                    <!-- 插入的html触发码 -->
+                    <% if @notifications.present? %>
+                      <% @notifications.each do |n| %>
+
+                        <!-- 律师见到的 -->
+                        <% if current_user.lawyer? %>
+                          <p><%= n.actor.user_name %>追问了
+                            <a href=<%= lawyer_question_path(n.notifiable) %>><%= n.notifiable.content %></a>
+                          </p>
+                        <!-- 普通用户见到的 -->
+                        <% else %>
+                          <p><%= n.actor.user_name %>回复了
+                            <a href=<%= account_question_path(n.notifiable) %>><%= n.notifiable.content %></a>
+                          </p>
+                        <% end %>
+
+                      <% end %>
+                    <% else %>
+                      <p>没有新的消息</p>
+                    <% end %>
+
+                    ">
+                <i class="fa fa-bell-o fa-2x" aria-hidden="true">
+
+                  <!-- f1275-cgNumToRedPoint 提醒换成原点-->
+                  <% if @notifications.present? %>
+                    <div class='notification-point text-center btn-danger'>
+                      <%= @notifications.count %>
+                    </div>
+                  <% end %>
+                  <!--  -->
+
+                </i>
+            </li>
+        </div>
+
+
     </div>
+
+
+
+
+
+
   <!-- Nav Header Ends -->
   <!-- Navbar Cat collapse Starts -->
     <div class="collapse navbar-collapse navbar-cat-collapse animation">
@@ -172,46 +221,47 @@
 
 
         <!-- 添加提醒系统 -->
-        <div class="notificationIcon">
-            <li id='btn-notification' type="button" class="btn  btn-secondary text-uppercase flat animation pull-right"
-                    data-container="body" data-toggle="popover" data-placement="bottom"
-                    data-content="
+        <div class="notificationIcon hidden-xs">
+          <li id='btn-notification' type="button" class="btn  btn-secondary text-uppercase flat animation pull-right"
+                  data-container="body" data-toggle="popover" data-placement="bottom"
+                  data-content="
 
-                    <!-- 插入的html触发码 -->
-                    <% if @notifications.present? %>
-                      <% @notifications.each do |n| %>
-
-                        <!-- 律师见到的 -->
-                        <% if current_user.lawyer? %>
-                          <p><%= n.actor.user_name %>追问了
-                            <a href=<%= lawyer_question_path(n.notifiable) %>><%= n.notifiable.content %></a>
-                          </p>
-                        <!-- 普通用户见到的 -->
-                        <% else %>
-                          <p><%= n.actor.user_name %>回复了
-                            <a href=<%= account_question_path(n.notifiable) %>><%= n.notifiable.content %></a>
-                          </p>
-                        <% end %>
-
-                      <% end %>
-                    <% else %>
-                      <p>没有新的消息</p>
-                    <% end %>
-
-                    ">
-                <i class="fa fa-bell-o fa-2x" aria-hidden="true">
-
-                  <!-- f1275-cgNumToRedPoint 提醒换成原点-->
+                  <!-- 插入的html触发码 -->
                   <% if @notifications.present? %>
-                    <div class='notification-point text-center btn-danger'>
-                      <%= @notifications.count %>
-                    </div>
-                  <% end %>
-                  <!--  -->
+                    <% @notifications.each do |n| %>
 
-                </i>
-            </li>
-        </div>
+                      <!-- 律师见到的 -->
+                      <% if current_user.lawyer? %>
+                        <p><%= n.actor.user_name %>追问了
+                          <a href=<%= lawyer_question_path(n.notifiable) %>><%= n.notifiable.content %></a>
+                        </p>
+                      <!-- 普通用户见到的 -->
+                      <% else %>
+                        <p><%= n.actor.user_name %>回复了
+                          <a href=<%= account_question_path(n.notifiable) %>><%= n.notifiable.content %></a>
+                        </p>
+                      <% end %>
+
+                    <% end %>
+                  <% else %>
+                    <p>没有新的消息</p>
+                  <% end %>
+
+                  ">
+              <i class="fa fa-bell-o fa-2x" aria-hidden="true">
+
+                <!-- f1275-cgNumToRedPoint 提醒换成原点-->
+                <% if @notifications.present? %>
+                  <div class='notification-point text-center btn-danger'>
+                    <%= @notifications.count %>
+                  </div>
+                <% end %>
+                <!--  -->
+
+              </i>
+          </li>
+      </div>
+
         <!--  -->
 
 
@@ -220,6 +270,8 @@
       </ul>
     </div>
   <!-- Navbar Cat collapse Ends -->
+
+
   </div>
 <!-- Nested Container Ends -->
 </nav>
