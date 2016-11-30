@@ -7,15 +7,13 @@ class WelcomeController < ApplicationController
     # binding.pry
   end
 
-  def mapguide
+  def price
   end
-  def aboutus
+  def about_us
   end
-  def joinus
+  def help_term
   end
-
-
-  def show
+  def contact_us
   end
 
 
@@ -57,7 +55,7 @@ class WelcomeController < ApplicationController
       # 如果是已存在用户让他登录
       redirect_to new_user_session_path
     end
- 
+
   end
 
 
