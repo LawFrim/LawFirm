@@ -41,7 +41,7 @@ class WelcomeController < ApplicationController
       binding.pry
       # send_password_mail(user.id,generated_password)
 
-      ModelMailer.send_password_mail(user.id,generated_password).deliver
+      ModelMailer.send_password_mail(user.id,generated_password).deliver_later
       # 为这个用户建立新问题
       question = Question.create(content: new_quesion_content, user: user)
       flash[:notice] = "请查收邮箱获取默认密码！"
