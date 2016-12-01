@@ -1,19 +1,10 @@
-class Account::QuestionsController < ApplicationController
-  # 必须登录才能问问题
-  before_action :authenticate_user!
-  # f120
-  before_action :get_mailbox
+class Account::QuestionsController < AccountController
 
-  layout "user"
-
-  # 只显示当前用户的问题
   def index
     @questions = Question.where(user_id: current_user).recent
     # send_simple_message
     # binding.pry
   end
-
-
 
   # 新建问题
   def new
@@ -25,14 +16,11 @@ class Account::QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @answers = @question.answers
     @new_answer = Answer.new
-
     # f120
     # qid = @question.id.to_s
     # 查是否有关于此问题的回复
     @conversations = @question.conversations
     # binding.pry
-
-
   end
 
   # 编辑
@@ -43,7 +31,6 @@ class Account::QuestionsController < ApplicationController
   # 建立
   def create
     @question = Question.new(question_params)
-
     # f787makeDocumentAsQuestions区分问题类型为『纯问题』与『文件审核』
     if question_params[:attachment].present?
       @question.service_type = 'ducument'
@@ -60,23 +47,6 @@ class Account::QuestionsController < ApplicationController
     end
   end
 
-  # 更新
-  def update
-    @question = Question.find(params[:id])
-    @question.user = current_user
-    if @question.update(question_params)
-      redirect_to account_question_path(@question), notice: "问题已修改!"
-    else
-      render :back, notice: "修改失败!"
-    end
-  end
-
-  # 删除
-  def destroy
-    @question = Question.find(params[:id])
-    @question.destroy
-    redirect_to :back
-  end
 
   # 评价系统
   def rating
@@ -99,6 +69,26 @@ class Account::QuestionsController < ApplicationController
   # 附件系统
   def new_document
     @question = Question.new
+  end
+
+
+
+  # 更新 暂不使用
+  def update
+    @question = Question.find(params[:id])
+    @question.user = current_user
+    if @question.update(question_params)
+      redirect_to account_question_path(@question), notice: "问题已修改!"
+    else
+      render :back, notice: "修改失败!"
+    end
+  end
+
+  # 删除 暂不使用
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to :back
   end
 
 
