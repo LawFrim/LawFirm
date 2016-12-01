@@ -58,8 +58,9 @@
 						<p>无需繁琐注册</p>
             <p>首次登录</p>
             <p>免费向专业律师咨询</p>
-
+            <% if current_user %>
 						<%= link_to "立即购买", create_m_account_orders_path,class:"btn btn-outline text-uppercase flat animation" %>
+            <% end %>
 					</div>
 				<!-- Col #1 Ends -->
 				<!-- Col #2 Starts -->
@@ -74,7 +75,9 @@
               在线下载文件
 
             </p>
-						<%= link_to "按月支付", create_m_account_orders_path,class:"btn btn-outline text-uppercase flat animation" %>
+              <% if current_user %>
+						<%= link_to "按月支付", create_m_account_orders_path,method: :post,class:"btn btn-outline text-uppercase flat animation" %>
+            <% end %>
 					</div>
 				<!-- Col #2 Ends -->
 				<!-- Col #3 Starts -->
@@ -91,7 +94,9 @@
             <p>
               第一时间回复
             </p>
-						<%= link_to "按年支付", create_y_account_orders_path,class:"btn btn-outline text-uppercase flat animation" %>
+            <% if current_user %>
+						<%= link_to "按年支付", create_y_account_orders_path,method: :post,class:"btn btn-outline text-uppercase flat animation" %>
+              <% end %>
 					</div>
 				<!-- Col #4 Ends -->
 				</div>
@@ -106,3 +111,4 @@
 <!-- Main Container Ends -->
 
     <!-- END PACKAGES SECTION -->
+   
