@@ -10,10 +10,10 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-
+    <%= f.input :current_password, hint: "初始密码已发送到您的注册邮箱", required: true %>
     <%= f.input :password, autocomplete: "off", hint: "如果不想修改就留白", required: false %>
     <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "我们需要您当前密码进行确认", required: true %>
+
   </div>
 
   <div class="form-actions">

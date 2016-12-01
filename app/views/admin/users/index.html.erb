@@ -25,9 +25,8 @@
         
         <tbody>
             <% @users.each do |user| %>
-            <tr>
                 <%= render :partial => "admin_index_table", :locals =>{:user => user},:as => :user %>
-            </tr>
+            
             <% end %>
 
         </tbody>

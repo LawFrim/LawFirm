@@ -1,9 +1,9 @@
 class Account::QuestionsController < AccountController
 
   def index
+    # binding.pry
     @questions = Question.where(user_id: current_user).recent
     # send_simple_message
-    # binding.pry
   end
 
   # 新建问题
