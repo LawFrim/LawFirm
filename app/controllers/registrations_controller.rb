@@ -1,6 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
   layout 'welcome'
-
   def edit
     super
   end

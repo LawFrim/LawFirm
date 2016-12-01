@@ -1,10 +1,4 @@
-class Lawyer::AnswersController < ApplicationController
-
-  before_action :authenticate_user!
-  before_action :lawyer_required
-  before_action :get_mailbox
-
-  layout "lawyer"
+class Lawyer::AnswersController < LawyerController
 
   # 回答问题
   def create
@@ -19,8 +13,6 @@ class Lawyer::AnswersController < ApplicationController
     attachment = answer_params[:attachment]
     # 对话id
     conversation_id = answer_params[:conversation_id]
-
-
 
     # mailboxer方法
     # 如果之前没有对话，就新建对话。如果有，就回复对话
@@ -49,13 +41,13 @@ class Lawyer::AnswersController < ApplicationController
 
     # binding.pry
 
-    # 
+    #
     # 更新律师与问题的多对多回答表
     lawyer_answer_question = LawyerAnsweredQuestion.new
     lawyer_answer_question.lawyer = current_user.lawyer
     lawyer_answer_question.question = @question
     lawyer_answer_question.save
-    # 
+    #
 
 
 

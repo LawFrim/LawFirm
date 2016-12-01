@@ -1,8 +1,5 @@
-class Lawyer::UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :lawyer_required
-  layout "lawyer"
-
+class Lawyer::UsersController < LawyerController
+ 
 
   def index
     @user = current_user
