@@ -1,47 +1,67 @@
-<td>
-    <%= user.id %>
+<!-- 判断行样式 -->
+<% if user.is_vip %>
+<tr class="bg-success">    
+<% else %>
+<tr>
+<% end %>
 
-</td>
-<td>
-    <%if !user.is_admin?%>
-    <%  if user.is_lawyer?%>
-    <%=  content_tag(:span,"",class:"fa fa-user-plus")%>
-<%   else%>
-    <%=   content_tag(:span, "", class: "fa fa-user")%>
-    <%   end%>
-<% else%>
-    <%= content_tag(:span,"",class:"fa fa-star-o")%>
-    <%end%>
+    <td>
+        <%= user.id %>
 
-    <%= user.user_name%>
-    <%if !user.is_vip?%>
-    <%= content_tag(:span,"", class:"fa fa-opera")%>
-    <%else%>
-    <%= content_tag(:span,"", class:"fa fa-vimeo")%>
-    <%end%>
-</td>
+    </td>
+    <td>
+        <%if !user.is_admin?%>
+        <%  if user.is_lawyer?%>
+        <%=  content_tag(:span,"",class:"fa fa-user-plus")%>
+    <%   else%>
+        <%=   content_tag(:span, "", class: "fa fa-user")%>
+        <%   end%>
+    <% else%>
+        <%= content_tag(:span,"",class:"fa fa-star-o")%>
+        <%end%>
 
-<td><%= link_to user.email,admin_user_path(user),method: :get%></td>
+        <%= user.user_name%>
+        <%if !user.is_vip?%>
+        <%= content_tag(:span,"", class:"fa fa-opera")%>
+        <%else%>
+        <%= content_tag(:span,"", class:"fa fa-vimeo")%>
+        <%end%>
+    </td>
 
-<td>
-    <% if user.role == "律师" && !user.is_lawyer %>
-    注册申请成为律师
-    <%= change_user_status(user) %>
-<% else user.role == "用户" && !user.is_lawyer %>
-    注册身份是用户
-    <%if !user.is_vip?%>
+    <td><%= link_to user.email,admin_user_path(user),method: :get%></td>
+
+    <td>
+
+    <!-- 按钮 -->
     <%= chenge_user_vip(user) %>
-<% else %>
-    已经是VIP
-    <% end %>
-    <% end %>
-</td>
 
-<td>
-    <% if user.is_vip?%>
-    支付成功
-<% else %>
-    <p>
-        未支付</p>
+    <!-- 判断是否是vip -->
+    <% if user.is_vip %>
+        <% if user.role == "律师" %>
+            已认证律师
+        <% elsif user.role == "用户" %>
+            付费用户
+        <% end %>
+    <!-- 不是vip的话设置个按钮 -->
+    <% else %>
+        <% if user.role == "律师" %>
+            未认证律师
+        <% elsif user.role == "用户" %>
+            免费用户
+        <% end %>
     <% end %>
-</td>
+
+
+
+    </td>
+
+    <td>
+        <% if user.is_vip?%>
+        支付成功
+    <% else %>
+        <p>
+            未支付</p>
+        <% end %>
+    </td>
+
+</tr>
