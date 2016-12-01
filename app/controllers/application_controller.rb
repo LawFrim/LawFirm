@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
       if current_user.is_admin?
         admin_users_path
 
-      elsif   current_user.is_lawyer?
+      elsif current_user.is_lawyer?
         lawyer_questions_path #你的路径
       else
         account_questions_path
@@ -87,8 +87,13 @@ class ApplicationController < ActionController::Base
       question_url = ENV['DOMAIN_NAME'] + account_question_path(@question)
     end
 
-    # 邮箱发送提醒信件
-    ModelMailer.send_notification_mail(recipient, @question,question_url).deliver_later
+
+    # 只有生产环境才发邮件
+    if Rails.env == 'production'
+      # 邮箱发送提醒信件
+      ModelMailer.send_notification_mail(recipient, @question,question_url).deliver_later          
+    end
+
   end
 
 

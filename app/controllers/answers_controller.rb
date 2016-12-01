@@ -16,15 +16,12 @@ class AnswersController < ApplicationController
     end
   end
 
+
   private
 
   # 回答参数
   def answer_params
     params.require(:answer).permit(:content)
   end
-
-
-
-
 
 end
