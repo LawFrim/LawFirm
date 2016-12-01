@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Lawfirm </title>
+        <title>用户中心——伴律网</title>
         <%= csrf_meta_tags %>
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,7 +12,7 @@
 
     <body>
 
-        <div class="container-fluid">
+        <div class="content">
             <%= render "common/page_navbar" %>
             <%= render "common/flashes" %>
           <!-- This is a temporary layout setting. Move it to layout/user,after controller accounts is created -->
@@ -46,6 +46,6 @@
 
         </div>
 
-
+        <%= render "common/footer" %>
     </body>
 </html>

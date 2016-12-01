@@ -20,7 +20,7 @@
         <li><a href=/mapguide>用户指南</a></li>
 
 
-        <li><%= link_to "加入我们","#" %></li>
+       
         <!-- <li><a href="#">Team Members</a></li> -->
       </ul>
     <!-- Header Links Ends -->
@@ -118,35 +118,44 @@
 <!-- Nav Header Ends -->
 <!-- Navbar Cat collapse Starts -->
   <div class="collapse navbar-collapse navbar-cat-collapse animation">
-    <ul class="nav navbar-nav text-uppercase text-bold">
+
+
+
+
+<!--     <ul class="nav navbar-nav text-uppercase text-bold">
       <li class="active">
-       <% if !current_user %>
+       <%# if !current_user %>
 
-            <% elsif current_user.admin? %>
-            <%= link_to("管理员面板", admin_questions_path) %>
+            <%# elsif current_user.admin? %>
+            <%#= link_to("管理员面板", admin_questions_path) %>
 
-            <% elsif current_user.lawyer? %>
+            <%# elsif current_user.lawyer? %>
 
-             <%= link_to("律师面板",lawyer_questions_path(:order => "waiting_for_answer")) %>
-            <% else %>
-            <%= link_to("我的动态", account_questions_path) %>
-        <% end %>
+             <%#= link_to("律师面板",lawyer_questions_path(:order => "waiting_for_answer")) %>
+            <%# else %>
+            <%#= link_to("我的动态", account_questions_path) %>
+        <%# end %>
 
-          </li>
 
       </li>
 
-    </ul>
+    </ul> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <ul class="nav navbar-nav navbar-right text-right-lg text-right-md ">
-
-
-
-
-
-
-
-
-
 
 
       <li class="dropdown pull-right">

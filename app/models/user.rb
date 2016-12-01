@@ -125,9 +125,14 @@ class User < ApplicationRecord
 
   # 自己答过的问题
   def answered_questions
-    q = self.lawyer.lawyer_answered_questions
-    questions = q.map {|x| x.question }
-    return questions
+    # 如果未答题，则返回空值，否则返回回答过的问题
+    if self.lawyer.present?
+      q = self.lawyer.lawyer_answered_questions
+      questions = q.map {|x| x.question }
+      return questions      
+    else
+      return []
+    end
   end
   #
 

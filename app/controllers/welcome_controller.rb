@@ -15,6 +15,8 @@ class WelcomeController < ApplicationController
   end
   def contact_us
   end
+  def sec_price
+  end 
 
 
   # 获取路人问题
@@ -28,13 +30,9 @@ class WelcomeController < ApplicationController
     generated_password = Devise.friendly_token.first(8)
 
     # 看这个用户是否之前建立过
-
-
-
-
-    # 建立新用户
     user = User.find_by(email: new_user_email)
     if user.blank?
+      # 建立新用户
       user =  User.create(:email => new_user_email, :password => generated_password)
       # binding.pry
       # send_password_mail(user.id,generated_password)
@@ -45,17 +43,21 @@ class WelcomeController < ApplicationController
         redirect_to new_user_session_path
       else
 
-        # 延迟发送邮件
-        ModelMailer.send_password_mail(user.id,generated_password).deliver_later
+        # 只有生产环境才发邮件
+        if Rails.env == 'production'
+          # 延迟发送邮件
+          ModelMailer.send_password_mail(user.id,generated_password).deliver_later          
+        end
+
         # 为这个用户建立新问题
         question = Question.create(content: new_quesion_content, user: user)
-        flash[:notice] = "请查收邮箱获取默认密码！"
+        flash[:notice] = "默认密码已经发送到您的邮箱，请查收！"
 
         # 用户登录
         sign_in user
         # 用户重定向
         redirect_to account_questions_path
-  
+
       end
 
 

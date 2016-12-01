@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Lawfirm </title>
+        <title>律师中心——伴律网 </title>
         <%= csrf_meta_tags %>
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,7 +11,7 @@
 
     <body>
 
-        <div class="container-fluid">
+        <div class=" content">
             <%= render "common/page_navbar" %>
             <%= render "common/flashes" %>
             <div class="row">
@@ -20,8 +20,11 @@
                 <div class="col-md-2  nav-sidebar side-block-2">
                   <h6></h6>
                   <ul class="list-unstyled list-links">
+                  <% if current_user.is_vip %>
                     <li class="clearfix"> <span class="glyphicon glyphicon-comment"></span> <%= link_to("问题大厅", lawyer_questions_path(:order => "waiting_for_answer") ) %></li>
                     <li class="clearfix"> <span class="glyphicon glyphicon-ok-sign"></span> <%= link_to("历史问题", lawyer_questions_path(:order => "already_answered")  ) %></li>
+                  <% end %>
+
                     <li class="clearfix"> <span class="glyphicon glyphicon-home"></span> <%= link_to("用户中心", lawyer_users_path ) %></li>
                   </ul>
 

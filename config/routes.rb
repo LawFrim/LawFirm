@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users,:controllers =>{:resgistrations => :resgistrations}
+  devise_for :users, :controllers => { :registrations => :registrations }
 #   as :user do
 #   get 'users', :to => 'users#show', :as => :user_root # Rails 3
 # end
@@ -18,8 +18,8 @@ Rails.application.routes.draw do
       member do
         post :change_to_user
         post :change_to_lawyer
-        post :chenge_to_vip
-        post :chenge_to_visitor
+        post :change_to_vip
+        post :change_to_visitor
       end
     end
   end
@@ -95,6 +95,7 @@ Rails.application.routes.draw do
   get "/about_us", to: "welcome#about_us"
   get "/help_term", to: "welcome#help_term"
   get "/contact_us", to: "welcome#contact_us"
+  get "/sec_price", to: "welcome#sec_price"
 
 
   root 'welcome#index'

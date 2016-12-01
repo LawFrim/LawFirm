@@ -1,7 +1,6 @@
 Rails.application.configure do
 
 
-
   # mailgun
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -12,6 +11,11 @@ Rails.application.configure do
     :domain         => 'whenmgone.com', #eg: 'yourappname.herokuapp.com'
     :authentication => :plain,
   }
+
+
+
+
+  config.assets.compress = true
 
 
   # Settings specified here will take precedence over those in config/application.rb.
