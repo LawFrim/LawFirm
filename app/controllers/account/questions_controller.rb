@@ -30,20 +30,28 @@ class Account::QuestionsController < AccountController
 
   # 建立
   def create
-    @question = Question.new(question_params)
-    # f787makeDocumentAsQuestions区分问题类型为『纯问题』与『文件审核』
-    if question_params[:attachment].present?
-      @question.service_type = 'ducument'
+    # 如果用户是不是vip
+    # 而且是当前用户已经问过了问题或者是第一个问题的追问，就重定向用户
+    if !current_user.is_vip && (current_user.questions.present?)
+      redirect_to price_path
     else
-      @question.service_type = 'question'
-    end
-    #
+      @question = Question.new(question_params)
+      # f787makeDocumentAsQuestions区分问题类型为『纯问题』与『文件审核』
+      if question_params[:attachment].present?
+        @question.service_type = 'ducument'
+      else
+        @question.service_type = 'question'
+      end
+      #
 
-    @question.user = current_user
-    if @question.save
-      redirect_to account_questions_path, notice: "问题已发布!"
-    else
-      render :new
+      @question.user = current_user
+      if @question.save
+        redirect_to account_questions_path, notice: "问题已发布!"
+      else
+        render :new
+      end
+      # 
+
     end
   end
 
