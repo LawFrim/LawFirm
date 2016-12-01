@@ -15,6 +15,8 @@ class WelcomeController < ApplicationController
   end
   def contact_us
   end
+  def sec_price
+  end 
 
 
   # 获取路人问题
@@ -55,7 +57,7 @@ class WelcomeController < ApplicationController
         sign_in user
         # 用户重定向
         redirect_to account_questions_path
-  
+
       end
 
 

@@ -20,6 +20,7 @@
           <li><%= link_to("加入我们",contact_us_path) %></li>
           <li><%= link_to("关于我们",about_us_path) %></li>
           <li><%= link_to("用户指南",help_term_path) %></li>
+          <li><%= link_to("收费说明",sec_price_path) %></li>
 
 
           <!-- <li><a href="#">Team Members</a></li> -->
@@ -179,7 +180,7 @@
                           <% else %>
                           <!-- <li> <%= link_to(content_tag(:i, ' 我的动态', class: 'fa fa-user-secret'), account_questions_path ) %> </li> -->
                           <li> <%= link_to(content_tag(:i, ' 用户中心', class: 'fa fa-university'), account_users_path ) %> </li>
-                         
+
                           <% end %>
 
                            <li> <%= link_to(content_tag(:i, ' 登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
