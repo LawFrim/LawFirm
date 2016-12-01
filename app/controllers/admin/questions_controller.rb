@@ -18,13 +18,11 @@ class Admin::QuestionsController < AdminController
     end
   end
 
-
   # 查看问题
   def show
     @question = Question.find(params[:id])
     @answers = @question.answers
     @new_answer = Answer.new
-
     # f120
     # qid = @question.id.to_s
     # 查是否有关于此问题的回复
@@ -35,12 +33,7 @@ class Admin::QuestionsController < AdminController
       @messages = dialog.messages
       @conversation = dialog
     end
-
   end
-
-
-
-
 
 
 
