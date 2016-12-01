@@ -119,9 +119,11 @@ class ApplicationController < ActionController::Base
     end
     # 相除得到平均值
     return (sum_raty.to_f/sum_count).round(1)
-
-
   end
+
+
+
+
 
 
 
