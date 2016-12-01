@@ -1,11 +1,4 @@
-class Admin::QuestionsController < ApplicationController
-
-  # 必须登录才能查看问题
-  before_action :authenticate_user!
-  before_action :admin_required
-  before_action :get_mailbox
-
-  layout "admin"
+class Admin::QuestionsController < AdminController
   # 只显示当前用户的问题
   def index
     @user = current_user

@@ -1,10 +1,5 @@
-class Admin::AnswersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :admin_required
-  before_action :get_mailbox
-
-  layout "admin"
-  
+class Admin::AnswersController < AdminController
+ 
   # 回答问题
   def create
     @question = Question.find(params[:question_id])
