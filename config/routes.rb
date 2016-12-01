@@ -95,6 +95,7 @@ Rails.application.routes.draw do
   get "/about_us", to: "welcome#about_us"
   get "/help_term", to: "welcome#help_term"
   get "/contact_us", to: "welcome#contact_us"
+  get "/sec_price", to: "welcome#sec_price"
 
 
   root 'welcome#index'
