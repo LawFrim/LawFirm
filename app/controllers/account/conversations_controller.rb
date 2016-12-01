@@ -2,7 +2,7 @@ class Account::ConversationsController < AccountController
   before_action :find_question_and_conversation, only: [:show, :show_lawyer]
 
   def show
-    @messages = @conversation.messages
+    @messages = @conversation.messages.order(created_at: :ASC)
     # binding.pry
     @new_answer = Answer.new
     # binding.pry
