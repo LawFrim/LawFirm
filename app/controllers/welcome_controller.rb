@@ -49,7 +49,7 @@ class WelcomeController < ApplicationController
 
         # 为这个用户建立新问题
         question = Question.create(content: new_quesion_content, user: user)
-        flash[:notice] = "请查收邮箱获取默认密码！"
+        flash[:notice] = "默认密码已经发送到您的邮箱，请查收！"
 
         # 用户登录
         sign_in user
