@@ -8,9 +8,9 @@ class Account::QuestionsController < ApplicationController
 
   # 只显示当前用户的问题
   def index
+    # binding.pry
     @questions = Question.where(user_id: current_user).recent
     # send_simple_message
-    # binding.pry
   end
 
 
@@ -31,8 +31,6 @@ class Account::QuestionsController < ApplicationController
     # 查是否有关于此问题的回复
     @conversations = @question.conversations
     # binding.pry
-
-
   end
 
   # 编辑
