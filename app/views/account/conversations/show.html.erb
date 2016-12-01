@@ -1,6 +1,6 @@
 
 
-<div class="pull-left col-sm-12 col-md-8">
+<div class="pull-left col-xs-11 col-md-8">
 
 
   <div class= "answeredBy row">
@@ -16,9 +16,9 @@
               <%# binding.pry %>
           </div>
           <div class="answerFrom">
-              <p class="lawyerName"> 
+              <p class="lawyerName">
               <a href="<%= show_lawyer_account_question_conversation_path %>"><%= render :partial => "common/user_name", :locals =>{:user => @conversation.originator} %></a>
-                
+
               </p>
               <p class="answerStatus">回答了您的问题 </p>
               </div>
@@ -44,10 +44,13 @@
             <div class="panel-heading">
               <h4 class="panel-title">
 
-                <p class="col-md-8">历史记录</p>
-                <div class="col-md-4">
+             
+
+
+                <p class="col-md-8  pull-left">历史记录</p>
+
                   <span id="span-collapse" class="glyphicon glyphicon-chevron-down pull-right"></span>
-                </div>
+
 
               </h4>
             </div>

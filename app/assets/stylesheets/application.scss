@@ -20,7 +20,22 @@
  @import "responsive";
 
 
+//flexbox
+ html {
+   height: 100%;
+ }
+ body {
+   min-height: 100%;
+   display: flex;
+   flex-direction: column;
+ }
+ .content {
+   flex: 1;
 
+ .footer:{
+   width: 100%;
+ }
+ }
 
 
  .page-row-expanded { height: 100%; }
@@ -148,6 +163,16 @@
       opacity: 0.75;
     }
 
+
+    .alert-danger {
+        background-color: #222;
+        border-color: rgba(255, 255, 255, 0.15);
+        color: #fcf8e3;
+        margin: 1px auto 1px auto;
+        opacity: 0.75;
+      }
+
+ 
 
     .alert-dismissable .close {
         position: relative;

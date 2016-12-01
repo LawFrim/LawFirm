@@ -15,7 +15,7 @@ class ModelMailer < ApplicationMailer
   def send_password_mail(user,password)
     reciver_obj = User.find(user)
     @password = password
-    mail to: reciver_obj.email, subject: "Lawyer法律咨询平台-注册"
+    mail to: reciver_obj.email, subject: "注册成功——伴律网法律咨询"
   end
   #
 
@@ -25,10 +25,10 @@ class ModelMailer < ApplicationMailer
     reciver_obj = User.find(user)
     @question_obj = question
     @url = question_url
-    mail to: reciver_obj.email, subject: "Lawyer法律咨询平台-通知"
+    mail to: reciver_obj.email, subject: "通知——伴律网法律咨询"
 
   end
-  # 
+  #
 
 
 end

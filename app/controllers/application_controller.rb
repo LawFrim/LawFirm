@@ -26,37 +26,33 @@ class ApplicationController < ActionController::Base
 
 
 
-    #不同用户登录后跳转到指定页面
-    def after_sign_in_path_for(_user)
-      if current_user.is_admin?
-        admin_users_path
-
-      elsif   current_user.is_lawyer?
-        lawyer_questions_path #你的路径
-      else
-        account_questions_path
-      end
-    end
-
-
-  # 拿到提示
-
-    def after_sign_up_path_for(resource)
-       #  account_questions_path #你的路径
-       if current_user.is_lawyer?
-         lawyer_questions_path
-       else
-         account_questions_path
-       end
-      end
-
-
   def get_notification
     @notifications ||= Notification.where(recipient: current_user).unread
     # @notifications = current_user.notifications.unread
   end
 
 
+  # 用户登录
+  # 登录后路径选择
+  def after_sign_in_path_for(_user)
+    # binding.pry
+    if current_user.is_admin?
+      admin_users_path
+    elsif current_user.is_lawyer?
+      # vip重定向到问题列表
+      if current_user.is_vip
+        lawyer_questions_path #你的路径
+      # 非vip重定向到修改用户信息
+      else
+        # 重定向到律师页面
+        edit_lawyer_user_path(current_user)        
+      end
+    else
+      # 普通用户重定向到用户界面
+      account_questions_path
+    end
+  end
+  # 
 
 
 
@@ -87,8 +83,13 @@ class ApplicationController < ActionController::Base
       question_url = ENV['DOMAIN_NAME'] + account_question_path(@question)
     end
 
-    # 邮箱发送提醒信件
-    ModelMailer.send_notification_mail(recipient, @question,question_url).deliver_later
+
+    # 只有生产环境才发邮件
+    if Rails.env == 'production'
+      # 邮箱发送提醒信件
+      ModelMailer.send_notification_mail(recipient, @question,question_url).deliver_later          
+    end
+
   end
 
 
@@ -118,9 +119,11 @@ class ApplicationController < ActionController::Base
     end
     # 相除得到平均值
     return (sum_raty.to_f/sum_count).round(1)
-
-
   end
+
+
+
+
 
 
 

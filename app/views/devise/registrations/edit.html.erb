@@ -1,7 +1,4 @@
-<div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-6">
-
-
-<div class="well loginContainer">
+<div class="container-fluid common-block">
 <h2>修改 <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -13,10 +10,10 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-
+    <%= f.input :current_password, hint: "初始密码已发送到您的注册邮箱", required: true %>
     <%= f.input :password, autocomplete: "off", hint: "如果不想修改就留白", required: false %>
     <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "我们需要您当前密码进行确认", required: true %>
+
   </div>
 
   <div class="form-actions">
@@ -24,9 +21,9 @@
   </div>
 <% end %>
 
-<h3>注销您的账户</h3>
+<!-- <h3>注销您的账户</h3>
 
-<p>不高兴？<%= link_to "注销我的账户", registration_path(resource_name), data: { confirm: "确认再也不回来?" }, method: :delete %></p>
+<p>不高兴？<%= link_to "注销我的账户", registration_path(resource_name), data: { confirm: "确认再也不回来?" }, method: :delete %></p> -->
 
 <%= link_to "返回", :back %>
   </div>

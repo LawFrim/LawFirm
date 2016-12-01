@@ -1,24 +1,16 @@
-class Account::UsersController < ApplicationController
-  before_action :authenticate_user!
-  layout "user"
-
-
+class Account::UsersController < AccountController
+  before_action :find_current_user,only: [:index, :edit, :show]
 
   def index
-    @user = current_user
-    render :layout =>'user_panel_order'
   end
 
 
   def edit
-    @user = current_user
     @user = User.find(params[:id])
   end
 
 
   def show
-    @user = current_user
-  
   end
 
 
@@ -33,6 +25,10 @@ class Account::UsersController < ApplicationController
   end
 
   private
+
+  def find_current_user
+     @user = current_user
+   end
 
   def user_params
     params.require(:user).permit(:user_name,:email,:user_avatar,:district,:area,:certificate, :certificate_number)

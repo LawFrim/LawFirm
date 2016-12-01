@@ -1,4 +1,7 @@
 <!-- Slider Starts -->
+
+
+
   <div id="main-slider" class="carousel slide" data-ride="carousel">
   <!-- Wrapper For Slides Starts -->
     <div class="carousel-inner text-center">
@@ -6,7 +9,7 @@
       <div class="item active">
         <%= image_tag "slider/slider-img1.jpg", class:"img-responsive" %>
 
-        <div class="carousel-caption hidden-xs">
+        <div class="carousel-caption hidden-xs text-right">
           <h2 class="text-thin">终身伴律</h2>
           <h1 class="text-light">为你摆平一切</h1>
           <p>让顶级律师成为你随身的法律顾问 <br>从此法律零门槛 </p>
@@ -23,10 +26,12 @@
       <div class="item">
         <%= image_tag "slider/slider-img2.jpg", class:"img-responsive" %>
 
-        <div class="carousel-caption hidden-xs">
+        <div class="carousel-caption hidden-xs text-right">
           <h2 class="text-center">终身伴律</h2>
-          <h1 class="text-light">为你摆平一切 </h1>
-          <p>咨询问题在线上保密 <br>从此线上法律咨询可以畅所欲言</p>
+
+          <h1 class="text-light">你的随身法律顾问</h1>
+          <p>为你解决一切法律难题<br>告别晦涩难懂</p>
+
           <!-- <a href="#" class="btn btn-secondary animation text-uppercase flat">立即咨询</a> -->
           <%= link_to "立即咨询", "#heading-block",class:"btn btn-secondary animation text-uppercase flat"%>
         </div>
@@ -61,9 +66,8 @@
           <div class="row">
             <div class="col-xs-10 col-xs-offset-1 text-center">
               <h4 class="text-uppercase">在线咨询法律问题</h4>
-              <p>资深法律专家就在你身边，满足您任何时
-间任何地点任何不解、疑惑，便可
-直接发问，上千律师在线等。</p>
+              <p>资深法律专家就在你身边，满足您任何时间任何地点任何不解、疑惑</p>
+              <p>直接发问，上千律师在线等。</p>
             </div>
           </div>
         </div>
@@ -73,8 +77,8 @@
           <div class="row">
             <div class="col-xs-10 col-xs-offset-1 text-center">
               <h4>在线审核法律文件</h4>
-              <p>专业律师为您检查合同文件，专业修改，为您的权益保驾护航。
-一键上传，收获一份安心。</p>
+              <p>专业律师为您检查合同文件，为您的权益保驾护航。</p>
+              <p>一键上传，静候答复。</p>
             </div>
           </div>
         </div>
@@ -96,26 +100,25 @@
       <ul class="row list-unstyled list-style-2 text-center">
       <!-- Col #1 Starts -->
         <li class="col-md-4  col-sm-12">
-          <h6 class="text-normal">快速得到法律建议</h6>
+          <h6 class="text-normal">快速服务</h6>
           <p><i class="fa fa-question-circle"></i></p>
-          <p>任何一个法律问题，我们在少于一个
-工作日内，给出详尽的建议</p>
+          <p>24小时内，得到回复</p>
         </li>
       <!-- Col #1 Ends -->
       <!-- Col #2 Starts -->
         <li class="col-md-4  col-sm-12">
-          <h6 class="text-normal">帮你分析文书</h6>
-          <p><i class="fa fa-file-text"></i></p>
-          <p>专业律师在线帮你分析查看你的合同
-反馈给你一套详尽的法律方案</p>
+          <h6 class="text-normal">隐私保护</h6>
+          <p><i class="fa fa-lock" aria-hidden="true"></i></p>
+          <p>信息私密，畅所欲言</p>
 
         </li>
       <!-- Col #2 Ends -->
       <!-- Col #3 Starts -->
         <li class="col-md-4 col-sm-12">
-          <h6 class="text-normal">感恩优惠</h6>
+          <h6 class="text-normal">限时免费</h6>
           <p><i class="fa fa-credit-card"></i></p>
-          <p>感恩节特惠，现在注册，首问免费。</p>
+          <p>内测期间，免费提问。</p>
+ 
         </li>
 
       </ul>
@@ -249,7 +252,7 @@
       <!-- #2 Starts -->
         <div class="col-md-4  col-sm-12">
           <h2 class="text-light badges-counter">500</h2>
-          <h5 class="text-uppercase">个问题得到满意回答</h5>
+          <h5 class="text-uppercase">个问题得到回答</h5>
         </div>
       <!-- #2 Ends -->
       <!-- #3 Starts -->
@@ -277,7 +280,7 @@
 <!-- Free Consultation Section Starts -->
   <section class="section-area silver free-consultation-section text-center-sm text-center-xs">
   <!-- Heading Block Starts -->
-    <div class="heading-block" id="heading-block">
+    <div class="heading-block col-md-6 col-md-offset-3 col-xs-12 col-lg-12 col-lg-offset-2" id="heading-block">
       <div class="container">
         <h3>现在加入，首问免费</h3>
         <h5 class="sub-heading-1 text-light text-uppercase">越过法律高门槛，我们在你身边</h5>
@@ -289,7 +292,7 @@
     <!-- Nested Row Starts -->
       <div class="row">
       <!-- Form Starts -->
-        <div class="col-md-6 col-xs-12">
+        <div class="col-md-6 col-md-offset-3 col-xs-12">
           <!-- form -->
           <%= simple_form_for  @temp_question,url: get_temp_question_welcome_index_path do |t| %>
 
@@ -302,6 +305,9 @@
 
         </div>
       <!-- Form Ends -->
+      <!-- Image Block Starts -->
+
+        </div>
 
       </div>
     <!-- Nested Row Ends -->

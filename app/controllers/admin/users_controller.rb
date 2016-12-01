@@ -1,8 +1,4 @@
-class Admin::UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :admin_required
-  layout "admin"
-
+class Admin::UsersController < AdminController
 
   def index
     @users =  case params[:order]
@@ -27,10 +23,6 @@ class Admin::UsersController < ApplicationController
     redirect_to :back
   end
 
-
-
-
-
   def change_to_user
     @user = User.find(params[:id])
     @user.is_lawyer= false
@@ -49,7 +41,7 @@ class Admin::UsersController < ApplicationController
     redirect_to :back
   end
 
-  def chenge_to_vip
+  def change_to_vip
     @user = User.find(params[:id])
     @user.is_vip = true
     @user.save
@@ -57,7 +49,7 @@ class Admin::UsersController < ApplicationController
     redirect_to :back
   end
 
-  def chenge_to_visitor
+  def change_to_visitor
     @user = User.find(params[:id])
     @user.is_vip = false
     @user.save

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Lawfirm </title>
+        <title>管理员中心——伴律网  </title>
         <%= csrf_meta_tags %>
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,7 +10,7 @@
 
     <body>
 
-        <div class="container-fluid">
+        <div class="content">
             <%= render "common/page_navbar" %>
             <%= render "common/flashes" %>
             <div class="row">
@@ -27,7 +27,7 @@
                   <!-- 现有侧边栏 -->
 
                 <!-- 内容 -->
-                <div class="pageContainer col-md-10">
+                <div class="pageContainer content col-md-10">
                     <%= yield %>
                 </div>
             </div>

@@ -1,11 +1,4 @@
-class Lawyer::QuestionsController < ApplicationController
-    # 必须律师登录才能查看问题
-    before_action :authenticate_user!
-    before_action :lawyer_required
-    before_action :get_mailbox
-
-    layout "lawyer"
-
+class Lawyer::QuestionsController < LawyerController
 
 
     def index

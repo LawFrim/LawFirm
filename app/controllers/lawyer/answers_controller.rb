@@ -1,10 +1,6 @@
-class Lawyer::AnswersController < ApplicationController
 
-  before_action :authenticate_user!
-  before_action :lawyer_required
-  before_action :get_mailbox
+class Lawyer::AnswersController < LawyerController
 
-  layout "lawyer"
 
   # 回答问题
   def create
@@ -20,20 +16,13 @@ class Lawyer::AnswersController < ApplicationController
     # 对话id
     conversation_id = answer_params[:conversation_id]
 
-
-
     # mailboxer方法
     # 如果之前没有对话，就新建对话。如果有，就回复对话
-
     if conversation_id.blank?
       # 使用修正过得新send_message多加了一个参数
       conversation = current_user.send_message(akser ,answer_content ,subject , @question,true,attachment).conversation
       # 发送给用户回答问题的提醒
       send_notification!(akser.id, current_user.id, @question)
-      # ModelMailer.send_notification_mail(akser.id, @question).deliver
-
-      # binding.pry
-
     else
       # 通过会话id获取会话
       conversation = @question.conversations.find(conversation_id)
@@ -41,36 +30,20 @@ class Lawyer::AnswersController < ApplicationController
       current_user.reply_to_conversation(conversation, answer_content,nil,true,true,attachment)
       # 发送给用户回答问题的提醒
       send_notification!(akser.id, current_user.id, @question)
-      # ModelMailer.send_notification_mail(akser.id, @question).deliver
-
-      # binding.pry
-
     end
-
-    # binding.pry
-
-    # 
     # 更新律师与问题的多对多回答表
     lawyer_answer_question = LawyerAnsweredQuestion.new
     lawyer_answer_question.lawyer = current_user.lawyer
     lawyer_answer_question.question = @question
     lawyer_answer_question.save
-    # 
-
-
+    #
 
     # f470-变成已回答状态
     @question.answered!
 
-
-    # binding.pry
     flash[:notice] = "回复成功"
     redirect_to :back
   end
-
-
-
-
 
   private
 
