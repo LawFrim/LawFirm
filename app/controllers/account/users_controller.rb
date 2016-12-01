@@ -2,7 +2,6 @@ class Account::UsersController < AccountController
   before_action :find_current_user,only: [:index, :edit, :show]
 
   def index
-    render :layout =>'user_panel_order'
   end
 
 
