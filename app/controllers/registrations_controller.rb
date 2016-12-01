@@ -1,6 +1,9 @@
 class RegistrationsController < Devise::RegistrationsController
-  protected
-  # 不同用户登录后跳转到指定页面
+ 
+  layout 'welcome'
+  def edit
+    super
+  end
 
 
   # 注册后操作
@@ -19,8 +22,6 @@ class RegistrationsController < Devise::RegistrationsController
       account_questions_path
     end
   end
-  # 
+  #
 
 end
-
-

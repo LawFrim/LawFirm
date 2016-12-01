@@ -1,8 +1,6 @@
-class Lawyer::AnswersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :lawyer_required
-  before_action :get_mailbox
-  layout "lawyer"
+
+class Lawyer::AnswersController < LawyerController
+
 
   # 回答问题
   def create
@@ -33,14 +31,12 @@ class Lawyer::AnswersController < ApplicationController
       # 发送给用户回答问题的提醒
       send_notification!(akser.id, current_user.id, @question)
     end
-    # 
-
     # 更新律师与问题的多对多回答表
     lawyer_answer_question = LawyerAnsweredQuestion.new
     lawyer_answer_question.lawyer = current_user.lawyer
     lawyer_answer_question.question = @question
     lawyer_answer_question.save
-    # 
+    #
 
     # f470-变成已回答状态
     @question.answered!

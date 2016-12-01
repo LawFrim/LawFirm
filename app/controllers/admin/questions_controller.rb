@@ -1,11 +1,4 @@
-class Admin::QuestionsController < ApplicationController
-
-  # 必须登录才能查看问题
-  before_action :authenticate_user!
-  before_action :admin_required
-  before_action :get_mailbox
-
-  layout "admin"
+class Admin::QuestionsController < AdminController
   # 只显示当前用户的问题
   def index
     @user = current_user
@@ -25,13 +18,11 @@ class Admin::QuestionsController < ApplicationController
     end
   end
 
-
   # 查看问题
   def show
     @question = Question.find(params[:id])
     @answers = @question.answers
     @new_answer = Answer.new
-
     # f120
     # qid = @question.id.to_s
     # 查是否有关于此问题的回复
@@ -42,12 +33,7 @@ class Admin::QuestionsController < ApplicationController
       @messages = dialog.messages
       @conversation = dialog
     end
-
   end
-
-
-
-
 
 
 
