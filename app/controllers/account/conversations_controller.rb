@@ -11,9 +11,7 @@ class Account::ConversationsController < ApplicationController
     @conversation = @question.conversations.find(params[:id])
     @messages = @conversation.messages
     # binding.pry
-
     @new_answer = Answer.new
-
     # binding.pry
   end
 
@@ -25,8 +23,7 @@ class Account::ConversationsController < ApplicationController
     # binding.pry
     # 获取律师评价值
     @lawyer_rating = average_rating(@lawyer)
-  end 
-
+  end
 
   # 追问问题
   def create
@@ -47,7 +44,6 @@ class Account::ConversationsController < ApplicationController
     puts attachment
     puts '~~~~'
     # binding.pry
-
     if conversation_id.blank?
       # 其实上面这段if永远不会被调用，因为用户不会发起一个message
       conversation = current_user.send_message(akser ,answer_content ,subject,@question,true,attachment).conversation
@@ -62,23 +58,16 @@ class Account::ConversationsController < ApplicationController
       current_user.reply_to_conversation(conversation, answer_content,nil,true,true,attachment)
       puts '!!!!!!!!'
       # 客户发给律师提醒追问
-      
+
       send_notification!(conversation.originator.id, current_user.id, @question)
     end
-
-
     # binding.pry
-
     # f470-变成待回答状态
     @question.reopened!
-
     # binding.pry
     flash[:notice] = "回复成功"
     redirect_to :back
   end
-
-
-
 
 
   private
