@@ -1,6 +1,6 @@
 
 
-<div class="pull-left col-sm-12 col-md-8">
+<div class="pull-left col-xs-10 col-md-8">
 
 
   <div class= "answeredBy row">
@@ -16,9 +16,9 @@
               <%# binding.pry %>
           </div>
           <div class="answerFrom">
-              <p class="lawyerName"> 
+              <p class="lawyerName">
               <a href="<%= show_lawyer_account_question_conversation_path %>"><%= render :partial => "common/user_name", :locals =>{:user => @conversation.originator} %></a>
-                
+
               </p>
               <p class="answerStatus">回答了您的问题 </p>
               </div>
