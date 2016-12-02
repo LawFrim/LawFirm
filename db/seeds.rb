@@ -19,11 +19,12 @@ puts "3 Admin account created."
 
 
 
- User.create([email:"wendy0821@gmail.com",user_name:"轰轰",password:"111111",password_confirmation:"111111", is_admin:"false",is_lawyer:"true",district:"北京"])
- User.create([email:"eve@client.com",user_name:"Eve",password:"111111",password_confirmation:"111111", is_admin:"false",is_lawyer:"false",district:"北京"])
- User.create([email:"leonychuang@gmail.com",user_name:"歪歪",password:"111111",password_confirmation:"111111", is_admin:"false",is_lawyer:"false",district:"北京"])
- User.create([email:"a@client.com",user_name:"范冰冰",password:"111111",password_confirmation:"111111",is_admin:"false" ])
- User.create([email:"a2@client.com",user_name:"Mike Lee",password:"111111",password_confirmation:"111111",is_admin:"false" ])
+User.create([email:"wendy0821@gmail.com",user_name:"轰轰",password:"111111",password_confirmation:"111111", is_admin:"false",is_lawyer:"true",district:"北京"])
+User.create([email:"eve@client.com",user_name:"Eve",password:"111111",password_confirmation:"111111", is_admin:"false",is_lawyer:"false",district:"北京"])
+User.create([email:"leonychuang@gmail.com",user_name:"歪歪",password:"111111",password_confirmation:"111111", is_admin:"false",is_lawyer:"false",district:"北京"])
+User.create([email:"a@client.com",user_name:"范冰冰",password:"111111",password_confirmation:"111111",is_admin:"false" ])
+User.create([email:"a2@client.com",user_name:"Mike Lee",password:"111111",password_confirmation:"111111",is_admin:"false" ])
+
 puts "5 Users' accounts created."
 Question.create!([content:"翻墙是违反国家法律法规的么？",area:"刑事",district:"北京",user_id:7])
 Question.create!([content:"当吃瓜群众也需要承担税负么？",area:"民事",district:"深圳",user_id:7])
