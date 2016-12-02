@@ -1,7 +1,7 @@
 <div class="container-fluid">
 <div class="cardHeightWrap row">
     <!-- 新建链接 -->
-    <div class="col-lg-3 col-md-4  col-sm-6  cardHeightWrap">
+    <div class="col-lg-4 col-md-4  col-sm-6  cardHeightWrap">
 
       <%= link_to new_account_question_path do %>
             <div class="itemCard questionCard animation new-question">
@@ -14,7 +14,7 @@
       <% end %>
     </div>
       <% @questions.each do |question| %>
-      <div class="col-lg-3 col-md-4  col-sm-6   cardHeightWrap">
+      <div class="col-lg-4 col-md-4 col-sm-6   cardHeightWrap">
         <div class="itemCard questionCard animation">
         <!-- 判断附件是否存在 -->
         <% if question.is_answered? %>
