@@ -129,7 +129,7 @@ class User < ApplicationRecord
     if self.lawyer.present?
       q = self.lawyer.lawyer_answered_questions
       questions = q.map {|x| x.question }
-      return questions      
+      return questions.uniq      
     else
       return []
     end
