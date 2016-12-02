@@ -13,6 +13,11 @@ class RegistrationsController < Devise::RegistrationsController
       # 将律师判断置为true
       current_user.is_lawyer = true
       current_user.save
+
+      # 建立新的律师id
+      lawyer = Lawyer.create(user: current_user)
+
+      
       # 重定向到律师页面
       edit_lawyer_user_path(current_user)
     # 用户注册
