@@ -6,7 +6,7 @@
 * [HTML CSS layout rules](http://redmine.growthschool.com/projects/class-02/wiki/HTML_CSS_%E5%8D%94%E4%BD%9C%E8%A6%8F%E5%89%87)
 * 开发功能必补齐 seed.rb, please make sure that the seed.rb is complete.
 * 下午六点，请找主程确认你的功能可被合并. Make sure your branch be merged.
-* 随时随地保持公德心，才是好队友. Be good team member.
+* 随时随地保持公德心，才是好队友. Be a qualified team member.
 
 # 开发用帐号 Your test account
 
