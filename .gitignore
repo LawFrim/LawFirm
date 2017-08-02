@@ -27,3 +27,4 @@ config/initializers/carrierwaver.rb
 
 # Ignore application configuration
 /config/application.yml
+latest.dump
