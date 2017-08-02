@@ -51,7 +51,7 @@ gem 'figaro'
 
 # 使用mailgun
 gem 'mailgun-ruby', '~>1.1.2'
-
+gem 'pg'
 
 
 # Use Redis adapter to run Action Cable in production
@@ -66,6 +66,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'sqlite3'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
 end
 
 group :development do
